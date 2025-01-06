@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var globals: Globals = %Globals
+
 @export var speed = 50.0
 @onready var animation_sprite = $AnimatedSprite2D
 
@@ -23,8 +25,11 @@ func _physics_process(delta: float):
 
 	var movement = speed * direction * delta
 	
-	move_and_collide(movement)
-	player_animations(direction)
+	if (not globals.disallow_inputs):
+		move_and_collide(movement)
+		player_animations(direction)
+	else:
+		player_animations(Vector2.ZERO)
 
 func player_animations(direction: Vector2):
 	if direction != Vector2.ZERO:
@@ -53,7 +58,3 @@ func returned_direction(direction: Vector2) -> StringName:
 
 	# Default to side
 	return "side"
-	
-	# midway in https://dev.to/christinec_dev/lets-learn-godot-4-by-making-an-rpg-part-1-project-overview-setup-bgc
-	# https://docs.google.com/document/d/1486cjDI0bCL2c9y1RodzRv4qfyuKHxLhHe7jht0C744/edit?tab=t.0
-	# todo: download assets

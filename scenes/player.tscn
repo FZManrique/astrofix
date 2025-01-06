@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b732xvkj3gmit" path="res://art/characters/player/Player Back Sheet.png" id="4_di36h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bbaxg"]
-radius = 13.0
-height = 38.0
+radius = 6.0
+height = 14.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_puqym"]
 atlas = ExtResource("2_1q5p4")
@@ -341,7 +341,7 @@ script = ExtResource("1_35hdh")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(-1, 9)
 shape = SubResource("CapsuleShape2D_bbaxg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
