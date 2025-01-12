@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 @onready var globals: Globals = %Globals
-
-@export var speed = 50.0
 @onready var animation_sprite = $AnimatedSprite2D
+
+@export var default_speed = 75.0
+@export var sprint_speed = default_speed * 2
+@export var speed = default_speed
 
 var new_direction = Vector2(0, 1)
 var animation: StringName
@@ -15,9 +17,9 @@ func _physics_process(delta: float):
 
 	# Sprinting          
 	if Input.is_action_pressed("ui_sprint"):
-		speed = 100
+		speed = sprint_speed
 	elif Input.is_action_just_released("ui_sprint"):
-		speed = 50  
+		speed = default_speed  
 
 	# If input is digital, normalize it for diagonal movement
 	if abs(direction.x) == 1 and abs(direction.y) == 1:
@@ -49,11 +51,11 @@ func returned_direction(direction: Vector2) -> StringName:
 		return "up"
 	elif normalized_direction.x > 0:
 		# Right direction
-		$AnimatedSprite2D.flip_h = false
+		animation_sprite.flip_h = false
 		return "side"
 	elif normalized_direction.x < 0:
 		# Left direction; we flip the image for reusability
-		$AnimatedSprite2D.flip_h = true
+		animation_sprite.flip_h = true
 		return "side"
 
 	# Default to side

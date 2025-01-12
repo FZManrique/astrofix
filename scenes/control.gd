@@ -11,6 +11,11 @@ var allow_other_scripts = true
 func _ready() -> void:
 	panel.visible = false
 	
+func _process(delta: float) -> void:
+	if (panel.visible):
+		if (Input.is_action_pressed("ui_accept")):
+			_on_button_pressed()
+	
 func display_msg(
 	msg: String
 ) -> void:

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c4ubcnwmpltdd"
+path="res://.godot/imported/DavidKBD - Cosmic Pack 04 - Orbit Oddyseey-full.ogg-2c393cfce0bb9f80ecc278de24ee8c8e.oggvorbisstr"
+
+[deps]
+
+source_file="res://art/roboden-tileset/inferno/DavidKBD - Cosmic Pack 04 - Orbit Oddyseey-full.ogg"
+dest_files=["res://.godot/imported/DavidKBD - Cosmic Pack 04 - Orbit Oddyseey-full.ogg-2c393cfce0bb9f80ecc278de24ee8c8e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

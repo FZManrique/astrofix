@@ -1,0 +1,64 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "map.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "big_mountain.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        },
+        "landcrack.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 3
+        },
+        "level1.tsx": {
+            "scaleInDock": 1.5,
+            "scaleInEditor": 2
+        },
+        "map.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 887.9999999999999,
+                "y": 504.33333333333326
+            }
+        },
+        "mountain_wide.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/Manrique Family/Desktop/Franzen/School/ComEd Game (G10 Q2-)/spacebound/art/tiled-tileset",
+    "last.imagePath": "C:/Users/Manrique Family/Desktop/Franzen/School/ComEd Game (G10 Q2-)/spacebound/art/roboden-tileset/moon",
+    "map.height": 30,
+    "map.lastUsedExportFilter": "Godot 4 Scene files (*.tscn)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 60,
+    "openFiles": [
+        "map.tmx",
+        "level1.tsx",
+        "big_mountain.tsx",
+        "mountain_wide.tsx",
+        "landcrack.tsx"
+    ],
+    "project": "spacebound.tiled-project",
+    "recentFiles": [
+        "landcrack.tsx",
+        "mountain_wide.tsx",
+        "big_mountain.tsx",
+        "level1.tsx",
+        "map.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
