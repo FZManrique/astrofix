@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@onready var globals: Globals = %Globals
 @onready var animation_sprite = $AnimatedSprite2D
 
 @export var default_speed = 75.0
@@ -27,7 +26,7 @@ func _physics_process(delta: float):
 
 	var movement = speed * direction * delta
 	
-	if (not globals.disallow_inputs):
+	if (not Globals.disallow_inputs):
 		move_and_collide(movement)
 		player_animations(direction)
 	else:

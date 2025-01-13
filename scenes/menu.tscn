@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcnaextl0r0j3"]
+
+[ext_resource type="Texture2D" uid="uid://eg0la5cqagfn" path="res://art/logos/background-art.png" id="1_nugtk"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_o648f"]
+[ext_resource type="Texture2D" uid="uid://cs2m1xhn6q6xh" path="res://art/logos/astrofix.png" id="1_qkq8o"]
+[ext_resource type="FontFile" uid="uid://c0jl43exxix7y" path="res://art/Minecraft.ttf" id="2_j02qj"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o648f")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nugtk")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -79.0
+offset_right = 53.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_qkq8o")
+expand_mode = 4
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_j02qj")
+text = "Start"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_j02qj")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
