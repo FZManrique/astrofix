@@ -1,9 +1,8 @@
 extends Control
 
-@onready var panel: Panel = $Panel
-@onready var button: Button = $Panel/Button
-@onready var label: Label = $Panel/Label
-
+@onready var panel: Panel = $Background
+@onready var button: Button = $"Background/Dialog Button"
+@onready var label: Label = $"Background/Dialog Label"
 signal on_dismiss
 
 var allow_other_scripts: bool = true
