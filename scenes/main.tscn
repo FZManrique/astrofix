@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bnn165pksm6yu"]
 
 [ext_resource type="PackedScene" uid="uid://dcnaextl0r0j3" path="res://scenes/menu.tscn" id="2_51bfq"]
-[ext_resource type="AudioStream" uid="uid://vcnwr25ww0yj" path="res://art/DavidKBD - Cosmic Pack 04 - Orbit Oddyseey-full.ogg" id="2_r7wuc"]
+[ext_resource type="AudioStream" uid="uid://vcnwr25ww0yj" path="res://sounds/DavidKBD - Cosmic Pack 04 - Orbit Oddyseey-full.ogg" id="2_r7wuc"]
 
 [node name="Main" type="Node"]
 

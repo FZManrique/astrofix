@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://c5wuq0sv37ns0"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_x1jiq"]
-[ext_resource type="AudioStream" uid="uid://0k63i0rncd88" path="res://art/Ambient Music.wav" id="2_jwuyq"]
+[ext_resource type="AudioStream" uid="uid://0k63i0rncd88" path="res://sounds/Ambient Music.wav" id="2_jwuyq"]
 [ext_resource type="Texture2D" uid="uid://bmvmcjwkxddc6" path="res://art/tilesets/dev_tileset.png" id="2_tekvt"]
 [ext_resource type="Script" path="res://scripts/goal.gd" id="2_vc63n"]
 [ext_resource type="Texture2D" uid="uid://biqa6ihhkl4oj" path="res://art/roboden-tileset/moon/tiles.png" id="3_1dsy7"]

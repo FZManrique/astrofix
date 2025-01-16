@@ -5,7 +5,10 @@ var unformatted_text: String
 
 @onready var timer: Timer = $Timer
 
-func change_goal(string: String):
+func clear_goals() -> void:
+	text = ""
+
+func change_goal(string: String) -> void:
 	on_goal_changed.emit()
 	unformatted_text = "Goal: " + string
 	timer.start()

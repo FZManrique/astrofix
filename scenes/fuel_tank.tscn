@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5wbfi2vpsebq"]
 
-[ext_resource type="Texture2D" uid="uid://bwgldm7oxuwax" path="res://art/objects/fuel_tank/fuel_tank.png" id="1_4ab3a"]
+[ext_resource type="Texture2D" uid="uid://bwgldm7oxuwax" path="res://art/objects/fuel_tank.png" id="1_4ab3a"]
 [ext_resource type="Script" path="res://scripts/fuel_tank.gd" id="1_pamqf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51rhb"]
