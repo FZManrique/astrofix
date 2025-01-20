@@ -1,0 +1,33 @@
+~ intro
+Player: Where am I?
+	[color=#aaaaaa](tip - press enter to go to next line)[/color]
+AI: You are on the moon Naiad, the closest moon to Neptune.
+	Your ship crashed here after colliding with an asteroid. 
+AI: Remember, the moon Naiad is tiny and covered with ice and rock.
+	This is due to its tight orbit around the planet and Neptune's great distance from the Sun. 
+Player: I can get back...
+  - Start game... => END
+=> END
+
+~ fuel_tank_locked
+Player: This fuel tank seems to be locked. Looks like I'll need a key.
+	The opening on the left might be a good place to start looking for one...
+=> END
+
+~ maze_look
+Player: Looks like this planet has very tall mountains. I can't traverse these!
+	I'll navigate to what looks like a maze ahead.
+=> END
+
+~ collect_key
+NPC: Hello, stranger! You seem exhausted. Luckily, I have a key right here.
+	Not sure what this is for, but you can have it.
+=> END
+
+~ end_level
+Level complete. Press Enter to exit the game.
+=> END
+
+~ failed
+You ran out of oxygen! Press "ENTER" to restart the level.
+=> END

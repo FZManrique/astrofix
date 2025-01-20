@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpko47puym4mc"]
+
+[ext_resource type="Script" path="res://scripts/oxygen_tank.gd" id="1_mye8l"]
+[ext_resource type="Texture2D" uid="uid://p442y4dx5xlb" path="res://art/objects/oxygen_tank.png" id="2_kmk8v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r8i3c"]
+radius = 16.0312
+
+[node name="Oxygen Tank" type="Area2D"]
+script = ExtResource("1_mye8l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r8i3c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kmk8v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

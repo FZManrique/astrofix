@@ -1,13 +1,23 @@
 extends CharacterBody2D
 
 @onready var animation_sprite = $AnimatedSprite2D
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 @export var default_speed = 75.0
 @export var sprint_speed = default_speed * 2
 @export var speed = default_speed
 
+var isMoving: bool = false
+
 var new_direction = Vector2(0, 1)
 var animation: StringName
+
+func _process(delta: float) -> void:
+	if (isMoving):
+		if (not audio_stream_player.playing):
+			audio_stream_player.play()
+	else:
+		audio_stream_player.stop()
 
 func _physics_process(delta: float):
 	var direction: Vector2
@@ -18,18 +28,25 @@ func _physics_process(delta: float):
 	if Input.is_action_pressed("ui_sprint"):
 		speed = sprint_speed
 	elif Input.is_action_just_released("ui_sprint"):
-		speed = default_speed  
+		speed = default_speed
 
 	# If input is digital, normalize it for diagonal movement
 	if abs(direction.x) == 1 and abs(direction.y) == 1:
 		direction = direction.normalized()
 
 	var movement = speed * direction * delta
-	
+
+
 	if (not Globals.disallow_inputs):
+		if (movement != Vector2.ZERO):
+			isMoving = true
+		else:
+			isMoving = false
+
 		move_and_collide(movement)
 		player_animations(direction)
 	else:
+		isMoving = false
 		player_animations(Vector2.ZERO)
 
 func player_animations(direction: Vector2):
