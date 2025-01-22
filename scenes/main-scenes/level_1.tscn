@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://c5wuq0sv37ns0"]
+[gd_scene load_steps=23 format=4 uid="uid://c5wuq0sv37ns0"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_0jl8v"]
 [ext_resource type="FontFile" uid="uid://c2v1i6k06qgjl" path="res://art/Michroma.ttf" id="2_m8v4w"]
@@ -10,10 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://bpko47puym4mc" path="res://scenes/objects/oxygen_tank.tscn" id="6_75b0l"]
 [ext_resource type="Texture2D" uid="uid://rh53vt6li6k2" path="res://art/tilesets/level1_mountains.png" id="6_oqr7w"]
 [ext_resource type="AudioStream" uid="uid://42ycc35noq4r" path="res://soundtrack/bass drop sound effect.mp3" id="6_qjftj"]
+[ext_resource type="PackedScene" uid="uid://qy24io0fo1jn" path="res://scenes/pause_menu.tscn" id="7_8ilmb"]
 [ext_resource type="Texture2D" uid="uid://bfqtusydqhbs0" path="res://art/tilesets/level1_background.png" id="7_tkt53"]
 [ext_resource type="PackedScene" uid="uid://1pmipojgsf0m" path="res://scenes/objects/player.tscn" id="8_ul00l"]
 [ext_resource type="PackedScene" uid="uid://ce7ghkyivj42q" path="res://scenes/objects/astronaut.tscn" id="9_7mb84"]
 [ext_resource type="PackedScene" uid="uid://b5wbfi2vpsebq" path="res://scenes/objects/fuel_tank.tscn" id="10_8mgaf"]
+
+[sub_resource type="GDScript" id="GDScript_43f5t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i2483"]
 texture = ExtResource("5_m5tax")
@@ -254,10 +257,14 @@ theme_override_fonts/font = ExtResource("2_m8v4w")
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 2
 
+[node name="PauseMenu" parent="Screen" instance=ExtResource("7_8ilmb")]
+visible = false
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_iw5as")
 volume_db = -8.0
 autoplay = true
+script = SubResource("GDScript_43f5t")
 
 [node name="TileMap" type="Node2D" parent="."]
 position = Vector2(1282, 602)
@@ -336,6 +343,7 @@ position = Vector2(262, 738)
 position = Vector2(187, 59)
 
 [connection signal="timeout" from="Screen/Panel/Goal/Timer" to="Screen/Panel/Goal" method="_on_timer_timeout"]
+[connection signal="oxygen_depleted" from="Screen/Panel/OxygenHandler" to="." method="_on_oxygen_handler_oxygen_depleted"]
 [connection signal="timeout" from="Screen/Panel/OxygenHandler/Timer" to="Screen/Panel/OxygenHandler" method="_on_timer_timeout"]
 [connection signal="finished" from="Music" to="." method="_on_music_finished"]
 [connection signal="on_npc_touch" from="Characters/Astronaut" to="." method="_on_astronaut_on_npc_touch"]

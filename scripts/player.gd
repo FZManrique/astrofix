@@ -52,10 +52,10 @@ func _physics_process(delta: float):
 func player_animations(direction: Vector2):
 	if direction != Vector2.ZERO:
 		new_direction = direction
-		animation = "walk_" + returned_direction(new_direction)
+		animation = "v2_walk_" + returned_direction(new_direction)
 		animation_sprite.play(animation)
 	else:
-		animation  = "idle_" + returned_direction(new_direction)
+		animation  = "v2_idle_" + returned_direction(new_direction)
 		animation_sprite.play(animation)
 
 func returned_direction(direction: Vector2) -> StringName:
@@ -66,13 +66,9 @@ func returned_direction(direction: Vector2) -> StringName:
 	elif normalized_direction.y < 0:
 		return "up"
 	elif normalized_direction.x > 0:
-		# Right direction
-		animation_sprite.flip_h = false
-		return "side"
+		return "right"
 	elif normalized_direction.x < 0:
-		# Left direction; we flip the image for reusability
-		animation_sprite.flip_h = true
-		return "side"
+		return "left"
 
 	# Default to side
 	return "side"

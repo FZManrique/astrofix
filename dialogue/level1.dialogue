@@ -1,6 +1,7 @@
 ~ intro
 Player: Where am I?
-	[color=#aaaaaa](tip - press enter to go to next line)[/color]
+	[color=#aaaaaa](tip - Enter to go to next line, Esc to skip typing)[/color]
+  - Skip dialogue => END
 AI: You are on the moon Naiad, the closest moon to Neptune.
 	Your ship crashed here after colliding with an asteroid. 
 AI: Remember, the moon Naiad is tiny and covered with ice and rock.

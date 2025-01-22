@@ -82,12 +82,14 @@ corner_detail = 1
 anti_aliasing = false
 
 [resource]
-default_font_size = 8
+default_font = ExtResource("1_fqpwv")
+default_font_size = 12
 Button/fonts/font = ExtResource("1_fqpwv")
 Button/styles/disabled = SubResource("StyleBoxFlat_235ry")
 Button/styles/focus = SubResource("StyleBoxFlat_ufjut")
 Button/styles/hover = SubResource("StyleBoxFlat_fcbqo")
 Button/styles/normal = SubResource("StyleBoxFlat_t6i7a")
+Label/fonts/font = ExtResource("1_fqpwv")
 MarginContainer/constants/margin_bottom = 4
 MarginContainer/constants/margin_left = 8
 MarginContainer/constants/margin_right = 8

@@ -1,8 +1,8 @@
 extends Node2D
 
 @onready var goal: RichTextLabel = $Screen/Panel/Goal
-
 var dialog = load("res://dialogue/level1.dialogue")
+
 
 func _ready() -> void:
 	DialogueManager.show_dialogue_balloon(dialog, "intro")
@@ -10,7 +10,7 @@ func _ready() -> void:
 	DialogueManager.dialogue_ended.connect(
 		_on_start_consume
 	)
-	
+
 func _on_fuel_tank_no_key() -> void:
 	DialogueManager.show_dialogue_balloon(dialog, "fuel_tank_locked")
 	goal.change_goal("Find Key")
@@ -48,3 +48,6 @@ func _on_start_consume(_pass) -> void:
 
 func _on_oxygen_tank_oxygen_tank_collected() -> void:
 	$Screen/Panel/OxygenHandler.replenish_oxygen(30)
+
+func _on_oxygen_handler_oxygen_depleted() -> void:
+	$Music.stop()
