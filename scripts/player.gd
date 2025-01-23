@@ -36,7 +36,6 @@ func _physics_process(delta: float):
 
 	var movement = speed * direction * delta
 
-
 	if (not Globals.disallow_inputs):
 		if (movement != Vector2.ZERO):
 			isMoving = true
@@ -55,10 +54,11 @@ func player_animations(direction: Vector2):
 		animation = "v2_walk_" + returned_direction(new_direction)
 		animation_sprite.play(animation)
 	else:
-		animation  = "v2_idle_" + returned_direction(new_direction)
+		animation  = "v2_idle_" + returned_direction(new_direction, true)
 		animation_sprite.play(animation)
 
-func returned_direction(direction: Vector2) -> StringName:
+func returned_direction(direction: Vector2, hasStopped: bool = false
+) -> StringName:
 	var normalized_direction  = direction.normalized()
 
 	if normalized_direction.y > 0:
@@ -66,9 +66,11 @@ func returned_direction(direction: Vector2) -> StringName:
 	elif normalized_direction.y < 0:
 		return "up"
 	elif normalized_direction.x > 0:
+		if (hasStopped): return "left"
 		return "right"
 	elif normalized_direction.x < 0:
+		if (hasStopped): return "right"
 		return "left"
 
-	# Default to side
-	return "side"
+	# Default to down
+	return "down"

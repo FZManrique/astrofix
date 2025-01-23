@@ -9,8 +9,11 @@ signal oxygen_depleted
 @onready var label: Label = $Label
 @onready var timer: Timer = $Timer
 
-func on_start_deplete():
+func _ready() -> void:
 	timer.start()
+
+func stop_timer() -> void:
+	timer.stop()
 
 func _process(delta: float) -> void:
 	if (Globals.is_dialogue_shown):
@@ -25,14 +28,14 @@ func _process(delta: float) -> void:
 	else:
 		label.add_theme_color_override("font_color", Color(0.48, 0.64, 1.00))
 
-func replenish_oxygen(amount):
+func replenish_oxygen(amount) -> void:
 	oxygen += amount
 	update_oxygen_display()
 
-func update_oxygen_display():
+func update_oxygen_display() -> void:
 	label.text = "O2: %ds" % oxygen
 
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	if oxygen > 0:
 		oxygen -= 1
 		update_oxygen_display()
@@ -41,7 +44,7 @@ func _on_timer_timeout():
 		oxygen_depleted.emit()
 		_trigger_fail_box()
 
-func _trigger_fail_box():
+func _trigger_fail_box() -> void:
 	var dialog = load("res://dialogue/level1.dialogue")
 	$AudioStreamPlayer.play()
 
@@ -50,6 +53,6 @@ func _trigger_fail_box():
 		_restart
 	)
 
-func _restart(_pass):
+func _restart(_pass) -> void:
 	get_tree().reload_current_scene() 
 	

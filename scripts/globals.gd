@@ -4,15 +4,14 @@ extends Node
 const OxygenDefaults = {
 	default = 60,
 	decrease_rate = 1.0,
-
 }
 
 signal on_game_paused
 
-var game_done = false
 var disallow_inputs = false
 var inventory = {}
 
+var is_main_menu = true
 var is_dialogue_shown = false
 var current_scene = null
 
@@ -29,7 +28,11 @@ func _ready():
 	)
 
 func _process(delta: float) -> void:
-	if (Input.is_action_just_pressed("ui_pause") && !Globals.is_dialogue_shown):
+	if (
+		!is_main_menu &&
+		Input.is_action_just_pressed("ui_pause") &&
+		!Globals.is_dialogue_shown
+	):
 		on_game_paused.emit()
 		get_tree().paused = true
 	
@@ -41,6 +44,11 @@ func _disallow_pause(_ig):
 
 # See https://docs.godotengine.org/en/stable/tutorials/scripting/singletons_autoload.html#custom-scene-switcher
 func goto_scene(path):
+	if (path != "res://scenes/main-scenes/main.tscn"):
+		is_main_menu = false
+	else:
+		is_main_menu = true
+	
 	_deferred_goto_scene.call_deferred(path)
 
 func _deferred_goto_scene(path):

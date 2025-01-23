@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxhb8eooelkyv"]
+
+[ext_resource type="Texture2D" uid="uid://h7fjkwmtjg6t" path="res://art/objects/SPACESHIP.png" id="1_d4rcf"]
+
+[node name="Spaceship" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d4rcf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(48, 76, 48, 45, 68, 45, 68, -44, 23, -44, 23, -59, 0, -79, -22, -60, -22, -45, -68, -45, -68, 42, -45, 42, -45, 76, -3, 76)

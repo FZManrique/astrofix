@@ -1,6 +1,7 @@
 ~ intro
 Player: Where am I?
 	[color=#aaaaaa](tip - Enter to go to next line, Esc to skip typing)[/color]
+  - I dont know... 
   - Skip dialogue => END
 AI: You are on the moon Naiad, the closest moon to Neptune.
 	Your ship crashed here after colliding with an asteroid. 
@@ -8,6 +9,11 @@ AI: Remember, the moon Naiad is tiny and covered with ice and rock.
 	This is due to its tight orbit around the planet and Neptune's great distance from the Sun. 
 Player: I can get back...
   - Start game... => END
+=> END
+
+~ enter_ship
+% Player: I can't enter the ship just yet! I still need to find more fuel.
+% Player: Why should I enter the ship? I can't really use it without fuel...
 => END
 
 ~ fuel_tank_locked

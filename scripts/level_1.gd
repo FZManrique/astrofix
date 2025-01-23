@@ -1,53 +1,59 @@
 extends Node2D
 
-@onready var goal: RichTextLabel = $Screen/Panel/Goal
 var dialog = load("res://dialogue/level1.dialogue")
 
+@onready var goal: RichTextLabel = $Screen/Panel/Goal
+@onready var player: CharacterBody2D = $Characters/Player
+@onready var maze_start: Area2D = $"Characters/Maze Start"
+@onready var inventory: Label = $Screen/Inventory
+@onready var oxygen_handler: Control = $Screen/Panel/OxygenHandler
+@onready var music: AudioStreamPlayer = $Music
 
 func _ready() -> void:
-	DialogueManager.show_dialogue_balloon(dialog, "intro")
+	_show_dialoague_box("intro")
 	goal.change_goal("Find Fuel")
-	DialogueManager.dialogue_ended.connect(
-		_on_start_consume
-	)
+
+func _on_spaceship_body_entered(body: Node2D) -> void:
+	if (body == player):
+		_show_dialoague_box("enter_ship")
 
 func _on_fuel_tank_no_key() -> void:
-	DialogueManager.show_dialogue_balloon(dialog, "fuel_tank_locked")
+	_show_dialoague_box("fuel_tank_locked")
 	goal.change_goal("Find Key")
 
 func _on_maze_start_body_entered(body: Node2D) -> void:
-	if (body == $Characters/Player):
-		DialogueManager.show_dialogue_balloon(dialog, "maze_look")
-		$"Characters/Maze Start".queue_free()
+	if (body == player):
+		_show_dialoague_box( "maze_look")
+		maze_start.queue_free()
 
 func _on_astronaut_on_npc_touch() -> void:
-	DialogueManager.show_dialogue_balloon(dialog, "collect_key")
+	_show_dialoague_box( "collect_key")
 	goal.change_goal("Unlock Fuel")
 	Globals.add_item_to_inventory("key", 1)
-	$Screen/Inventory.text = "Inv: Key (1)"
+	inventory.text = "Inv: Key (1)"
 
 func _on_fuel_tank_fuel_collected() -> void:
-	DialogueManager.show_dialogue_balloon(dialog, "end_level")
+	_show_dialoague_box("end_level")
+	oxygen_handler.stop_timer()
 	goal.clear_goals()
-	$Screen/Inventory.text = ""
-	$Screen/Panel/OxygenHandler/Timer.stop()
+	inventory.text = ""
+	
 	DialogueManager.dialogue_ended.connect(
 		_exit_game
 	)
-	Globals.game_done = true
+
+func _show_dialoague_box(key: String) -> void:
+	DialogueManager.show_dialogue_balloon(dialog, key)
 
 func _exit_game(_pass):
 	print("Exiting...")
 	get_tree().quit() 
 
 func _on_music_finished() -> void:
-	$Music.play()
+	music.play()
 
-func _on_start_consume(_pass) -> void:
-	$Screen/Panel/OxygenHandler.on_start_deplete()
-
-func _on_oxygen_tank_oxygen_tank_collected() -> void:
-	$Screen/Panel/OxygenHandler.replenish_oxygen(30)
+func _on_oxygen_tank_oxygen_tank_collected(amount) -> void:
+	oxygen_handler.replenish_oxygen(amount)
 
 func _on_oxygen_handler_oxygen_depleted() -> void:
-	$Music.stop()
+	music.stop()
