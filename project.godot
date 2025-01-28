@@ -11,23 +11,24 @@ config_version=5
 [application]
 
 config/name="Spacebound"
-run/main_scene="res://scenes/main-scenes/main.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Globals="*res://scripts/globals.gd"
+SceneManager="*res://scripts/autoloads/scene_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+InventoryManager="*res://scripts/autoloads/inventory_manager.gd"
+OxygenManager="*res://scripts/autoloads/oxygen_manager.gd"
 
 [debug]
 
 gdscript/warnings/untyped_declaration=1
-gdscript/warnings/inferred_declaration=1
 
 [dialogue_manager]
 
-general/balloon_path="res://scenes/main-scenes/dialog-box/balloon.tscn"
+general/balloon_path="res://scenes/levels/dialog-box/balloon.tscn"
 
 [display]
 

@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://ce7ghkyivj42q"]
+[gd_scene load_steps=11 format=3 uid="uid://ce7ghkyivj42q"]
 
-[ext_resource type="Script" path="res://scripts/astronaut.gd" id="1_h2xe7"]
 [ext_resource type="Texture2D" uid="uid://beewugm07lrhm" path="res://art/characters/player.png" id="1_uoyf2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xax7a"]
@@ -64,8 +63,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="liam" type="Area2D"]
-script = ExtResource("1_h2xe7")
+[node name="Astronaut" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -75,5 +73,3 @@ shape = SubResource("CapsuleShape2D_xax7a")
 sprite_frames = SubResource("SpriteFrames_f7xp0")
 autoplay = "default"
 frame_progress = 0.111763
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

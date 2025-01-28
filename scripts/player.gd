@@ -36,7 +36,7 @@ func _physics_process(delta: float):
 
 	var movement = speed * direction * delta
 
-	if (not Globals.disallow_inputs):
+	if (not SceneManager.is_dialogue_shown):
 		if (movement != Vector2.ZERO):
 			isMoving = true
 		else:
