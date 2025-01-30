@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://weu6sfdmw8bi"]
+
+[ext_resource type="FontFile" uid="uid://c2v1i6k06qgjl" path="res://art/Michroma.ttf" id="1_y8na7"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/dialogue_box/dialogue_box_panel_style.tres" id="2_k2y3l"]
+[ext_resource type="Script" path="res://scripts/goal.gd" id="2_nb78m"]
+[ext_resource type="Theme" uid="uid://ds7cm0a2hlga7" path="res://scenes/themes/menu_theme_v2.tres" id="3_hlmmm"]
+[ext_resource type="Script" path="res://scripts/oxygen_label.gd" id="4_v7qov"]
+[ext_resource type="PackedScene" uid="uid://qy24io0fo1jn" path="res://scenes/screens/pause_menu.tscn" id="5_ou7me"]
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="6_d40qi"]
+
+[node name="Control" type="Control"]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_hlmmm")
+metadata/_edit_lock_ = true
+
+[node name="GoalsO2Container" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 264.0
+offset_bottom = 98.0
+theme_override_styles/panel = ExtResource("2_k2y3l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GoalsO2Container"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Goal" type="Label" parent="GoalsO2Container/VBoxContainer"]
+layout_mode = 2
+text = "No goals"
+script = ExtResource("2_nb78m")
+
+[node name="OxygenLabel" type="Label" parent="GoalsO2Container/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_hlmmm")
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0.482435, 0.648718, 1, 1)
+text = "Loading O2..."
+script = ExtResource("4_v7qov")
+
+[node name="InventoryContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -347.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 59.0
+grow_horizontal = 0
+theme_override_styles/panel = ExtResource("2_k2y3l")
+
+[node name="Inventory" type="Label" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_y8na7")
+text = "No items in inventory"
+script = ExtResource("6_d40qi")
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_ou7me")]
+visible = false
+layout_mode = 1
+
+[node name="Screen" type="CanvasLayer" parent="."]

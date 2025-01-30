@@ -1,18 +1,12 @@
-extends RichTextLabel
+extends Label
 
-signal on_goal_changed
-var unformatted_text: String
+func _ready() -> void:
+	text = GoalManager.current_goal
+	
+	GoalManager.connect(
+		"on_goals_changed",
+		_on_goals_changed
+	)
 
-@onready var timer: Timer = $Timer
-
-func clear_goals() -> void:
-	text = ""
-
-func change_goal(string: String) -> void:
-	on_goal_changed.emit()
-	unformatted_text = "Goal: " + string
-	timer.start()
-	text = "[pulse freq=1.0 color=#ddddddff ease=-2.0]" + unformatted_text + "[/pulse]"
-
-func _on_timer_timeout() -> void:
-	text = unformatted_text
+func _on_goals_changed() -> void:
+	text = GoalManager.current_goal

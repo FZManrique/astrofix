@@ -6,14 +6,25 @@ Player: Where am I?
 AI: You are on the moon Naiad, the closest moon to Neptune.
 	Your ship crashed here after colliding with an asteroid. 
 AI: Remember, the moon Naiad is tiny and covered with ice and rock.
-AI: This is due to its tight orbit around the planet and Neptune's great distance from the Sun. 
+	This is due to its tight orbit around the planet and Neptune's great distance from the Sun. 
 Player: I can get back...
   - Start game... => END
 => END
 
-~ enter_ship
+~ enter_ship_no_fuel
 % Player: I can't enter the ship just yet! I still need to find more fuel.
 % Player: Why should I enter the ship? I can't really use it without fuel...
+=> END
+
+~ enter_ship_with_fuel
+Player: Wait, how are you here now? If you won't leave me alone, would you at least care to help me?
+William: Well, you need something to fill the ship up, right?
+	I can't help you with that, but please have this.
+  - Accept funnel
+	Player: Thank you so much! This is perfect for refueling the ship.
+  - Reject funnel
+	Player: I appreciate the offer, but I don't accept things from strangers.
+Level 1 complete. Please press any key to exit the level.
 => END
 
 ~ fuel_tank_locked
@@ -27,8 +38,15 @@ Player: Looks like this planet has very tall mountains. I can't traverse these!
 => END
 
 ~ collect_key
-NPC: Hello, stranger! You seem exhausted. Luckily, I have a key right here.
-	Not sure what this is for, but you can have it.
+Player: Finally! A key!
+  - Collect
+  - Skip dialogue => END
+William: Hello, human. I have something that you might need later on...
+Player: What? Wait, where did you go?
+=> END
+
+~ fuel_collected
+Player: I finally have a fuel tank! Now, I just need to refuel the ship.
 => END
 
 ~ end_level

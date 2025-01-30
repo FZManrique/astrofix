@@ -24,6 +24,8 @@ var locals: Dictionary = {}
 
 var _locale: String = TranslationServer.get_locale()
 
+@onready var dialogue_art: Sprite2D = $Balloon/Art
+
 ## The current line
 var dialogue_line: DialogueLine:
 	set(next_dialogue_line):
@@ -42,8 +44,13 @@ var dialogue_line: DialogueLine:
 
 		dialogue_line = next_dialogue_line
 
+		var emotion = dialogue_line.get_tag_value("emotion")
+		if (emotion.is_empty()):
+			emotion = "normal"
+		
 		character_label.visible = not dialogue_line.character.is_empty()
 		character_label.text = tr(dialogue_line.character, "dialogue")
+		dialogue_art.texture = load("res://art/characters/%s/full_scale_%s.png" % [dialogue_line.character.to_lower(), emotion])
 
 		dialogue_label.hide()
 		dialogue_label.dialogue_line = dialogue_line
@@ -86,7 +93,6 @@ var dialogue_line: DialogueLine:
 
 ## The menu of responses
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
-
 
 func _ready() -> void:
 	balloon.hide()

@@ -2,6 +2,7 @@ extends Control
 
 @onready var home := $Home as VBoxContainer
 @onready var settings := $Settings as VBoxContainer
+@onready var help := $Help as VBoxContainer
 
 func _ready() -> void:
 	Music.play_music("res://soundtrack/music/main_menu.wav")
@@ -12,10 +13,17 @@ func _on_start_pressed() -> void:
 
 func _on_settings_pressed() -> void:
 	home.hide()
+	help.hide()
 	settings.show()
+
+func _on_help_pressed() -> void:
+	home.hide()
+	settings.hide()
+	help.show()
 
 func _on_back_pressed() -> void:
 	settings.hide()
+	help.hide()
 	home.show()
 	$Home/Start.grab_focus()
 

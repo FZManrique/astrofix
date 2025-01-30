@@ -22,6 +22,7 @@ InventoryManager="*res://scripts/autoloads/inventory_manager.gd"
 OxygenManager="*res://scripts/autoloads/oxygen_manager.gd"
 Music="*res://scenes/music.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+GoalManager="*res://scripts/autoloads/goal_manager.gd"
 
 [debug]
 
@@ -46,8 +47,8 @@ general/balloon_path="res://scenes/dialogue_box/balloon.tscn"
 
 [display]
 
-window/size/viewport_width=320
-window/size/viewport_height=180
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/size/mode=2
 window/stretch/mode="viewport"
 
