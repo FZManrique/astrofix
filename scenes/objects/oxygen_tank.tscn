@@ -119,6 +119,7 @@ texture = ExtResource("2_daqww")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_wycat")
+volume_db = -8.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -2,12 +2,9 @@ extends Control
 
 @onready var home := $Home as VBoxContainer
 @onready var settings := $Settings as VBoxContainer
-@onready var master_volume := $Settings/MasterVolume as CheckButton
-
-
-var music_enabled := true
 
 func _ready() -> void:
+	Music.play_music("res://soundtrack/music/main_menu.wav")
 	$Home/Start.grab_focus()
 
 func _on_start_pressed() -> void:
@@ -16,8 +13,6 @@ func _on_start_pressed() -> void:
 func _on_settings_pressed() -> void:
 	home.hide()
 	settings.show()
-	master_volume.button_pressed = music_enabled
-	$Settings/MasterVolume.grab_focus()
 
 func _on_back_pressed() -> void:
 	settings.hide()
@@ -27,6 +22,10 @@ func _on_back_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().quit() 
 
-func _on_music_pressed() -> void:
-	music_enabled = !music_enabled
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), !music_enabled)  
+func _on_master_slider_changed(value: float) -> void:
+	var music_index := AudioServer.get_bus_index("Master")
+	AudioServer.set_bus_volume_db(music_index, linear_to_db(value / 100))
+
+func _on_music_slider_changed(value: float) -> void:
+	var music_index := AudioServer.get_bus_index("Music")
+	AudioServer.set_bus_volume_db(music_index, linear_to_db(value / 100))

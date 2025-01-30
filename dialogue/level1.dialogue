@@ -6,7 +6,7 @@ Player: Where am I?
 AI: You are on the moon Naiad, the closest moon to Neptune.
 	Your ship crashed here after colliding with an asteroid. 
 AI: Remember, the moon Naiad is tiny and covered with ice and rock.
-	This is due to its tight orbit around the planet and Neptune's great distance from the Sun. 
+AI: This is due to its tight orbit around the planet and Neptune's great distance from the Sun. 
 Player: I can get back...
   - Start game... => END
 => END

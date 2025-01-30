@@ -7,9 +7,9 @@ var dialog = load("res://dialogue/level1.dialogue")
 @onready var maze_start: Area2D = $"Characters/Maze Start"
 @onready var inventory: Label = $Screen/Inventory
 @onready var oxygen_handler: Control = $Screen/Panel/OxygenHandler
-@onready var music: AudioStreamPlayer = $Music
 
 func _ready() -> void:
+	Music.play_music("res://soundtrack/music/level1.wav")
 	OxygenManager.connect("oxygen_depleted", _on_oxygen_depleted)
 	_show_dialoague_box("intro")
 	goal.change_goal("Find Fuel")
@@ -58,14 +58,12 @@ func _exit_game(_pass):
 	print("Exiting...")
 	get_tree().quit() 
 
-func _on_music_finished() -> void:
-	music.play()
 
 func _on_oxygen_tank_oxygen_tank_collected(amount) -> void:
 	OxygenManager.add_oxygen(amount)
 
 func _on_oxygen_depleted() -> void:
-	music.stop()
+	Music.stop_music()
 	$FailSFX.play()
 
 	DialogueManager.show_dialogue_balloon(dialog, "failed")

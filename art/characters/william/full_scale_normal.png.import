@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beewugm07lrhm"
-path="res://.godot/imported/player.png-724888193b7e6f81468b28eab9d7a9e5.ctex"
+uid="uid://dbydwc8tw01uj"
+path="res://.godot/imported/full_scale_normal.png-bce07fe549d2d53d356d699f48685d70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/player.png"
-dest_files=["res://.godot/imported/player.png-724888193b7e6f81468b28eab9d7a9e5.ctex"]
+source_file="res://art/characters/william/full_scale_normal.png"
+dest_files=["res://.godot/imported/full_scale_normal.png-bce07fe549d2d53d356d699f48685d70.ctex"]
 
 [params]
 

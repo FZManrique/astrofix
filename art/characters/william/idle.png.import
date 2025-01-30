@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvwahxjvcu87t"
-path="res://.godot/imported/Player Front Sheet.png-90288a51f08a69543725a7bc63878062.ctex"
+uid="uid://dfvbkmoqyq5t7"
+path="res://.godot/imported/idle.png-02dcec7ec19ebf7ae8642e36556ae9bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/player/Player Front Sheet.png"
-dest_files=["res://.godot/imported/Player Front Sheet.png-90288a51f08a69543725a7bc63878062.ctex"]
+source_file="res://art/characters/william/idle.png"
+dest_files=["res://.godot/imported/idle.png-02dcec7ec19ebf7ae8642e36556ae9bf.ctex"]
 
 [params]
 

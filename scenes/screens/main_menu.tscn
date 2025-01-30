@@ -128,11 +128,31 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="MasterVolume" type="CheckButton" parent="Settings"]
+[node name="Master" type="HBoxContainer" parent="Settings"]
 layout_mode = 2
-action_mode = 0
-text = "Master Volume"
-flat = true
+
+[node name="Label" type="Label" parent="Settings/Master"]
+layout_mode = 2
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="Settings/Master"]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 10.0
+value = 100.0
+
+[node name="Music" type="HBoxContainer" parent="Settings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/Music"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Settings/Music"]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 10.0
+value = 100.0
 
 [node name="Back" type="Button" parent="Settings"]
 layout_mode = 2
@@ -143,5 +163,6 @@ text = "Back
 [connection signal="pressed" from="Home/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Home/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Home/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Settings/MasterVolume" to="." method="_on_music_pressed"]
+[connection signal="value_changed" from="Settings/Master/MasterSlider" to="." method="_on_master_slider_changed"]
+[connection signal="value_changed" from="Settings/Music/MusicSlider" to="." method="_on_music_slider_changed"]
 [connection signal="pressed" from="Settings/Back" to="." method="_on_back_pressed"]

@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://yg0w2itfyf2e" path="res://art/objects/fuel_tank.png" id="2_dxd0e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51rhb"]
-size = Vector2(23, 28.1406)
+size = Vector2(25, 30)
 
 [node name="Fuel Tank" type="Area2D"]
 script = ExtResource("1_pamqf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, -0.929688)
+position = Vector2(1.5, -1)
 shape = SubResource("RectangleShape2D_51rhb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

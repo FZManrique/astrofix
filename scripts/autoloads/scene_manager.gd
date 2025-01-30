@@ -36,7 +36,6 @@ func _allow_pause(_ig):
 func _disallow_pause(_ig):
 	is_dialogue_shown = true
 
-# See https://docs.godotengine.org/en/stable/tutorials/scripting/singletons_autoload.html#custom-scene-switcher
 func goto_scene(path: String):
 	if (path != "res://scenes/main.tscn"):
 		is_main_menu = false

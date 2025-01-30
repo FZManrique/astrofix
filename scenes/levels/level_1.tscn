@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://c5wuq0sv37ns0"]
+[gd_scene load_steps=22 format=4 uid="uid://c5wuq0sv37ns0"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_6b7pd"]
 [ext_resource type="FontFile" uid="uid://c2v1i6k06qgjl" path="res://art/Michroma.ttf" id="2_6as0k"]
@@ -6,7 +6,6 @@
 [ext_resource type="Theme" uid="uid://qxeek2x1twmy" path="res://scenes/themes/main_theme.tres" id="4_x67xd"]
 [ext_resource type="Script" path="res://scripts/oxygen_label.gd" id="5_cngcp"]
 [ext_resource type="PackedScene" uid="uid://qy24io0fo1jn" path="res://scenes/screens/pause_menu.tscn" id="6_pq64n"]
-[ext_resource type="AudioStream" uid="uid://c3m7x0hl7fxv8" path="res://soundtrack/music/level1.wav" id="7_f2d0k"]
 [ext_resource type="AudioStream" uid="uid://42ycc35noq4r" path="res://soundtrack/bass drop sound effect.mp3" id="8_gyx1q"]
 [ext_resource type="Texture2D" uid="uid://bmvmcjwkxddc6" path="res://art/tilesets/dev_tileset.png" id="9_wfxng"]
 [ext_resource type="Texture2D" uid="uid://bfqtusydqhbs0" path="res://art/tilesets/level1_background.png" id="10_4kl5d"]
@@ -16,8 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://b5wbfi2vpsebq" path="res://scenes/objects/fuel_tank.tscn" id="14_busea"]
 [ext_resource type="PackedScene" uid="uid://dxhb8eooelkyv" path="res://scenes/objects/spaceship.tscn" id="15_10rnu"]
 [ext_resource type="PackedScene" uid="uid://bpko47puym4mc" path="res://scenes/objects/oxygen_tank.tscn" id="16_r4uni"]
-
-[sub_resource type="GDScript" id="GDScript_43f5t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i2483"]
 texture = ExtResource("9_wfxng")
@@ -466,15 +463,9 @@ horizontal_alignment = 2
 [node name="PauseMenu" parent="Screen" instance=ExtResource("6_pq64n")]
 visible = false
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_f2d0k")
-autoplay = true
-bus = &"Music"
-script = SubResource("GDScript_43f5t")
-
 [node name="FailSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_gyx1q")
-volume_db = -12.0
+volume_db = -16.0
 bus = &"SFX"
 
 [node name="TileMap" type="Node2D" parent="."]
@@ -547,7 +538,6 @@ position = Vector2(262, 738)
 position = Vector2(187, 59)
 
 [connection signal="timeout" from="Screen/Panel/Goal/Timer" to="Screen/Panel/Goal" method="_on_timer_timeout"]
-[connection signal="finished" from="Music" to="." method="_on_music_finished"]
 [connection signal="body_entered" from="Characters/Astronaut" to="." method="_on_astronaut_body_entered"]
 [connection signal="fuel_collected" from="Characters/Fuel Tank" to="." method="_on_fuel_tank_fuel_collected"]
 [connection signal="no_key" from="Characters/Fuel Tank" to="." method="_on_fuel_tank_no_key"]

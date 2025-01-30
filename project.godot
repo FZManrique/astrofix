@@ -18,9 +18,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneManager="*res://scripts/autoloads/scene_manager.gd"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 InventoryManager="*res://scripts/autoloads/inventory_manager.gd"
 OxygenManager="*res://scripts/autoloads/oxygen_manager.gd"
+Music="*res://scenes/music.tscn"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [debug]
 
@@ -28,7 +29,20 @@ gdscript/warnings/untyped_declaration=1
 
 [dialogue_manager]
 
-general/balloon_path="res://scenes/levels/dialog-box/balloon.tscn"
+editor/new_file_template="~ this_is_a_node_title
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => this_is_a_node_title
+- End the conversation => END
+Nathan: For more information see the online documentation.
+=> END"
+editor/advanced/custom_test_scene_path="res://addons/dialogue_manager_v2/test_scene.tscn"
+runtime/balloon_path="res://scenes/levels/dialog-box/balloon.tscn"
+general/balloon_path="res://scenes/dialogue_box/balloon.tscn"
 
 [display]
 

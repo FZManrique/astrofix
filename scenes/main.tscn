@@ -1,13 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnn165pksm6yu"]
+[gd_scene load_steps=2 format=3 uid="uid://bnn165pksm6yu"]
 
-[ext_resource type="AudioStream" uid="uid://dom152gwosaxy" path="res://soundtrack/music/main_menu.wav" id="1_souu5"]
 [ext_resource type="PackedScene" uid="uid://dcnaextl0r0j3" path="res://scenes/screens/main_menu.tscn" id="2_ommwf"]
 
 [node name="Main" type="Node"]
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_souu5")
-autoplay = true
-bus = &"Music"
-
 [node name="MainMenu" parent="." instance=ExtResource("2_ommwf")]
+texture_filter = 1
