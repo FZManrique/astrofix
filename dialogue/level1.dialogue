@@ -1,4 +1,6 @@
 ~ intro
+Game: Your journey begins on Neptune’s moon. Stranded and low on fuel, you must explore the desolate terrain, uncover hidden resources, and prepare for what lies ahead.
+- Start game
 Player: Where am I?
 	[color=#aaaaaa](tip - Enter to go to next line, Esc to skip typing)[/color]
   - I dont know... 
@@ -8,7 +10,7 @@ AI: You are on the moon Naiad, the closest moon to Neptune.
 AI: Remember, the moon Naiad is tiny and covered with ice and rock.
 	This is due to its tight orbit around the planet and Neptune's great distance from the Sun. 
 Player: I can get back...
-  - Start game... => END
+	[color=#aaaaaa](Press Enter to dismiss the dialogue box)[/color]
 => END
 
 ~ enter_ship_no_fuel
@@ -40,7 +42,7 @@ Player: Looks like this planet has very tall mountains. I can't traverse these!
 ~ collect_key
 Player: Finally! A key!
   - Collect
-  - Skip dialogue => END
+  - Collect and skip dialogue => END
 William: Hello, human. I have something that you might need later on...
 Player: What? Wait, where did you go?
 => END

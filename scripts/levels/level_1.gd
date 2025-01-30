@@ -71,7 +71,7 @@ func _hide_william(_pass) -> void:
 		hidden_william = true
 		$Characters/Key.queue_free()
 		var william = $Characters/William
-		william.global_position = Vector2(1366, 593)
+		william.global_position = Vector2(1366, 543)
 
 func _on_fuel_tank_fuel_collected() -> void:
 	_show_dialoague_box("fuel_collected")
