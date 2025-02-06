@@ -13,7 +13,7 @@ var hidden_william = false
 @onready var oxygen_handler: Control = $Screen/Panel/OxygenHandler
 
 func _ready() -> void:
-	Music.play_music("res://soundtrack/music/level1.wav")
+	Music.play_music("res://audio/music/level_1.wav")
 	OxygenManager.connect(
 		"oxygen_depleted",
 		_on_oxygen_depleted
@@ -44,7 +44,7 @@ func _on_spaceship_body_entered(body: Node2D) -> void:
 		else:
 			_show_dialoague_box("enter_ship_with_fuel")
 			DialogueManager.dialogue_ended.connect(
-				_exit_game
+				_go_to_level_2
 			)
 
 func _on_fuel_tank_no_key() -> void:
@@ -98,8 +98,8 @@ func _show_dialoague_box(key: String) -> void:
 	DialogueManager.show_dialogue_balloon(dialog, key)
 
 #region Functions
-func _exit_game(_pass):
-	get_tree().quit() 
+func _go_to_level_2(_pass):
+	SceneManager.goto_scene("res://scenes/levels/level_2.tscn")
 
 func _restart(_pass) -> void:
 	get_tree().reload_current_scene() 

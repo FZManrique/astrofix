@@ -1,0 +1,21 @@
+~ scene_1
+Player: I just opened my eyes, [wait=1.5]
+	And yet, everything looks so familiar.
+=> END!
+
+~ scene_2
+...
+=> END!
+
+~ scene_3
+Player: I was chosen...
+=> END!
+
+~ scene_4
+Player: M-mom?! D-dad? I-I...
+- Check it out
+=> END!
+
+~ scene_5
+Player: A lamp? It looks a bit stra-
+=> END!

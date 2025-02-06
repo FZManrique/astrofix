@@ -13,7 +13,7 @@ config_version=5
 config/name="Spacebound"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://art/logos/logo.png"
 
 [autoload]
 
@@ -23,6 +23,7 @@ OxygenManager="*res://scripts/autoloads/oxygen_manager.gd"
 Music="*res://scenes/music.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 GoalManager="*res://scripts/autoloads/goal_manager.gd"
+Settings="*res://scripts/autoloads/settings.gd"
 
 [debug]
 
@@ -109,10 +110,15 @@ ui_pause={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+ui_stop_wind={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"location":0,"echo":false,"script":null)
+]
+}
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/level1.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/level1.dialogue", "res://dialogue/level1_cutscene.dialogue")
 
 [rendering]
 

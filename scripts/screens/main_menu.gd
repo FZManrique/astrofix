@@ -5,11 +5,11 @@ extends Control
 @onready var help := $Help as VBoxContainer
 
 func _ready() -> void:
-	Music.play_music("res://soundtrack/music/main_menu.wav")
+	Music.play_music("res://audio/music/main_menu.wav")
 	$Home/Start.grab_focus()
 
 func _on_start_pressed() -> void:
-	SceneManager.goto_scene("res://scenes/levels/level_1.tscn")
+	SceneManager.goto_scene("res://scenes/level1_cutscene.tscn")
 
 func _on_settings_pressed() -> void:
 	home.hide()

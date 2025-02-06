@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://dvordx77ybrvs"
+path="res://.godot/imported/level1_cutscene.dialogue-23eb98c9939091580da21716053015d9.tres"
+
+[deps]
+
+source_file="res://dialogue/level1_cutscene.dialogue"
+dest_files=["res://.godot/imported/level1_cutscene.dialogue-23eb98c9939091580da21716053015d9.tres"]
+
+[params]
+
+defaults=true

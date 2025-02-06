@@ -34,7 +34,13 @@ func _physics_process(delta: float):
 	if abs(direction.x) == 1 and abs(direction.y) == 1:
 		direction = direction.normalized()
 
-	var movement = speed * direction * delta
+	if (Settings.wind_push != 0):
+		if (Input.is_action_pressed("ui_stop_wind")):
+			pass
+		else:
+			direction.x += 80 * delta
+
+	var movement = (speed - Settings.wind_push) * direction * delta
 
 	if (not SceneManager.is_dialogue_shown):
 		if (movement != Vector2.ZERO):

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_35hdh"]
 [ext_resource type="Texture2D" uid="uid://bvce0wb0wf4e3" path="res://art/characters/player/idle.png" id="5_hcw5o"]
-[ext_resource type="AudioStream" uid="uid://dvas7nht4qshu" path="res://soundtrack/Walking sound effect.mp3" id="5_jia57"]
+[ext_resource type="AudioStream" uid="uid://dvas7nht4qshu" path="res://audio/sfx/ambience/footsteps.mp3" id="5_jia57"]
 [ext_resource type="Texture2D" uid="uid://cl280wyp5icqy" path="res://art/characters/player/move.png" id="6_oqmgj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bbaxg"]

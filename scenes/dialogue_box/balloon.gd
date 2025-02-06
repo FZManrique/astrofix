@@ -48,9 +48,15 @@ var dialogue_line: DialogueLine:
 		if (emotion.is_empty()):
 			emotion = "normal"
 		
+		$Balloon/ColorRect.visible = Settings.show_background_and_characters
+		
 		character_label.visible = not dialogue_line.character.is_empty()
 		character_label.text = tr(dialogue_line.character, "dialogue")
-		dialogue_art.texture = load("res://art/characters/%s/full_scale_%s.png" % [dialogue_line.character.to_lower(), emotion])
+		var texture = load("res://art/characters/%s/full_scale_%s.png" % [dialogue_line.character.to_lower(), emotion])
+		if (Settings.show_background_and_characters):
+			dialogue_art.texture = texture
+		else:
+			dialogue_art.texture = null
 
 		dialogue_label.hide()
 		dialogue_label.dialogue_line = dialogue_line
