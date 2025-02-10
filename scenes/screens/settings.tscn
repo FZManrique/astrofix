@@ -1,0 +1,109 @@
+[gd_scene load_steps=4 format=3 uid="uid://blw2il8y53057"]
+
+[ext_resource type="Theme" uid="uid://ds7cm0a2hlga7" path="res://scenes/themes/menu_theme_v2.tres" id="1_8h14d"]
+[ext_resource type="Script" path="res://scripts/screens/settings.gd" id="2_rjp4b"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/dialogue_box/dialogue_box_panel_style.tres" id="3_biyh6"]
+
+[node name="Settings" type="Control"]
+process_mode = 3
+z_index = 4096
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8h14d")
+script = ExtResource("2_rjp4b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.788235)
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.5
+offset_top = -82.0
+offset_right = 189.5
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_biyh6")
+
+[node name="SettingsList" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="Sliders" type="GridContainer" parent="Panel/SettingsList"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="Panel/SettingsList/Sliders"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="Panel/SettingsList/Sliders"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+step = 10.0
+value = 100.0
+
+[node name="MusicLabel" type="Label" parent="Panel/SettingsList/Sliders"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Panel/SettingsList/Sliders"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+step = 10.0
+value = 100.0
+
+[node name="SfxLabel" type="Label" parent="Panel/SettingsList/Sliders"]
+layout_mode = 2
+text = "SFX"
+
+[node name="SfxSlider" type="HSlider" parent="Panel/SettingsList/Sliders"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+step = 10.0
+value = 100.0
+
+[node name="Divider" type="Control" parent="Panel/SettingsList"]
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="Line2D" type="Line2D" parent="Panel/SettingsList/Divider"]
+points = PackedVector2Array(0, 0, 380, 0)
+width = 2.0
+
+[node name="CheckButton" type="CheckButton" parent="Panel/SettingsList"]
+layout_mode = 2
+text = "Full Screen"
+
+[node name="Back" type="Button" parent="Panel/SettingsList"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"FlatButton"
+text = "Back
+"
+
+[connection signal="value_changed" from="Panel/SettingsList/Sliders/MasterSlider" to="." method="_on_master_slider_changed"]
+[connection signal="value_changed" from="Panel/SettingsList/Sliders/MusicSlider" to="." method="_on_music_slider_changed"]
+[connection signal="value_changed" from="Panel/SettingsList/Sliders/SfxSlider" to="." method="_on_sfx_slider_changed"]
+[connection signal="toggled" from="Panel/SettingsList/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="Panel/SettingsList/Back" to="." method="_on_back_pressed"]

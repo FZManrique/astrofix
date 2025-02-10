@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b11kp02328g1k" path="res://art/objects/key.png" id="1_ionk2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1lyd8"]
-radius = 13.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62gy0"]
+size = Vector2(23, 25)
 
 [node name="Key" type="Area2D"]
 
@@ -11,4 +11,5 @@ radius = 13.0
 texture = ExtResource("1_ionk2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_1lyd8")
+position = Vector2(-1.5, -2.5)
+shape = SubResource("RectangleShape2D_62gy0")

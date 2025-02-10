@@ -1,6 +1,6 @@
 extends Node
 
-var GOALS = [
+var GOALS := [
 	"Find a fuel tank",
 	"Explore the area to find a key",
 	"Unlock the fuel tank",

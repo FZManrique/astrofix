@@ -24,7 +24,6 @@ William: Well, you need something to fill the ship up, right?
 	Player: Thank you so much! This is perfect for refueling the ship.
   - Reject funnel
 	Player: I appreciate the offer, but I don't accept things from strangers.
-Level 1 complete. Please press any key to exit the level.
 => END
 
 ~ fuel_tank_locked
@@ -40,8 +39,9 @@ Player: Looks like this planet has very tall mountains. I can't traverse these!
 ~ collect_key
 Player: Finally! A key!
   - Collect
-  - Collect and skip dialogue => END
+	do InventoryManager.add_item_to_inventory("key", 1)
 William: Hello, human. I have something that you might need later on...
+do DataManager.Level1.should_move_william_to_ship = true
 Player: What? Wait, where did you go?
 => END
 

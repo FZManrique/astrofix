@@ -6,5 +6,4 @@
 
 [node name="MainMenu" parent="." instance=ExtResource("2_ommwf")]
 texture_filter = 1
-offset_left = 2.0
-offset_right = 2.0
+metadata/_edit_lock_ = true

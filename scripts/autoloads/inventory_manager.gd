@@ -3,7 +3,7 @@ extends Node
 signal item_added(item: String, value: int)
 signal item_removed(item: String, value: int)
 
-var inventory = {}
+var inventory := {}
 
 func add_item_to_inventory(item: String, value: int) -> void:
 	if value <= 0:
@@ -16,7 +16,7 @@ func add_item_to_inventory(item: String, value: int) -> void:
 		inventory[item] = value
 
 	print("Added " + item + " with amount of " + str(value))
-	emit_signal("item_added", item, value)
+	item_added.emit(item, value)
 
 func remove_item_from_inventory(item: String, value: int) -> void:
 	if value <= 0:
@@ -27,11 +27,11 @@ func remove_item_from_inventory(item: String, value: int) -> void:
 		if inventory[item] > value:
 			inventory[item] -= value
 			print("Removed " + str(value) + " of " + item)
-			emit_signal("item_removed", item, value)
+			item_removed.emit(item, value)
 		elif inventory[item] == value:
 			print("Removed all of " + item)
 			inventory.erase(item)
-			emit_signal("item_removed", item, value)
+			item_removed.emit(item, value)
 		else:
 			print("Not enough " + item + " to remove.")
 	else:
@@ -44,15 +44,15 @@ func simple_display_inventory() -> String:
 	if inventory.size() == 0:
 		return "No items in inventory"
 
-	var item_list = []
+	var item_list := []
 	for item in inventory.keys():
-		var quantity = inventory[item]
+		var quantity: int = inventory[item]
 		if quantity > 1:
 			item_list.append(item.capitalize() + " (" + str(quantity) + ")")
 		else:
 			item_list.append(item.capitalize())
 	
-	var formatted_inventory = ", ".join(item_list)
+	var formatted_inventory := ", ".join(item_list)
 	return formatted_inventory
 
 func _print_inventory() -> void:

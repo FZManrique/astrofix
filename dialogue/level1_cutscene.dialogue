@@ -1,21 +1,23 @@
 ~ scene_1
-Player: I just opened my eyes, [wait=1.5]
-	And yet, everything looks so familiar.
+Player: I just opened my eyes, [wait=1.5]and everything looks so familiar...
+- Get up
 => END!
 
 ~ scene_2
-...
+Player: It's like I've been here before...
 => END!
 
 ~ scene_3
-Player: I was chosen...
+Player: Like I was chosen...
+- Open door
 => END!
 
 ~ scene_4
 Player: M-mom?! D-dad? I-I...
-- Check it out
+- Go near them
 => END!
 
 ~ scene_5
-Player: A lamp? It looks a bit stra-
+Player: A lamp? It looks a bit strange...
+- Check it out
 => END!

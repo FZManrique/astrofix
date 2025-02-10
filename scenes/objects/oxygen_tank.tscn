@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/objects/oxygen_tank.gd" id="1_mye8l"]
 [ext_resource type="Texture2D" uid="uid://bax0plxf3berh" path="res://art/objects/oxygen_tank.png" id="2_daqww"]
-[ext_resource type="AudioStream" uid="uid://dkpuhtuu4qm7" path="res://audio/sfx/door_open.mp3" id="3_3p45f"]
+[ext_resource type="AudioStream" uid="uid://clj6duht42hmm" path="res://audio/sfx/item_generic_collect.mp3" id="3_fsdyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ew45h"]
 size = Vector2(21, 26)
@@ -118,7 +118,7 @@ shape = SubResource("RectangleShape2D_ew45h")
 texture = ExtResource("2_daqww")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_3p45f")
+stream = ExtResource("3_fsdyp")
 volume_db = -8.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

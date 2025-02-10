@@ -23,7 +23,7 @@ OxygenManager="*res://scripts/autoloads/oxygen_manager.gd"
 Music="*res://scenes/music.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 GoalManager="*res://scripts/autoloads/goal_manager.gd"
-Settings="*res://scripts/autoloads/settings.gd"
+DataManager="*res://scripts/autoloads/data_manager.gd"
 
 [debug]
 

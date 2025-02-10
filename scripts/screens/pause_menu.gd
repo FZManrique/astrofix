@@ -1,5 +1,7 @@
 extends Control
 
+@export var settings_scene: PackedScene
+
 var allow_unpause: bool = false
 
 func _ready() -> void:
@@ -17,6 +19,11 @@ func _on_resume_pressed() -> void:
 	hide()
 	get_tree().paused = false
 
+func _on_settings_pressed() -> void:
+	var instance = settings_scene.instantiate()
+	instance.connect("on_settings_show", func(): $ColorRect.hide())
+	instance.connect("on_settings_hide", func(): $ColorRect.show())
+	add_child(instance)
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()

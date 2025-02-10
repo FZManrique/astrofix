@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://qy24io0fo1jn"]
+[gd_scene load_steps=5 format=3 uid="uid://qy24io0fo1jn"]
 
 [ext_resource type="Theme" uid="uid://ds7cm0a2hlga7" path="res://scenes/themes/menu_theme_v2.tres" id="1_uqm21"]
 [ext_resource type="Script" path="res://scripts/screens/pause_menu.gd" id="2_n7xwq"]
+[ext_resource type="PackedScene" uid="uid://blw2il8y53057" path="res://scenes/screens/settings.tscn" id="3_sqmrj"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/dialogue_box/dialogue_box_panel_style.tres" id="3_str4n"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
@@ -13,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_uqm21")
 script = ExtResource("2_n7xwq")
+settings_scene = ExtResource("3_sqmrj")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
@@ -25,36 +28,53 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.788235)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+[node name="VBoxContainer" type="Panel" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -53.5
-offset_top = -37.0
-offset_right = 53.5
-offset_bottom = 37.0
+offset_left = -77.5
+offset_top = -60.0
+offset_right = 77.5
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_str4n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -45.0
+offset_right = 74.0
+offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Game Paused"
-
-[node name="Resume" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="Resume" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
 z_index = 4096
 layout_mode = 2
 theme_type_variation = &"FlatButton"
 text = "Continue"
 
-[node name="Quit" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="Settings" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
+z_index = 4096
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+text = "Settings"
+
+[node name="Quit" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"FlatButton"
 text = "Exit"
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

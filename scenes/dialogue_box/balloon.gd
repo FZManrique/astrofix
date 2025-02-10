@@ -44,16 +44,16 @@ var dialogue_line: DialogueLine:
 
 		dialogue_line = next_dialogue_line
 
-		var emotion = dialogue_line.get_tag_value("emotion")
+		var emotion := dialogue_line.get_tag_value("emotion") as String
 		if (emotion.is_empty()):
 			emotion = "normal"
 		
-		$Balloon/ColorRect.visible = Settings.show_background_and_characters
+		$Balloon/ColorRect.visible = not DataManager.Cutscene.cutscene_mode
 		
 		character_label.visible = not dialogue_line.character.is_empty()
 		character_label.text = tr(dialogue_line.character, "dialogue")
-		var texture = load("res://art/characters/%s/full_scale_%s.png" % [dialogue_line.character.to_lower(), emotion])
-		if (Settings.show_background_and_characters):
+		var texture := load("res://art/characters/%s/full_scale_%s.png" % [dialogue_line.character.to_lower(), emotion]) as Texture2D
+		if (not DataManager.Cutscene.cutscene_mode):
 			dialogue_art.texture = texture
 		else:
 			dialogue_art.texture = null

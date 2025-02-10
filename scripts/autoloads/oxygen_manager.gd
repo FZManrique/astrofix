@@ -1,7 +1,7 @@
 extends Node
 
-const DECREASE_RATE: float = 1.0
-const DEFAULT_LEVEL: float = 60.0
+const DECREASE_RATE: int = 1
+const DEFAULT_LEVEL: int = 60
 enum OXYGEN_STATUS {NORMAL, WARN, LOW}
 
 var _current_level: int = DEFAULT_LEVEL
@@ -29,20 +29,20 @@ func _on_timer_timeout() -> void:
 	else:
 		oxygen_status_changed.emit(OXYGEN_STATUS.NORMAL)
 
-func get_oxygen_level():
+func get_oxygen_level() -> int:
 	return _current_level
 
-func start_timer():
+func start_timer() -> void:
 	if not _timer_running:
 		_timer_running = true
 		timer.start()
 
-func pause_timer():
+func pause_timer() -> void:
 	_timer_running = false
 	timer.stop()
 
-func reset_timer():
+func reset_timer() -> void:
 	_current_level = DEFAULT_LEVEL
 
-func add_oxygen(count: float):
+func add_oxygen(count: float) -> void:
 	_current_level = clamp(_current_level + count, 0, DEFAULT_LEVEL)
