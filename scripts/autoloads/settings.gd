@@ -1,4 +1,7 @@
 extends Node
 
-var wind_push = 0
-var show_background_and_characters = true
+var Audio = {
+	master_db_value = 0,
+	music_db_value = 0,
+	sfx_db_value = 0,
+}

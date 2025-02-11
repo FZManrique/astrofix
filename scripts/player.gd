@@ -34,13 +34,13 @@ func _physics_process(delta: float):
 	if abs(direction.x) == 1 and abs(direction.y) == 1:
 		direction = direction.normalized()
 
-	#if (Settings.wind_push != 0):
+	#if (Settings.Audio.wind_push != 0):
 		#if (Input.is_action_pressed("ui_stop_wind")):
 			#pass
 		#else:
 			#direction.x += 80 * delta
 #
-	#var movement = (speed - Settings.wind_push) * direction * delta
+	#var movement = (speed - Settings.Audio.wind_push) * direction * delta
 	
 	var movement = speed * direction * delta
 

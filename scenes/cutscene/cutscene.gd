@@ -25,6 +25,7 @@ func _ready() -> void:
 	cutscene_dialogue = load("res://dialogue/level%s_cutscene.dialogue" % current_cutscene_number)
 	Music.play_music("res://audio/music/custcene_%s.mp3" % current_cutscene_number)
 	
+	_on_title_changed()
 	DialogueManager.show_dialogue_balloon(cutscene_dialogue, "scene_" + str(current_title))
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 

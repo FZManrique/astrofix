@@ -451,17 +451,6 @@ tile_set = SubResource("TileSet_h3kdm")
 
 [node name="Characters" type="Node" parent="."]
 
-[node name="Player" parent="Characters" instance=ExtResource("12_bbmqk")]
-position = Vector2(1366, 693)
-
-[node name="Camera" type="Camera2D" parent="Characters/Player"]
-zoom = Vector2(4, 4)
-limit_left = 0
-limit_top = 0
-limit_right = 1630
-limit_bottom = 820
-limit_smoothed = true
-
 [node name="William" parent="Characters" instance=ExtResource("13_m2y70")]
 position = Vector2(214, 130)
 
@@ -477,6 +466,17 @@ shape = SubResource("CircleShape2D_0kpex")
 
 [node name="Key" parent="Characters" instance=ExtResource("11_vxnya")]
 position = Vector2(191, 158)
+
+[node name="Player" parent="Characters" instance=ExtResource("12_bbmqk")]
+position = Vector2(1366, 693)
+
+[node name="Camera" type="Camera2D" parent="Characters/Player"]
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 1630
+limit_bottom = 820
+limit_smoothed = true
 
 [node name="Spaceship" parent="Characters" instance=ExtResource("15_10rnu")]
 position = Vector2(1449, 592)
