@@ -25,6 +25,9 @@ func _on_settings_pressed() -> void:
 	instance.connect("on_settings_hide", func(): $ColorRect.show())
 	add_child(instance)
 
+func _on_main_menu_pressed() -> void:
+	SceneManager.goto_scene("res://scenes/main.tscn")
+
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 

@@ -8,7 +8,6 @@ extends Control
 
 func _ready() -> void:
 	Music.play_music("res://audio/music/main_menu.wav")
-	start.grab_focus()
 
 func _on_start_pressed() -> void:
 	SceneManager.goto_scene("res://scenes/cutscene/cutscene.tscn")

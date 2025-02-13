@@ -87,7 +87,7 @@ alignment = 1
 [node name="Start" type="Button" parent="Home"]
 layout_mode = 2
 theme_type_variation = &"FlatButton"
-text = "Start Game"
+text = "Start game"
 
 [node name="Settings" type="Button" parent="Home"]
 layout_mode = 2

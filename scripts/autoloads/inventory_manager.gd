@@ -42,7 +42,7 @@ func get_inventory_contents() -> Dictionary:
 
 func simple_display_inventory() -> String:
 	if inventory.size() == 0:
-		return "No items in inventory"
+		return ""
 
 	var item_list := []
 	for item in inventory.keys():

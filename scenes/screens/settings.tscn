@@ -93,7 +93,7 @@ width = 2.0
 
 [node name="CheckButton" type="CheckButton" parent="Panel/SettingsList"]
 layout_mode = 2
-text = "Full Screen"
+text = "Full screen"
 
 [node name="Back" type="Button" parent="Panel/SettingsList"]
 layout_mode = 2

@@ -50,7 +50,7 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -347.0
+offset_left = -55.0
 offset_top = 24.0
 offset_right = -24.0
 offset_bottom = 59.0
@@ -61,7 +61,6 @@ theme_override_styles/panel = ExtResource("2_k2y3l")
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_y8na7")
-text = "No items in inventory"
 script = ExtResource("6_d40qi")
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_ou7me")]

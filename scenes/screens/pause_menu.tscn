@@ -69,6 +69,13 @@ layout_mode = 2
 theme_type_variation = &"FlatButton"
 text = "Settings"
 
+[node name="MainMenu" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
+visible = false
+z_index = 4096
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+text = "Main Menu"
+
 [node name="Quit" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"FlatButton"
@@ -77,4 +84,5 @@ text = "Exit"
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
