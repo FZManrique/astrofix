@@ -30,7 +30,10 @@ func _process(_delta: float) -> void:
 		on_game_paused.emit()
 		get_tree().paused = true
 	
-	_toggle_oxygen_timer(!SceneManager.is_dialogue_shown || !is_main_menu)
+	if (is_main_menu):
+		_toggle_oxygen_timer(false)
+	else:	
+		_toggle_oxygen_timer(!SceneManager.is_dialogue_shown)
 
 func _toggle_oxygen_timer(enabled: bool) -> void:
 	if (enabled):
