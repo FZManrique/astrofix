@@ -108,6 +108,7 @@ _data = {
 }
 
 [node name="Oxygen Tank" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_mye8l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

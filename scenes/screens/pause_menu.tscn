@@ -1,19 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://qy24io0fo1jn"]
+[gd_scene load_steps=4 format=3 uid="uid://qy24io0fo1jn"]
 
-[ext_resource type="Theme" uid="uid://ds7cm0a2hlga7" path="res://scenes/themes/menu_theme_v2.tres" id="1_uqm21"]
 [ext_resource type="Script" path="res://scripts/screens/pause_menu.gd" id="2_n7xwq"]
 [ext_resource type="PackedScene" uid="uid://blw2il8y53057" path="res://scenes/screens/settings.tscn" id="3_sqmrj"]
 [ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/dialogue_box/dialogue_box_panel_style.tres" id="3_str4n"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
+texture_filter = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_uqm21")
 script = ExtResource("2_n7xwq")
 settings_scene = ExtResource("3_sqmrj")
 

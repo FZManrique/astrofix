@@ -3,11 +3,8 @@ extends Node2D
 var dialog = load("res://dialogue/level1.dialogue")
 var Level1Data = DataManager.Level1
 
-@onready var goal: RichTextLabel = $Screen/Panel/Goal
 @onready var player: CharacterBody2D = $Characters/Player
 @onready var maze_start: Area2D = $"Characters/Maze Start"
-@onready var inventory: Label = $Screen/Inventory
-@onready var oxygen_handler: Control = $Screen/Panel/OxygenHandler
 
 func _ready() -> void:
 	Music.play_music("res://audio/music/level_1.wav")

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=28 format=3 uid="uid://qxeek2x1twmy"]
 
-[ext_resource type="FontFile" uid="uid://c2v1i6k06qgjl" path="res://art/Michroma.ttf" id="1_d0a4d"]
+[ext_resource type="FontFile" uid="uid://c2v1i6k06qgjl" path="res://art/fonts/Michroma.ttf" id="1_d0a4d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_235ry"]
 content_margin_left = 6.0

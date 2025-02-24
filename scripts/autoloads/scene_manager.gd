@@ -30,10 +30,13 @@ func _process(_delta: float) -> void:
 		on_game_paused.emit()
 		get_tree().paused = true
 	
-	if (SceneManager.is_dialogue_shown):
-		OxygenManager.pause_timer()
-	else:
+	_toggle_oxygen_timer(!SceneManager.is_dialogue_shown || !is_main_menu)
+
+func _toggle_oxygen_timer(enabled: bool) -> void:
+	if (enabled):
 		OxygenManager.start_timer()
+	else:
+		OxygenManager.pause_timer()
 	
 func _allow_pause(_dialogue: DialogueResource) -> void:
 	is_dialogue_shown = false

@@ -1,17 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcnaextl0r0j3"]
+[gd_scene load_steps=9 format=3 uid="uid://dcnaextl0r0j3"]
 
-[ext_resource type="Theme" uid="uid://ds7cm0a2hlga7" path="res://scenes/themes/menu_theme_v2.tres" id="1_e11el"]
 [ext_resource type="Script" path="res://scripts/screens/main_menu.gd" id="1_o648f"]
 [ext_resource type="Texture2D" uid="uid://08ciy8ubik8d" path="res://art/logos/wordmark.png" id="1_qkq8o"]
 [ext_resource type="Texture2D" uid="uid://b6i4ase0dfag4" path="res://art/logos/background_art.jpg" id="3_nhlv2"]
 [ext_resource type="PackedScene" uid="uid://blw2il8y53057" path="res://scenes/screens/settings.tscn" id="3_yemjg"]
 [ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/dialogue_box/dialogue_box_panel_style.tres" id="5_pi5vp"]
 
-[sub_resource type="Gradient" id="Gradient_150sk"]
-colors = PackedColorArray(0, 0, 0, 0.196078, 1, 1, 1, 0.0588235)
+[sub_resource type="Gradient" id="Gradient_s2tqw"]
+offsets = PackedFloat32Array(0, 0.861446, 1)
+colors = PackedColorArray(0.208679, 0.208679, 0.208679, 0.235294, 0.00500002, 0, 0.1, 0.419608, 0, 0, 0, 0.509804)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_sx2k3"]
-gradient = SubResource("Gradient_150sk")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qx7qo"]
+gradient = SubResource("Gradient_s2tqw")
 fill = 1
 fill_from = Vector2(0.50237, 0.508057)
 fill_to = Vector2(1, 1)
@@ -27,7 +27,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_e11el")
 script = ExtResource("1_o648f")
 settings_scene = ExtResource("3_yemjg")
 metadata/_edit_vertical_guides_ = [640.0]
@@ -44,14 +43,13 @@ grow_vertical = 2
 texture = ExtResource("3_nhlv2")
 
 [node name="Vignette" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_sx2k3")
+texture = SubResource("GradientTexture2D_qx7qo")
 
 [node name="GameLogo" type="TextureRect" parent="."]
 layout_mode = 1

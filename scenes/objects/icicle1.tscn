@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca7fbchtht5cu"]
+
+[ext_resource type="Texture2D" uid="uid://o7nm21x76xv" path="res://art/objects/icicle_1.png" id="1_8hxdr"]
+
+[node name="Icicle1" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(16, 7, 16, 16, -17, 16, -17, 6, -8, -16, -1, -16, 6, -11)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8hxdr")

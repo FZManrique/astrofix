@@ -1,61 +1,102 @@
-[gd_scene load_steps=8 format=3 uid="uid://weu6sfdmw8bi"]
+[gd_scene load_steps=10 format=3 uid="uid://weu6sfdmw8bi"]
 
-[ext_resource type="FontFile" uid="uid://c2v1i6k06qgjl" path="res://art/Michroma.ttf" id="1_y8na7"]
-[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/dialogue_box/dialogue_box_panel_style.tres" id="2_k2y3l"]
+[ext_resource type="FontFile" uid="uid://c2v1i6k06qgjl" path="res://art/fonts/Michroma.ttf" id="1_y8na7"]
 [ext_resource type="Script" path="res://scripts/goal.gd" id="2_nb78m"]
-[ext_resource type="Theme" uid="uid://ds7cm0a2hlga7" path="res://scenes/themes/menu_theme_v2.tres" id="3_hlmmm"]
 [ext_resource type="Script" path="res://scripts/oxygen_label.gd" id="4_v7qov"]
 [ext_resource type="PackedScene" uid="uid://qy24io0fo1jn" path="res://scenes/screens/pause_menu.tscn" id="5_ou7me"]
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="6_d40qi"]
 
+[sub_resource type="Gradient" id="Gradient_meext"]
+offsets = PackedFloat32Array(0, 0.861446, 1)
+colors = PackedColorArray(1, 1, 1, 0.0588235, 0.00500002, 0, 0.1, 0.419608, 0, 0, 0, 0.509804)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x7e8x"]
+gradient = SubResource("Gradient_meext")
+fill = 1
+fill_from = Vector2(0.50237, 0.508057)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_c02r5"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.466667, 0.533333, 0.6, 0.733333, 0.866667, 1)
+colors = PackedColorArray(0.023, 0.02, 0.2, 0.470588, 0.0906667, 0.08, 0.4, 0.235294, 0.5, 0.5, 0.5, 0, 0.023, 0.02, 0.2, 0.392157, 0.1484, 0.053, 0.53, 0.392157, 0.1456, 0.052, 0.52, 0.392157, 0.023, 0.02, 0.2, 0.196078, 0.5, 0.5, 0.5, 0, 0.0906667, 0.08, 0.4, 0.235294, 0.023, 0.02, 0.2, 0.470588)
+metadata/_snap_enabled = true
+metadata/_snap_count = 15
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_63e5e"]
+gradient = SubResource("Gradient_c02r5")
+width = 120
+
 [node name="Control" type="Control"]
-texture_filter = 1
+texture_filter = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_hlmmm")
 metadata/_edit_lock_ = true
+metadata/_edit_horizontal_guides_ = [8.0]
 
-[node name="GoalsO2Container" type="PanelContainer" parent="."]
+[node name="Vignette" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_x7e8x")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture2D_63e5e")
+
+[node name="OxygenContainer" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 24.0
+offset_top = 8.0
 offset_right = 264.0
-offset_bottom = 98.0
-theme_override_styles/panel = ExtResource("2_k2y3l")
+offset_bottom = 52.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GoalsO2Container"]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="Goal" type="Label" parent="GoalsO2Container/VBoxContainer"]
-layout_mode = 2
-text = "No goals"
-script = ExtResource("2_nb78m")
-
-[node name="OxygenLabel" type="Label" parent="GoalsO2Container/VBoxContainer"]
+[node name="OxygenLabel" type="Label" parent="OxygenContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme = ExtResource("3_hlmmm")
-theme_type_variation = &"HeaderSmall"
 theme_override_colors/font_color = Color(0.482435, 0.648718, 1, 1)
 text = "Loading O2..."
 script = ExtResource("4_v7qov")
+
+[node name="GoalsContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.0
+offset_top = 8.0
+offset_right = 70.0
+offset_bottom = 52.0
+grow_horizontal = 2
+
+[node name="Goal" type="Label" parent="GoalsContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "No goals"
+horizontal_alignment = 1
+script = ExtResource("2_nb78m")
 
 [node name="InventoryContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -55.0
-offset_top = 24.0
-offset_right = -24.0
-offset_bottom = 59.0
+offset_left = -56.0
+offset_top = 8.0
+offset_right = -25.0
+offset_bottom = 52.0
 grow_horizontal = 0
-theme_override_styles/panel = ExtResource("2_k2y3l")
 
 [node name="Inventory" type="Label" parent="InventoryContainer"]
 layout_mode = 2

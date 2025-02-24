@@ -33,16 +33,23 @@ func _physics_process(delta: float):
 	# If input is digital, normalize it for diagonal movement
 	if abs(direction.x) == 1 and abs(direction.y) == 1:
 		direction = direction.normalized()
-
-	#if (Settings.Audio.wind_push != 0):
-		#if (Input.is_action_pressed("ui_stop_wind")):
-			#pass
-		#else:
-			#direction.x += 80 * delta
-#
-	#var movement = (speed - Settings.Audio.wind_push) * direction * delta
 	
-	var movement = speed * direction * delta
+	var direction_resistance: Vector2 = Vector2()
+	var wind_direction = DataManager.WIND_DIRECTION
+	var wind_speed = DataManager.Level2.wind_speed
+	if (DataManager.Level2.wind_push):
+		match DataManager.Level2.wind_direction:
+			wind_direction.TOP:
+				direction_resistance = Vector2(0, -wind_speed)
+			wind_direction.BOTTOM:
+				direction_resistance = Vector2(0, wind_speed)
+			wind_direction.LEFT:
+				direction_resistance = Vector2(-wind_speed, 0)
+			wind_direction.RIGHT:
+				direction_resistance = Vector2(wind_speed, 0)
+	
+	var movement := (speed * direction * delta) as Vector2
+	movement -= direction_resistance * delta
 
 	if (not SceneManager.is_dialogue_shown):
 		if (movement != Vector2.ZERO):

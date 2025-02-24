@@ -6,7 +6,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var oxygen = OxygenManager.get_oxygen_level()
-	self.text = "O2: %ds" % oxygen
+	self.text = "Oxygen: %ds" % oxygen
 
 func _on_oxygen_status_changed(status: OxygenManager.OXYGEN_STATUS) -> void:
 	match status:

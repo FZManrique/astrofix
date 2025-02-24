@@ -1,9 +1,6 @@
 extends Node2D
 
+var dialog = load("res://dialogue/level2.dialogue")
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	DataManager.Level2.wind_push = true
-
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	DataManager.Level2.wind_push = false
+func _ready() -> void:
+	DialogueManager.show_dialogue_balloon(dialog, "intro")

@@ -42,11 +42,16 @@ func _on_dialogue_ended(_resource: DialogueResource) -> void:
 		dialogue = DialogueManager.show_dialogue_balloon(cutscene_dialogue, "scene_" + str(current_title))
 
 func _on_title_changed() -> void:
+	$Timer.stop()
+	$Timer.start()
 	# stop audio
 	audio_stream_player.stop()
 	match current_cutscene_number:
 		1:
 			match current_title:
+				1:
+					audio_stream_player.stream = load("res://audio/sfx/ambience/ceiling_fan.mp3")
+					audio_stream_player.play()
 				2:
 					audio_stream_player.stream = load("res://audio/sfx/ambience/footsteps.mp3")
 					audio_stream_player.play()
@@ -56,13 +61,10 @@ func _on_title_changed() -> void:
 				4:
 					audio_stream_player.stream = load("res://audio/sfx/ambience/flickering_lights.mp3")
 					audio_stream_player.play()
-				_:
-					audio_stream_player.stream = load("res://audio/sfx/ambience/ceiling_fan.mp3")
-					audio_stream_player.play()
 
 
 func _on_timer_timeout() -> void:
-	var menu := dialogue.get_node("Balloon/Panel/Responses/ResponsesMenu") as DialogueResponsesMenu
+	var menu := dialogue.get_node("Balloon/Panel/Dialogue/Responses/ResponsesMenu") as DialogueResponsesMenu
 	var button := menu.get_child(0) as Button
 	button.set_pressed(true)
 	$Timer.start()

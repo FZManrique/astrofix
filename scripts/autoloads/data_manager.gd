@@ -18,5 +18,6 @@ var Level1 := {
 
 var Level2 := {
 	wind_push = false,
-	wind_direction = WIND_DIRECTION.TOP
+	wind_direction = WIND_DIRECTION.TOP,
+	wind_speed = 100
 }

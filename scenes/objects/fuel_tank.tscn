@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5wbfi2vpsebq"]
+[gd_scene load_steps=9 format=3 uid="uid://b5wbfi2vpsebq"]
 
 [ext_resource type="Script" path="res://scripts/objects/fuel_tank.gd" id="1_pamqf"]
 [ext_resource type="Texture2D" uid="uid://yg0w2itfyf2e" path="res://art/objects/fuel_tank.png" id="2_dxd0e"]
@@ -6,6 +6,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51rhb"]
 size = Vector2(25, 30)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uxy14"]
+radius = 9.0
+height = 24.0
 
 [sub_resource type="Animation" id="Animation_kmp3h"]
 length = 0.001
@@ -106,11 +110,18 @@ _data = {
 }
 
 [node name="Fuel Tank" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_pamqf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -1)
 shape = SubResource("RectangleShape2D_51rhb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CapsuleShape2D_uxy14")
+debug_color = Color(0, 0, 0, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_dxd0e")

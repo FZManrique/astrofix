@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccy2nruchp7bt"]
+[gd_scene load_steps=8 format=3 uid="uid://ccy2nruchp7bt"]
 
 [ext_resource type="Script" path="res://scenes/dialogue_box/balloon.gd" id="1_s2gbs"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_hfvdi"]
-[ext_resource type="Theme" uid="uid://ds7cm0a2hlga7" path="res://scenes/themes/menu_theme_v2.tres" id="2_vx04x"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_1j1j0"]
 [ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/dialogue_box/dialogue_box_panel_style.tres" id="3_oojp8"]
 [ext_resource type="Texture2D" uid="uid://dbydwc8tw01uj" path="res://art/characters/william/full_scale_normal.png" id="3_rxqw6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cv4ay"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8isai"]
 
 [node name="DialogueBox" type="CanvasLayer"]
 layer = 100
@@ -21,7 +24,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_vx04x")
 
 [node name="ColorRect" type="ColorRect" parent="Balloon"]
 layout_mode = 1
@@ -58,12 +60,14 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/Dialogue"]
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon/Panel/Dialogue/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.43899, 0.617232, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cv4ay")
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -73,32 +77,24 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-text = "Dialogue..."
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8isai")
+text = "Dialogue here."
 
-[node name="Responses" type="MarginContainer" parent="Balloon/Panel"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 51.0
-offset_top = -49.0
-offset_right = -27.0
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Responses" type="MarginContainer" parent="Balloon/Panel/Dialogue"]
+layout_mode = 2
+size_flags_vertical = 8
 
-[node name="ResponsesMenu" type="HBoxContainer" parent="Balloon/Panel/Responses" node_paths=PackedStringArray("response_template")]
+[node name="ResponsesMenu" type="HBoxContainer" parent="Balloon/Panel/Dialogue/Responses" node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 8
 theme_override_constants/separation = 2
 script = ExtResource("3_1j1j0")
 response_template = NodePath("ResponseExample")
 
-[node name="ResponseExample" type="Button" parent="Balloon/Panel/Responses/ResponsesMenu"]
+[node name="ResponseExample" type="Button" parent="Balloon/Panel/Dialogue/Responses/ResponsesMenu"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"FlatButton"
 text = "Response Example"
 
@@ -109,4 +105,4 @@ scale = Vector2(3, 3)
 texture = ExtResource("3_rxqw6")
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
-[connection signal="response_selected" from="Balloon/Panel/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
+[connection signal="response_selected" from="Balloon/Panel/Dialogue/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
