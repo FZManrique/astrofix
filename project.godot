@@ -18,13 +18,13 @@ config/icon="res://art/logos/logo.png"
 [autoload]
 
 SceneManager="*res://scripts/autoloads/scene_manager.gd"
-InventoryManager="*res://scripts/autoloads/inventory_manager.gd"
-OxygenManager="*res://scripts/autoloads/oxygen_manager.gd"
-Music="*res://scenes/music.tscn"
+DataManager="*res://scripts/autoloads/data_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 GoalManager="*res://scripts/autoloads/goal_manager.gd"
-DataManager="*res://scripts/autoloads/data_manager.gd"
+InventoryManager="*res://scripts/autoloads/inventory_manager.gd"
+OxygenManager="*res://scripts/autoloads/oxygen_manager.gd"
 Settings="*res://scripts/autoloads/settings.gd"
+Music="*res://scenes/music.tscn"
 
 [debug]
 
@@ -52,7 +52,7 @@ general/balloon_path="res://scenes/dialogue_box/balloon.tscn"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/mode=2
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
 [editor]

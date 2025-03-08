@@ -5,11 +5,14 @@ extends Control
 var allow_unpause: bool = false
 
 func _ready() -> void:
+	if OS.has_feature('web'):
+		$ColorRect/VBoxContainer/VBoxContainer/Quit.visible = false
+	
 	SceneManager.on_game_paused.connect(
 		_on_game_paused
 	)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("ui_pause") && allow_unpause):
 		allow_unpause = false
 		hide()
@@ -20,9 +23,9 @@ func _on_resume_pressed() -> void:
 	get_tree().paused = false
 
 func _on_settings_pressed() -> void:
-	var instance = settings_scene.instantiate()
-	instance.connect("on_settings_show", func(): $ColorRect.hide())
-	instance.connect("on_settings_hide", func(): $ColorRect.show())
+	var instance := settings_scene.instantiate()
+	instance.connect("on_settings_show", func() -> void: $ColorRect.hide())
+	instance.connect("on_settings_hide", func() -> void: $ColorRect.show())
 	add_child(instance)
 
 func _on_main_menu_pressed() -> void:

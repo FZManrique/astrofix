@@ -22,6 +22,8 @@ func _ready() -> void:
 	)
 
 func _process(_delta: float) -> void:
+	_check_if_main_menu()
+
 	if (
 		!is_main_menu &&
 		Input.is_action_just_pressed("ui_pause") &&
@@ -47,12 +49,13 @@ func _allow_pause(_dialogue: DialogueResource) -> void:
 func _disallow_pause(_title: String) -> void:
 	is_dialogue_shown = true
 
-func goto_scene(path: String) -> void:
-	if (path != "res://scenes/main.tscn"):
-		is_main_menu = false
-	else:
+func _check_if_main_menu():
+	if (get_tree().current_scene.scene_file_path == "res://scenes/main.tscn"):
 		is_main_menu = true
-	
+	else:
+		is_main_menu = false
+
+func goto_scene(path: String) -> void:
 	_deferred_goto_scene.call_deferred(path)
 
 func _deferred_goto_scene(path: String) -> void:

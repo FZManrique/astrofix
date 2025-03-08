@@ -63,7 +63,7 @@ func _on_fuel_tank_fuel_collected() -> void:
 	InventoryManager.add_item_to_inventory("fuel", 1)
 
 
-func _on_oxygen_tank_oxygen_tank_collected(amount) -> void:
+func _on_oxygen_tank_oxygen_tank_collected(amount: int) -> void:
 	OxygenManager.add_oxygen(amount)
 
 func _on_oxygen_depleted() -> void:
@@ -80,7 +80,7 @@ func _show_dialoague_box(key: String) -> void:
 	DialogueManager.show_dialogue_balloon(dialog, key)
 
 #region Functions
-func _go_to_level_2(_pass):
+func _go_to_level_2(_pass) -> void:
 	SceneManager.goto_scene("res://scenes/levels/level_2.tscn")
 
 func _restart(_pass) -> void:

@@ -3,13 +3,13 @@ extends CharacterBody2D
 @onready var animation_sprite = $AnimatedSprite2D
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
-@export var default_speed = 75.0
-@export var sprint_speed = default_speed * 2
-@export var speed = default_speed
+@export var default_speed := 75.0
+@export var sprint_speed := default_speed * 2
+@export var speed := default_speed
 
-var isMoving: bool = false
+var isMoving := false
 
-var new_direction = Vector2(0, 1)
+var new_direction := Vector2(0, 1)
 var animation: StringName
 
 func _process(delta: float) -> void:
@@ -63,7 +63,7 @@ func _physics_process(delta: float):
 		isMoving = false
 		player_animations(Vector2.ZERO)
 
-func player_animations(direction: Vector2):
+func player_animations(direction: Vector2) -> void:
 	if direction != Vector2.ZERO:
 		new_direction = direction
 		animation = "v2_walk_" + returned_direction(new_direction)
