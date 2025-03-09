@@ -3,7 +3,7 @@ extends Control
 var cutscene_dialogue: Resource
 var max_page: int
 
-var Level1Cutscene := {
+var Level1Cutscene: Dictionary[String, Variant] = {
 	max_page = 5,
 	end_scene = "res://scenes/levels/level_1.tscn"
 }
@@ -44,7 +44,7 @@ func _on_dialogue_ended(_resource: DialogueResource) -> void:
 func _on_title_changed() -> void:
 	$Timer.stop()
 	$Timer.start()
-	# stop audio
+	# stop audio 
 	audio_stream_player.stop()
 	match current_cutscene_number:
 		1:

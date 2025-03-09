@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://weu6sfdmw8bi"]
 
 [ext_resource type="FontFile" uid="uid://c2v1i6k06qgjl" path="res://art/fonts/Michroma.ttf" id="1_y8na7"]
-[ext_resource type="Script" path="res://scripts/goal.gd" id="2_nb78m"]
-[ext_resource type="Script" path="res://scripts/oxygen_label.gd" id="4_v7qov"]
+[ext_resource type="Script" uid="uid://cin2dpm0tt7vf" path="res://scripts/goal.gd" id="2_nb78m"]
+[ext_resource type="Script" uid="uid://bkbidfr0e1yik" path="res://scripts/oxygen_label.gd" id="4_v7qov"]
 [ext_resource type="PackedScene" uid="uid://qy24io0fo1jn" path="res://scenes/screens/pause_menu.tscn" id="5_ou7me"]
-[ext_resource type="Script" path="res://scripts/inventory.gd" id="6_d40qi"]
+[ext_resource type="Script" uid="uid://bbhatjcnbe7bd" path="res://scripts/inventory.gd" id="6_d40qi"]
 
 [sub_resource type="Gradient" id="Gradient_meext"]
 offsets = PackedFloat32Array(0, 0.861446, 1)

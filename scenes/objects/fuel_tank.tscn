@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b5wbfi2vpsebq"]
 
-[ext_resource type="Script" path="res://scripts/objects/fuel_tank.gd" id="1_pamqf"]
+[ext_resource type="Script" uid="uid://cop4heruelmwf" path="res://scripts/objects/fuel_tank.gd" id="1_pamqf"]
 [ext_resource type="Texture2D" uid="uid://yg0w2itfyf2e" path="res://art/objects/fuel_tank.png" id="2_dxd0e"]
 [ext_resource type="AudioStream" uid="uid://daxr344vn6nas" path="res://audio/sfx/collect_key.mp3" id="3_mftoi"]
 
@@ -105,8 +105,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bneyv"]
 _data = {
-"RESET": SubResource("Animation_kmp3h"),
-"pickup": SubResource("Animation_f3e82")
+&"RESET": SubResource("Animation_kmp3h"),
+&"pickup": SubResource("Animation_f3e82")
 }
 
 [node name="Fuel Tank" type="Area2D"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://dcnaextl0r0j3"]
 
-[ext_resource type="Script" path="res://scripts/screens/main_menu.gd" id="1_o648f"]
+[ext_resource type="Script" uid="uid://b7sqo6p10xun5" path="res://scripts/screens/main_menu.gd" id="1_o648f"]
 [ext_resource type="Texture2D" uid="uid://08ciy8ubik8d" path="res://art/logos/wordmark.png" id="1_qkq8o"]
 [ext_resource type="Texture2D" uid="uid://b6i4ase0dfag4" path="res://art/logos/background_art.jpg" id="3_nhlv2"]
 [ext_resource type="PackedScene" uid="uid://blw2il8y53057" path="res://scenes/screens/settings.tscn" id="3_yemjg"]
-[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/dialogue_box/dialogue_box_panel_style.tres" id="5_pi5vp"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/dialogue_box_panel_style.tres" id="5_pi5vp"]
 
 [sub_resource type="Gradient" id="Gradient_s2tqw"]
 offsets = PackedFloat32Array(0, 0.861446, 1)

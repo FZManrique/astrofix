@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=4 uid="uid://c5wuq0sv37ns0"]
 
-[ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_6b7pd"]
+[ext_resource type="Script" uid="uid://cg2fxcu5weos8" path="res://scripts/levels/level_1.gd" id="1_6b7pd"]
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="2_drk7b"]
 [ext_resource type="Texture2D" uid="uid://dahxsu5m7wxmk" path="res://art/objects/snowflake.png" id="4_jcc4s"]
 [ext_resource type="Texture2D" uid="uid://b4f0l0guck2am" path="res://art/tilesets/level1_background_alt.png" id="5_j667r"]
@@ -417,16 +417,15 @@ metadata/_edit_horizontal_guides_ = [832.0]
 metadata/_edit_vertical_guides_ = [1632.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="SnowParticles" type="CPUParticles2D" parent="CanvasLayer"]
 position = Vector2(647, 2)
 amount = 200
+texture = ExtResource("4_jcc4s")
 lifetime = 10.0
 preprocess = 30.0
 fixed_fps = 30
 draw_order = 1
-texture = ExtResource("4_jcc4s")
 emission_shape = 3
 emission_rect_extents = Vector2(640, 0)
 gravity = Vector2(-45, 98)

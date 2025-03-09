@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://blw2il8y53057"]
 
-[ext_resource type="Script" path="res://scripts/screens/settings.gd" id="2_rjp4b"]
-[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/dialogue_box/dialogue_box_panel_style.tres" id="3_biyh6"]
+[ext_resource type="Script" uid="uid://dk0kpdskrbiqc" path="res://scripts/screens/settings.gd" id="2_rjp4b"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/dialogue_box_panel_style.tres" id="3_biyh6"]
 
 [node name="Settings" type="Control"]
 process_mode = 3

@@ -12,14 +12,14 @@ config_version=5
 
 config/name="Spacebound"
 run/main_scene="res://scenes/main.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://art/logos/logo.png"
 
 [autoload]
 
 SceneManager="*res://scripts/autoloads/scene_manager.gd"
-DataManager="*res://scripts/autoloads/data_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+DataManager="*res://scripts/autoloads/data_manager.gd"
 GoalManager="*res://scripts/autoloads/goal_manager.gd"
 InventoryManager="*res://scripts/autoloads/inventory_manager.gd"
 OxygenManager="*res://scripts/autoloads/oxygen_manager.gd"
@@ -44,14 +44,12 @@ Nathan: Here are some choices.
 Nathan: For more information see the online documentation.
 => END"
 editor/advanced/custom_test_scene_path="res://addons/dialogue_manager_v2/test_scene.tscn"
-runtime/balloon_path="res://scenes/levels/dialog-box/balloon.tscn"
-general/balloon_path="res://scenes/dialogue_box/balloon.tscn"
+runtime/balloon_path="res://dialogue/balloon/balloon.tscn"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 

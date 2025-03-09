@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bpko47puym4mc"]
 
-[ext_resource type="Script" path="res://scripts/objects/oxygen_tank.gd" id="1_mye8l"]
+[ext_resource type="Script" uid="uid://67gfafqjp2fc" path="res://scripts/objects/oxygen_tank.gd" id="1_mye8l"]
 [ext_resource type="Texture2D" uid="uid://bax0plxf3berh" path="res://art/objects/oxygen_tank.png" id="2_daqww"]
 [ext_resource type="AudioStream" uid="uid://clj6duht42hmm" path="res://audio/sfx/item_generic_collect.mp3" id="3_fsdyp"]
 
@@ -103,8 +103,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nxiuq"]
 _data = {
-"RESET": SubResource("Animation_jd5x1"),
-"pickup": SubResource("Animation_bm44a")
+&"RESET": SubResource("Animation_jd5x1"),
+&"pickup": SubResource("Animation_bm44a")
 }
 
 [node name="Oxygen Tank" type="Area2D"]
