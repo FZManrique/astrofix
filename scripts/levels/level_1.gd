@@ -86,5 +86,5 @@ func _go_to_level_2(_pass) -> void:
 func _restart(_pass) -> void:
 	InventoryManager._clear_inventory()
 	OxygenManager.reset_timer()
-	get_tree().reload_current_scene() 
+	SceneManager.goto_scene("res://scenes/levels/level_1.tscn")
 #endregion

@@ -1,7 +1,9 @@
-[gd_scene load_steps=23 format=4 uid="uid://c5wuq0sv37ns0"]
+[gd_scene load_steps=26 format=4 uid="uid://c5wuq0sv37ns0"]
 
 [ext_resource type="Script" uid="uid://cg2fxcu5weos8" path="res://scripts/levels/level_1.gd" id="1_6b7pd"]
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="2_drk7b"]
+[ext_resource type="Texture2D" uid="uid://c2846miokddta" path="res://art/minimap_frame_background.png" id="4_bahl2"]
+[ext_resource type="Script" uid="uid://b0l5ye8xr6rai" path="res://scripts/levels/sub_viewport.gd" id="4_iwr0g"]
 [ext_resource type="Texture2D" uid="uid://dahxsu5m7wxmk" path="res://art/objects/snowflake.png" id="4_jcc4s"]
 [ext_resource type="Texture2D" uid="uid://b4f0l0guck2am" path="res://art/tilesets/level1_background_alt.png" id="5_j667r"]
 [ext_resource type="PackedScene" uid="uid://cx10m4iph6urk" path="res://scenes/objects/icicle2.tscn" id="7_py4sd"]
@@ -19,6 +21,9 @@
 [sub_resource type="Gradient" id="Gradient_atftc"]
 offsets = PackedFloat32Array(0.39011, 0.598901)
 colors = PackedColorArray(1, 1, 1, 0.54902, 1, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_np2pn"]
+texture = ExtResource("4_bahl2")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lvg2f"]
 texture = ExtResource("10_4kl5d")
@@ -411,7 +416,6 @@ sources/0 = SubResource("TileSetAtlasSource_7y4fy")
 radius = 103.078
 
 [node name="Level1" type="Node2D"]
-position = Vector2(125, 86)
 script = ExtResource("1_6b7pd")
 metadata/_edit_horizontal_guides_ = [832.0]
 metadata/_edit_vertical_guides_ = [1632.0]
@@ -434,13 +438,36 @@ color_initial_ramp = SubResource("Gradient_atftc")
 
 [node name="Screen" parent="CanvasLayer" instance=ExtResource("2_drk7b")]
 
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+clip_children = 1
+offset_left = 8.0
+offset_top = 56.0
+offset_right = 148.0
+offset_bottom = 196.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_np2pn")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/PanelContainer/SubViewportContainer" node_paths=PackedStringArray("camera_node", "player_node")]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(140, 140)
+render_target_update_mode = 4
+script = ExtResource("4_iwr0g")
+camera_node = NodePath("Camera2D")
+player_node = NodePath("../../../../Characters/Player")
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/PanelContainer/SubViewportContainer/SubViewport"]
+zoom = Vector2(0.5, 0.5)
+
 [node name="FailSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_gyx1q")
 volume_db = -16.0
 bus = &"SFX"
 
 [node name="TileMap" type="Node2D" parent="."]
-position = Vector2(1283, 602)
+position = Vector2(1408, 688)
 
 [node name="Ground" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true

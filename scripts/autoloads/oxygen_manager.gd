@@ -20,6 +20,9 @@ func _ready() -> void:
 
 func _on_timer_timeout() -> void:
 	_current_level -= DECREASE_RATE
+	_update_oxygen_status(_current_level)
+
+func _update_oxygen_status(current_level: int) -> void:
 	if (_current_level == 0):
 		oxygen_depleted.emit()
 	elif (_current_level <= 15):
@@ -46,3 +49,4 @@ func reset_timer() -> void:
 
 func add_oxygen(count: float) -> void:
 	_current_level = clamp(_current_level + count, 0, DEFAULT_LEVEL)
+	_update_oxygen_status(_current_level)

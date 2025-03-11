@@ -1,18 +1,20 @@
-extends Label
+extends ProgressBar
 
 func _ready() -> void:
 	OxygenManager.start_timer()
 	OxygenManager.connect("oxygen_status_changed", _on_oxygen_status_changed)
 
 func _process(delta: float) -> void:
-	var oxygen = OxygenManager.get_oxygen_level()
-	self.text = "Oxygen: %ds" % oxygen
+	var oxygen := OxygenManager.get_oxygen_level()
+	self.value = oxygen
 
 func _on_oxygen_status_changed(status: OxygenManager.OXYGEN_STATUS) -> void:
+	var stylebox := load("res://scenes/themes/progress_bar/progress_blue.tres") as StyleBoxFlat
+	
 	match status:
 		OxygenManager.OXYGEN_STATUS.LOW:
-			self.add_theme_color_override("font_color", Color.RED)
+			stylebox = load("res://scenes/themes/progress_bar/progress_red.tres") as StyleBoxFlat
 		OxygenManager.OXYGEN_STATUS.WARN:
-			self.add_theme_color_override("font_color", Color.YELLOW)
-		_:
-			self.add_theme_color_override("font_color", Color(0.48, 0.64, 1.00))
+			stylebox = load("res://scenes/themes/progress_bar/progress_yellow.tres") as StyleBoxFlat
+	
+	self.add_theme_stylebox_override("fill", stylebox)
