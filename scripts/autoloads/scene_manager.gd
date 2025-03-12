@@ -23,11 +23,11 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	_check_if_main_menu()
+	_determine_can_pause()
 
 	if (
-		!is_main_menu &&
-		Input.is_action_just_pressed("ui_pause") &&
-		!SceneManager.is_dialogue_shown
+		(DataManager.can_pause &&
+		Input.is_action_just_pressed("ui_pause")) || DataManager.show_instruction_box
 	):
 		on_game_paused.emit()
 		get_tree().paused = true
@@ -48,6 +48,9 @@ func _allow_pause(_dialogue: DialogueResource) -> void:
 
 func _disallow_pause(_title: String) -> void:
 	is_dialogue_shown = true
+
+func _determine_can_pause() -> void:
+	DataManager.can_pause = !is_main_menu && !SceneManager.is_dialogue_shown
 
 func _check_if_main_menu():
 	if (get_tree().current_scene.scene_file_path == "res://scenes/main.tscn"):

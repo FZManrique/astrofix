@@ -1,4 +1,8 @@
 ~ intro
-Player: Huh, this planet sure is interesting.
-Player: I need to be careful with the winds though. Why is the planet so empty...
+Franzen Albert II: Your suit’s damaged—specifically the part that shields you from these winds.
+Player: Who are you? Why should I trust you?
+Franzen Albert II: Name’s Franzen, but back on Earth, they called me Albert II.
+	Humans said I died, but they abandoned me when my suit failed—just like yours is now. I survived by adapting. I wouldn’t leave someone to suffer the way I did.
+AI: Suit broken. Please fix.
+Player: "Thank you."
 => END!

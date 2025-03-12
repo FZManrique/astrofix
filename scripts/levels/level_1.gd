@@ -15,7 +15,13 @@ func _ready() -> void:
 	InventoryManager.connect(
 		"item_added", _on_item_added
 	)
-	_show_dialoague_box("intro")
+	$CanvasLayer/InstructionBox.connect(
+		"instruction_box_dismissed",
+		func():
+			_show_dialoague_box("intro")
+	)
+	
+	DataManager.show_instruction_box = true
 
 func _process(delta: float) -> void:
 	if (Level1Data.should_move_william_to_ship and (not Level1Data.william_moved_to_ship)):

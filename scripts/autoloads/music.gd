@@ -1,8 +1,8 @@
 extends AudioStreamPlayer
 
-func play_music(path: String) -> void:
+func play_music(path: String, from_position: float = 0.0) -> void:
 	self.stream = ResourceLoader.load(path) as AudioStream
-	self.play()
+	self.play(from_position)
 	
 func stop_music() -> void:
 	self.stop()

@@ -35,7 +35,8 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_game_paused() -> void:
-	show()
+	if (!DataManager.show_instruction_box):
+		show()
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	allow_unpause = true

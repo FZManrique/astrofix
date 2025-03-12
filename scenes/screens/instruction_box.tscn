@@ -1,0 +1,142 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2i1lxoxv3ksn"]
+
+[ext_resource type="Script" uid="uid://cb3hbxr53uxf6" path="res://scripts/screens/instruction_box.gd" id="1_v0dds"]
+[ext_resource type="Texture2D" uid="uid://6grf7dg04ty7" path="res://art/keys/keyboard_w.png" id="3_iii46"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/dialogue_box_panel_style.tres" id="3_sl1dh"]
+[ext_resource type="Texture2D" uid="uid://drb7m0s3fqeh0" path="res://art/keys/keyboard_a.png" id="4_8t7pd"]
+[ext_resource type="Texture2D" uid="uid://caoktr5tfbleg" path="res://art/keys/keyboard_s.png" id="5_qbm81"]
+[ext_resource type="Texture2D" uid="uid://cdna42g4wfui8" path="res://art/keys/keyboard_d.png" id="6_j5bq2"]
+[ext_resource type="Texture2D" uid="uid://dpnqo687atcf1" path="res://art/keys/keyboard_shift.png" id="7_wo7mk"]
+[ext_resource type="Texture2D" uid="uid://bwsdbokixgokd" path="res://art/keys/keyboard_enter.png" id="8_xlvix"]
+
+[node name="InstructionBox" type="Control"]
+process_mode = 2
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v0dds")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.788235)
+
+[node name="VBoxContainer" type="PanelContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -90.0
+offset_right = 280.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_sl1dh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Level 1 Objectives"
+horizontal_alignment = 1
+
+[node name="Objectives" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Explore Neptune to find fuel to refuel the ship"
+horizontal_alignment = 1
+
+[node name="Controls" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 3
+
+[node name="WASD" type="VBoxContainer" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD"]
+layout_mode = 2
+columns = 3
+
+[node name="Empty" type="AspectRatioContainer" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_iii46")
+
+[node name="Empty2" type="AspectRatioContainer" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD/GridContainer"]
+layout_mode = 2
+texture = ExtResource("4_8t7pd")
+
+[node name="TextureRect3" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD/GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_qbm81")
+
+[node name="TextureRect4" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_j5bq2")
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Movement"
+horizontal_alignment = 1
+
+[node name="Shift" type="VBoxContainer" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/Shift"]
+layout_mode = 2
+texture = ExtResource("7_wo7mk")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/Shift"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Hold to Sprint"
+
+[node name="NextDialogue" type="VBoxContainer" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/NextDialogue"]
+layout_mode = 2
+texture = ExtResource("8_xlvix")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/NextDialogue"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "for next dialogue line"
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue"
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

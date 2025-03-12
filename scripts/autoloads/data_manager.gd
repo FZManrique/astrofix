@@ -4,6 +4,9 @@ extends Node
 
 enum WIND_DIRECTION {TOP, LEFT, BOTTOM, RIGHT}
 
+var can_pause = false
+var show_instruction_box = false
+
 var Cutscene := {
 	cutscene_mode = false,
 	current_cutscene_number = 1,

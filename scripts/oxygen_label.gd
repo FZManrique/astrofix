@@ -16,5 +16,7 @@ func _on_oxygen_status_changed(status: OxygenManager.OXYGEN_STATUS) -> void:
 			stylebox = load("res://scenes/themes/progress_bar/progress_red.tres") as StyleBoxFlat
 		OxygenManager.OXYGEN_STATUS.WARN:
 			stylebox = load("res://scenes/themes/progress_bar/progress_yellow.tres") as StyleBoxFlat
+		_:
+			stylebox = load("res://scenes/themes/progress_bar/progress_blue.tres") as StyleBoxFlat
 	
 	self.add_theme_stylebox_override("fill", stylebox)

@@ -25,10 +25,12 @@ func _ready() -> void:
 	max_page = current_cutscene.max_page
 	
 	cutscene_dialogue = load("res://dialogue/level%s_cutscene.dialogue" % current_cutscene_number)
+	var dialogue_scene := load("res://dialogue/cutscene/balloon.tscn") as PackedScene
+	
 	Music.play_music("res://audio/music/custcene_%s.mp3" % current_cutscene_number)
 	
 	_on_title_changed()
-	dialogue = DialogueManager.show_dialogue_balloon(cutscene_dialogue, "scene_" + str(current_title))
+	dialogue = DialogueManager.show_dialogue_balloon_scene(dialogue_scene.instantiate(), cutscene_dialogue, "scene_" + str(current_title))
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
 func _on_dialogue_ended(_resource: DialogueResource) -> void:
@@ -39,7 +41,9 @@ func _on_dialogue_ended(_resource: DialogueResource) -> void:
 	else:
 		_on_title_changed()
 		texture_rect.texture = load("res://art/cutscenes/level%s/0%s.png" % [current_cutscene_number, current_title])
-		dialogue = DialogueManager.show_dialogue_balloon(cutscene_dialogue, "scene_" + str(current_title))
+		var dialogue_scene := load("res://dialogue/cutscene/balloon.tscn") as PackedScene
+		dialogue = DialogueManager.show_dialogue_balloon_scene(dialogue_scene.instantiate(), cutscene_dialogue, "scene_" + str(current_title))
+
 
 func _on_title_changed() -> void:
 	$Timer.stop()

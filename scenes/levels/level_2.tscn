@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://585vjm100d7c"]
+[gd_scene load_steps=12 format=4 uid="uid://585vjm100d7c"]
 
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="1_6jisw"]
 [ext_resource type="Script" uid="uid://oyhe6k7grer" path="res://scripts/levels/level_2.gd" id="1_imbuc"]
 [ext_resource type="PackedScene" uid="uid://1pmipojgsf0m" path="res://scenes/characters/player.tscn" id="2_6gnbp"]
 [ext_resource type="PackedScene" uid="uid://dxhb8eooelkyv" path="res://scenes/objects/spaceship.tscn" id="3_66j2d"]
+[ext_resource type="AudioStream" uid="uid://cifm4a0hoyean" path="res://audio/music/level_2_ambience.mp3" id="3_ibugp"]
 [ext_resource type="Texture2D" uid="uid://b45hwjpfwl3xa" path="res://art/tilesets/level2tmptileset.png" id="3_kv51b"]
 [ext_resource type="PackedScene" uid="uid://b20xsf28pfx5q" path="res://scenes/objects/wind_area.tscn" id="6_we8yt"]
 
@@ -32,7 +33,13 @@ metadata/_edit_vertical_guides_ = [2958.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Screen" parent="CanvasLayer" instance=ExtResource("1_6jisw")]
+[node name="Screen" parent="CanvasLayer" node_paths=PackedStringArray("player_node") instance=ExtResource("1_6jisw")]
+player_node = NodePath("../../Characters/Player")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("3_ibugp")
+autoplay = true
+bus = &"Music"
 
 [node name="Tilemap" type="Node2D" parent="."]
 
@@ -77,3 +84,5 @@ wind_speed = 50
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindArea2"]
 position = Vector2(171, 114)
 shape = SubResource("CircleShape2D_rw4kk")
+
+[connection signal="finished" from="CanvasLayer/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
