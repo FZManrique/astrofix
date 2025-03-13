@@ -5,9 +5,6 @@ extends Control
 var allow_unpause: bool = false
 
 func _ready() -> void:
-	if OS.has_feature('web'):
-		$ColorRect/VBoxContainer/VBoxContainer/Quit.visible = false
-	
 	SceneManager.on_game_paused.connect(
 		_on_game_paused
 	)
@@ -32,6 +29,11 @@ func _on_main_menu_pressed() -> void:
 	SceneManager.goto_scene("res://scenes/main.tscn")
 
 func _on_quit_pressed() -> void:
+	if OS.has_feature('web'):
+		DataManager.quit = true
+		TransitionManager.transition()
+		await TransitionManager.on_transition_finished	
+	
 	get_tree().quit()
 
 func _on_game_paused() -> void:
