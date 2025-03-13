@@ -46,8 +46,10 @@ func _on_many_fuel_body_entered(body: Node2D) -> void:
 	DialogueManager.dialogue_ended.connect(
 		func (_noop) -> void:
 			if OS.has_feature('web'):
-				get_tree().root.visible = false
-				
+				DataManager.quit = true
+				TransitionManager.transition()
+				await TransitionManager.on_transition_finished
+			
 			get_tree().quit() 
 	)
 
@@ -57,7 +59,9 @@ func _on_fuel_tank_fuel_collected(body: Node2D) -> void:
 	DialogueManager.dialogue_ended.connect(
 		func (_noop) -> void:
 			if OS.has_feature('web'):
-				get_tree().root.visible = false
+				DataManager.quit = true
+				TransitionManager.transition()
+				await TransitionManager.on_transition_finished
 				
 			get_tree().quit() 
 	)
