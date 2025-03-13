@@ -1,10 +1,13 @@
 extends Node
 
 var GOALS := [
+	# LEVEL 1
 	"Find a fuel tank",
 	"Explore the area to find a key",
 	"Unlock the fuel tank",
-	"Go to the ship to refuel it"
+	"Go to the ship to refuel it",
+	# Level 2
+	"Explore the area to find fuel"
 ]
 
 signal on_goals_changed

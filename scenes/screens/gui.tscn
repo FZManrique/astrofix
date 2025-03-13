@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://weu6sfdmw8bi"]
+[gd_scene load_steps=25 format=3 uid="uid://weu6sfdmw8bi"]
 
 [ext_resource type="Texture2D" uid="uid://c2846miokddta" path="res://art/minimap_frame_background.png" id="1_3c3hu"]
 [ext_resource type="PackedScene" uid="uid://cbs0wcicdlqx4" path="res://scenes/screens/backpack.tscn" id="1_bm7tn"]
@@ -26,6 +26,28 @@ texture = ExtResource("1_3c3hu")
 [sub_resource type="LabelSettings" id="LabelSettings_3c3hu"]
 shadow_color = Color(0.027451, 0.137255, 0.258824, 0.745098)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3c3hu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8hx2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kbcxk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nmqvt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nxit6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7bmq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x2hjc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w27a7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxr3u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ucdh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2yb1h"]
+
 [node name="Control" type="Control" node_paths=PackedStringArray("camera_node")]
 texture_filter = 2
 layout_mode = 3
@@ -35,7 +57,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r8hx2")
-camera_node = NodePath("PanelContainer/SubViewportContainer/SubViewport/Camera2D")
+camera_node = NodePath("Control/PanelContainer/SubViewportContainer/SubViewport/Camera2D")
 metadata/_edit_lock_ = true
 metadata/_edit_horizontal_guides_ = [8.0]
 
@@ -49,41 +71,43 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_x7e8x")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-clip_children = 1
+[node name="Control" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 16.0
-offset_top = 32.0
+offset_top = 16.0
 offset_right = 156.0
-offset_bottom = 172.0
+offset_bottom = 192.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+clip_children = 1
+layout_mode = 2
+size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_kbcxk")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="PanelContainer"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Control/PanelContainer"]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="PanelContainer/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="Control/PanelContainer/SubViewportContainer"]
+unique_name_in_owner = true
 disable_3d = true
 handle_input_locally = false
 size = Vector2i(140, 140)
 render_target_update_mode = 4
 
-[node name="Camera2D" type="Camera2D" parent="PanelContainer/SubViewportContainer/SubViewport"]
+[node name="Camera2D" type="Camera2D" parent="Control/PanelContainer/SubViewportContainer/SubViewport"]
 zoom = Vector2(0.5, 0.5)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-offset_left = 32.0
-offset_top = 168.0
-offset_right = 144.0
-offset_bottom = 212.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 2
+size_flags_horizontal = 0
 tooltip_text = "The current objective you need to complete. Complete all goals to proceed to the next level..."
 
-[node name="Background" type="BoxContainer" parent="HBoxContainer"]
+[node name="Background" type="BoxContainer" parent="Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Goal" type="Label" parent="HBoxContainer/Background"]
+[node name="Goal" type="Label" parent="Control/HBoxContainer/Background"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "No goals"
@@ -96,10 +120,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -449.0
-offset_top = 7.0
-offset_right = -9.0
-offset_bottom = 67.0
+offset_left = -456.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 76.0
 grow_horizontal = 0
 
 [node name="OxygenContainer" type="HBoxContainer" parent="RightSide"]
@@ -150,6 +174,20 @@ theme_override_font_sizes/font_size = 19
 text = "   ?   "
 horizontal_alignment = 1
 
+[node name="HelpButton" type="Button" parent="RightSide/AspectRatioContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3c3hu")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_r8hx2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kbcxk")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nmqvt")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nxit6")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w7bmq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x2hjc")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_w27a7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uxr3u")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_0ucdh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2yb1h")
+
 [node name="Backpack" parent="RightSide" instance=ExtResource("1_bm7tn")]
 layout_mode = 2
 size_flags_stretch_ratio = 0.1
@@ -160,3 +198,5 @@ layout_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="Screen" type="CanvasLayer" parent="."]
+
+[connection signal="pressed" from="RightSide/AspectRatioContainer/HelpButton" to="." method="_on_help_button_pressed"]

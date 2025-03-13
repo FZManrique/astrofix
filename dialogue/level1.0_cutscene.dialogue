@@ -1,0 +1,25 @@
+~ scene_1
+Player: I just opened my eyes, [wait=1.5]and everything looks so familiar...
+	[color=#aaaaaa](tip - Enter to go to next line, Esc to skip typing)[/color]
+- Get up
+=> END!
+
+~ scene_2
+Player: It's like I've been here before...
+- Explore the room
+=> END!
+
+~ scene_3
+Player: Like I was chosen...
+- Open door
+=> END!
+
+~ scene_4
+Player: M-mom?! D-dad? I-I...
+- Go near them
+=> END!
+
+~ scene_5
+Player: A lamp? It looks a bit strange...
+- Check it out
+=> END!

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2i1lxoxv3ksn"]
+[gd_scene load_steps=12 format=3 uid="uid://b2i1lxoxv3ksn"]
 
 [ext_resource type="Script" uid="uid://cb3hbxr53uxf6" path="res://scripts/screens/instruction_box.gd" id="1_v0dds"]
 [ext_resource type="Texture2D" uid="uid://6grf7dg04ty7" path="res://art/keys/keyboard_w.png" id="3_iii46"]
@@ -8,6 +8,57 @@
 [ext_resource type="Texture2D" uid="uid://cdna42g4wfui8" path="res://art/keys/keyboard_d.png" id="6_j5bq2"]
 [ext_resource type="Texture2D" uid="uid://dpnqo687atcf1" path="res://art/keys/keyboard_shift.png" id="7_wo7mk"]
 [ext_resource type="Texture2D" uid="uid://bwsdbokixgokd" path="res://art/keys/keyboard_enter.png" id="8_xlvix"]
+
+[sub_resource type="Animation" id="Animation_8t7pd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_iii46"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_unpause_game"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qbm81"]
+_data = {
+&"RESET": SubResource("Animation_8t7pd"),
+&"fade_out": SubResource("Animation_iii46")
+}
 
 [node name="InstructionBox" type="Control"]
 process_mode = 2
@@ -50,6 +101,7 @@ theme_override_styles/panel = ExtResource("3_sl1dh")
 layout_mode = 2
 
 [node name="Title" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
 theme_override_font_sizes/font_size = 24
@@ -57,6 +109,7 @@ text = "Level 1 Objectives"
 horizontal_alignment = 1
 
 [node name="Objectives" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Explore Neptune to find fuel to refuel the ship"
 horizontal_alignment = 1
@@ -67,76 +120,93 @@ theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
 text = "Controls"
 horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="ColorRect/VBoxContainer/VBoxContainer"]
+[node name="Keybinds" type="GridContainer" parent="ColorRect/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 columns = 3
 
-[node name="WASD" type="VBoxContainer" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer"]
+[node name="WASD" type="VBoxContainer" parent="ColorRect/VBoxContainer/VBoxContainer/Keybinds"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD"]
+[node name="GridContainer" type="GridContainer" parent="ColorRect/VBoxContainer/VBoxContainer/Keybinds/WASD"]
 layout_mode = 2
 columns = 3
 
-[node name="Empty" type="AspectRatioContainer" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD/GridContainer"]
+[node name="Empty" type="AspectRatioContainer" parent="ColorRect/VBoxContainer/VBoxContainer/Keybinds/WASD/GridContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD/GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/Keybinds/WASD/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("3_iii46")
+expand_mode = 3
+stretch_mode = 5
 
-[node name="Empty2" type="AspectRatioContainer" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD/GridContainer"]
+[node name="Empty2" type="AspectRatioContainer" parent="ColorRect/VBoxContainer/VBoxContainer/Keybinds/WASD/GridContainer"]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD/GridContainer"]
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/Keybinds/WASD/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("4_8t7pd")
+expand_mode = 4
+stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD/GridContainer"]
+[node name="TextureRect3" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/Keybinds/WASD/GridContainer"]
 layout_mode = 2
 texture = ExtResource("5_qbm81")
+expand_mode = 4
+stretch_mode = 5
 
-[node name="TextureRect4" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD/GridContainer"]
+[node name="TextureRect4" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/Keybinds/WASD/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("6_j5bq2")
+expand_mode = 2
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/WASD"]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer/Keybinds/WASD"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "Movement"
+text = "to move"
 horizontal_alignment = 1
 
-[node name="Shift" type="VBoxContainer" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer"]
+[node name="Shift" type="VBoxContainer" parent="ColorRect/VBoxContainer/VBoxContainer/Keybinds"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/Shift"]
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/Keybinds/Shift"]
 layout_mode = 2
 texture = ExtResource("7_wo7mk")
-stretch_mode = 3
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/Shift"]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer/Keybinds/Shift"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "Hold to Sprint"
+text = "hold to sprint"
 
-[node name="NextDialogue" type="VBoxContainer" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer"]
+[node name="NextDialogue" type="VBoxContainer" parent="ColorRect/VBoxContainer/VBoxContainer/Keybinds"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/NextDialogue"]
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/VBoxContainer/Keybinds/NextDialogue"]
 layout_mode = 2
 texture = ExtResource("8_xlvix")
 stretch_mode = 3
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer/GridContainer/NextDialogue"]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer/Keybinds/NextDialogue"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "for next dialogue line"
+text = "to next dialogue"
 
 [node name="Button" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Continue"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_qbm81")
+}
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

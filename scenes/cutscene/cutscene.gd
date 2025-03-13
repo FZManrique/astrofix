@@ -7,9 +7,18 @@ var Level1Cutscene: Dictionary[String, Variant] = {
 	max_page = 5,
 	end_scene = "res://scenes/levels/level_1.tscn"
 }
-var Cutscenes := [Level1Cutscene]
+var Level1EndCutscene: Dictionary[String, Variant] = {
+	max_page = 2,
+	end_scene = "res://scenes/cutscene/cutscene.tscn"
+}
+var Level2Cutscene: Dictionary[String, Variant] = {
+	max_page = 6,
+	end_scene = "res://scenes/levels/level_2.tscn"
+}
 
-var current_cutscene_number := DataManager.Cutscene.current_cutscene_number as int
+var Cutscenes := [Level1Cutscene, Level1EndCutscene, Level2Cutscene]
+
+var current_cutscene_number := DataManager.Cutscene.current_cutscene_number as float
 var current_cutscene: Dictionary
 var current_title := 1
 
@@ -21,15 +30,16 @@ var dialogue: Node
 func _ready() -> void:
 	DataManager.Cutscene.cutscene_mode = true
 	
-	current_cutscene = Cutscenes[current_cutscene_number - 1]
+	current_cutscene = Cutscenes[int(current_cutscene_number * 2) - 2]
 	max_page = current_cutscene.max_page
 	
 	cutscene_dialogue = load("res://dialogue/level%s_cutscene.dialogue" % current_cutscene_number)
 	var dialogue_scene := load("res://dialogue/cutscene/balloon.tscn") as PackedScene
 	
-	Music.play_music("res://audio/music/custcene_%s.mp3" % current_cutscene_number)
+	Music.play_music("res://audio/music/cutscene_%s.mp3" % current_cutscene_number)
 	
 	_on_title_changed()
+	texture_rect.texture = load("res://art/cutscenes/scene%s/0%s.png" % [current_cutscene_number, current_title])
 	dialogue = DialogueManager.show_dialogue_balloon_scene(dialogue_scene.instantiate(), cutscene_dialogue, "scene_" + str(current_title))
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
@@ -37,10 +47,11 @@ func _on_dialogue_ended(_resource: DialogueResource) -> void:
 	current_title += 1
 	if (current_title > max_page):
 		DataManager.Cutscene.cutscene_mode = false
+		DataManager.Cutscene.current_cutscene_number += 0.5
 		SceneManager.goto_scene(current_cutscene.end_scene)
 	else:
 		_on_title_changed()
-		texture_rect.texture = load("res://art/cutscenes/level%s/0%s.png" % [current_cutscene_number, current_title])
+		texture_rect.texture = load("res://art/cutscenes/scene%s/0%s.png" % [current_cutscene_number, current_title])
 		var dialogue_scene := load("res://dialogue/cutscene/balloon.tscn") as PackedScene
 		dialogue = DialogueManager.show_dialogue_balloon_scene(dialogue_scene.instantiate(), cutscene_dialogue, "scene_" + str(current_title))
 

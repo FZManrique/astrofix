@@ -123,7 +123,7 @@ stream = ExtResource("3_fsdyp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_nxiuq")
+&"": SubResource("AnimationLibrary_nxiuq")
 }
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

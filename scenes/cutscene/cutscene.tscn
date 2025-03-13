@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdhek4rl2y3y4"]
 
 [ext_resource type="Script" uid="uid://dkvfyisvixygv" path="res://scenes/cutscene/cutscene.gd" id="1_q3bfw"]
-[ext_resource type="Texture2D" uid="uid://dwnxkvorckw6n" path="res://art/cutscenes/level1/01.png" id="2_fwncd"]
+[ext_resource type="Texture2D" uid="uid://dwnxkvorckw6n" path="res://art/cutscenes/scene1.0/01.png" id="2_fwncd"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

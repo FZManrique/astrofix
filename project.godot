@@ -13,6 +13,10 @@ config_version=5
 config/name="Spacebound"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/image="uid://c05osvk4n7mio"
 config/icon="uid://bka43cd7vqfgq"
 
 [autoload]
@@ -24,6 +28,7 @@ GoalManager="*res://scripts/autoloads/goal_manager.gd"
 InventoryManager="*res://scripts/autoloads/inventory_manager.gd"
 OxygenManager="*res://scripts/autoloads/oxygen_manager.gd"
 Settings="*res://scripts/autoloads/settings.gd"
+TransitionManager="*res://scripts/autoloads/transition/transition_manager.tscn"
 Music="*res://scenes/music.tscn"
 
 [debug]
@@ -122,7 +127,7 @@ ui_stop_wind={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/level1.dialogue", "res://dialogue/level1_cutscene.dialogue", "res://dialogue/level2.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/level1.5_cutscene.dialogue", "res://dialogue/level1.dialogue", "res://dialogue/level1.0_cutscene.dialogue", "res://dialogue/level2.dialogue", "res://dialogue/level2.0_cutscene.dialogue")
 
 [rendering]
 

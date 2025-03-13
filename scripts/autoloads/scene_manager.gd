@@ -26,9 +26,9 @@ func _process(_delta: float) -> void:
 	_determine_can_pause()
 
 	if (
-		(DataManager.can_pause &&
-		Input.is_action_just_pressed("ui_pause")) || DataManager.show_instruction_box
+		(DataManager.can_pause && Input.is_action_just_pressed("ui_pause")) || DataManager.show_instruction_box
 	):
+		print("Game paused")
 		on_game_paused.emit()
 		get_tree().paused = true
 	
@@ -59,6 +59,9 @@ func _check_if_main_menu():
 		is_main_menu = false
 
 func goto_scene(path: String) -> void:
+	TransitionManager.transition()
+	await TransitionManager.on_transition_finished
+	
 	_deferred_goto_scene.call_deferred(path)
 
 func _deferred_goto_scene(path: String) -> void:

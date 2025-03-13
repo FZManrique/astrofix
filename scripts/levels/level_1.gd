@@ -17,19 +17,21 @@ func _ready() -> void:
 	)
 	$CanvasLayer/InstructionBox.connect(
 		"instruction_box_dismissed",
-		func():
-			_show_dialoague_box("intro")
+		func() -> void:
+			if (!DataManager.intro_done):
+				DataManager.intro_done = true
+				_show_dialoague_box("intro")
 	)
 	
 	DataManager.show_instruction_box = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (Level1Data.should_move_william_to_ship and (not Level1Data.william_moved_to_ship)):
 		var william = $Characters/William
 		william.global_position = Vector2(1366, 543)
 		Level1Data.william_moved_to_ship = true
 
-func _on_item_added(item, _count) -> void:
+func _on_item_added(item: String, _count: int) -> void:
 	if (item == "key"):
 		$Characters/Key.queue_free()
 	
@@ -68,10 +70,6 @@ func _on_fuel_tank_fuel_collected() -> void:
 	InventoryManager.remove_item_from_inventory("key", 1)
 	InventoryManager.add_item_to_inventory("fuel", 1)
 
-
-func _on_oxygen_tank_oxygen_tank_collected(amount: int) -> void:
-	OxygenManager.add_oxygen(amount)
-
 func _on_oxygen_depleted() -> void:
 	Music.stop_music()
 	$FailSFX.play()
@@ -87,7 +85,7 @@ func _show_dialoague_box(key: String) -> void:
 
 #region Functions
 func _go_to_level_2(_pass) -> void:
-	SceneManager.goto_scene("res://scenes/levels/level_2.tscn")
+	SceneManager.goto_scene("res://scenes/cutscene/cutscene.tscn")
 
 func _restart(_pass) -> void:
 	InventoryManager._clear_inventory()

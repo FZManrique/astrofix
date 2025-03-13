@@ -39,13 +39,13 @@ func _physics_process(delta: float):
 	var wind_speed = DataManager.Level2.wind_speed
 	if (DataManager.Level2.wind_push):
 		match DataManager.Level2.wind_direction:
-			wind_direction.TOP:
-				direction_resistance = Vector2(0, -wind_speed)
-			wind_direction.BOTTOM:
+			wind_direction.TO_TOP:
 				direction_resistance = Vector2(0, wind_speed)
-			wind_direction.LEFT:
+			wind_direction.TO_BOTTOM:
+				direction_resistance = Vector2(0, -wind_speed)
+			wind_direction.TO_LEFT:
 				direction_resistance = Vector2(-wind_speed, 0)
-			wind_direction.RIGHT:
+			wind_direction.TO_RIGHT:
 				direction_resistance = Vector2(wind_speed, 0)
 	
 	var movement := (speed * direction * delta) as Vector2

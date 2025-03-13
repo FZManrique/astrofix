@@ -115,8 +115,14 @@ func apply_dialogue_line() -> void:
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
 	
-	var texture := load("res://art/characters/%s/full_scale_%s.png" % [dialogue_line.character.to_lower(), emotion]) as Texture2D
+	var character := dialogue_line.character.to_lower()
+	var texture := load("res://art/characters/%s/full_scale_%s.png" % [character, emotion]) as Texture2D
 	dialogue_art.texture = texture
+	
+	if character == "franzen albert ii":
+		dialogue_art.position = Vector2(106.0, 420)
+	else:
+		dialogue_art.position = Vector2(164.0, 420)
 	
 	#
 	# New changes end

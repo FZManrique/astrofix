@@ -437,6 +437,8 @@ player_node = NodePath("../../Characters/Player")
 
 [node name="InstructionBox" parent="CanvasLayer" instance=ExtResource("6_np2pn")]
 visible = false
+title = "Level 1 Objectives"
+objectives = "Explore Neptune's moon to find fuel to refuel the ship"
 
 [node name="FailSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_gyx1q")
@@ -598,8 +600,3 @@ position = Vector2(187, 59)
 [connection signal="body_entered" from="Characters/Maze Start" to="." method="_on_maze_start_body_entered"]
 [connection signal="body_entered" from="Characters/Key" to="." method="_on_key_body_entered"]
 [connection signal="body_entered" from="Characters/Spaceship" to="." method="_on_spaceship_body_entered"]
-[connection signal="oxygen_tank_collected" from="Oxygen/Oxygen Tank" to="." method="_on_oxygen_tank_oxygen_tank_collected"]
-[connection signal="oxygen_tank_collected" from="Oxygen/Oxygen Tank2" to="." method="_on_oxygen_tank_oxygen_tank_collected"]
-[connection signal="oxygen_tank_collected" from="Oxygen/Oxygen Tank3" to="." method="_on_oxygen_tank_oxygen_tank_collected"]
-[connection signal="oxygen_tank_collected" from="Oxygen/Oxygen Tank4" to="." method="_on_oxygen_tank_oxygen_tank_collected"]
-[connection signal="oxygen_tank_collected" from="Oxygen/Oxygen Tank5" to="." method="_on_oxygen_tank_oxygen_tank_collected"]

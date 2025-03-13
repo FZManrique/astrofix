@@ -7,8 +7,6 @@ extends Control
 @export var settings_scene: PackedScene
 
 func _ready() -> void:
-	if OS.has_feature('web'):
-		$Home/Quit.visible = false
 	Music.play_music("res://audio/music/main_menu.wav")
 
 func _on_start_pressed() -> void:
@@ -28,4 +26,7 @@ func _on_back_pressed() -> void:
 	start.grab_focus()
 
 func _on_quit_pressed() -> void:
+	if OS.has_feature('web'):
+		get_tree().root.visible = false
+		
 	get_tree().quit() 
