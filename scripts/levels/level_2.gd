@@ -1,6 +1,6 @@
 extends Node2D
 
-var dialog = load("res://dialogue/level2.dialogue")
+var dialog = load("res://dialogue/level_2.dialogue")
 
 func _ready() -> void:
 	Music.play_music("res://audio/music/level_2.mp3", 100.0)
@@ -10,7 +10,7 @@ func _ready() -> void:
 	OxygenManager.oxygen_depleted.connect(
 		func():
 			Music.stop_music()
-			DialogueManager.show_dialogue_balloon(load("res://dialogue/level1.dialogue"), "failed")
+			DialogueManager.show_dialogue_balloon(load("res://dialogue/level_1.dialogue"), "failed")
 			DialogueManager.dialogue_ended.connect(
 				func(_noop):
 					InventoryManager._clear_inventory()

@@ -15,6 +15,7 @@ var Cutscene := {
 }
 
 var Level1 := {
+	has_hit_spikes = false,
 	has_key = false,
 	has_fuel = false,
 	should_move_william_to_ship = false,

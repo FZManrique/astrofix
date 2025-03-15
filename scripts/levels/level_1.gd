@@ -1,7 +1,7 @@
 extends Node2D
 
-var dialog = load("res://dialogue/level1.dialogue")
-var Level1Data = DataManager.Level1
+var dialog: Resource = load("res://dialogue/level_1.dialogue")
+var Level1Data := DataManager.Level1
 
 @onready var player: CharacterBody2D = $Characters/Player
 @onready var maze_start: Area2D = $"Characters/Maze Start"
@@ -27,7 +27,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if (Level1Data.should_move_william_to_ship and (not Level1Data.william_moved_to_ship)):
-		var william = $Characters/William
+		var william: Node2D = $Characters/William as Node2D
 		william.global_position = Vector2(1366, 543)
 		Level1Data.william_moved_to_ship = true
 

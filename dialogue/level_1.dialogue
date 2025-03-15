@@ -52,6 +52,10 @@ Player: I finally have a fuel tank! Now, I just need to refuel the ship.
 Level complete. Press Enter to exit the game.
 => END
 
+~ hit_spikes
+Player: Ouch! That hurt. Looks like that caused some of my oxygen to leak out. I should be more careful...
+=> END!
+
 ~ failed
 You ran out of oxygen! Press "ENTER" to restart the level.
 => END
