@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fedl2ysypn7l"
-path="res://.godot/imported/red.png-88d3141460e48f500d2560f017f9e91d.ctex"
+uid="uid://qo1np2gqp70s"
+path="res://.godot/imported/star.png-00c7e7e43d1531f9cc5a85ca438691e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/level2minigame/red.png"
-dest_files=["res://.godot/imported/red.png-88d3141460e48f500d2560f017f9e91d.ctex"]
+source_file="res://art/level_1_decorations/particles/star.png"
+dest_files=["res://.godot/imported/star.png-00c7e7e43d1531f9cc5a85ca438691e7.ctex"]
 
 [params]
 

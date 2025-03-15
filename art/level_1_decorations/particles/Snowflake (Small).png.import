@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o7nm21x76xv"
-path="res://.godot/imported/icicle_1.png-965b80f8902297ee937bc825fe6fe2fb.ctex"
+uid="uid://c35tg5egy433i"
+path="res://.godot/imported/Snowflake (Small).png-301ff20e5d22363cc7f4d5ef1641b3bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/objects/icicle_1.png"
-dest_files=["res://.godot/imported/icicle_1.png-965b80f8902297ee937bc825fe6fe2fb.ctex"]
+source_file="res://art/level_1_decorations/particles/Snowflake (Small).png"
+dest_files=["res://.godot/imported/Snowflake (Small).png-301ff20e5d22363cc7f4d5ef1641b3bc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qo1np2gqp70s"
-path="res://.godot/imported/star.png-bc629e1f50d53a98d212c2e4c2f6372e.ctex"
+uid="uid://dg4d7s62ug18l"
+path="res://.godot/imported/Snowball.png-5575c192e8e3be47085073403b1d376c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/objects/star.png"
-dest_files=["res://.godot/imported/star.png-bc629e1f50d53a98d212c2e4c2f6372e.ctex"]
+source_file="res://art/level_1_decorations/particles/Snowball.png"
+dest_files=["res://.godot/imported/Snowball.png-5575c192e8e3be47085073403b1d376c.ctex"]
 
 [params]
 

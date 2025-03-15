@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tpat4n67kgig"
-path="res://.godot/imported/yellow.png-e5bad3f02358cfb9a750ec1a99a15cbd.ctex"
+uid="uid://dy0b7xcvj8xuj"
+path="res://.godot/imported/snow_pile_1.png-4becda88615f2761d426ab4b80396270.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/level2minigame/yellow.png"
-dest_files=["res://.godot/imported/yellow.png-e5bad3f02358cfb9a750ec1a99a15cbd.ctex"]
+source_file="res://art/level_1_decorations/snow_pile_1.png"
+dest_files=["res://.godot/imported/snow_pile_1.png-4becda88615f2761d426ab4b80396270.ctex"]
 
 [params]
 

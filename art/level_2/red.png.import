@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlp23wj6hs74g"
-path="res://.godot/imported/icicle_2.png-1e1574939cbbb05babbeb02a444cffdf.ctex"
+uid="uid://fedl2ysypn7l"
+path="res://.godot/imported/red.png-bbfffd1e63e3b3945a0681ce2656d133.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/objects/icicle_2.png"
-dest_files=["res://.godot/imported/icicle_2.png-1e1574939cbbb05babbeb02a444cffdf.ctex"]
+source_file="res://art/level_2/red.png"
+dest_files=["res://.godot/imported/red.png-bbfffd1e63e3b3945a0681ce2656d133.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dahxsu5m7wxmk"
-path="res://.godot/imported/snowflake.png-7dc60a74e22c03dbd69bb6f247fb7970.ctex"
+uid="uid://dxcg01gg4b3h2"
+path="res://.godot/imported/green.png-55bf39104bca8b178ae5bddbd41168f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/objects/snowflake.png"
-dest_files=["res://.godot/imported/snowflake.png-7dc60a74e22c03dbd69bb6f247fb7970.ctex"]
+source_file="res://art/level_2/green.png"
+dest_files=["res://.godot/imported/green.png-55bf39104bca8b178ae5bddbd41168f4.ctex"]
 
 [params]
 

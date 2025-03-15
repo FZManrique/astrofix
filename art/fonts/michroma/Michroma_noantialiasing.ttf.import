@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dt85bs8gvactq"
-path="res://.godot/imported/Michroma_noantialiasing.ttf-9b237c4f363c22852678de42f81e4d76.fontdata"
+path="res://.godot/imported/Michroma_noantialiasing.ttf-81840181a77bee31630335bbad2d29ab.fontdata"
 
 [deps]
 
-source_file="res://art/fonts/Michroma_noantialiasing.ttf"
-dest_files=["res://.godot/imported/Michroma_noantialiasing.ttf-9b237c4f363c22852678de42f81e4d76.fontdata"]
+source_file="res://art/fonts/michroma/Michroma_noantialiasing.ttf"
+dest_files=["res://.godot/imported/Michroma_noantialiasing.ttf-81840181a77bee31630335bbad2d29ab.fontdata"]
 
 [params]
 
