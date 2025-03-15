@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwsdbokixgokd"
-path="res://.godot/imported/keyboard_enter.png-b1f336ebfd032c8a6d2f18f4ce775e2c.ctex"
+uid="uid://dpnqo687atcf1"
+path="res://.godot/imported/keyboard_shift.png-76c9a367525f448e39297c1057a282fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/keys/keyboard_enter.png"
-dest_files=["res://.godot/imported/keyboard_enter.png-b1f336ebfd032c8a6d2f18f4ce775e2c.ctex"]
+source_file="res://art/keyboard_keys/keyboard_shift.png"
+dest_files=["res://.godot/imported/keyboard_shift.png-76c9a367525f448e39297c1057a282fa.ctex"]
 
 [params]
 

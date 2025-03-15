@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://b2i1lxoxv3ksn"]
 
 [ext_resource type="Script" uid="uid://cb3hbxr53uxf6" path="res://scripts/screens/instruction_box.gd" id="1_v0dds"]
-[ext_resource type="Texture2D" uid="uid://6grf7dg04ty7" path="res://art/keys/keyboard_w.png" id="3_iii46"]
-[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/dialogue_box_panel_style.tres" id="3_sl1dh"]
-[ext_resource type="Texture2D" uid="uid://drb7m0s3fqeh0" path="res://art/keys/keyboard_a.png" id="4_8t7pd"]
-[ext_resource type="Texture2D" uid="uid://caoktr5tfbleg" path="res://art/keys/keyboard_s.png" id="5_qbm81"]
-[ext_resource type="Texture2D" uid="uid://cdna42g4wfui8" path="res://art/keys/keyboard_d.png" id="6_j5bq2"]
-[ext_resource type="Texture2D" uid="uid://dpnqo687atcf1" path="res://art/keys/keyboard_shift.png" id="7_wo7mk"]
-[ext_resource type="Texture2D" uid="uid://bwsdbokixgokd" path="res://art/keys/keyboard_enter.png" id="8_xlvix"]
+[ext_resource type="Texture2D" uid="uid://6grf7dg04ty7" path="res://art/keyboard_keys/keyboard_w.png" id="3_iii46"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="3_sl1dh"]
+[ext_resource type="Texture2D" uid="uid://drb7m0s3fqeh0" path="res://art/keyboard_keys/keyboard_a.png" id="4_8t7pd"]
+[ext_resource type="Texture2D" uid="uid://caoktr5tfbleg" path="res://art/keyboard_keys/keyboard_s.png" id="5_qbm81"]
+[ext_resource type="Texture2D" uid="uid://cdna42g4wfui8" path="res://art/keyboard_keys/keyboard_d.png" id="6_j5bq2"]
+[ext_resource type="Texture2D" uid="uid://dpnqo687atcf1" path="res://art/keyboard_keys/keyboard_shift.png" id="7_wo7mk"]
+[ext_resource type="Texture2D" uid="uid://bwsdbokixgokd" path="res://art/keyboard_keys/keyboard_enter.png" id="8_xlvix"]
 
 [sub_resource type="Animation" id="Animation_8t7pd"]
 length = 0.001

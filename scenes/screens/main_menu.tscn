@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://08ciy8ubik8d" path="res://art/logos/wordmark.png" id="1_qkq8o"]
 [ext_resource type="Texture2D" uid="uid://b6i4ase0dfag4" path="res://art/logos/background_art.jpg" id="3_nhlv2"]
 [ext_resource type="PackedScene" uid="uid://blw2il8y53057" path="res://scenes/screens/settings.tscn" id="3_yemjg"]
-[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/dialogue_box_panel_style.tres" id="5_pi5vp"]
-[ext_resource type="Texture2D" uid="uid://6grf7dg04ty7" path="res://art/keys/keyboard_w.png" id="6_gqnmn"]
-[ext_resource type="Texture2D" uid="uid://drb7m0s3fqeh0" path="res://art/keys/keyboard_a.png" id="7_31k40"]
-[ext_resource type="Texture2D" uid="uid://caoktr5tfbleg" path="res://art/keys/keyboard_s.png" id="8_wnyi3"]
-[ext_resource type="Texture2D" uid="uid://cdna42g4wfui8" path="res://art/keys/keyboard_d.png" id="9_4iv2k"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="5_pi5vp"]
+[ext_resource type="Texture2D" uid="uid://6grf7dg04ty7" path="res://art/keyboard_keys/keyboard_w.png" id="6_gqnmn"]
+[ext_resource type="Texture2D" uid="uid://drb7m0s3fqeh0" path="res://art/keyboard_keys/keyboard_a.png" id="7_31k40"]
+[ext_resource type="Texture2D" uid="uid://caoktr5tfbleg" path="res://art/keyboard_keys/keyboard_s.png" id="8_wnyi3"]
+[ext_resource type="Texture2D" uid="uid://cdna42g4wfui8" path="res://art/keyboard_keys/keyboard_d.png" id="9_4iv2k"]
 
 [sub_resource type="Gradient" id="Gradient_s2tqw"]
 offsets = PackedFloat32Array(0, 0.861446, 1)

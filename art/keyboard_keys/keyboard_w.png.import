@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drb7m0s3fqeh0"
-path="res://.godot/imported/keyboard_a.png-aeb314e809a11353a0460f983205942b.ctex"
+uid="uid://6grf7dg04ty7"
+path="res://.godot/imported/keyboard_w.png-85496eeeb8f2cecb8b2d834ab74ea5dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/keys/keyboard_a.png"
-dest_files=["res://.godot/imported/keyboard_a.png-aeb314e809a11353a0460f983205942b.ctex"]
+source_file="res://art/keyboard_keys/keyboard_w.png"
+dest_files=["res://.godot/imported/keyboard_w.png-85496eeeb8f2cecb8b2d834ab74ea5dd.ctex"]
 
 [params]
 

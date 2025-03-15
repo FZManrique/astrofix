@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwg0gtret80ii" path="res://scripts/screens/pause_menu.gd" id="2_n7xwq"]
 [ext_resource type="PackedScene" uid="uid://blw2il8y53057" path="res://scenes/screens/settings.tscn" id="3_sqmrj"]
-[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/dialogue_box_panel_style.tres" id="3_str4n"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="3_str4n"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2

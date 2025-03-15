@@ -1,14 +1,14 @@
 [gd_scene load_steps=25 format=3 uid="uid://weu6sfdmw8bi"]
 
 [ext_resource type="Texture2D" uid="uid://c2846miokddta" path="res://art/minimap_frame_background.png" id="1_3c3hu"]
-[ext_resource type="PackedScene" uid="uid://cbs0wcicdlqx4" path="res://scenes/screens/backpack.tscn" id="1_bm7tn"]
-[ext_resource type="Script" uid="uid://b0l5ye8xr6rai" path="res://scripts/gui_stuff.gd" id="1_r8hx2"]
-[ext_resource type="Script" uid="uid://cin2dpm0tt7vf" path="res://scripts/goal.gd" id="2_nb78m"]
+[ext_resource type="Script" uid="uid://b0l5ye8xr6rai" path="res://scripts/screens/gui/gui.gd" id="1_r8hx2"]
+[ext_resource type="Script" uid="uid://cin2dpm0tt7vf" path="res://scripts/screens/gui/goal_label.gd" id="2_nb78m"]
 [ext_resource type="Texture2D" uid="uid://bax0plxf3berh" path="res://art/objects/oxygen_tank.png" id="3_35gt1"]
-[ext_resource type="StyleBox" uid="uid://bwu6otk0ix2e8" path="res://scenes/themes/button_menu_items.tres" id="4_3c3hu"]
-[ext_resource type="Script" uid="uid://bkbidfr0e1yik" path="res://scripts/oxygen_label.gd" id="4_v7qov"]
+[ext_resource type="StyleBox" uid="uid://bwu6otk0ix2e8" path="res://scenes/themes/blue_background_round.tres" id="4_3c3hu"]
+[ext_resource type="Script" uid="uid://bkbidfr0e1yik" path="res://scripts/screens/gui/oxygen_label.gd" id="4_v7qov"]
 [ext_resource type="StyleBox" uid="uid://bwihykju6d303" path="res://scenes/themes/progress_bar/progress_blue.tres" id="5_3c3hu"]
 [ext_resource type="PackedScene" uid="uid://qy24io0fo1jn" path="res://scenes/screens/pause_menu.tscn" id="5_ou7me"]
+[ext_resource type="Script" uid="uid://dfpavdprge8rb" path="res://scripts/screens/backpack.gd" id="8_3c3hu"]
 
 [sub_resource type="Gradient" id="Gradient_meext"]
 offsets = PackedFloat32Array(0, 0.861446, 1)
@@ -57,7 +57,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r8hx2")
-camera_node = NodePath("Control/PanelContainer/SubViewportContainer/SubViewport/Camera2D")
+camera_node = NodePath("MapAndGoals/MapContainer/SubViewportContainer/SubViewport/Camera2D")
 metadata/_edit_lock_ = true
 metadata/_edit_horizontal_guides_ = [8.0]
 
@@ -71,43 +71,38 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_x7e8x")
 
-[node name="Control" type="VBoxContainer" parent="."]
+[node name="MapAndGoals" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 156.0
 offset_bottom = 192.0
 
-[node name="PanelContainer" type="PanelContainer" parent="Control"]
+[node name="MapContainer" type="PanelContainer" parent="MapAndGoals"]
 clip_children = 1
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_kbcxk")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Control/PanelContainer"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MapAndGoals/MapContainer"]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="Control/PanelContainer/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="MapAndGoals/MapContainer/SubViewportContainer"]
 unique_name_in_owner = true
 disable_3d = true
 handle_input_locally = false
 size = Vector2i(140, 140)
 render_target_update_mode = 4
 
-[node name="Camera2D" type="Camera2D" parent="Control/PanelContainer/SubViewportContainer/SubViewport"]
+[node name="Camera2D" type="Camera2D" parent="MapAndGoals/MapContainer/SubViewportContainer/SubViewport"]
 zoom = Vector2(0.5, 0.5)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="GoalContainer" type="BoxContainer" parent="MapAndGoals"]
 layout_mode = 2
 size_flags_horizontal = 0
 tooltip_text = "The current objective you need to complete. Complete all goals to proceed to the next level..."
 
-[node name="Background" type="BoxContainer" parent="Control/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Goal" type="Label" parent="Control/HBoxContainer/Background"]
+[node name="Goal" type="Label" parent="MapAndGoals/GoalContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "No goals"
@@ -115,7 +110,7 @@ label_settings = SubResource("LabelSettings_3c3hu")
 horizontal_alignment = 1
 script = ExtResource("2_nb78m")
 
-[node name="RightSide" type="HBoxContainer" parent="."]
+[node name="Statistics" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -126,24 +121,24 @@ offset_right = -16.0
 offset_bottom = 76.0
 grow_horizontal = 0
 
-[node name="OxygenContainer" type="HBoxContainer" parent="RightSide"]
+[node name="OxygenContainer" type="HBoxContainer" parent="Statistics"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.6
 
-[node name="AspectRatioContainer" type="BoxContainer" parent="RightSide/OxygenContainer"]
+[node name="AspectRatioContainer" type="BoxContainer" parent="Statistics/OxygenContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 tooltip_text = "Oxygen level - when it becomes zero, you lose."
 
-[node name="Label" type="Label" parent="RightSide/OxygenContainer/AspectRatioContainer"]
+[node name="Label" type="Label" parent="Statistics/OxygenContainer/AspectRatioContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 8
 text = "              "
 
-[node name="ProgressBar" type="ProgressBar" parent="RightSide/OxygenContainer/AspectRatioContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="Statistics/OxygenContainer/AspectRatioContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -155,26 +150,28 @@ value = 60.0
 show_percentage = false
 script = ExtResource("4_v7qov")
 
-[node name="Sprite2D" type="Sprite2D" parent="RightSide/OxygenContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="Statistics/OxygenContainer"]
 texture_filter = 1
 position = Vector2(33, 31)
 scale = Vector2(1.5375, 1.5375)
 texture = ExtResource("3_35gt1")
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="RightSide"]
+[node name="HelpContainer" type="AspectRatioContainer" parent="Statistics"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="RightSide/AspectRatioContainer"]
+[node name="HelpLabel" type="PanelContainer" parent="Statistics/HelpContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_3c3hu")
 
-[node name="Label" type="Label" parent="RightSide/AspectRatioContainer/PanelContainer"]
+[node name="Label" type="Label" parent="Statistics/HelpContainer/HelpLabel"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 19
-text = "   ?   "
+text = "?"
 horizontal_alignment = 1
 
-[node name="HelpButton" type="Button" parent="RightSide/AspectRatioContainer"]
+[node name="HelpButton" type="Button" parent="Statistics/HelpContainer"]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3c3hu")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_r8hx2")
@@ -188,9 +185,17 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_uxr3u")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_0ucdh")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2yb1h")
 
-[node name="Backpack" parent="RightSide" instance=ExtResource("1_bm7tn")]
+[node name="BackpackContainer" type="AspectRatioContainer" parent="Statistics"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-size_flags_stretch_ratio = 0.1
+
+[node name="Backpack" type="PanelContainer" parent="Statistics/BackpackContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3c3hu")
+script = ExtResource("8_3c3hu")
+
+[node name="TextureRect" type="TextureRect" parent="Statistics/BackpackContainer/Backpack"]
+layout_mode = 2
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_ou7me")]
 visible = false
@@ -199,4 +204,4 @@ metadata/_edit_lock_ = true
 
 [node name="Screen" type="CanvasLayer" parent="."]
 
-[connection signal="pressed" from="RightSide/AspectRatioContainer/HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="Statistics/HelpContainer/HelpButton" to="." method="_on_help_button_pressed"]
