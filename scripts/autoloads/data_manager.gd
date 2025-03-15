@@ -10,8 +10,8 @@ var show_instruction_box := false
 var intro_done := false
 
 var Cutscene := {
-	cutscene_mode = false,
 	current_cutscene_number = 1,
+	is_end_mode = false
 }
 
 var Level1 := {

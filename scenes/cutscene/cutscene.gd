@@ -1,85 +1,112 @@
 extends Control
 
+class CutsceneData:
+	var max_page: int
+	var end_scene: String
+	
+	func _init(max_page: int, end_scene: String) -> void:
+		self.max_page = max_page
+		self.end_scene = end_scene
+
+enum CutsceneNames {
+	LEVEL_1,
+	LEVEL_1_END,
+	LEVEL_2
+}
+
+var Cutscenes: Dictionary[CutsceneNames, CutsceneData] = {
+	CutsceneNames.LEVEL_1: CutsceneData.new(5, "res://scenes/levels/level_1.tscn"),
+	CutsceneNames.LEVEL_1_END: CutsceneData.new(2, "res://scenes/levels/cutscene.tscn"),
+	CutsceneNames.LEVEL_2: CutsceneData.new(6, "res://scenes/levels/level_2.tscn")
+}
+
+var audio_map: Dictionary[int, Dictionary] = {
+	CutsceneNames.LEVEL_1: {
+		1: "res://audio/sfx/ambience/ceiling_fan.mp3",
+		2: "res://audio/sfx/ambience/footsteps.mp3",
+		3: "res://audio/sfx/door_open.mp3",
+		4: "res://audio/sfx/ambience/flickering_lights.mp3"
+	}
+}
+
 var cutscene_dialogue: Resource
-var max_page: int
+var current_cutscene_number: int:
+	get:
+		return DataManager.Cutscene.current_cutscene_number
+	set(value):
+		DataManager.Cutscene.current_cutscene_number = value
 
-var Level1Cutscene: Dictionary[String, Variant] = {
-	max_page = 5,
-	end_scene = "res://scenes/levels/level_1.tscn"
-}
-var Level1EndCutscene: Dictionary[String, Variant] = {
-	max_page = 2,
-	end_scene = "res://scenes/cutscene/cutscene.tscn"
-}
-var Level2Cutscene: Dictionary[String, Variant] = {
-	max_page = 6,
-	end_scene = "res://scenes/levels/level_2.tscn"
-}
-
-var Cutscenes := [Level1Cutscene, Level1EndCutscene, Level2Cutscene]
-
-var current_cutscene_number := DataManager.Cutscene.current_cutscene_number as float
-var current_cutscene: Dictionary
+var cutscene_data: CutsceneData
 var current_title := 1
+
+var is_end_mode: bool:
+	set(value):
+		DataManager.Cutscene.is_end_mode = value
+	get:
+		return DataManager.Cutscene.is_end_mode
 
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
-var dialogue: Node
+var dialogue_node: CutsceneDialogueBalloon
+var dialogue_scene: PackedScene
+var data_index: int = 1
 
 func _ready() -> void:
-	DataManager.Cutscene.cutscene_mode = true
+	data_index = current_cutscene_number - 1 
+	if (is_end_mode):
+		data_index += 1
 	
-	current_cutscene = Cutscenes[int(current_cutscene_number * 2) - 2]
-	max_page = current_cutscene.max_page
+	cutscene_data = Cutscenes.get(data_index)
+	cutscene_dialogue = load("res://dialogue/level_%s_cutscene.dialogue" % get_cutscene_item())
 	
-	cutscene_dialogue = load("res://dialogue/level%s_cutscene.dialogue" % current_cutscene_number)
-	var dialogue_scene := load("res://dialogue/cutscene/balloon.tscn") as PackedScene
-	
-	Music.play_music("res://audio/music/cutscene_%s.mp3" % current_cutscene_number)
+	dialogue_scene = load("res://dialogue/cutscene_dialogue/cutscene_dialogue.tscn") as PackedScene
+	Music.play_music("res://audio/music/cutscene_%s.mp3" % get_cutscene_item())
 	
 	_on_title_changed()
-	texture_rect.texture = load("res://art/cutscenes/scene%s/0%s.png" % [current_cutscene_number, current_title])
-	dialogue = DialogueManager.show_dialogue_balloon_scene(dialogue_scene.instantiate(), cutscene_dialogue, "scene_" + str(current_title))
-	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+	_show_scene()
 
 func _on_dialogue_ended(_resource: DialogueResource) -> void:
 	current_title += 1
-	if (current_title > max_page):
-		DataManager.Cutscene.cutscene_mode = false
-		DataManager.Cutscene.current_cutscene_number += 0.5
-		SceneManager.goto_scene(current_cutscene.end_scene)
+	if (current_title > cutscene_data.max_page):
+		if (is_end_mode):
+			is_end_mode = false
+			current_cutscene_number += 1
+		else:
+			is_end_mode = true
+		SceneManager.goto_scene(cutscene_data.end_scene)
 	else:
 		_on_title_changed()
-		texture_rect.texture = load("res://art/cutscenes/scene%s/0%s.png" % [current_cutscene_number, current_title])
-		var dialogue_scene := load("res://dialogue/cutscene/balloon.tscn") as PackedScene
-		dialogue = DialogueManager.show_dialogue_balloon_scene(dialogue_scene.instantiate(), cutscene_dialogue, "scene_" + str(current_title))
+		_show_scene()
 
+func get_cutscene_item() -> String:
+	var suffix: String = ""
+	
+	if (is_end_mode):
+		suffix = "_end"
+	
+	return str(current_cutscene_number) + suffix
+
+func _show_scene() -> void:
+	texture_rect.texture = load("res://art/cutscenes/scene%s/0%s.png" % [get_cutscene_item(), current_title])
+	dialogue_node = DialogueManager.show_dialogue_balloon_scene(dialogue_scene.instantiate(), cutscene_dialogue, "scene_" + str(current_title))
+	DialogueManager.dialogue_ended.connect(
+		_on_dialogue_ended
+	)
 
 func _on_title_changed() -> void:
 	$Timer.stop()
 	$Timer.start()
-	# stop audio 
+	# stop audio
 	audio_stream_player.stop()
-	match current_cutscene_number:
-		1:
-			match current_title:
-				1:
-					audio_stream_player.stream = load("res://audio/sfx/ambience/ceiling_fan.mp3")
-					audio_stream_player.play()
-				2:
-					audio_stream_player.stream = load("res://audio/sfx/ambience/footsteps.mp3")
-					audio_stream_player.play()
-				3:
-					audio_stream_player.stream = load("res://audio/sfx/door_open.mp3")
-					audio_stream_player.play()
-				4:
-					audio_stream_player.stream = load("res://audio/sfx/ambience/flickering_lights.mp3")
-					audio_stream_player.play()
+	
+	if audio_map.has(data_index) and audio_map[data_index].has(current_title):
+		audio_stream_player.stream = load(audio_map[data_index][current_title])
+		audio_stream_player.play()
 
 
 func _on_timer_timeout() -> void:
-	var menu := dialogue.get_node("Balloon/Panel/Dialogue/Responses/ResponsesMenu") as DialogueResponsesMenu
-	var button := menu.get_child(0) as Button
-	button.set_pressed(true)
-	$Timer.start()
+	if is_instance_valid(dialogue_node):
+		dialogue_node.dialogue_line = null
+		_on_dialogue_ended(null)
+		$Timer.start()

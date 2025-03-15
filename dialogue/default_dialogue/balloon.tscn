@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd4vwcuy51155"]
+[gd_scene load_steps=8 format=3 uid="uid://b6hsdi36h738w"]
 
-[ext_resource type="Script" uid="uid://b4vd7alk2en7j" path="res://dialogue/cutscene/cutscene.gd" id="1_tfybk"]
-[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="2_5hgyo"]
-[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="3_s6ubk"]
-[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="4_k5fr2"]
+[ext_resource type="Script" uid="uid://dxicc7skvvdyf" path="res://dialogue/default_dialogue/balloon.gd" id="1_t3c2s"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="2_t3c2s"]
+[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="Texture2D" uid="uid://dgmyjowdi2r7x" path="res://art/characters/franzen albert ii/full_scale_normal.png" id="5_t3c2s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ev38r"]
 
@@ -11,7 +12,7 @@
 
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
-script = ExtResource("1_tfybk")
+script = ExtResource("1_t3c2s")
 
 [node name="Balloon" type="Control" parent="."]
 unique_name_in_owner = true
@@ -23,19 +24,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="Balloon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12549, 0.12549, 0.12549, 0.666667)
+
 [node name="Panel" type="Panel" parent="Balloon"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 61.0
+offset_left = 306.0
 offset_top = -242.0
 offset_right = -46.0
 offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/panel = ExtResource("2_5hgyo")
+theme_override_styles/panel = ExtResource("2_t3c2s")
 
 [node name="Dialogue" type="MarginContainer" parent="Balloon/Panel"]
 layout_mode = 1
@@ -56,18 +66,16 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.43899, 0.617232, 1, 1)
-theme_override_font_sizes/normal_font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ev38r")
 bbcode_enabled = true
 text = "Character"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="Balloon/Panel/Dialogue/VBoxContainer" instance=ExtResource("3_s6ubk")]
+[node name="DialogueLabel" parent="Balloon/Panel/Dialogue/VBoxContainer" instance=ExtResource("2_a8ve6")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mtrtb")
 text = "Dialogue here."
 
@@ -80,15 +88,32 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 2
-script = ExtResource("4_k5fr2")
+script = ExtResource("3_72ixx")
 response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/Panel/Dialogue/Responses/ResponsesMenu"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"FlatButton"
-theme_override_font_sizes/font_size = 20
 text = "Response Example"
+
+[node name="Label" type="Label" parent="Balloon/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -225.0
+offset_bottom = 34.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 10
+text = "Enter to accept, Esc to skip typing"
+
+[node name="Art" type="Sprite2D" parent="Balloon"]
+texture_filter = 1
+position = Vector2(106, 431)
+scale = Vector2(3, 3)
+texture = ExtResource("5_t3c2s")
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/Panel/Dialogue/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
