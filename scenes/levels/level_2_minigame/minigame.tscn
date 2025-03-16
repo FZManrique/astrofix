@@ -19,7 +19,7 @@ content_margin_left = 16.0
 content_margin_top = 8.0
 content_margin_right = 16.0
 content_margin_bottom = 8.0
-bg_color = Color(0, 0, 0, 0.670588)
+bg_color = Color(0, 0.0191304, 0.1, 0.670588)
 corner_radius_top_left = 24
 corner_radius_top_right = 24
 corner_radius_bottom_right = 24
@@ -171,12 +171,12 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
 theme_override_font_sizes/font_size = 24
-text = "Objective: Fix the spacesuit"
+text = "Fix the spacesuit"
 horizontal_alignment = 1
 
 [node name="Description" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Click the buttons that correspond to the correct sequence."
+text = "Click the buttons that correspond to the color sequence."
 horizontal_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]

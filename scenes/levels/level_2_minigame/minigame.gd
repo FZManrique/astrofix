@@ -34,7 +34,6 @@ var colors: Dictionary[String, Texture2D] = {
 }
 
 func _ready() -> void:
-	Music.stop_music()
 	%Continue.disabled = true
 	is_game_active = true
 	generate_color_sequence()
