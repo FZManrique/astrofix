@@ -16,7 +16,7 @@ enum CutsceneNames {
 
 var Cutscenes: Dictionary[CutsceneNames, CutsceneData] = {
 	CutsceneNames.LEVEL_1: CutsceneData.new(5, "res://scenes/levels/level_1.tscn"),
-	CutsceneNames.LEVEL_1_END: CutsceneData.new(2, "res://scenes/levels/cutscene.tscn"),
+	CutsceneNames.LEVEL_1_END: CutsceneData.new(2, "res://scenes/cutscene/cutscene.tscn"),
 	CutsceneNames.LEVEL_2: CutsceneData.new(6, "res://scenes/levels/level_2.tscn")
 }
 
@@ -65,6 +65,9 @@ func _ready() -> void:
 	
 	_on_title_changed()
 	_show_scene()
+	DialogueManager.dialogue_ended.connect(
+		_on_dialogue_ended
+	)
 
 func _on_dialogue_ended(_resource: DialogueResource) -> void:
 	current_title += 1
@@ -90,9 +93,6 @@ func get_cutscene_item() -> String:
 func _show_scene() -> void:
 	texture_rect.texture = load("res://art/cutscenes/scene%s/0%s.png" % [get_cutscene_item(), current_title])
 	dialogue_node = DialogueManager.show_dialogue_balloon_scene(dialogue_scene.instantiate(), cutscene_dialogue, "scene_" + str(current_title))
-	DialogueManager.dialogue_ended.connect(
-		_on_dialogue_ended
-	)
 
 func _on_title_changed() -> void:
 	$Timer.stop()

@@ -22,12 +22,12 @@ func _on_timer_timeout() -> void:
 	_current_level -= DECREASE_RATE
 	_update_oxygen_status(_current_level)
 
-func _update_oxygen_status(current_level: int) -> void:
-	if (_current_level == 0):
+func _update_oxygen_status(current_level: int = _current_level) -> void:
+	if (current_level == 0):
 		oxygen_depleted.emit()
-	elif (_current_level <= 15):
+	elif (current_level <= 15):
 		oxygen_status_changed.emit(OXYGEN_STATUS.LOW)
-	elif (_current_level <= 30):
+	elif (current_level <= 30):
 		oxygen_status_changed.emit(OXYGEN_STATUS.WARN)
 	else:
 		oxygen_status_changed.emit(OXYGEN_STATUS.NORMAL)

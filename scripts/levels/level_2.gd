@@ -1,6 +1,7 @@
 extends Node2D
 
 var dialog = load("res://dialogue/level_2.dialogue")
+var Level2Data := DataManager.Level2
 
 func _ready() -> void:
 	Music.play_music("res://audio/music/level_2.mp3", 100.0)
@@ -15,9 +16,9 @@ func _ready() -> void:
 				func(_noop):
 					InventoryManager._clear_inventory()
 					OxygenManager.reset_timer()
+					Level2Data.has_fixed_spacesuit = false
 					SceneManager.goto_scene("res://scenes/levels/level_2.tscn")
 			)
-			
 	)
 	
 	$CanvasLayer/InstructionBox.connect(
@@ -26,10 +27,18 @@ func _ready() -> void:
 			if (!DataManager.intro_done):
 				DataManager.intro_done = true
 				_show_dialoague_box("intro")
+				DialogueManager.dialogue_ended.connect(
+					func(_noop):
+						if (!Level2Data.has_fixed_spacesuit):
+							SceneManager.goto_scene("res://scenes/levels/level_2_minigame/minigame.tscn")
+				)
 	)
 	print("in showinstructionbox")
 	
-	DataManager.show_instruction_box = true
+	if (!Level2Data.has_fixed_spacesuit):
+		DataManager.show_instruction_box = true
+	else:
+		_show_dialoague_box("intro_part2")
 
 func _show_dialoague_box(key: String) -> void:
 	DialogueManager.show_dialogue_balloon(dialog, key)
@@ -46,7 +55,7 @@ func _on_many_fuel_body_entered(body: Node2D) -> void:
 	DialogueManager.dialogue_ended.connect(
 		func (_noop) -> void:
 			if OS.has_feature('web'):
-				DataManager.quit = true
+				DataManager.should_quit = true
 				TransitionManager.transition()
 				await TransitionManager.on_transition_finished
 			

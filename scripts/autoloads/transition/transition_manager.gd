@@ -11,7 +11,7 @@ func _ready() -> void:
 		func(anim_name: String) -> void:
 			if anim_name == "fade_to_black":
 				on_transition_finished.emit()
-				if DataManager.quit:
+				if DataManager.should_quit:
 					return
 				
 				animation_player.play("fade_to_normal")

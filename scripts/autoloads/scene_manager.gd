@@ -52,7 +52,7 @@ func _disallow_pause(_title: String) -> void:
 func _determine_can_pause() -> void:
 	DataManager.can_pause = !is_main_menu && !SceneManager.is_dialogue_shown
 
-func _check_if_main_menu():
+func _check_if_main_menu() -> void:
 	if (get_tree().current_scene.scene_file_path == "res://scenes/main.tscn"):
 		is_main_menu = true
 	else:

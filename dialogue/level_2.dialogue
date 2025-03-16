@@ -5,9 +5,13 @@ Franzen Albert II: Your suit’s damaged—specifically the part that shields yo
 Player: Who are you? Why should I trust you?
 Franzen Albert II: Name’s Franzen, but back on Earth, they called me Albert II.
 	Humans said I died, but they abandoned me when my suit failed—just like yours is now. I survived by adapting. I wouldn’t leave someone to suffer the way I did.
-AI: Warning: Suit seems to be broken. Automatically fixing, please press enter to start.
-AI: Suit fixed.
-Franzen Albert II: Looks like you already fixed the suit. However, you do need to refuel your ship, right?
+AI: Warning: Suit broken. Please repair the spacesuit.
+- Start repair
+=> END!
+
+~ intro_part2
+AI: Successfully repaired suit.
+Franzen Albert II: Looks like you've fixed your spacesuit. However, you do need to refuel your ship, right?
 Player: Yeah, that's right.
 Franzen Albert II: I'll note that this place has a lot of winds. If you are struggling to move, hold SHIFT to try to break free from the winds.
 - Got it.

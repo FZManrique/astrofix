@@ -4,7 +4,7 @@ extends Node
 
 enum WIND_DIRECTION {TO_TOP, TO_LEFT, TO_BOTTOM, TO_RIGHT}
 
-var quit := false
+var should_quit := false
 var can_pause := false
 var show_instruction_box := false
 var intro_done := false
@@ -23,6 +23,7 @@ var Level1 := {
 }
 
 var Level2 := {
+	has_fixed_spacesuit = false,
 	wind_push = false,
 	wind_direction = WIND_DIRECTION.TO_TOP,
 	wind_speed = 100

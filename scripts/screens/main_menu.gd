@@ -27,7 +27,7 @@ func _on_back_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	if OS.has_feature('web'):
-		DataManager.quit = true
+		DataManager.should_quit = true
 		TransitionManager.transition()
 		await TransitionManager.on_transition_finished
 		

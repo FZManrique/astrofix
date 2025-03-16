@@ -57,5 +57,5 @@ Player: Ouch! That hurt. Looks like that caused some of my oxygen to leak out. I
 => END!
 
 ~ failed
-You ran out of oxygen! Press "ENTER" to restart the level.
+Game: You ran out of oxygen! Press "ENTER" to restart the level.
 => END
