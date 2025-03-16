@@ -40,8 +40,6 @@ var cutscene_data: CutsceneData
 var current_title := 1
 
 var is_end_mode: bool:
-	set(value):
-		DataManager.Cutscene.is_end_mode = value
 	get:
 		return DataManager.Cutscene.is_end_mode
 
@@ -53,7 +51,7 @@ var dialogue_scene: PackedScene
 var data_index: int = 1
 
 func _ready() -> void:
-	data_index = current_cutscene_number - 1 
+	data_index = current_cutscene_number - 1
 	if (is_end_mode):
 		data_index += 1
 	
@@ -73,10 +71,10 @@ func _on_dialogue_ended(_resource: DialogueResource) -> void:
 	current_title += 1
 	if (current_title > cutscene_data.max_page):
 		if (is_end_mode):
-			is_end_mode = false
 			current_cutscene_number += 1
+			DataManager.Cutscene.is_end_mode = false
 		else:
-			is_end_mode = true
+			DataManager.Cutscene.is_end_mode = true
 		SceneManager.goto_scene(cutscene_data.end_scene)
 	else:
 		_on_title_changed()
