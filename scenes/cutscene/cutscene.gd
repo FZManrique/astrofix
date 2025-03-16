@@ -4,9 +4,9 @@ class CutsceneData:
 	var max_page: int
 	var end_scene: String
 	
-	func _init(max_page: int, end_scene: String) -> void:
-		self.max_page = max_page
-		self.end_scene = end_scene
+	func _init(a: int, b: String) -> void:
+		max_page = a
+		end_scene = b
 
 enum CutsceneNames {
 	LEVEL_1,
@@ -16,7 +16,7 @@ enum CutsceneNames {
 
 var Cutscenes: Dictionary[CutsceneNames, CutsceneData] = {
 	CutsceneNames.LEVEL_1: CutsceneData.new(5, "res://scenes/levels/level_1.tscn"),
-	CutsceneNames.LEVEL_1_END: CutsceneData.new(2, "res://scenes/cutscene/cutscene.tscn"),
+	CutsceneNames.LEVEL_1_END: CutsceneData.new(2, "res://scenes/levels/level_transition.tscn"),
 	CutsceneNames.LEVEL_2: CutsceneData.new(6, "res://scenes/levels/level_2.tscn")
 }
 
@@ -26,6 +26,19 @@ var audio_map: Dictionary[int, Dictionary] = {
 		2: "res://audio/sfx/ambience/footsteps.mp3",
 		3: "res://audio/sfx/door_open.mp3",
 		4: "res://audio/sfx/ambience/flickering_lights.mp3"
+	},
+	CutsceneNames.LEVEL_1_END: {
+		1: "res://audio/cutscene/level_1_end/enter.mp3",
+		2: "res://audio/cutscene/level_1_end/takeoff.mp3"
+	}
+}
+
+var mutations = {
+	CutsceneNames.LEVEL_2: {
+		1: func():
+			print("Hello, world!"),
+		2: func():
+			pass,
 	}
 }
 
@@ -42,20 +55,18 @@ var current_title := 1
 var is_end_mode: bool:
 	get:
 		return DataManager.Cutscene.is_end_mode
+	set(value):
+		DataManager.Cutscene.is_end_mode = value
 
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var dialogue_node: CutsceneDialogueBalloon
 var dialogue_scene: PackedScene
-var data_index: int = 1
 
 func _ready() -> void:
-	data_index = current_cutscene_number - 1
-	if (is_end_mode):
-		data_index += 1
-	
-	cutscene_data = Cutscenes.get(data_index)
+	cutscene_data = Cutscenes.get(current_cutscene_number) as CutsceneData
+	print(is_end_mode, cutscene_data.end_scene, cutscene_data.max_page)
 	cutscene_dialogue = load("res://dialogue/level_%s_cutscene.dialogue" % get_cutscene_item())
 	
 	dialogue_scene = load("res://dialogue/cutscene_dialogue/cutscene_dialogue.tscn") as PackedScene
@@ -72,9 +83,10 @@ func _on_dialogue_ended(_resource: DialogueResource) -> void:
 	if (current_title > cutscene_data.max_page):
 		if (is_end_mode):
 			current_cutscene_number += 1
-			DataManager.Cutscene.is_end_mode = false
+			is_end_mode = false
 		else:
-			DataManager.Cutscene.is_end_mode = true
+			is_end_mode = true
+		
 		SceneManager.goto_scene(cutscene_data.end_scene)
 	else:
 		_on_title_changed()
@@ -85,6 +97,8 @@ func get_cutscene_item() -> String:
 	
 	if (is_end_mode):
 		suffix = "_end"
+	else:
+		suffix = ""
 	
 	return str(current_cutscene_number) + suffix
 
@@ -98,8 +112,12 @@ func _on_title_changed() -> void:
 	# stop audio
 	audio_stream_player.stop()
 	
-	if audio_map.has(data_index) and audio_map[data_index].has(current_title):
-		audio_stream_player.stream = load(audio_map[data_index][current_title])
+	if mutations.has(current_cutscene_number) and mutations[current_cutscene_number].has(current_title):
+		var function: Callable = mutations[current_cutscene_number][current_title]
+		function.call()
+	
+	if audio_map.has(current_cutscene_number) and audio_map[current_cutscene_number].has(current_title):
+		audio_stream_player.stream = load(audio_map[current_cutscene_number][current_title])
 		audio_stream_player.play()
 
 

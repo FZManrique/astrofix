@@ -23,7 +23,7 @@ func _on_timer_timeout() -> void:
 	_update_oxygen_status(_current_level)
 
 func _update_oxygen_status(current_level: int = _current_level) -> void:
-	if (current_level == 0):
+	if (current_level <= 0):
 		oxygen_depleted.emit()
 	elif (current_level <= 15):
 		oxygen_status_changed.emit(OXYGEN_STATUS.LOW)

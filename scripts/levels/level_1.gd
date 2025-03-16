@@ -23,6 +23,12 @@ func _ready() -> void:
 				_show_dialoague_box("intro")
 	)
 	
+	for icicle: Icicle in $Icicles.get_children():
+		icicle.on_player_hit.connect(
+			func():
+				$CanvasLayer/AnimationPlayer.play("damage")
+		)
+	
 	DataManager.show_instruction_box = true
 
 func _process(_delta: float) -> void:

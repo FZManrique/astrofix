@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://c5wuq0sv37ns0"]
+[gd_scene load_steps=34 format=4 uid="uid://c5wuq0sv37ns0"]
 
 [ext_resource type="Script" uid="uid://cg2fxcu5weos8" path="res://scripts/levels/level_1.gd" id="1_6b7pd"]
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="2_drk7b"]
@@ -20,6 +20,43 @@
 [ext_resource type="PackedScene" uid="uid://dxhb8eooelkyv" path="res://scenes/objects/spaceship.tscn" id="15_10rnu"]
 [ext_resource type="PackedScene" uid="uid://bpko47puym4mc" path="res://scenes/objects/oxygen_tank.tscn" id="16_r4uni"]
 
+[sub_resource type="Animation" id="Animation_v6ha0"]
+resource_name = "damage"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Damage:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gmpev"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Damage:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mkypq"]
+_data = {
+&"RESET": SubResource("Animation_gmpev"),
+&"damage": SubResource("Animation_v6ha0")
+}
+
 [sub_resource type="Gradient" id="Gradient_atftc"]
 offsets = PackedFloat32Array(0.39011, 0.598901)
 colors = PackedColorArray(1, 1, 1, 0.54902, 1, 1, 1, 1)
@@ -34,6 +71,17 @@ emission_box_extents = Vector3(640, 0, 0)
 gravity = Vector3(-45, 98, 0)
 scale_max = 2.0
 color_initial_ramp = SubResource("GradientTexture1D_iwr0g")
+
+[sub_resource type="Gradient" id="Gradient_meext"]
+offsets = PackedFloat32Array(0, 0.713592, 1)
+colors = PackedColorArray(1, 1, 1, 0.0588235, 0.1, 0, 0, 0.419608, 1, 0, 0, 0.509804)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ndtll"]
+gradient = SubResource("Gradient_meext")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.50237, 0.508057)
+fill_to = Vector2(1, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lvg2f"]
 texture = ExtResource("10_4kl5d")
@@ -432,6 +480,11 @@ metadata/_edit_vertical_guides_ = [1632.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_mkypq")
+}
+
 [node name="SnowParticles" type="GPUParticles2D" parent="CanvasLayer"]
 position = Vector2(647, 2)
 amount = 100
@@ -439,6 +492,16 @@ texture = ExtResource("2_v6ha0")
 lifetime = 10.0
 preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_bahl2")
+
+[node name="Damage" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ndtll")
 
 [node name="Screen" parent="CanvasLayer" node_paths=PackedStringArray("player_node") instance=ExtResource("2_drk7b")]
 player_node = NodePath("../../Characters/Player")

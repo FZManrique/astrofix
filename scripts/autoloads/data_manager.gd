@@ -11,7 +11,7 @@ var intro_done := false
 
 var Cutscene := {
 	current_cutscene_number = 1,
-	is_end_mode = false
+	is_end_mode = true
 }
 
 var Level1 := {
