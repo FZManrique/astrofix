@@ -24,6 +24,7 @@ var Level1 := {
 
 var Level2 := {
 	has_fixed_spacesuit = false,
+	is_minigame = false,
 	wind_push = false,
 	wind_direction = WIND_DIRECTION.TO_TOP,
 	wind_speed = 100

@@ -34,6 +34,7 @@ var colors: Dictionary[String, Texture2D] = {
 }
 
 func _ready() -> void:
+	DataManager.Level2.is_minigame = true
 	%Continue.disabled = true
 	is_game_active = true
 	generate_color_sequence()
@@ -132,5 +133,5 @@ func validate_sequence() -> void:
 	is_validating = false
 
 func _on_continue_pressed() -> void:
-	DataManager.Level2.has_fixed_spacesuit = true
+	DataManager.Level2.is_minigame = false
 	SceneManager.goto_scene("res://scenes/levels/level_2.tscn")
