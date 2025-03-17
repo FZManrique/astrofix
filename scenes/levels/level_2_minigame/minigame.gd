@@ -114,6 +114,7 @@ func validate_sequence() -> void:
 			%Progress.text = "Repair complete."
 			%Continue.disabled = false
 			var hide = [$VBoxContainer/Description, $VBoxContainer/HBoxContainer, $VBoxContainer/CenterContainer]
+			DataManager.Level2.has_fixed_spacesuit = true
 			for i in hide:
 				i.hide()
 			return

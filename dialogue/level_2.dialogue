@@ -11,6 +11,8 @@ AI: Warning: Suit broken. Please repair the spacesuit.
 
 ~ intro_part2
 AI: Successfully repaired suit.
+- Nice!
+- Skip dialogue => END!
 Franzen Albert II: Looks like you've fixed your spacesuit. However, you do need to refuel your ship, right?
 Player: Yeah, that's right.
 Franzen Albert II: I'll note that this place has a lot of winds. If you are struggling to move, hold SHIFT to try to break free from the winds.
