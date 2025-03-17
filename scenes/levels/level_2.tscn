@@ -1,18 +1,46 @@
-[gd_scene load_steps=22 format=4 uid="uid://585vjm100d7c"]
+[gd_scene load_steps=29 format=4 uid="uid://585vjm100d7c"]
 
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="1_6jisw"]
 [ext_resource type="Script" uid="uid://oyhe6k7grer" path="res://scripts/levels/level_2.gd" id="1_imbuc"]
+[ext_resource type="Texture2D" uid="uid://c35tg5egy433i" path="res://art/level_1_decorations/particles/Snowflake (Small).png" id="2_1yj8c"]
 [ext_resource type="PackedScene" uid="uid://1pmipojgsf0m" path="res://scenes/characters/player.tscn" id="2_6gnbp"]
 [ext_resource type="PackedScene" uid="uid://b2i1lxoxv3ksn" path="res://scenes/screens/instruction_box.tscn" id="3_8qukl"]
 [ext_resource type="PackedScene" uid="uid://dxhb8eooelkyv" path="res://scenes/objects/spaceship.tscn" id="3_66j2d"]
 [ext_resource type="AudioStream" uid="uid://cifm4a0hoyean" path="res://audio/music/level_2_ambience.mp3" id="3_ibugp"]
 [ext_resource type="Texture2D" uid="uid://b45hwjpfwl3xa" path="res://art/tilesets/level2tmptileset.png" id="3_kv51b"]
+[ext_resource type="Texture2D" uid="uid://cn2mbmrupt12d" path="res://art/level_1_decorations/particles/Snowflake (Big).png" id="3_ndlae"]
 [ext_resource type="Texture2D" uid="uid://c5gb3khtj6pye" path="res://art/tilesets/level2_tileset.png" id="6_3p04p"]
 [ext_resource type="PackedScene" uid="uid://b20xsf28pfx5q" path="res://scenes/objects/wind_area.tscn" id="6_we8yt"]
 [ext_resource type="PackedScene" uid="uid://b5wbfi2vpsebq" path="res://scenes/objects/fuel_tank.tscn" id="7_brxtv"]
 [ext_resource type="Texture2D" uid="uid://yg0w2itfyf2e" path="res://art/objects/fuel_tank.png" id="8_tv7cl"]
 [ext_resource type="Texture2D" uid="uid://bl5dh36kl8i0w" path="res://art/characters/franzen albert ii/idle.png" id="9_nt80m"]
 [ext_resource type="PackedScene" uid="uid://bpko47puym4mc" path="res://scenes/objects/oxygen_tank.tscn" id="10_qsp8v"]
+
+[sub_resource type="Gradient" id="Gradient_meext"]
+offsets = PackedFloat32Array(0, 0.334951, 1)
+colors = PackedColorArray(1, 1, 1, 0.0588235, 1, 1, 1, 0.509804, 0.108696, 0.108696, 0.108696, 0.419608)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tv7cl"]
+gradient = SubResource("Gradient_meext")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.50237, 0.508057)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_v8d84"]
+offsets = PackedFloat32Array(0.39011, 0.598901)
+colors = PackedColorArray(1, 1, 1, 0.54902, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iwr0g"]
+gradient = SubResource("Gradient_v8d84")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gw1l3"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(640, 0, 0)
+gravity = Vector3(-45, 98, 0)
+scale_max = 2.0
+color_initial_ramp = SubResource("GradientTexture1D_iwr0g")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63ijc"]
 texture = ExtResource("3_kv51b")
@@ -178,6 +206,31 @@ metadata/_edit_horizontal_guides_ = [1332.0]
 metadata/_edit_vertical_guides_ = [2958.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Damage" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_tv7cl")
+
+[node name="SnowParticles" type="GPUParticles2D" parent="CanvasLayer"]
+position = Vector2(647, 2)
+amount = 200
+texture = ExtResource("2_1yj8c")
+lifetime = 10.0
+preprocess = 30.0
+process_material = SubResource("ParticleProcessMaterial_gw1l3")
+
+[node name="SnowParticles2" type="GPUParticles2D" parent="CanvasLayer"]
+position = Vector2(647, 2)
+amount = 100
+texture = ExtResource("3_ndlae")
+lifetime = 10.0
+preprocess = 30.0
+process_material = SubResource("ParticleProcessMaterial_gw1l3")
 
 [node name="Screen" parent="CanvasLayer" node_paths=PackedStringArray("player_node") instance=ExtResource("1_6jisw")]
 player_node = NodePath("../../Characters/Player")

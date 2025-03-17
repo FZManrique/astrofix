@@ -61,7 +61,7 @@ _data = {
 offsets = PackedFloat32Array(0.39011, 0.598901)
 colors = PackedColorArray(1, 1, 1, 0.54902, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_iwr0g"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v6ha0"]
 gradient = SubResource("Gradient_atftc")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bahl2"]
@@ -70,14 +70,14 @@ emission_shape = 3
 emission_box_extents = Vector3(640, 0, 0)
 gravity = Vector3(-45, 98, 0)
 scale_max = 2.0
-color_initial_ramp = SubResource("GradientTexture1D_iwr0g")
+color_initial_ramp = SubResource("GradientTexture1D_v6ha0")
 
-[sub_resource type="Gradient" id="Gradient_meext"]
+[sub_resource type="Gradient" id="Gradient_gmpev"]
 offsets = PackedFloat32Array(0, 0.713592, 1)
 colors = PackedColorArray(1, 1, 1, 0.0588235, 0.1, 0, 0, 0.419608, 1, 0, 0, 0.509804)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ndtll"]
-gradient = SubResource("Gradient_meext")
+gradient = SubResource("Gradient_gmpev")
 use_hdr = true
 fill = 1
 fill_from = Vector2(0.50237, 0.508057)

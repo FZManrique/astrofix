@@ -20,6 +20,12 @@ var Cutscenes: Dictionary[CutsceneNames, CutsceneData] = {
 	CutsceneNames.LEVEL_2: CutsceneData.new(6, "res://scenes/levels/level_2.tscn")
 }
 
+func get_cutscene(index) -> CutsceneData:
+	if (is_end_mode):
+		return Cutscenes.get((index * 2) - 1)
+	else:
+		return Cutscenes.get((index * 2) - 2)
+
 var audio_map: Dictionary[int, Dictionary] = {
 	CutsceneNames.LEVEL_1: {
 		1: "res://audio/sfx/ambience/ceiling_fan.mp3",
@@ -35,9 +41,9 @@ var audio_map: Dictionary[int, Dictionary] = {
 
 var mutations = {
 	CutsceneNames.LEVEL_2: {
-		1: func():
+		1: func() -> void:
 			print("Hello, world!"),
-		2: func():
+		2: func() -> void:
 			pass,
 	}
 }
@@ -65,7 +71,7 @@ var dialogue_node: CutsceneDialogueBalloon
 var dialogue_scene: PackedScene
 
 func _ready() -> void:
-	cutscene_data = Cutscenes.get(current_cutscene_number - 1) as CutsceneData
+	cutscene_data = get_cutscene(current_cutscene_number)
 	cutscene_dialogue = load("res://dialogue/level_%s_cutscene.dialogue" % get_cutscene_item())
 	
 	dialogue_scene = load("res://dialogue/cutscene_dialogue/cutscene_dialogue.tscn") as PackedScene
@@ -79,17 +85,17 @@ func _ready() -> void:
 
 func _on_dialogue_ended(_resource: DialogueResource) -> void:
 	current_title += 1
-	if (current_title > cutscene_data.max_page):
+	if (not (current_title > cutscene_data.max_page)):
+		_on_title_changed()
+		_show_scene()
+	else:
 		if (is_end_mode):
-			current_cutscene_number += 1
 			is_end_mode = false
+			current_cutscene_number += 1
 		else:
 			is_end_mode = true
 		
 		SceneManager.goto_scene(cutscene_data.end_scene)
-	else:
-		_on_title_changed()
-		_show_scene()
 
 func get_cutscene_item() -> String:
 	var suffix: String = ""
@@ -111,12 +117,16 @@ func _on_title_changed() -> void:
 	# stop audio
 	audio_stream_player.stop()
 	
-	if mutations.has(current_cutscene_number) and mutations[current_cutscene_number].has(current_title):
-		var function: Callable = mutations[current_cutscene_number][current_title]
+	var index = (current_cutscene_number * 2) - 2
+	if (is_end_mode):
+		index += 1
+	
+	if mutations.has(index) and mutations[index].has(current_title):
+		var function: Callable = mutations[index][current_title]
 		function.call()
 	
-	if audio_map.has(current_cutscene_number) and audio_map[current_cutscene_number].has(current_title):
-		audio_stream_player.stream = load(audio_map[current_cutscene_number][current_title])
+	if audio_map.has(index) and audio_map[index].has(current_title):
+		audio_stream_player.stream = load(audio_map[index][current_title])
 		audio_stream_player.play()
 
 
