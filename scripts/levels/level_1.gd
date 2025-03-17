@@ -96,5 +96,13 @@ func _go_to_level_2(_pass) -> void:
 func _restart(_pass) -> void:
 	InventoryManager._clear_inventory()
 	OxygenManager.reset_timer()
+	DataManager.Level1 = {
+		has_hit_spikes = false,
+		has_key = false,
+		has_fuel = false,
+		should_move_william_to_ship = false,
+		william_moved_to_ship = false,
+	}
+	
 	SceneManager.goto_scene("res://scenes/levels/level_1.tscn")
 #endregion

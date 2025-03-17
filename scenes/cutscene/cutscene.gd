@@ -65,8 +65,7 @@ var dialogue_node: CutsceneDialogueBalloon
 var dialogue_scene: PackedScene
 
 func _ready() -> void:
-	cutscene_data = Cutscenes.get(current_cutscene_number) as CutsceneData
-	print(is_end_mode, cutscene_data.end_scene, cutscene_data.max_page)
+	cutscene_data = Cutscenes.get(current_cutscene_number - 1) as CutsceneData
 	cutscene_dialogue = load("res://dialogue/level_%s_cutscene.dialogue" % get_cutscene_item())
 	
 	dialogue_scene = load("res://dialogue/cutscene_dialogue/cutscene_dialogue.tscn") as PackedScene
