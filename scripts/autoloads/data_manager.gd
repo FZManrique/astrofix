@@ -23,6 +23,7 @@ var Level1 := {
 }
 
 var Level2 := {
+	in_starting_area = false,
 	has_fixed_spacesuit = false,
 	is_minigame = false,
 	wind_push = false,

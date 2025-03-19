@@ -20,25 +20,21 @@ func _ready() -> void:
 					SceneManager.goto_scene("res://scenes/levels/level_2.tscn")
 			)
 	)
-	
+
 	$CanvasLayer/InstructionBox.connect(
 		"instruction_box_dismissed",
 		func() -> void:
 			if (!DataManager.intro_done):
 				DataManager.intro_done = true
 				_show_dialoague_box("intro")
-				DialogueManager.dialogue_ended.connect(
-					func(_noop):
-						if (!Level2Data.has_fixed_spacesuit):
-							SceneManager.goto_scene("res://scenes/levels/level_2_minigame/minigame.tscn")
-				)
 	)
 	print("in showinstructionbox")
 	
 	if (!Level2Data.has_fixed_spacesuit):
 		DataManager.show_instruction_box = true
 	else:
-		_show_dialoague_box("intro_part2")
+		$Characters/Player.position = Vector2(1320, 705)
+		_show_dialoague_box("intro_part3")
 
 func _show_dialoague_box(key: String) -> void:
 	DialogueManager.show_dialogue_balloon(dialog, key)
@@ -74,3 +70,14 @@ func _on_fuel_tank_fuel_collected(body: Node2D) -> void:
 				
 			get_tree().quit() 
 	)
+
+
+func _on_player_entered_to_starting_area(body: Node2D) -> void:
+	if (!Level2Data.in_starting_area):
+		Level2Data.in_starting_area = true
+		_show_dialoague_box("intro_part2")
+		DialogueManager.dialogue_ended.connect(
+			func(_noop):
+				if (!Level2Data.has_fixed_spacesuit):
+					SceneManager.goto_scene("res://scenes/levels/level_2_minigame/minigame.tscn")
+		)

@@ -1,4 +1,9 @@
 ~ intro
+Player: Wh... what? Where am I? What happened?
+Player: I should explore the area and see what I can do.
+=> END!
+
+~ intro_part2
 Franzen Albert II: Your suit’s damaged—specifically the part that shields you from these winds.
 - Huh.
 - Skip dialogue => END!
@@ -9,7 +14,7 @@ AI: Warning: Suit broken. Please repair the spacesuit.
 - Start repair
 => END!
 
-~ intro_part2
+~ intro_part3
 AI: Successfully repaired suit.
 - Nice!
 - Skip dialogue => END!
