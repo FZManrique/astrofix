@@ -2,6 +2,7 @@ extends Node2D
 
 var dialog = load("res://dialogue/level_2.dialogue")
 var Level2Data := DataManager.Level2
+var WIND_DIRECTION := DataManager.WIND_DIRECTION
 
 func _ready() -> void:
 	Music.play_music("res://audio/music/level_2.mp3", 100.0)
@@ -35,6 +36,23 @@ func _ready() -> void:
 	else:
 		$Characters/Player.position = Vector2(1320, 705)
 		_show_dialoague_box("intro_part3")
+
+func _process(delta: float) -> void:
+	if (Level2Data.wind_push):
+		%WindAnim.play("fade_in")
+		await %WindAnim.animation_finished
+		match Level2Data.wind_direction:
+			WIND_DIRECTION.TO_TOP:
+				%WindAnim.play("to_top")
+			WIND_DIRECTION.TO_BOTTOM:
+				%WindAnim.play("to_bottom")
+			WIND_DIRECTION.TO_LEFT:
+				%WindAnim.play("to_left")
+			WIND_DIRECTION.TO_RIGHT:
+				%WindAnim.play("to_right")
+	else:
+		await get_tree().create_timer(1)
+		%WindAnim.play("fade_out")
 
 func _show_dialoague_box(key: String) -> void:
 	DialogueManager.show_dialogue_balloon(dialog, key)
