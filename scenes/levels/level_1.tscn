@@ -64,7 +64,7 @@ colors = PackedColorArray(1, 1, 1, 0.54902, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_v6ha0"]
 gradient = SubResource("Gradient_atftc")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bahl2"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gmpev"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(640, 0, 0)
@@ -491,7 +491,7 @@ amount = 100
 texture = ExtResource("2_v6ha0")
 lifetime = 10.0
 preprocess = 30.0
-process_material = SubResource("ParticleProcessMaterial_bahl2")
+process_material = SubResource("ParticleProcessMaterial_gmpev")
 
 [node name="Damage" type="TextureRect" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)

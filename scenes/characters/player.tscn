@@ -260,7 +260,7 @@ shape = SubResource("CapsuleShape2D_bbaxg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tfd2b")
-animation = &"v2_idle_down"
+animation = &"v2_walk_right"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_jia57")
