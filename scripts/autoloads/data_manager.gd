@@ -26,7 +26,17 @@ var Level2 := {
 	in_starting_area = false,
 	has_fixed_spacesuit = false,
 	is_minigame = false,
+	many_fuel_collected = false,
+	fuel_collected = false,
 	wind_push = false,
 	wind_direction = WIND_DIRECTION.TO_TOP,
-	wind_speed = 100
+	wind_speed = 100,
+}
+
+var Level3 := {
+	talked_once_to_chloe = false,
+	asked_for_help = false,
+	finished_intro = false,
+	collected_cover = false,
+	in_asteroid_area = false,
 }

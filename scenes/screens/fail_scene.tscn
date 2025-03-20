@@ -1,0 +1,127 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2i1lxoxv3ksn"]
+
+[ext_resource type="Script" uid="uid://ciee0by7utf3w" path="res://scripts/screens/fail_box.gd" id="1_68dnm"]
+[ext_resource type="AudioStream" uid="uid://42ycc35noq4r" path="res://audio/sfx/fail_sound.mp3" id="3_qit8x"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="3_sl1dh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1tln"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.0078, 0.0587167, 0.13, 0.654902)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.384314, 0.635294, 0.92549, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0dds"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.0132, 0.0993667, 0.22, 0.776471)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.384314, 0.635294, 0.92549, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sprl7"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.00784314, 0.0588235, 0.129412, 0.392157)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.384314, 0.635294, 0.92549, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_68dnm")
+
+[node name="FailBox" type="Control" parent="."]
+process_mode = 3
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="FailBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0565217, 0, 0, 0.788235)
+
+[node name="VBoxContainer" type="PanelContainer" parent="FailBox/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -42.5
+offset_right = 85.0
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_sl1dh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FailBox/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="FailBox/ColorRect/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "You died!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FailBox/ColorRect/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Restart" type="Button" parent="FailBox/ColorRect/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/hover = SubResource("StyleBoxFlat_i1tln")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v0dds")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sprl7")
+text = "Restart"
+
+[node name="Exit" type="Button" parent="FailBox/ColorRect/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"FlatButton"
+text = "Exit"
+
+[node name="FailSFX" type="AudioStreamPlayer" parent="FailBox"]
+unique_name_in_owner = true
+stream = ExtResource("3_qit8x")
+volume_db = -16.0
+bus = &"SFX"
+
+[connection signal="pressed" from="FailBox/ColorRect/VBoxContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="FailBox/ColorRect/VBoxContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]

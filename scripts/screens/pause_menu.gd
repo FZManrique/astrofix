@@ -29,12 +29,7 @@ func _on_main_menu_pressed() -> void:
 	SceneManager.goto_scene("res://scenes/main.tscn")
 
 func _on_quit_pressed() -> void:
-	if OS.has_feature('web'):
-		DataManager.should_quit = true
-		TransitionManager.transition()
-		await TransitionManager.on_transition_finished	
-	
-	get_tree().quit()
+	SceneManager.quit_game()
 
 func _on_game_paused() -> void:
 	if (!DataManager.show_instruction_box):

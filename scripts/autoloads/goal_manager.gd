@@ -7,7 +7,12 @@ var GOALS := [
 	"Unlock the fuel tank",
 	"Go to the ship to refuel it",
 	# Level 2
-	"Explore the area to find fuel"
+	"Find the ship",
+	"Explore the area to find fuel",
+	"Refuel the ship",
+	# Level 3
+	"Find a cover to fix the leak",
+	"Fix the leak in the ship"
 ]
 
 signal on_goals_changed

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ca7fbchtht5cu"]
 
-[ext_resource type="Texture2D" uid="uid://o7nm21x76xv" path="res://art/level_1_decorations/icicle_1.png" id="1_8hxdr"]
+[ext_resource type="Texture2D" uid="uid://o7nm21x76xv" path="res://art/level_1/decorations/icicle_1.png" id="1_8hxdr"]
 [ext_resource type="Script" uid="uid://dtkssllef567s" path="res://scripts/objects/icicle.gd" id="1_ve5ma"]
 
 [node name="Icicle1" type="StaticBody2D"]

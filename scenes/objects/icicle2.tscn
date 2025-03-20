@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cx10m4iph6urk"]
 
 [ext_resource type="Script" uid="uid://dtkssllef567s" path="res://scripts/objects/icicle.gd" id="1_1qnob"]
-[ext_resource type="Texture2D" uid="uid://dlp23wj6hs74g" path="res://art/level_1_decorations/icicle_2.png" id="1_xfr0h"]
+[ext_resource type="Texture2D" uid="uid://dlp23wj6hs74g" path="res://art/level_1/decorations/icicle_2.png" id="1_xfr0h"]
 
 [node name="Icicle2" type="StaticBody2D"]
 script = ExtResource("1_1qnob")

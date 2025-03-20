@@ -1,0 +1,8 @@
+~ scene_1
+AI: Start refueling?
+- Fuel ship
+=> END!
+
+~ scene_2
+Player: Wish there wasn't as many issues...
+=> END!

@@ -26,9 +26,4 @@ func _on_back_pressed() -> void:
 	start.grab_focus()
 
 func _on_quit_pressed() -> void:
-	if OS.has_feature('web'):
-		DataManager.should_quit = true
-		TransitionManager.transition()
-		await TransitionManager.on_transition_finished
-		
-	get_tree().quit() 
+	SceneManager.quit_game()

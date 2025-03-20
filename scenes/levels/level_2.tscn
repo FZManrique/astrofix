@@ -2,24 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="1_6jisw"]
 [ext_resource type="Script" uid="uid://oyhe6k7grer" path="res://scripts/levels/level_2.gd" id="1_imbuc"]
-[ext_resource type="Texture2D" uid="uid://c35tg5egy433i" path="res://art/level_1_decorations/particles/Snowflake (Small).png" id="2_1yj8c"]
+[ext_resource type="Texture2D" uid="uid://c35tg5egy433i" path="res://art/level_1/decorations/particles/Snowflake (Small).png" id="2_1yj8c"]
 [ext_resource type="PackedScene" uid="uid://1pmipojgsf0m" path="res://scenes/characters/player.tscn" id="2_6gnbp"]
-[ext_resource type="PackedScene" uid="uid://b2i1lxoxv3ksn" path="res://scenes/screens/instruction_box.tscn" id="3_8qukl"]
+[ext_resource type="PackedScene" uid="uid://bap63ec07gtue" path="res://scenes/screens/instruction_box.tscn" id="3_8qukl"]
 [ext_resource type="PackedScene" uid="uid://dxhb8eooelkyv" path="res://scenes/objects/spaceship.tscn" id="3_66j2d"]
 [ext_resource type="AudioStream" uid="uid://cifm4a0hoyean" path="res://audio/music/level_2_ambience.mp3" id="3_ibugp"]
 [ext_resource type="Texture2D" uid="uid://b45hwjpfwl3xa" path="res://art/tilesets/level2tmptileset.png" id="3_kv51b"]
-[ext_resource type="Texture2D" uid="uid://cn2mbmrupt12d" path="res://art/level_1_decorations/particles/Snowflake (Big).png" id="3_ndlae"]
+[ext_resource type="Texture2D" uid="uid://cn2mbmrupt12d" path="res://art/level_1/decorations/particles/Snowflake (Big).png" id="3_ndlae"]
 [ext_resource type="Texture2D" uid="uid://c5gb3khtj6pye" path="res://art/tilesets/level2_tileset.png" id="6_3p04p"]
 [ext_resource type="PackedScene" uid="uid://b20xsf28pfx5q" path="res://scenes/objects/wind_area.tscn" id="6_we8yt"]
 [ext_resource type="PackedScene" uid="uid://b5wbfi2vpsebq" path="res://scenes/objects/fuel_tank.tscn" id="7_brxtv"]
-[ext_resource type="Texture2D" uid="uid://dr8e05dhgxsf7" path="res://art/level_2/decorations/small_rock.png" id="7_ndlae"]
 [ext_resource type="Texture2D" uid="uid://yg0w2itfyf2e" path="res://art/objects/fuel_tank.png" id="8_tv7cl"]
 [ext_resource type="Texture2D" uid="uid://bl5dh36kl8i0w" path="res://art/characters/franzen albert ii/idle.png" id="9_nt80m"]
 [ext_resource type="PackedScene" uid="uid://bpko47puym4mc" path="res://scenes/objects/oxygen_tank.tscn" id="10_qsp8v"]
-[ext_resource type="Texture2D" uid="uid://cdxik8accectf" path="res://art/level_2/decorations/medium_rock_2.png" id="10_sibr7"]
-[ext_resource type="Texture2D" uid="uid://bal0c5gqsmylg" path="res://art/level_2/decorations/medium_rock_1.png" id="11_lkn2k"]
-[ext_resource type="Texture2D" uid="uid://cf5o55kwio0wb" path="res://art/level_2/decorations/big_pond_1.png" id="17_gw1l3"]
-[ext_resource type="Texture2D" uid="uid://bugmxkrsu0y3o" path="res://art/level_2/decorations/small_pond.png" id="18_p4se4"]
+[ext_resource type="Texture2D" uid="uid://bal0c5gqsmylg" path="res://art/level_2/decorations/medium_rock_1.png" id="10_sibr7"]
+[ext_resource type="Texture2D" uid="uid://dr8e05dhgxsf7" path="res://art/level_2/decorations/small_rock.png" id="11_lkn2k"]
+[ext_resource type="Texture2D" uid="uid://bugmxkrsu0y3o" path="res://art/level_2/decorations/small_pond.png" id="12_sbygb"]
+[ext_resource type="Texture2D" uid="uid://cdxik8accectf" path="res://art/level_2/decorations/medium_rock_2.png" id="13_5niy6"]
+[ext_resource type="Texture2D" uid="uid://cf5o55kwio0wb" path="res://art/level_2/decorations/big_pond_1.png" id="14_wikm6"]
 
 [sub_resource type="Animation" id="Animation_ndlae"]
 length = 0.001
@@ -730,7 +730,7 @@ player_node = NodePath("../../Characters/Player")
 [node name="InstructionBox" parent="CanvasLayer" instance=ExtResource("3_8qukl")]
 visible = false
 title = "Level 2 Objectives"
-objectives = "Explore Uranus's moon to collect more fuel and repair the ship"
+objectives = "Explore Uranus' moons to refuel the ship"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("3_ibugp")
@@ -800,15 +800,15 @@ texture = ExtResource("10_sibr7")
 
 [node name="MediumRock1" type="Sprite2D" parent="Tilemap/Node2D"]
 position = Vector2(764, 323)
-texture = ExtResource("11_lkn2k")
+texture = ExtResource("10_sibr7")
 
 [node name="SmallRock" type="Sprite2D" parent="Tilemap/Node2D"]
 position = Vector2(745, 314)
-texture = ExtResource("7_ndlae")
+texture = ExtResource("11_lkn2k")
 
 [node name="SmallPond2" type="Sprite2D" parent="Tilemap/Node2D"]
 position = Vector2(313, 704)
-texture = ExtResource("18_p4se4")
+texture = ExtResource("12_sbygb")
 
 [node name="MediumRock4" type="Sprite2D" parent="Tilemap/Node2D"]
 position = Vector2(215, 822)
@@ -816,19 +816,19 @@ texture = ExtResource("10_sibr7")
 
 [node name="MediumRock5" type="Sprite2D" parent="Tilemap/Node2D"]
 position = Vector2(-183, 1055)
-texture = ExtResource("11_lkn2k")
+texture = ExtResource("10_sibr7")
 
 [node name="SmallRock2" type="Sprite2D" parent="Tilemap/Node2D"]
 position = Vector2(298, 729)
-texture = ExtResource("7_ndlae")
+texture = ExtResource("11_lkn2k")
 
 [node name="SmallRock3" type="Sprite2D" parent="Tilemap/Node2D"]
 position = Vector2(247, 832)
-texture = ExtResource("7_ndlae")
+texture = ExtResource("11_lkn2k")
 
 [node name="SmallPond3" type="Sprite2D" parent="Tilemap/Node2D"]
 position = Vector2(195, 709)
-texture = ExtResource("18_p4se4")
+texture = ExtResource("12_sbygb")
 
 [node name="MediumRock6" type="Sprite2D" parent="Tilemap/Node2D"]
 position = Vector2(154, 724)
@@ -836,7 +836,7 @@ texture = ExtResource("10_sibr7")
 
 [node name="SmallRock4" type="Sprite2D" parent="Tilemap/Node2D"]
 position = Vector2(180, 753)
-texture = ExtResource("7_ndlae")
+texture = ExtResource("11_lkn2k")
 
 [node name="MediumRock7" type="Sprite2D" parent="Tilemap/Node2D"]
 position = Vector2(375, 569)
@@ -847,24 +847,44 @@ position = Vector2(384, 590)
 texture = ExtResource("10_sibr7")
 
 [node name="MediumRock9" type="Sprite2D" parent="Tilemap/Node2D"]
-position = Vector2(863, 319)
-texture = ExtResource("11_lkn2k")
+position = Vector2(863, 321)
+texture = ExtResource("13_5niy6")
 
 [node name="BigPond1" type="Sprite2D" parent="Tilemap/Node2D"]
 position = Vector2(244, 776)
-texture = ExtResource("17_gw1l3")
+texture = ExtResource("14_wikm6")
 
 [node name="BigPond2" type="Sprite2D" parent="Tilemap/Node2D"]
 position = Vector2(783, 260)
-texture = ExtResource("17_gw1l3")
+texture = ExtResource("14_wikm6")
 
 [node name="SmallPond" type="Sprite2D" parent="Tilemap/Node2D"]
 position = Vector2(805, 332)
-texture = ExtResource("18_p4se4")
+texture = ExtResource("12_sbygb")
 
 [node name="BigPond3" type="Sprite2D" parent="Tilemap/Node2D"]
 position = Vector2(1236, 1045)
-texture = ExtResource("17_gw1l3")
+texture = ExtResource("14_wikm6")
+
+[node name="SmallRock5" type="Sprite2D" parent="Tilemap/Node2D"]
+position = Vector2(235, 708)
+texture = ExtResource("11_lkn2k")
+
+[node name="MediumRock2" type="Sprite2D" parent="Tilemap/Node2D"]
+position = Vector2(172, 820)
+texture = ExtResource("10_sibr7")
+
+[node name="MediumRock10" type="Sprite2D" parent="Tilemap/Node2D"]
+position = Vector2(852, 287)
+texture = ExtResource("10_sibr7")
+
+[node name="SmallRock6" type="Sprite2D" parent="Tilemap/Node2D"]
+position = Vector2(386, 587)
+texture = ExtResource("11_lkn2k")
+
+[node name="MediumRock11" type="Sprite2D" parent="Tilemap/Node2D"]
+position = Vector2(357, 563)
+texture = ExtResource("10_sibr7")
 
 [node name="Mountain" type="TileMapLayer" parent="Tilemap"]
 use_parent_material = true
@@ -940,7 +960,6 @@ limit_smoothed = true
 position = Vector2(1418, 595)
 
 [node name="PlayerEntered" type="Area2D" parent="Characters"]
-process_mode = 4
 position = Vector2(1325, 735)
 rotation = 1.5708
 collision_mask = 2
@@ -983,28 +1002,9 @@ position = Vector2(294, 145)
 [node name="Oxygen Tank11" parent="Node" instance=ExtResource("10_qsp8v")]
 position = Vector2(152, 375)
 
-[node name="SmallRock" type="Sprite2D" parent="."]
-position = Vector2(235, 708)
-texture = ExtResource("7_ndlae")
-
-[node name="MediumRock1" type="Sprite2D" parent="."]
-position = Vector2(172, 820)
-texture = ExtResource("11_lkn2k")
-
-[node name="MediumRock2" type="Sprite2D" parent="."]
-position = Vector2(852, 287)
-texture = ExtResource("10_sibr7")
-
-[node name="SmallRock2" type="Sprite2D" parent="."]
-position = Vector2(386, 587)
-texture = ExtResource("7_ndlae")
-
-[node name="MediumRock3" type="Sprite2D" parent="."]
-position = Vector2(357, 563)
-texture = ExtResource("11_lkn2k")
-
 [connection signal="finished" from="CanvasLayer/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="body_entered" from="Characters/Fuel Tank" to="." method="_on_fuel_tank_fuel_collected"]
 [connection signal="body_entered" from="Characters/ManyFuel" to="." method="_on_many_fuel_body_entered"]
 [connection signal="body_entered" from="Characters/Franzen/Area2D" to="." method="_on_area_2d_body_entered_in_franz"]
+[connection signal="body_entered" from="Characters/Spaceship" to="." method="_on_spaceship_body_entered"]
 [connection signal="body_entered" from="Characters/PlayerEntered" to="." method="_on_player_entered_to_starting_area"]

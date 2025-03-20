@@ -77,32 +77,24 @@ func _on_fuel_tank_fuel_collected() -> void:
 	InventoryManager.add_item_to_inventory("fuel", 1)
 
 func _on_oxygen_depleted() -> void:
-	Music.stop_music()
-	$FailSFX.play()
-
-	DialogueManager.show_dialogue_balloon(dialog, "failed")
-	DialogueManager.dialogue_ended.connect(
-		_restart
+	SceneManager.fail_game(
+		func() -> void:
+			InventoryManager._clear_inventory()
+			OxygenManager.reset_timer()
+			DataManager.Level1 = {
+				has_hit_spikes = false,
+				has_key = false,
+				has_fuel = false,
+				should_move_william_to_ship = false,
+				william_moved_to_ship = false,
+			}
+			
+			SceneManager.goto_scene("res://scenes/levels/level_1.tscn")
 	)
 #endregion
 	
 func _show_dialoague_box(key: String) -> void:
 	DialogueManager.show_dialogue_balloon(dialog, key)
 
-#region Functions
 func _go_to_level_2(_pass) -> void:
 	SceneManager.goto_scene("res://scenes/cutscene/cutscene.tscn")
-
-func _restart(_pass) -> void:
-	InventoryManager._clear_inventory()
-	OxygenManager.reset_timer()
-	DataManager.Level1 = {
-		has_hit_spikes = false,
-		has_key = false,
-		has_fuel = false,
-		should_move_william_to_ship = false,
-		william_moved_to_ship = false,
-	}
-	
-	SceneManager.goto_scene("res://scenes/levels/level_1.tscn")
-#endregion

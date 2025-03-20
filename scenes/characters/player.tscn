@@ -262,6 +262,6 @@ shape = SubResource("CapsuleShape2D_bbaxg")
 sprite_frames = SubResource("SpriteFrames_tfd2b")
 animation = &"v2_walk_right"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_jia57")
 volume_db = -6.0

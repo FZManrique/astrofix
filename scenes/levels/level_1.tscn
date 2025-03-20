@@ -1,17 +1,16 @@
-[gd_scene load_steps=34 format=4 uid="uid://c5wuq0sv37ns0"]
+[gd_scene load_steps=33 format=4 uid="uid://c5wuq0sv37ns0"]
 
 [ext_resource type="Script" uid="uid://cg2fxcu5weos8" path="res://scripts/levels/level_1.gd" id="1_6b7pd"]
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="2_drk7b"]
-[ext_resource type="Texture2D" uid="uid://dahxsu5m7wxmk" path="res://art/level_1_decorations/particles/snowflake.png" id="2_v6ha0"]
+[ext_resource type="Texture2D" uid="uid://dahxsu5m7wxmk" path="res://art/level_1/decorations/particles/snowflake.png" id="2_v6ha0"]
 [ext_resource type="Texture2D" uid="uid://b4f0l0guck2am" path="res://art/tilesets/level1_background_alt.png" id="5_j667r"]
-[ext_resource type="PackedScene" uid="uid://b2i1lxoxv3ksn" path="res://scenes/screens/instruction_box.tscn" id="6_np2pn"]
+[ext_resource type="PackedScene" uid="uid://bap63ec07gtue" path="res://scenes/screens/instruction_box.tscn" id="6_np2pn"]
 [ext_resource type="PackedScene" uid="uid://cx10m4iph6urk" path="res://scenes/objects/icicle2.tscn" id="7_py4sd"]
 [ext_resource type="PackedScene" uid="uid://ca7fbchtht5cu" path="res://scenes/objects/icicle1.tscn" id="8_5y7sp"]
-[ext_resource type="AudioStream" uid="uid://42ycc35noq4r" path="res://audio/sfx/fail_sound.mp3" id="8_gyx1q"]
-[ext_resource type="Texture2D" uid="uid://dy0b7xcvj8xuj" path="res://art/level_1_decorations/snow_pile_1.png" id="8_np2pn"]
-[ext_resource type="Texture2D" uid="uid://tdacwfwhe3in" path="res://art/level_1_decorations/snow_pile_2.png" id="9_v6ha0"]
+[ext_resource type="Texture2D" uid="uid://dy0b7xcvj8xuj" path="res://art/level_1/decorations/snow_pile_1.png" id="8_np2pn"]
+[ext_resource type="Texture2D" uid="uid://tdacwfwhe3in" path="res://art/level_1/decorations/snow_pile_2.png" id="9_v6ha0"]
 [ext_resource type="Texture2D" uid="uid://bfqtusydqhbs0" path="res://art/tilesets/level1_background.png" id="10_4kl5d"]
-[ext_resource type="Texture2D" uid="uid://cyooloxmicvmw" path="res://art/level_1_decorations/ice_puddle.png" id="10_v6ha0"]
+[ext_resource type="Texture2D" uid="uid://cyooloxmicvmw" path="res://art/level_1/decorations/ice_puddle.png" id="10_v6ha0"]
 [ext_resource type="Texture2D" uid="uid://rh53vt6li6k2" path="res://art/tilesets/level1_mountains.png" id="11_v8f6a"]
 [ext_resource type="PackedScene" uid="uid://bk1duboua3ltx" path="res://scenes/objects/key.tscn" id="11_vxnya"]
 [ext_resource type="PackedScene" uid="uid://1pmipojgsf0m" path="res://scenes/characters/player.tscn" id="12_bbmqk"]
@@ -509,12 +508,7 @@ player_node = NodePath("../../Characters/Player")
 [node name="InstructionBox" parent="CanvasLayer" instance=ExtResource("6_np2pn")]
 visible = false
 title = "Level 1 Objectives"
-objectives = "Explore Neptune's moon to find fuel to refuel the ship"
-
-[node name="FailSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_gyx1q")
-volume_db = -16.0
-bus = &"SFX"
+objectives = "Explore Nepture to find fuel to refuel the ship"
 
 [node name="TileMap" type="Node2D" parent="."]
 position = Vector2(1408, 688)

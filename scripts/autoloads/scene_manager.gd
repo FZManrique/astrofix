@@ -35,8 +35,23 @@ func _process(_delta: float) -> void:
 	if (is_main_menu || DataManager.Level2.is_minigame):
 		_toggle_oxygen_timer(false)
 	else:	
-		_toggle_oxygen_timer(!SceneManager.is_dialogue_shown)
+		_toggle_oxygen_timer(!SceneManager.is_dialogue_shown) 
 
+func fail_game(on_restart: Callable) -> void:
+	var fail_scene := preload("res://scenes/screens/fail_scene.tscn") as PackedScene
+	var fail_node: FailBox = fail_scene.instantiate()
+	add_child(fail_node)
+	fail_node.on_game_restart.connect(on_restart)
+
+func quit_game() -> void:
+	if OS.has_feature('web'):
+		DataManager.should_quit = true
+		TransitionManager.transition()
+		await TransitionManager.on_transition_finished
+		
+	get_tree().quit() 
+
+#region Checks
 func _toggle_oxygen_timer(enabled: bool) -> void:
 	if (enabled):
 		OxygenManager.start_timer()
@@ -57,6 +72,9 @@ func _check_if_main_menu() -> void:
 		is_main_menu = true
 	else:
 		is_main_menu = false
+#endregion
+
+#region Scene Transitions
 
 func goto_scene(path: String) -> void:
 	TransitionManager.transition()
@@ -70,3 +88,4 @@ func _deferred_goto_scene(path: String) -> void:
 	current_scene = s.instantiate()
 	get_tree().root.add_child(current_scene)
 	get_tree().current_scene = current_scene
+#endregion

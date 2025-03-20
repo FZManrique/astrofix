@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://dy2ph6k84ycy2"
+path="res://.godot/imported/level_2_end_cutscene.dialogue-ef0e889b64191302640c71dec1360acd.tres"
+
+[deps]
+
+source_file="res://dialogue/level_2_end_cutscene.dialogue"
+dest_files=["res://.godot/imported/level_2_end_cutscene.dialogue-ef0e889b64191302640c71dec1360acd.tres"]
+
+[params]
+
+defaults=true

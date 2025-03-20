@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var animation_sprite = $AnimatedSprite2D
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var audio_stream_player: AudioStreamPlayer = $Footsteps
 
 @export var default_speed := 75.0
 @export var sprint_speed := default_speed * 2
