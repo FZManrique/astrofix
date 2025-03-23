@@ -8,7 +8,7 @@ func _ready() -> void:
 	var inventory = InventoryManager.get_inventory_contents()
 	inventory.get(0)
 	
-func _on_item_added(item, _count) -> void:
+func _on_item_added(item: String, _count: int) -> void:
 	if (item == "key"):
 		$TextureRect.texture = load("res://art/objects/key.png")
 	elif (item == "fuel"):

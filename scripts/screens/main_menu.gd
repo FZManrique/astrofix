@@ -10,7 +10,8 @@ func _ready() -> void:
 	Music.play_music("res://audio/music/main_menu.wav")
 
 func _on_start_pressed() -> void:
-	SceneManager.goto_scene("res://scenes/cutscene/cutscene.tscn")
+	DataManager.current_cutscene = load("res://cutscenes/data/level_1.tres")
+	SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")
 
 func _on_settings_pressed() -> void:
 	print("Settings pressed")

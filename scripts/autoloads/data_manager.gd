@@ -6,13 +6,12 @@ enum WIND_DIRECTION {TO_TOP, TO_LEFT, TO_BOTTOM, TO_RIGHT}
 
 var should_quit := false
 var can_pause := false
+
 var show_instruction_box := false
 var intro_done := false
 
-var Cutscene := {
-	current_cutscene_number = 1,
-	is_end_mode = false
-}
+var current_cutscene: CutsceneResource = null
+var in_cutscene = false
 
 var Level1 := {
 	has_hit_spikes = false,

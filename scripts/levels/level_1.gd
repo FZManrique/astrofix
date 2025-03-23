@@ -97,4 +97,5 @@ func _show_dialoague_box(key: String) -> void:
 	DialogueManager.show_dialogue_balloon(dialog, key)
 
 func _go_to_level_2(_pass) -> void:
-	SceneManager.goto_scene("res://scenes/cutscene/cutscene.tscn")
+	DataManager.current_cutscene = load("res://cutscenes/data/level_1_end.tres")
+	SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")

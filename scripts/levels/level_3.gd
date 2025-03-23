@@ -38,7 +38,7 @@ func _ready() -> void:
 func _show_dialoague_box(key: String) -> void:
 	DialogueManager.show_dialogue_balloon(load("res://dialogue/level_3.dialogue"), key)
 
-func _on_transition_to_minigame_body_entered(body: Node2D) -> void:
+func _on_transition_to_minigame_body_entered(_body: Node2D) -> void:
 	SceneManager.goto_scene("res://scenes/levels/level_3_minigame/level_3_minigame.tscn")
 
 static func on_restart() -> void:
@@ -53,14 +53,14 @@ static func on_restart() -> void:
 	}
 	SceneManager.goto_scene("res://scenes/levels/level_3.tscn")
 
-func _on_chloe_body_entered(body: Node2D) -> void:
+func _on_chloe_body_entered(_body: Node2D) -> void:
 	if (not Level3Data.talked_once_to_chloe):
 		Level3Data.talked_once_to_chloe = true
 		_show_dialoague_box("dialogue_initial")
 	else:
 		_show_dialoague_box("general")
 
-func _on_spaceship_body_entered(body: Node2D) -> void:
+func _on_spaceship_body_entered(_body: Node2D) -> void:
 	if (Level3Data.collected_cover):
 		_show_dialoague_box("end_scene")
 		DialogueManager.dialogue_ended.connect(

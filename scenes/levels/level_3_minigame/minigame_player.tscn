@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bvce0wb0wf4e3" path="res://art/characters/player/idle.png" id="4_s7jv5"]
 [ext_resource type="Texture2D" uid="uid://cl280wyp5icqy" path="res://art/characters/player/moving.png" id="5_com5k"]
 [ext_resource type="AudioStream" uid="uid://ct208ajtntpa0" path="res://audio/sfx/jump.mp3" id="6_akxtt"]
-[ext_resource type="AudioStream" uid="uid://dvas7nht4qshu" path="res://audio/sfx/ambience/footsteps.mp3" id="7_3sn58"]
+[ext_resource type="AudioStream" uid="uid://dvas7nht4qshu" path="res://audio/sfx/footsteps.mp3" id="7_3sn58"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p6htd"]
 radius = 4.0

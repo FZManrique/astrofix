@@ -4,6 +4,8 @@ var dialog = load("res://dialogue/level_2.dialogue")
 var Level2Data := DataManager.Level2
 var WIND_DIRECTION := DataManager.WIND_DIRECTION
 
+var has_entered = false
+
 func _ready() -> void:
 	%WindAnim.play("fade_out")
 	Music.play_music("res://audio/music/level_2.mp3", 100.0)
@@ -65,11 +67,11 @@ func _on_area_2d_body_entered_in_franz(body: Node2D) -> void:
 	_show_dialoague_box("dialogue")
 
 func _on_many_fuel_body_entered(body: Node2D) -> void:
-	if (!DataManager.Level2.fuel_collected):
+	if (!Level2Data.fuel_collected):
 		_show_dialoague_box("many_collected")
 
 func _on_fuel_tank_fuel_collected(body: Node2D) -> void:
-	if (!DataManager.Level2.fuel_collected):
+	if (!Level2Data.fuel_collected):
 		$"Characters/Fuel Tank".force_pickup()
 		_show_dialoague_box("collected")
 
@@ -85,11 +87,15 @@ func _on_player_entered_to_starting_area(body: Node2D) -> void:
 		)
 
 func _on_spaceship_body_entered(body: Node2D) -> void:
-	if (DataManager.Level2.fuel_collected):
+	if (Level2Data.fuel_collected):
 		_show_dialoague_box("on_enter")
 		DialogueManager.dialogue_ended.connect(
 			func(_noop):
-				SceneManager.goto_scene("res://scenes/cutscene/cutscene.tscn")
+				if (!has_entered):
+					has_entered = true
+					print("Transitioning to level 3")
+					DataManager.current_cutscene = load("res://cutscenes/data/level_2_end.tres")
+					SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")
 		)
 	else:
 		_show_dialoague_box("no_enter")
