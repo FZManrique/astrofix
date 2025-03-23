@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://weu6sfdmw8bi"]
+[gd_scene load_steps=26 format=3 uid="uid://weu6sfdmw8bi"]
 
 [ext_resource type="Texture2D" uid="uid://c2846miokddta" path="res://art/minimap_frame_background.png" id="1_3c3hu"]
 [ext_resource type="Script" uid="uid://b0l5ye8xr6rai" path="res://scripts/screens/gui/gui.gd" id="1_r8hx2"]
@@ -9,6 +9,7 @@
 [ext_resource type="StyleBox" uid="uid://bwihykju6d303" path="res://scenes/themes/progress_bar/progress_blue.tres" id="5_3c3hu"]
 [ext_resource type="PackedScene" uid="uid://qy24io0fo1jn" path="res://scenes/screens/pause_menu.tscn" id="5_ou7me"]
 [ext_resource type="Script" uid="uid://dfpavdprge8rb" path="res://scripts/screens/backpack.gd" id="8_3c3hu"]
+[ext_resource type="Script" uid="uid://b2yh42wdqbmcu" path="res://scripts/screens/debug_menu.gd" id="10_r8hx2"]
 
 [sub_resource type="Gradient" id="Gradient_3c3hu"]
 offsets = PackedFloat32Array(0, 0.861446, 1)
@@ -204,5 +205,39 @@ layout_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="Screen" type="CanvasLayer" parent="."]
+
+[node name="Debug" type="HBoxContainer" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("10_r8hx2")
+
+[node name="Label" type="Label" parent="Debug"]
+layout_mode = 2
+text = "Dev Menu"
+
+[node name="TextEdit" type="TextEdit" parent="Debug"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "res://scenes/levels/level_1.tscn"
+placeholder_text = "Scene path"
+
+[node name="Navigate" type="Button" parent="Debug"]
+layout_mode = 2
+text = "Navigate to scene"
+
+[node name="Quit" type="Button" parent="Debug"]
+layout_mode = 2
+text = "Quit game"
+
+[node name="Cancel" type="Button" parent="Debug"]
+layout_mode = 2
+text = "Cancel"
 
 [connection signal="pressed" from="Statistics/HelpContainer/HelpButton" to="." method="_on_help_button_pressed"]

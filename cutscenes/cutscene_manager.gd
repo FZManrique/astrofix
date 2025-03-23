@@ -14,7 +14,9 @@ class_name CutsceneManager
 
 var current_index := 0
 var mutation_script: CutsceneMutations = null
-var skip_typing = false
+
+var skip_typing := false
+var is_typing := false
 
 var cutscene: CutsceneResource = DataManager.current_cutscene
 
@@ -69,10 +71,12 @@ func show_scene():
 	on_step.emit(current_index)
 	
 	await type_text(cutscene.dialogue[current_index])
+	is_typing = false
+	
 	if cutscene.options.has(current_index):
 		show_options(cutscene.options[current_index])
 		return
-
+	
 	await get_tree().create_timer(image_wait_time).timeout
 	next_scene()
 
@@ -90,6 +94,7 @@ func show_options(options):
 
 func type_text(text: String):
 	content.text = ""
+	is_typing = true
 	skip_typing = false  # Reset skip flag
 	
 	for i in range(text.length()):
