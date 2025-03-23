@@ -38,8 +38,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity_change_speed = air_accel_speed if direction != 0 else air_decel_speed
 	 
-	if is_on_floor() and !velocity.x:
+	if is_on_floor() && velocity.x:
 		footsteps.play()
+	else:
+		footsteps.stop()
 	
 	if direction:
 		velocity.x = direction * SPEED

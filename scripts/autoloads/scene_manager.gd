@@ -78,7 +78,9 @@ func _check_if_main_menu() -> void:
 
 func goto_scene(path: String) -> void:
 	TransitionManager.transition()
+	DataManager.can_pause = false
 	await TransitionManager.on_transition_finished
+	_determine_can_pause()
 	
 	_deferred_goto_scene.call_deferred(path)
 

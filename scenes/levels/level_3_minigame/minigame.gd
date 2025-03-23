@@ -1,6 +1,11 @@
 extends Node2D
 
 func _ready() -> void:
+	OxygenManager.oxygen_depleted.connect(
+		func():
+			SceneManager.fail_game(Level3.on_restart)
+	)
+	
 	if (DataManager.Level3.in_asteroid_area):
 		%Player.position = Vector2(2152.0, 244.0)
 	else:

@@ -57,8 +57,10 @@ var mutations = {
 			await get_tree().create_timer(3).timeout
 			TransitionManager.transition()
 			pass,
+		3: func() -> void:
+			pass,
 		4: func() -> void:
-		
+			pass,
 	}
 }
 
@@ -120,18 +122,15 @@ func _on_dialogue_ended(_resource: DialogueResource) -> void:
 		SceneManager.goto_scene(cutscene_data.end_scene)
 
 func get_cutscene_item() -> String:
-	var suffix: String = ""
-	
-	if (is_end_mode):
-		suffix = "_end"
-	else:
-		suffix = ""
-	
-	return str(current_cutscene_number) + suffix
+	return str(current_cutscene_number) + ("_end" if is_end_mode else "")
 
 func _show_scene() -> void:
 	texture_rect.texture = load("res://art/cutscenes/scene%s/0%s.png" % [get_cutscene_item(), current_title])
-	dialogue_node = DialogueManager.show_dialogue_balloon_scene(dialogue_scene.instantiate(), cutscene_dialogue, "scene_" + str(current_title))
+	dialogue_node = DialogueManager.show_dialogue_balloon_scene(
+		dialogue_scene.instantiate(),
+		cutscene_dialogue,
+		"scene_" + str(current_title)
+	)
 
 func _on_title_changed() -> void:
 	$Timer.stop()
@@ -139,9 +138,7 @@ func _on_title_changed() -> void:
 	# stop audio
 	audio_stream_player.stop()
 	
-	var index = (current_cutscene_number * 2) - 2
-	if (is_end_mode):
-		index += 1
+	var index = (current_cutscene_number * 2) - (1 if is_end_mode else 2)
 	
 	if mutations.has(index) and mutations[index].has(current_title):
 		var function: Callable = mutations[index][current_title]

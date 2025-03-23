@@ -105,13 +105,13 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
 theme_override_font_sizes/font_size = 24
-text = "Level 1 Objectives"
+text = "Level Objectives"
 horizontal_alignment = 1
 
 [node name="Objectives" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Explore Neptune to find fuel to refuel the ship"
+text = "Content in here"
 horizontal_alignment = 1
 
 [node name="Controls" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer"]
