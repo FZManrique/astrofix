@@ -12,7 +12,12 @@ var GOALS := [
 	"Refuel the ship",
 	# Level 3
 	"Find a cover to fix the leak",
-	"Fix the leak in the ship"
+	"Fix the leak in the ship",
+	# Level 4
+	"Locate the crystal tower",
+	"Find 4 crystal shards to repair the tower",
+	"Fix the crystal tower",
+	"Look for the missing shard"
 ]
 
 signal on_goals_changed

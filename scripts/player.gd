@@ -7,6 +7,9 @@ extends CharacterBody2D
 @export var sprint_speed := default_speed * 2
 @export var speed := default_speed
 
+@export var ground_accel_speed: float = 6
+@export var ground_decel_speed: float = 8
+
 var isMoving := false
 
 var new_direction := Vector2(0, 1)
@@ -47,6 +50,9 @@ func _physics_process(delta: float):
 				direction_resistance = Vector2(-wind_speed, 0)
 			wind_direction.TO_RIGHT:
 				direction_resistance = Vector2(wind_speed, 0)
+	
+	var velocity_change_speed: float = 0.0
+	velocity_change_speed = ground_accel_speed if direction != Vector2.ZERO else ground_decel_speed
 	
 	var movement := (speed * direction * delta) as Vector2
 	movement -= direction_resistance * delta

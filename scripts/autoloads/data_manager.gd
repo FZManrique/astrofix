@@ -39,3 +39,11 @@ var Level3 := {
 	collected_cover = false,
 	in_asteroid_area = false,
 }
+
+var Level4 := {
+	crystal_count = 0,
+	talked_to_conny = false,
+	talked_after_most_crystals = false,
+	done_confrontation = false,
+	in_minigame = false,
+}
