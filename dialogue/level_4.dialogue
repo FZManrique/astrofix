@@ -59,6 +59,7 @@ Sailor Con: As Jupiter's guardian, I hold deep resentment for Saturn. They say J
 Sailor Con: It held Jupiter back, stopping it from reaching its full potential. Some of us still believe Jupiter deserved better.
 Sailor Con: [#emotion=angry] And you, human… you’re friends with ChloeSZA, aren't you? She's from Saturn. I couldn’t just let you win so easily.
 Sailor Con: [#emotion=sad] I let my anger cloud my duty. I shouldn't have done that. Here... take the shard. Fix the tower and refill your oxygen.
+do DataManager.Level4_has_done_confrontation.emit()
 => END!
 
 ~ ending

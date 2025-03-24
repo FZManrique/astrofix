@@ -2,6 +2,9 @@
 
 extends Node
 
+# TODO Remove
+signal Level4_has_done_confrontation
+
 enum WIND_DIRECTION {TO_TOP, TO_LEFT, TO_BOTTOM, TO_RIGHT}
 
 var should_quit := false
