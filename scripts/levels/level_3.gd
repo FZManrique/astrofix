@@ -73,7 +73,8 @@ func _on_spaceship_body_entered(_body: Node2D) -> void:
 			func(_ignore) -> void:
 				if (!is_transitioning):
 					is_transitioning = true
-					SceneManager.goto_scene("res://scenes/levels/level_4.tscn")
+					DataManager.current_cutscene = load("res://cutscenes/data/level_3_end.tres")
+					SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")
 		)
 	else:
 		_show_dialoague_box("no_enter")

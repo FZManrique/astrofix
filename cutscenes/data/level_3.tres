@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CutsceneResource" load_steps=8 format=3 uid="uid://ckmt082fmh1ij"]
+[gd_resource type="Resource" script_class="CutsceneResource" load_steps=10 format=3 uid="uid://ckmt082fmh1ij"]
 
 [ext_resource type="Texture2D" uid="uid://b047mnqghe7pa" path="res://cutscenes/images/level_3/01.png" id="1_2dflu"]
 [ext_resource type="Script" uid="uid://c4675jfitoxq3" path="res://cutscenes/CutsceneResource.gd" id="1_5j6r3"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://hy5utma7kilt" path="res://cutscenes/images/level_3/04.png" id="4_1rn2h"]
 [ext_resource type="AudioStream" uid="uid://cpnr4i6sirjib" path="res://cutscenes/music/cutscene_3.mp3" id="5_eykus"]
 [ext_resource type="PackedScene" uid="uid://d22pvjq2mopa8" path="res://scenes/levels/level_3.tscn" id="6_0rod2"]
+[ext_resource type="AudioStream" uid="uid://dqdonfsooltey" path="res://cutscenes/sfx/common/heavy_breathing.mp3" id="8_1rn2h"]
+[ext_resource type="AudioStream" uid="uid://3wl7qgcbaae5" path="res://cutscenes/sfx/common/oxygen_alarm.mp3" id="9_eykus"]
 
 [resource]
 script = ExtResource("1_5j6r3")
@@ -14,7 +16,7 @@ images = Array[Texture2D]([ExtResource("1_2dflu"), ExtResource("2_0rod2"), ExtRe
 dialogue = Array[String](["Ugh, my head still hurts...", "Huh? I-is that an astero-", "N-no! The ship!", " FUEL LEVELS CRITICAL, MUST REFILL. [\\n] I guess I have to land on Saturn..."])
 options = Dictionary[int, Array]({})
 music = ExtResource("5_eykus")
-sfx = Array[AudioStream]([])
+sfx = Array[AudioStream]([null, null, ExtResource("8_1rn2h"), ExtResource("9_eykus")])
 next_scene = ExtResource("6_0rod2")
 time_modifiers = Dictionary[int, float]({})
 metadata/_custom_type_script = "uid://c4675jfitoxq3"

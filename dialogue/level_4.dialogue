@@ -26,6 +26,7 @@ Sailor Con: Do you need anything? Go find the shards.
 
 ~ last
 ???: Do not trust a book by its cover. Your instincts may know better.
+Player: I guess that's all the shards. Better go back.
 => END!
 
 ~ discussion
@@ -54,8 +55,14 @@ Sailor Con: Of course! Why would you doubt me?
 set DataManager.Level4.done_confrontation = true
 Player: Are you hiding something from me, Con?
 Sailor Con: [#emotion=angry] Fine... I do have the last shard.
-Sailor Con: As Jupiter's guardian, I hold deep resentment for Saturn. They say Jupiter was meant to be a star... a second sun. But Saturn’s pull? [next=auto]
-Sailor Con: It held Jupiter back, stopping it from reaching its full potential. Some of us still believe Jupiter deserved better. [next=auto]
-Sailor Con: [#emotion=angry] And you, human… you’re friends with ChloeSZA, aren't you? She's from Saturn. I couldn’t just let you win so easily. [next=auto]
+Sailor Con: As Jupiter's guardian, I hold deep resentment for Saturn. They say Jupiter was meant to be a star... a second sun. But Saturn’s pull?
+Sailor Con: It held Jupiter back, stopping it from reaching its full potential. Some of us still believe Jupiter deserved better.
+Sailor Con: [#emotion=angry] And you, human… you’re friends with ChloeSZA, aren't you? She's from Saturn. I couldn’t just let you win so easily.
 Sailor Con: [#emotion=sad] I let my anger cloud my duty. I shouldn't have done that. Here... take the shard. Fix the tower and refill your oxygen.
+=> END!
+
+~ ending
+Sailor Con: I'm sorry for everything. As Jupiter’s protector, I shouldn't have done that. I wish you the best on your journey.
+- Thank you, Sailor Conn. Take care.
+- I don’t blame you. Goodbye.
 => END!

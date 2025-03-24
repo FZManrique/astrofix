@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CutsceneResource" load_steps=6 format=3 uid="uid://0pvk30ho8pik"]
+
+[ext_resource type="Texture2D" uid="uid://bhc3yx1y1t0vh" path="res://cutscenes/images/level_4_end/1.png" id="1_nkan5"]
+[ext_resource type="Texture2D" uid="uid://cvwb13e7qxktg" path="res://cutscenes/images/level_4_end/2.png" id="2_8s0er"]
+[ext_resource type="AudioStream" uid="uid://cpo6tqiyqh5s6" path="res://cutscenes/music/cutscene_2_end.mp3" id="3_gmb3n"]
+[ext_resource type="Script" uid="uid://dulo7jjuuyohi" path="res://cutscenes/data/level_4_end_mutations.gd" id="4_nkan5"]
+[ext_resource type="Script" uid="uid://c4675jfitoxq3" path="res://cutscenes/CutsceneResource.gd" id="5_pxa4i"]
+
+[resource]
+script = ExtResource("5_pxa4i")
+images = Array[Texture2D]([ExtResource("1_nkan5"), ExtResource("2_8s0er")])
+dialogue = Array[String](["", "Next Destination: Mars"])
+options = Dictionary[int, Array]({})
+music = ExtResource("3_gmb3n")
+sfx = Array[AudioStream]([])
+mutation_script = ExtResource("4_nkan5")
+time_modifiers = Dictionary[int, float]({})
+metadata/_custom_type_script = "uid://c4675jfitoxq3"

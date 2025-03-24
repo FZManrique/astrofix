@@ -38,6 +38,17 @@ func _on_conny_body_entered(body: Node2D) -> void:
 				_show_dialoague_box("uncertain")
 			else:
 				_show_dialoague_box("discussion")
+				await DialogueManager.dialogue_ended
+				var minigame = load("res://scenes/levels/level_4_minigame/minigame.tscn") as PackedScene
+				var minigame_node = minigame.instantiate()
+				add_child(minigame_node)
+				minigame_node.on_dismiss.connect(
+					func():
+						_show_dialoague_box("ending")
+						await DialogueManager.dialogue_ended
+						DataManager.current_cutscene = load("res://cutscenes/data/level_4_end.tres")
+						SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")
+				)
 		else:
 			_show_dialoague_box("already_talked")
 	else:
