@@ -70,7 +70,15 @@ func show_scene():
 
 	on_step.emit(current_index)
 	
-	await type_text(cutscene.dialogue[current_index])
+	var text := cutscene.dialogue[current_index]
+	if (text):
+		%Dialogue.show()
+		%Panel.size = Vector2(1173.0, 180.0)
+	else:
+		%Dialogue.hide()
+		%Panel.size = Vector2(1173.0, 10.0)
+	
+	await type_text(text)
 	is_typing = false
 	
 	if cutscene.options.has(current_index):

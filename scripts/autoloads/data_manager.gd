@@ -39,7 +39,7 @@ var Level3 := {
 	talked_once_to_chloe = false,
 	asked_for_help = false,
 	finished_intro = false,
-	collected_cover = false,
+	collected_cover = true, # REVERT
 	in_asteroid_area = false,
 }
 

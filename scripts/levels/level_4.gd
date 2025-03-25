@@ -46,7 +46,6 @@ func _ready() -> void:
 	DataManager.show_instruction_box = true
 
 func _on_conny_body_entered(body: Node2D) -> void:
-	# See dialogue for logic
 	if (Level4Data.talked_to_conny):
 		if (Level4Data.crystal_count == 4):
 			if (Level4Data.talked_after_most_crystals):

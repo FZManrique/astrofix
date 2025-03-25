@@ -2,7 +2,7 @@
 
 [ext_resource type="StyleBox" uid="uid://dowdbn12jbayv" path="res://scenes/themes/blue_background.tres" id="1_i24gd"]
 [ext_resource type="Script" uid="uid://hl0yv3yo4oxq" path="res://scenes/levels/level_4_minigame/minigame.gd" id="1_j5og6"]
-[ext_resource type="Script" uid="uid://i4nw7ks14gps" path="res://scenes/levels/level_4_minigame/sprite.gd" id="1_tuvjx"]
+[ext_resource type="Script" uid="uid://dkmxx4n7eik2h" path="res://scenes/levels/level_4_minigame/sprite.gd" id="1_tuvjx"]
 [ext_resource type="Texture2D" uid="uid://rf7y0bxaoaky" path="res://art/level_4/crystal_large/transparent_full.png" id="2_1rf8l"]
 [ext_resource type="Texture2D" uid="uid://cq38cxfe483ni" path="res://art/level_4/crystal_large/1.png" id="3_nin43"]
 [ext_resource type="Texture2D" uid="uid://tromd3s7r320" path="res://art/level_4/crystal_large/2.png" id="4_nin43"]
@@ -82,7 +82,6 @@ offset_bottom = 307.0
 rotation = 1.5708
 texture = ExtResource("3_nin43")
 script = ExtResource("1_tuvjx")
-is_original = true
 
 [node name="B" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer/Pieces"]
 layout_mode = 0
@@ -93,7 +92,6 @@ offset_bottom = 288.0
 rotation = 1.5708
 texture = ExtResource("4_nin43")
 script = ExtResource("1_tuvjx")
-is_original = true
 
 [node name="C" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer/Pieces"]
 layout_mode = 0
@@ -104,7 +102,6 @@ offset_bottom = 80.0
 rotation = 1.5708
 texture = ExtResource("5_tuvjx")
 script = ExtResource("1_tuvjx")
-is_original = true
 
 [node name="D" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer/Pieces"]
 layout_mode = 0
@@ -115,7 +112,6 @@ offset_bottom = 77.0
 rotation = 1.5708
 texture = ExtResource("6_j5og6")
 script = ExtResource("1_tuvjx")
-is_original = true
 
 [node name="E" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer/Pieces"]
 layout_mode = 0
@@ -126,7 +122,6 @@ offset_bottom = 204.0
 rotation = 1.5708
 texture = ExtResource("7_kqmk5")
 script = ExtResource("1_tuvjx")
-is_original = true
 
 [node name="1" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer/Pieces"]
 layout_mode = 0

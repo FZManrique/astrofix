@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h7fjkwmtjg6t"
-path="res://.godot/imported/SPACESHIP.png-3a1718a95cbe24de4ec656e1d9fbcabd.ctex"
+uid="uid://ce8g7ni34a8qb"
+path="res://.godot/imported/spike_medium_1.png-7a33e08401650dc04d4c1918b64bae17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/objects/SPACESHIP.png"
-dest_files=["res://.godot/imported/SPACESHIP.png-3a1718a95cbe24de4ec656e1d9fbcabd.ctex"]
+source_file="res://art/level_4/decorations/spike_medium_1.png"
+dest_files=["res://.godot/imported/spike_medium_1.png-7a33e08401650dc04d4c1918b64bae17.ctex"]
 
 [params]
 

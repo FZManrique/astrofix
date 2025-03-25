@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h7fjkwmtjg6t"
-path="res://.godot/imported/SPACESHIP.png-3a1718a95cbe24de4ec656e1d9fbcabd.ctex"
+uid="uid://brt2w6harwkx3"
+path="res://.godot/imported/AlbumArtSmall.jpg-1d36ac7770debe150cfdec95f95ca163.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/objects/SPACESHIP.png"
-dest_files=["res://.godot/imported/SPACESHIP.png-3a1718a95cbe24de4ec656e1d9fbcabd.ctex"]
+source_file="res://cutscenes/sfx/level_1_end/AlbumArtSmall.jpg"
+dest_files=["res://.godot/imported/AlbumArtSmall.jpg-1d36ac7770debe150cfdec95f95ca163.ctex"]
 
 [params]
 
