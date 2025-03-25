@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://b4bnlcwutcthk"]
+[gd_scene load_steps=26 format=4 uid="uid://b4bnlcwutcthk"]
 
 [ext_resource type="Texture2D" uid="uid://dd0ls5fq6pld4" path="res://art/level_3/minigame/background.png" id="1_fton5"]
 [ext_resource type="Script" uid="uid://50pcswjqim8d" path="res://scenes/levels/level_3_minigame/minigame.gd" id="1_omryi"]
@@ -8,10 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://bo1fiij1inxn3" path="res://art/level_3/decorations/medium_rock_1.png" id="4_p6htd"]
 [ext_resource type="PackedScene" uid="uid://c37s33pc6i7dm" path="res://scenes/levels/level_3_minigame/minigame_player.tscn" id="5_fton5"]
 [ext_resource type="Texture2D" uid="uid://c2igtrbe04jcj" path="res://art/level_3/decorations/medium_rock_2.png" id="5_omryi"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="5_rok05"]
 [ext_resource type="AudioStream" uid="uid://bq8ugcfjblotn" path="res://audio/music/singing_chloe_hahahaha.mp3" id="5_sgy84"]
 [ext_resource type="PackedScene" uid="uid://bpko47puym4mc" path="res://scenes/objects/oxygen_tank.tscn" id="6_i5bno"]
 [ext_resource type="Texture2D" uid="uid://dsqlucfte8erw" path="res://art/level_3/decorations/small_rock.png" id="6_sgy84"]
+[ext_resource type="Texture2D" uid="uid://drb7m0s3fqeh0" path="res://art/keyboard_keys/keyboard_a.png" id="6_u7q6l"]
 [ext_resource type="Texture2D" uid="uid://baf2kpvdjx1m" path="res://art/level_3/decorations/pile_sand.png" id="7_l4g8i"]
+[ext_resource type="Texture2D" uid="uid://cdna42g4wfui8" path="res://art/keyboard_keys/keyboard_d.png" id="7_xl1uj"]
+[ext_resource type="Texture2D" uid="uid://xpl3ner1vnpl" path="res://art/keyboard_keys/keyboard_space.png" id="8_5kjf4"]
+[ext_resource type="Texture2D" uid="uid://dpnqo687atcf1" path="res://art/keyboard_keys/keyboard_shift.png" id="9_oc8t3"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p6htd"]
 particle_flag_disable_z = true
@@ -327,6 +332,121 @@ process_material = SubResource("ParticleProcessMaterial_omryi")
 [node name="Control" parent="CanvasLayer" node_paths=PackedStringArray("player_node") instance=ExtResource("2_i5bno")]
 player_node = NodePath("../../Player")
 
+[node name="Instructions" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.788235)
+
+[node name="VBoxContainer" type="PanelContainer" parent="CanvasLayer/Instructions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -90.0
+offset_right = 280.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_rok05")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Instructions/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "How to Move"
+horizontal_alignment = 1
+
+[node name="Objectives" type="Label" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Content in here"
+horizontal_alignment = 1
+
+[node name="Controls" type="Label" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="Keybinds" type="GridContainer" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 4
+
+[node name="Left" type="VBoxContainer" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/Left"]
+layout_mode = 2
+texture = ExtResource("6_u7q6l")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/Left"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "move left"
+horizontal_alignment = 1
+
+[node name="Right" type="VBoxContainer" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/Right"]
+layout_mode = 2
+texture = ExtResource("7_xl1uj")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/Right"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "move right"
+horizontal_alignment = 1
+
+[node name="Jump" type="VBoxContainer" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/Jump"]
+layout_mode = 2
+texture = ExtResource("8_5kjf4")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/Jump"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "jump"
+horizontal_alignment = 1
+
+[node name="Sprint" type="VBoxContainer" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/Sprint"]
+layout_mode = 2
+texture = ExtResource("9_oc8t3")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/Sprint"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "hold to sprint"
+horizontal_alignment = 1
+
+[node name="PlayGame" type="Button" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue"
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-66, 382)
 stream = ExtResource("5_sgy84")
@@ -506,6 +626,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToAsteroid"]
 shape = SubResource("CapsuleShape2D_p6htd")
 
+[connection signal="pressed" from="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/PlayGame" to="." method="_on_play_game_pressed"]
 [connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
 [connection signal="body_entered" from="ToPlanet" to="." method="_on_to_planet_body_entered"]
 [connection signal="body_entered" from="ToAsteroid" to="." method="_on_to_asteroid_body_entered"]

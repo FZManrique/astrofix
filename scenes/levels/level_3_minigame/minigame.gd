@@ -10,6 +10,11 @@ func _ready() -> void:
 		%Player.position = Vector2(2152.0, 244.0)
 	else:
 		%Player.position = Vector2(174.0, 378)
+	
+	%Instructions.show()
+	get_tree().paused = true
+
+
 
 func _on_to_planet_body_entered(body: Node2D) -> void:
 	DataManager.Level3.in_asteroid_area = false
@@ -24,3 +29,7 @@ func _on_killzone_body_entered(body: Node2D) -> void:
 		func() -> void:
 			Level3.on_restart()
 	)
+
+func _on_play_game_pressed() -> void:
+	%Instructions.queue_free()
+	get_tree().paused = false

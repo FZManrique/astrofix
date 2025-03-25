@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://1ahf77fre3j7"]
+[gd_scene load_steps=24 format=3 uid="uid://1ahf77fre3j7"]
 
 [ext_resource type="Script" uid="uid://e06ifgxshblv" path="res://scenes/levels/level_2_minigame/minigame.gd" id="1_u285d"]
 [ext_resource type="Texture2D" uid="uid://dw1d700iqq0c3" path="res://art/level_2/minigame/blue.png" id="1_xwllt"]
@@ -138,6 +138,18 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ratd"]
+bg_color = Color(0, 0, 0, 0.882353)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 16.0
+anti_aliasing = false
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -147,7 +159,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u285d")
 
-[node name="TextureRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -172,11 +184,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
 theme_override_font_sizes/font_size = 24
 text = "Fix the spacesuit"
-horizontal_alignment = 1
-
-[node name="Description" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Click the buttons that correspond to the color sequence."
 horizontal_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
@@ -274,6 +281,53 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_tu3gv")
 theme_override_styles/normal = ExtResource("9_0qisv")
 text = "                                                       "
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.788235)
+
+[node name="VBoxContainer" type="PanelContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -60.5
+offset_right = 100.0
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ratd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Instructions"
+horizontal_alignment = 1
+
+[node name="Objectives" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Memorize the color sequence of the buttons
+and click the corresponding colors"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue"
+
 [node name="Correct" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("11_yt3hm")
@@ -289,3 +343,4 @@ unique_name_in_owner = true
 stream = ExtResource("13_hr7qw")
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/Button" to="." method="_on_start_game"]

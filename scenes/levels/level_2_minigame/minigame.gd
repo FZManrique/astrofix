@@ -36,9 +36,6 @@ var colors: Dictionary[String, Texture2D] = {
 func _ready() -> void:
 	DataManager.Level2.is_minigame = true
 	%Continue.disabled = true
-	is_game_active = true
-	generate_color_sequence()
-	display_and_hide_color_sequence()
 	
 	for color in BUTTON_COLORS:
 		buttons[color].pressed.connect(
@@ -135,3 +132,10 @@ func validate_sequence() -> void:
 func _on_continue_pressed() -> void:
 	DataManager.Level2.is_minigame = false
 	SceneManager.goto_scene("res://scenes/levels/level_2.tscn")
+
+func _on_start_game() -> void:
+	$ColorRect.queue_free()
+	
+	is_game_active = true
+	generate_color_sequence()
+	display_and_hide_color_sequence()
