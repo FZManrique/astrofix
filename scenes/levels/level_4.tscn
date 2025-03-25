@@ -28,7 +28,7 @@
 offsets = PackedFloat32Array(0.39011, 0.598901)
 colors = PackedColorArray(1, 1, 1, 0.54902, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_v6ha0"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_r3huh"]
 gradient = SubResource("Gradient_8hw10")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r3huh"]
@@ -38,7 +38,7 @@ emission_box_extents = Vector3(640, 0, 0)
 gravity = Vector3(-45, 98, 0)
 scale_min = 0.05
 scale_max = 0.1
-color_initial_ramp = SubResource("GradientTexture1D_v6ha0")
+color_initial_ramp = SubResource("GradientTexture1D_r3huh")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1s8bw"]
 particle_flag_disable_z = true
@@ -46,7 +46,7 @@ emission_shape = 3
 emission_box_extents = Vector3(640, 0, 0)
 gravity = Vector3(-45, 98, 0)
 scale_max = 2.0
-color_initial_ramp = SubResource("GradientTexture1D_v6ha0")
+color_initial_ramp = SubResource("GradientTexture1D_r3huh")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rej77"]
 texture = ExtResource("3_anwe6")
@@ -337,12 +337,12 @@ visible = false
 title = "Level 4 Objectives"
 objectives = "Complete all the shards"
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="Map" type="CanvasLayer" parent="."]
 process_mode = 3
 visible = false
 script = ExtResource("4_1bx01")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+[node name="ColorRect" type="ColorRect" parent="Map"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -350,7 +350,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0470588, 0.0470588, 0.0470588, 0.541176)
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+[node name="TextureRect" type="TextureRect" parent="Map"]
 process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
