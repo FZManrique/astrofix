@@ -4,9 +4,9 @@ extends CanvasLayer
 signal on_game_restart
 
 func _ready() -> void:
+	%FailSFX.play()
 	get_tree().paused = true
 	Music.stop_music()
-	%FailSFX.play()
 
 func _on_restart_pressed() -> void:
 	on_game_restart.emit()

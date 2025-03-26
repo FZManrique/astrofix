@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b05dhri5j7o3g"]
+
+[ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="1_r1vs7"]
+[ext_resource type="PackedScene" uid="uid://1pmipojgsf0m" path="res://scenes/characters/player.tscn" id="2_dswqx"]
+[ext_resource type="PackedScene" uid="uid://dxhb8eooelkyv" path="res://scenes/objects/spaceship.tscn" id="3_laj7o"]
+
+[sub_resource type="TileSet" id="TileSet_845dy"]
+tile_size = Vector2i(8, 8)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+
+[node name="Level5" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" node_paths=PackedStringArray("player_node") instance=ExtResource("1_r1vs7")]
+player_node = NodePath("../../Characters/Player")
+
+[node name="Tilemap" type="Node2D" parent="."]
+
+[node name="Ground" type="TileMapLayer" parent="Tilemap"]
+tile_set = SubResource("TileSet_845dy")
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Player" parent="Characters" instance=ExtResource("2_dswqx")]
+position = Vector2(18, 284)
+
+[node name="Spaceship" parent="Characters" instance=ExtResource("3_laj7o")]
+position = Vector2(126, 315)
