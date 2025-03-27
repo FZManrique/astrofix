@@ -25,7 +25,7 @@ signal on_step(index: int)
 signal on_end
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):  # ESC by default
+	if event.is_action_pressed("ui_skip_typing"):  # Space by default
 		skip_typing = true
 
 func _ready() -> void:

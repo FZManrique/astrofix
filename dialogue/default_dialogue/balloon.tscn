@@ -107,7 +107,7 @@ offset_bottom = 34.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
 theme_override_font_sizes/font_size = 10
-text = "Enter to accept, Esc to skip typing"
+text = "Enter to accept, Space to skip typing"
 
 [node name="Art" type="Sprite2D" parent="Balloon"]
 texture_filter = 1
