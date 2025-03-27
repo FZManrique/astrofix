@@ -151,6 +151,7 @@ expand_margin_bottom = 16.0
 anti_aliasing = false
 
 [node name="Control" type="Control"]
+texture_filter = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
