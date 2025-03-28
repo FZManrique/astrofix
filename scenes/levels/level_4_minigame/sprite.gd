@@ -29,7 +29,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	node.add_child(texture_rect)
 	set_drag_preview(node)
 	
-	modulate.a = 0.5
+	modulate.a = 0
 	is_current_item = true
 	
 	return duplicate()

@@ -45,7 +45,7 @@ func _show_dialoague_box(key: String) -> void:
 	DialogueManager.show_dialogue_balloon(load("res://dialogue/level_3.dialogue"), key)
 
 func _on_transition_to_minigame_body_entered(_body: Node2D) -> void:
-	SceneManager.goto_scene("res://scenes/levels/level_3_minigame/level_3_minigame.tscn")
+	SceneManager.goto_scene("res://scenes/levels/level_3_minigame/minigame.tscn")
 
 static func on_restart(collected_cover: bool = false, finished_intro: bool = false) -> void:
 	InventoryManager._clear_inventory()
