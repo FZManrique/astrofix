@@ -72,11 +72,9 @@ func show_scene():
 	
 	var text := cutscene.dialogue[current_index]
 	if (text):
-		%Dialogue.show()
-		%Panel.size = Vector2(1173.0, 180.0)
+		%Title.show()
 	else:
-		%Dialogue.hide()
-		%Panel.size = Vector2(1173.0, 10.0)
+		%Title.hide()
 	
 	await type_text(text)
 	is_typing = false

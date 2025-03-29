@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://c016vtt25g3k6"]
 
-[ext_resource type="Texture2D" uid="uid://bmvmcjwkxddc6" path="res://art/tilesets/dev_tileset.png" id="1_vlwxk"]
+[ext_resource type="Texture2D" uid="uid://bmvmcjwkxddc6" path="res://art/tilesets/dev_tileset_1.png" id="1_vlwxk"]
 [ext_resource type="PackedScene" uid="uid://1pmipojgsf0m" path="res://scenes/characters/player.tscn" id="2_re0sv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a34pf"]

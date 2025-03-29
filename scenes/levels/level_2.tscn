@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bap63ec07gtue" path="res://scenes/screens/instruction_box.tscn" id="3_8qukl"]
 [ext_resource type="PackedScene" uid="uid://dxhb8eooelkyv" path="res://scenes/objects/spaceship.tscn" id="3_66j2d"]
 [ext_resource type="AudioStream" uid="uid://cifm4a0hoyean" path="res://audio/music/level_2_ambience.mp3" id="3_ibugp"]
-[ext_resource type="Texture2D" uid="uid://b45hwjpfwl3xa" path="res://art/tilesets/level2tmptileset.png" id="3_kv51b"]
+[ext_resource type="Texture2D" uid="uid://b45hwjpfwl3xa" path="res://art/tilesets/dev_tileset_2.png" id="3_kv51b"]
 [ext_resource type="Texture2D" uid="uid://cn2mbmrupt12d" path="res://art/level_1/decorations/particles/Snowflake (Big).png" id="3_ndlae"]
 [ext_resource type="Texture2D" uid="uid://c5gb3khtj6pye" path="res://art/tilesets/level2_tileset.png" id="6_3p04p"]
 [ext_resource type="PackedScene" uid="uid://b20xsf28pfx5q" path="res://scenes/objects/wind_area.tscn" id="6_we8yt"]

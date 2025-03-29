@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmvmcjwkxddc6"
-path="res://.godot/imported/dev_tileset.png-47715338e0f5c5ed2d27f697220bd886.ctex"
+uid="uid://c1kgcf4jvy0t6"
+path="res://.godot/imported/level4_mountains.png-54c80962e11bddc8031794ffa75d445c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tilesets/dev_tileset.png"
-dest_files=["res://.godot/imported/dev_tileset.png-47715338e0f5c5ed2d27f697220bd886.ctex"]
+source_file="res://art/tilesets/level4_mountains.png"
+dest_files=["res://.godot/imported/level4_mountains.png-54c80962e11bddc8031794ffa75d445c.ctex"]
 
 [params]
 

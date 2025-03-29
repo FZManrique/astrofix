@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1kgcf4jvy0t6"
-path="res://.godot/imported/level3_mountains.png-6645baf4cc7396152080103f4e3b5338.ctex"
+uid="uid://comgnqxbtt2e7"
+path="res://.godot/imported/level4_ground.png-25705c07d586d5be4b21b9f1b0954653.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tilesets/level3_mountains.png"
-dest_files=["res://.godot/imported/level3_mountains.png-6645baf4cc7396152080103f4e3b5338.ctex"]
+source_file="res://art/tilesets/level4_ground.png"
+dest_files=["res://.godot/imported/level4_ground.png-25705c07d586d5be4b21b9f1b0954653.ctex"]
 
 [params]
 

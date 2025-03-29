@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="1_r1vs7"]
 [ext_resource type="PackedScene" uid="uid://1pmipojgsf0m" path="res://scenes/characters/player.tscn" id="2_dswqx"]
-[ext_resource type="Texture2D" uid="uid://bmvmcjwkxddc6" path="res://art/tilesets/dev_tileset.png" id="2_laj7o"]
+[ext_resource type="Texture2D" uid="uid://bmvmcjwkxddc6" path="res://art/tilesets/dev_tileset_1.png" id="2_laj7o"]
 [ext_resource type="PackedScene" uid="uid://dxhb8eooelkyv" path="res://scenes/objects/spaceship.tscn" id="3_laj7o"]
 [ext_resource type="PackedScene" uid="uid://bpko47puym4mc" path="res://scenes/objects/oxygen_tank.tscn" id="5_fi56y"]
 [ext_resource type="Texture2D" uid="uid://dlgb4yn7bhnxb" path="res://art/characters/daniella mondragon/idle.png" id="5_hldbq"]
