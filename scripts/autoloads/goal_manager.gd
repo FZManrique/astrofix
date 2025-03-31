@@ -17,7 +17,10 @@ var GOALS := [
 	"Locate the crystal tower",
 	"Find 4 crystal shards to repair the tower",
 	"Fix the crystal tower",
-	"Look for the missing shard"
+	"Look for the missing shard",
+	# Level 5
+	"Find fuel tanks",
+	"Defeat Dan"
 ]
 
 signal on_goals_changed

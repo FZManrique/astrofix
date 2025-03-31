@@ -11,9 +11,11 @@ signal on_correct_piece_dropped
 func _notification(what: int) -> void:
 	if (what == NOTIFICATION_DRAG_END):
 		if self.is_drag_successful() && is_current_item:
+			%DropSuccess.play()
 			self.visible = false
 			is_current_item = false
 		elif is_current_item:
+			%DropFailed.play()
 			self.modulate.a = 1
 			is_current_item = false
 
@@ -31,6 +33,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	
 	modulate.a = 0
 	is_current_item = true
+	%DragStart.play()
 	
 	return duplicate()
 	

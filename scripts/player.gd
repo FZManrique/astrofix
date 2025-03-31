@@ -1,14 +1,15 @@
 extends CharacterBody2D
 
-@onready var animation_sprite = $AnimatedSprite2D
+@onready var animation_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var audio_stream_player: AudioStreamPlayer = $Footsteps
 
-@export var default_speed := 75.0
-@export var sprint_speed := default_speed * 2
-@export var speed := default_speed
+const SPRINT_MULTIPLIER := 1.5
+const ACCELERATION_SPEED := 8
+const DECELERATION_SPEED := 6
 
-@export var ground_accel_speed: float = 6
-@export var ground_decel_speed: float = 8
+@export var default_speed: float = 120
+@export var sprint_speed: float = default_speed * SPRINT_MULTIPLIER
+@export var speed: float = default_speed
 
 var isMoving := false
 
@@ -27,65 +28,68 @@ func _physics_process(delta: float):
 	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 
-	# Sprinting          
-	if Input.is_action_pressed("ui_sprint"):
-		speed = sprint_speed
-	elif Input.is_action_just_released("ui_sprint"):
-		speed = default_speed
+	var target_speed: float = 0.0
+	if direction != Vector2.ZERO:
+		if Input.is_action_pressed("ui_sprint"):
+			target_speed = sprint_speed
+		else:
+			target_speed = default_speed
+	else:
+		target_speed = 0.0
 
-	# If input is digital, normalize it for diagonal movement
 	if abs(direction.x) == 1 and abs(direction.y) == 1:
 		direction = direction.normalized()
 	
-	var direction_resistance: Vector2 = Vector2()
-	var wind_direction = DataManager.WIND_DIRECTION
-	var wind_speed = DataManager.Level2.wind_speed
-	if (DataManager.Level2.wind_push):
-		match DataManager.Level2.wind_direction:
-			wind_direction.TO_TOP:
-				direction_resistance = Vector2(0, wind_speed)
-			wind_direction.TO_BOTTOM:
-				direction_resistance = Vector2(0, -wind_speed)
-			wind_direction.TO_LEFT:
-				direction_resistance = Vector2(-wind_speed, 0)
-			wind_direction.TO_RIGHT:
-				direction_resistance = Vector2(wind_speed, 0)
-	
-	var velocity_change_speed: float = 0.0
-	velocity_change_speed = ground_accel_speed if direction != Vector2.ZERO else ground_decel_speed
-	
-	var movement := (speed * direction * delta) as Vector2
-	movement -= direction_resistance * delta
+	if direction != Vector2.ZERO:
+		speed = lerp(speed, target_speed, ACCELERATION_SPEED * delta)
+	else:
+		speed = lerp(speed, target_speed, DECELERATION_SPEED * delta)
+
+	var direction_resistance := get_wind_direction_resistance()
+
+	var movement := (speed * (direction - direction_resistance) * delta) as Vector2
 
 	if (not SceneManager.is_dialogue_shown):
-		if (movement != Vector2.ZERO):
+		if (direction != Vector2.ZERO):
 			isMoving = true
+			move_and_collide(movement)
 		else:
 			isMoving = false
-
-		move_and_collide(movement)
-		player_animations(direction)
 	else:
 		isMoving = false
-		player_animations(Vector2.ZERO)
+		
+	player_animations(direction)
+
+func get_wind_direction_resistance() -> Vector2:
+	var wind_direction = DataManager.WIND_DIRECTION
+	var wind_speed = DataManager.Level2.wind_speed
+	
+	var wind_resistances: Dictionary[DataManager.WIND_DIRECTION, Vector2] = {
+		wind_direction.TO_TOP: Vector2(0, wind_speed),
+		wind_direction.TO_BOTTOM: Vector2(0, -wind_speed),
+		wind_direction.TO_LEFT: Vector2(-wind_speed, 0),
+		wind_direction.TO_RIGHT: Vector2(wind_speed, 0),
+	}
+
+	if (DataManager.Level2.wind_push):
+		return wind_resistances.get(DataManager.Level2.wind_direction, Vector2.ZERO)
+	
+	return Vector2.ZERO
 
 func player_animations(direction: Vector2) -> void:
 	if direction != Vector2.ZERO:
 		new_direction = direction
 		animation = "v2_walk_" + returned_direction(new_direction)
-		animation_sprite.play(animation)
 	else:
 		animation  = "v2_idle_" + returned_direction(new_direction, true)
-		animation_sprite.play(animation)
+	
+	animation_sprite.play(animation)
 
-func returned_direction(direction: Vector2, hasStopped: bool = false
-) -> StringName:
+func returned_direction(direction: Vector2, hasStopped: bool = false) -> StringName:
 	var normalized_direction  = direction.normalized()
 
-	if normalized_direction.y > 0:
-		return "down"
-	elif normalized_direction.y < 0:
-		return "up"
+	if normalized_direction.y > 0: return "down"
+	elif normalized_direction.y < 0: return "up"
 	elif normalized_direction.x > 0:
 		if (hasStopped): return "left"
 		return "right"

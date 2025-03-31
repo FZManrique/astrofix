@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5pwi7txcmxvl"]
+[gd_scene load_steps=4 format=3 uid="uid://b5pwi7txcmxvl"]
 
 [ext_resource type="StyleBox" uid="uid://bwu6otk0ix2e8" path="res://scenes/themes/blue_background_round.tres" id="1_fsbb7"]
 [ext_resource type="StyleBox" uid="uid://dm5tkwatc52vk" path="res://scenes/themes/progress_bar/progress_green.tres" id="2_c0n8v"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c0n8v"]
+size = Vector2(160, 160)
+
 [node name="Node2D" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Health" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HealthBar" type="HBoxContainer" parent="CanvasLayer/Control"]
+[node name="HealthBar" type="HBoxContainer" parent="UI/Health"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
@@ -26,19 +29,19 @@ size_flags_stretch_ratio = 0.6
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Player" type="BoxContainer" parent="CanvasLayer/Control/HealthBar"]
+[node name="Player" type="BoxContainer" parent="UI/Health/HealthBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 tooltip_text = "Oxygen level - when it becomes zero, you lose."
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/HealthBar/Player"]
+[node name="Label" type="Label" parent="UI/Health/HealthBar/Player"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 8
 text = "Player"
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control/HealthBar/Player"]
+[node name="ProgressBar" type="ProgressBar" parent="UI/Health/HealthBar/Player"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -48,19 +51,19 @@ step = 1.0
 value = 100.0
 show_percentage = false
 
-[node name="Dan" type="BoxContainer" parent="CanvasLayer/Control/HealthBar"]
+[node name="Dan" type="BoxContainer" parent="UI/Health/HealthBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 tooltip_text = "Oxygen level - when it becomes zero, you lose."
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/HealthBar/Dan"]
+[node name="Label" type="Label" parent="UI/Health/HealthBar/Dan"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 8
 text = "Dan"
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control/HealthBar/Dan"]
+[node name="ProgressBar" type="ProgressBar" parent="UI/Health/HealthBar/Dan"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -70,4 +73,13 @@ step = 1.0
 value = 100.0
 show_percentage = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Player" type="Sprite2D" parent="Sprites"]
+position = Vector2(204, 516)
+texture = SubResource("PlaceholderTexture2D_c0n8v")
+
+[node name="Enemy" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, -5)
+
+[node name="Decorations" type="Node2D" parent="."]

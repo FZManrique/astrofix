@@ -11,12 +11,12 @@
 [ext_resource type="Script" uid="uid://dfpavdprge8rb" path="res://scripts/screens/backpack.gd" id="8_3c3hu"]
 [ext_resource type="Script" uid="uid://b2yh42wdqbmcu" path="res://scripts/screens/debug_menu.gd" id="10_r8hx2"]
 
-[sub_resource type="Gradient" id="Gradient_3c3hu"]
+[sub_resource type="Gradient" id="Gradient_r8hx2"]
 offsets = PackedFloat32Array(0, 0.861446, 1)
 colors = PackedColorArray(1, 1, 1, 0.0588235, 0.00500002, 0, 0.1, 0.419608, 0, 0, 0, 0.509804)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_x7e8x"]
-gradient = SubResource("Gradient_3c3hu")
+gradient = SubResource("Gradient_r8hx2")
 use_hdr = true
 fill = 1
 fill_from = Vector2(0.50237, 0.508057)

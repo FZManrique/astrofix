@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b2i1lxoxv3ksn"]
 
 [ext_resource type="Script" uid="uid://ciee0by7utf3w" path="res://scripts/screens/fail_box.gd" id="1_68dnm"]
-[ext_resource type="AudioStream" uid="uid://42ycc35noq4r" path="res://audio/sfx/fail_sound.mp3" id="3_qit8x"]
+[ext_resource type="AudioStream" uid="uid://42ycc35noq4r" path="res://audio/sfx/fail.mp3" id="3_qit8x"]
 [ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="3_sl1dh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1tln"]

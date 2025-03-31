@@ -10,9 +10,9 @@
 [ext_resource type="StyleBox" uid="uid://burhpnebckpw5" path="res://scenes/levels/level_2_minigame/buttons/yellow.tres" id="7_46s77"]
 [ext_resource type="StyleBox" uid="uid://bygeik4t68iu1" path="res://scenes/levels/level_2_minigame/buttons/blue.tres" id="8_yt3hm"]
 [ext_resource type="StyleBox" uid="uid://bofq4txc6amco" path="res://scenes/levels/level_2_minigame/buttons/red.tres" id="9_0qisv"]
-[ext_resource type="AudioStream" uid="uid://cdubad720l48x" path="res://audio/minigame/correct.mp3" id="11_yt3hm"]
-[ext_resource type="AudioStream" uid="uid://blptc3owaa1u8" path="res://audio/minigame/fail.mp3" id="12_0qisv"]
-[ext_resource type="AudioStream" uid="uid://dowf55cjnwcla" path="res://audio/minigame/click_sound.ogg" id="13_hr7qw"]
+[ext_resource type="AudioStream" uid="uid://cdubad720l48x" path="res://audio/sfx/level_3/minigame/correct.mp3" id="11_yt3hm"]
+[ext_resource type="AudioStream" uid="uid://blptc3owaa1u8" path="res://audio/sfx/level_3/minigame/fail.mp3" id="12_0qisv"]
+[ext_resource type="AudioStream" uid="uid://dowf55cjnwcla" path="res://audio/sfx/level_3/minigame/click_sound.ogg" id="13_hr7qw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shmxa"]
 content_margin_left = 16.0

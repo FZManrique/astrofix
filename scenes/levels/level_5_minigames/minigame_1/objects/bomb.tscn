@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://csumtavrq4idh"]
+
+[ext_resource type="Texture2D" uid="uid://7f46y4q5gbhn" path="res://art/level_5/minigame_1/bomb.png" id="1_5bujn"]
+[ext_resource type="Script" uid="uid://d3gy0h4sn5wgw" path="res://scenes/levels/level_5_minigames/minigame_1/objects/bomb.gd" id="1_lcwpa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lcwpa"]
+radius = 15.0333
+
+[node name="Area2D" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_lcwpa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lcwpa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5bujn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

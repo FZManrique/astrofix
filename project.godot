@@ -146,7 +146,7 @@ ui_skip_typing={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/level_1.dialogue", "res://dialogue/level_2.dialogue", "res://dialogue/level_3.dialogue", "res://dialogue/level_4.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/level_1.dialogue", "res://dialogue/level_2.dialogue", "res://dialogue/level_3.dialogue", "res://dialogue/level_4.dialogue", "res://dialogue/level_5.dialogue")
 
 [rendering]
 

@@ -9,7 +9,7 @@ var sfx_index := AudioServer.get_bus_index("SFX")
 
 func _ready() -> void:
 	var displaymode := DisplayServer.window_get_mode()
-	$Panel/SettingsList/CheckButton.button_pressed = displaymode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
+	$Panel/SettingsList/CheckButton.set_pressed_no_signal(displaymode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	$Panel/SettingsList/Sliders/MasterSlider.value = db_to_linear(AudioServer.get_bus_volume_db(master_index)) * 100
 	$Panel/SettingsList/Sliders/MusicSlider.value = db_to_linear(AudioServer.get_bus_volume_db(music_index)) * 100
 	$Panel/SettingsList/Sliders/SfxSlider.value = db_to_linear(AudioServer.get_bus_volume_db(sfx_index)) * 100

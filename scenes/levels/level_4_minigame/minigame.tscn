@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bm2x680ay81pv"]
+[gd_scene load_steps=15 format=3 uid="uid://bm2x680ay81pv"]
 
 [ext_resource type="StyleBox" uid="uid://dowdbn12jbayv" path="res://scenes/themes/blue_background.tres" id="1_i24gd"]
 [ext_resource type="Script" uid="uid://hl0yv3yo4oxq" path="res://scenes/levels/level_4_minigame/minigame.gd" id="1_j5og6"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://bae57k7u6j4jm" path="res://art/level_4/crystal_large/3.png" id="5_tuvjx"]
 [ext_resource type="Texture2D" uid="uid://cbhab5y8lvtaq" path="res://art/level_4/crystal_large/4.png" id="6_j5og6"]
 [ext_resource type="Texture2D" uid="uid://dlur0tcarfuys" path="res://art/level_4/crystal_large/5.png" id="7_kqmk5"]
+[ext_resource type="AudioStream" uid="uid://ckjysmmwfcfg1" path="res://audio/sfx/level_4/minigame/drop_success.ogg" id="10_fuw0p"]
+[ext_resource type="AudioStream" uid="uid://bgj5xpnwijerc" path="res://audio/sfx/level_4/minigame/drop_failed.ogg" id="11_fuw0p"]
+[ext_resource type="AudioStream" uid="uid://b3mlm7do61cqh" path="res://audio/sfx/level_4/minigame/drag_start.ogg" id="12_fuw0p"]
+[ext_resource type="AudioStream" uid="uid://cepig17m027t7" path="res://audio/sfx/level_4/minigame/game_complete.mp3" id="13_xyage"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuvjx"]
 content_margin_bottom = 8.0
@@ -210,5 +214,25 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/normal = ExtResource("1_i24gd")
 text = "Finish game"
+
+[node name="DropSuccess" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_fuw0p")
+bus = &"SFX"
+
+[node name="DropFailed" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_fuw0p")
+bus = &"SFX"
+
+[node name="DragStart" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_fuw0p")
+bus = &"SFX"
+
+[node name="GameComplete" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_xyage")
+bus = &"SFX"
 
 [connection signal="pressed" from="Control/ColorRect/CenterContainer/Panel/Main/Exit" to="." method="_on_button_pressed"]
