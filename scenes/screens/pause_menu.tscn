@@ -69,7 +69,6 @@ theme_type_variation = &"FlatButton"
 text = "Settings"
 
 [node name="MainMenu" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
-visible = false
 z_index = 4096
 layout_mode = 2
 theme_type_variation = &"FlatButton"

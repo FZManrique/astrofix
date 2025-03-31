@@ -166,26 +166,26 @@ unique_name_in_owner = true
 position = Vector2(72, 650)
 
 [node name="TrueExit" type="Area2D" parent="NavigationRegion2D"]
-position = Vector2(72, 3)
+position = Vector2(72, -26)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/TrueExit"]
 shape = SubResource("CircleShape2D_tch3h")
 
-[node name="Node2D" type="Node2D" parent="NavigationRegion2D"]
+[node name="FakeExits" type="Node2D" parent="NavigationRegion2D"]
 
-[node name="FakeExit" type="Area2D" parent="NavigationRegion2D/Node2D"]
-position = Vector2(456, 1)
+[node name="FakeExit" type="Area2D" parent="NavigationRegion2D/FakeExits"]
+position = Vector2(457, -25)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Node2D/FakeExit"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/FakeExits/FakeExit"]
 shape = SubResource("CircleShape2D_tch3h")
 
-[node name="FakeExit2" type="Area2D" parent="NavigationRegion2D/Node2D"]
-position = Vector2(1202, 707)
+[node name="FakeExit2" type="Area2D" parent="NavigationRegion2D/FakeExits"]
+position = Vector2(1200, 731)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Node2D/FakeExit2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/FakeExits/FakeExit2"]
 shape = SubResource("CircleShape2D_tch3h")
 
 [connection signal="on_player_hit" from="NavigationRegion2D/Enemy" to="." method="_on_hit_player"]

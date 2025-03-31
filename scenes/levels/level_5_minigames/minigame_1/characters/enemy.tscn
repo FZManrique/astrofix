@@ -19,6 +19,7 @@ texture = ExtResource("1_8eu22")
 shape = SubResource("CircleShape2D_xtlsv")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 20.0
 path_postprocessing = 1
 avoidance_enabled = true
 debug_use_custom = true

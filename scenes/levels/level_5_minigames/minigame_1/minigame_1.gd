@@ -6,13 +6,25 @@ extends Node2D
 
 @onready var bombs: Node2D = $NavigationRegion2D/Bombs
 @onready var timers: Node2D = $NavigationRegion2D/Timers
+@onready var fake_exits: Node2D = $NavigationRegion2D/FakeExits
 
 const TIMER_INCREASE := 10
-
 var time_limit := 180
 
 func _ready() -> void:
 	start_timer()
+	
+	for fake_exit in fake_exits.get_children() as Array[Area2D]:
+		fake_exit.body_entered.connect(
+			func(body: Node2D) -> void:
+				if (body == player):
+					DialogueManager.show_dialogue_balloon(
+						load("res://dialogue/level_5.dialogue"),
+						"fake_exit"
+					)
+					await DialogueManager.dialogue_ended
+					game_over()
+		)
 	
 	for bomb in bombs.get_children() as Array[Bomb]:
 		bomb.on_bomb_hit.connect(
@@ -50,4 +62,10 @@ func _on_hit_player() -> void:
 	game_over()
 
 func _on_enter_true_exit(body: Node2D) -> void:
-	pass # Replace with function body.
+	DialogueManager.show_dialogue_balloon(
+		load("res://dialogue/level_5.dialogue"),
+		"true_exit"
+	)
+	await DialogueManager.dialogue_ended
+	DataManager.Level5.minigame_1_complete = true
+	SceneManager.goto_scene("res://scenes/levels/level_5_minigames/minigame_2/minigame_2.tscn")

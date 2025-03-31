@@ -50,3 +50,7 @@ var Level4 := {
 	done_confrontation = false,
 	in_minigame = false,
 }
+
+var Level5: Dictionary[String, Variant] = {
+	minigame_1_complete = false
+}

@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://b05dhri5j7o3g"]
+[gd_scene load_steps=12 format=4 uid="uid://b05dhri5j7o3g"]
 
+[ext_resource type="Script" uid="uid://dgrqvoupn5u7g" path="res://scripts/levels/level_5.gd" id="1_fsnos"]
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="1_r1vs7"]
 [ext_resource type="PackedScene" uid="uid://1pmipojgsf0m" path="res://scenes/characters/player.tscn" id="2_dswqx"]
 [ext_resource type="Texture2D" uid="uid://bmvmcjwkxddc6" path="res://art/tilesets/dev_tileset_1.png" id="2_laj7o"]
@@ -29,7 +30,11 @@ sources/0 = SubResource("TileSetAtlasSource_fi56y")
 radius = 14.0
 height = 36.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fsnos"]
+radius = 100.0
+
 [node name="Level5" type="Node2D"]
+script = ExtResource("1_fsnos")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -68,6 +73,13 @@ texture = ExtResource("5_hldbq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Dan"]
 shape = SubResource("CapsuleShape2D_fsnos")
 
+[node name="DanArea" type="Area2D" parent="Characters"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/DanArea"]
+position = Vector2(1161, 592)
+shape = SubResource("CircleShape2D_fsnos")
+
 [node name="Oxygen" type="Node2D" parent="."]
 
 [node name="Oxygen Tank" parent="Oxygen" instance=ExtResource("5_fi56y")]
@@ -81,3 +93,5 @@ position = Vector2(927, 76)
 
 [node name="Oxygen Tank4" parent="Oxygen" instance=ExtResource("5_fi56y")]
 position = Vector2(1204, 535)
+
+[connection signal="body_entered" from="Characters/DanArea" to="." method="_on_dan_area_body_entered"]

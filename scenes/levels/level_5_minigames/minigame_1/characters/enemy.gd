@@ -17,6 +17,9 @@ func wait_for_physics() -> void:
 	set_physics_process(true)
 
 func _physics_process(delta: float) -> void:
+	if (SceneManager.is_dialogue_shown):
+		return
+	
 	if (
 		navigation_agent.is_navigation_finished() and target_to_chase.global_position == navigation_agent.target_position
 	):

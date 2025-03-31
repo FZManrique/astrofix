@@ -26,6 +26,7 @@ func _on_settings_pressed() -> void:
 	add_child(instance)
 
 func _on_main_menu_pressed() -> void:
+	get_tree().paused = false
 	SceneManager.goto_scene("res://scenes/main.tscn")
 
 func _on_quit_pressed() -> void:
