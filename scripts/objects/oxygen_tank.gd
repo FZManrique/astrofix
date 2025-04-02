@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var oxygen_increase = 30
+@export var oxygen_increase := 30
 
 signal oxygen_tank_collected(amount: int)
 

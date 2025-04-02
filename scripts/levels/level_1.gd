@@ -25,7 +25,7 @@ func _ready() -> void:
 	
 	for icicle: Icicle in $Icicles.get_children():
 		icicle.on_player_hit.connect(
-			func():
+			func() -> void:
 				$CanvasLayer/AnimationPlayer.play("damage")
 		)
 	

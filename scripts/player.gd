@@ -47,10 +47,11 @@ func _physics_process(delta: float):
 
 	var direction_resistance := get_wind_direction_resistance()
 
-	var movement := (speed * (direction - direction_resistance) * delta) as Vector2
+	var movement := (speed * direction * delta) as Vector2
+	movement -= direction_resistance * delta
 
 	if (not SceneManager.is_dialogue_shown):
-		if (direction != Vector2.ZERO):
+		if (direction != Vector2.ZERO or direction_resistance):
 			isMoving = true
 			move_and_collide(movement)
 		else:

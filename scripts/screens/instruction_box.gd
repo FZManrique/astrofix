@@ -8,7 +8,7 @@ var allow_unpause: bool = false
 
 func _ready() -> void:
 	SceneManager.on_game_paused.connect(
-		func():
+		func() -> void:
 			if (DataManager.show_instruction_box):
 				show()
 	)

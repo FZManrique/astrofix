@@ -59,7 +59,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r8hx2")
-camera_node = NodePath("MapAndGoals/MapContainer/SubViewportContainer/SubViewport/Camera2D")
+camera_node = NodePath("MapAndGoals/MapContainer/SubViewportContainer/SubViewport/CanvasLayer/Camera2D")
 metadata/_edit_lock_ = true
 metadata/_edit_horizontal_guides_ = [8.0]
 
@@ -96,8 +96,14 @@ handle_input_locally = false
 size = Vector2i(140, 140)
 render_target_update_mode = 4
 
-[node name="Camera2D" type="Camera2D" parent="MapAndGoals/MapContainer/SubViewportContainer/SubViewport"]
+[node name="CanvasLayer" type="CanvasLayer" parent="MapAndGoals/MapContainer/SubViewportContainer/SubViewport"]
+layer = 2
+
+[node name="Camera2D" type="Camera2D" parent="MapAndGoals/MapContainer/SubViewportContainer/SubViewport/CanvasLayer"]
 zoom = Vector2(0.5, 0.5)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="MapAndGoals/MapContainer/SubViewportContainer/SubViewport/CanvasLayer"]
+color = Color(1, 1, 1, 0)
 
 [node name="GoalContainer" type="BoxContainer" parent="MapAndGoals"]
 layout_mode = 2

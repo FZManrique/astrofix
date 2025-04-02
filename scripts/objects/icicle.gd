@@ -8,7 +8,7 @@ signal on_player_hit
 # add icicle oxygen decrease
 func _ready() -> void:
 	$Area2D.body_entered.connect(
-		func(body: Node2D):
+		func(body: Node2D) -> void:
 			on_player_hit.emit()
 			if (!DataManager.Level1.has_hit_spikes):
 				DialogueManager.show_dialogue_balloon(

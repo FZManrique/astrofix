@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://u1xv10suof1t"]
+
+[ext_resource type="Texture2D" uid="uid://b7yojo7kw7r7s" path="res://art/level_5/minigame_2/fireball.png" id="1_2l66w"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2l66w")

@@ -1,16 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5pwi7txcmxvl"]
+[gd_scene load_steps=8 format=3 uid="uid://b5pwi7txcmxvl"]
 
 [ext_resource type="StyleBox" uid="uid://bwu6otk0ix2e8" path="res://scenes/themes/blue_background_round.tres" id="1_fsbb7"]
 [ext_resource type="StyleBox" uid="uid://dm5tkwatc52vk" path="res://scenes/themes/progress_bar/progress_green.tres" id="2_c0n8v"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="3_fsbb7"]
+[ext_resource type="Texture2D" uid="uid://tfkio21vddur" path="res://art/level_5/minigame_2/clock_base.png" id="4_v3fqq"]
+[ext_resource type="Texture2D" uid="uid://cmcfdcflk6dr4" path="res://art/level_5/minigame_2/clock_green.png" id="5_5ed3y"]
+[ext_resource type="Texture2D" uid="uid://8spxs0k6yxk7" path="res://art/level_5/minigame_2/clock_hand.png" id="6_w2rtp"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c0n8v"]
-size = Vector2(160, 160)
+size = Vector2(200, 200)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Health" type="Control" parent="UI"]
+texture_filter = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -73,13 +78,102 @@ step = 1.0
 value = 100.0
 show_percentage = false
 
+[node name="Control" type="Control" parent="UI"]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0695652, 0.0181475, 0, 0.588235)
+
+[node name="VBoxContainer" type="PanelContainer" parent="UI/Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -90.0
+offset_right = 280.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_fsbb7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Timer game"
+horizontal_alignment = 1
+
+[node name="Objectives" type="Label" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Something instruction here"
+horizontal_alignment = 1
+
+[node name="Minigame" type="CenterContainer" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame"]
+custom_minimum_size = Vector2(640, 320)
+layout_mode = 2
+
+[node name="Base" type="TextureRect" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control"]
+custom_minimum_size = Vector2(640, 320)
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 320.0
+texture = ExtResource("4_v3fqq")
+stretch_mode = 5
+
+[node name="Green" type="TextureRect" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control"]
+custom_minimum_size = Vector2(98, 130)
+layout_mode = 0
+offset_left = 274.0
+offset_top = 160.5
+offset_right = 372.0
+offset_bottom = 290.5
+pivot_offset = Vector2(48, 0)
+texture = ExtResource("5_5ed3y")
+stretch_mode = 5
+flip_v = true
+
+[node name="Hand" type="TextureRect" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control"]
+custom_minimum_size = Vector2(140, 20)
+layout_mode = 0
+offset_left = 315.0
+offset_top = 148.5
+offset_right = 455.0
+offset_bottom = 171.5
+texture = ExtResource("6_w2rtp")
+stretch_mode = 4
+
 [node name="Sprites" type="Node2D" parent="."]
 
 [node name="Player" type="Sprite2D" parent="Sprites"]
-position = Vector2(204, 516)
+position = Vector2(209, 525)
 texture = SubResource("PlaceholderTexture2D_c0n8v")
 
 [node name="Enemy" type="Sprite2D" parent="Sprites"]
-position = Vector2(0, -5)
+position = Vector2(1029, 521)
+texture = SubResource("PlaceholderTexture2D_c0n8v")
 
 [node name="Decorations" type="Node2D" parent="."]

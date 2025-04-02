@@ -49,7 +49,7 @@ func _ready() -> void:
 	
 	skip_button.pressed.connect(end_cutscene)
 
-func play_cutscene():
+func play_cutscene() -> void:
 	on_start.emit()
 
 	music.stream = cutscene.music
@@ -57,7 +57,7 @@ func play_cutscene():
 
 	show_scene()
 
-func show_scene():
+func show_scene() -> void:
 	if current_index >= cutscene.images.size():
 		end_cutscene()
 		return
@@ -72,9 +72,9 @@ func show_scene():
 	
 	var text := cutscene.dialogue[current_index]
 	if (text):
-		%Title.show()
+		(%Title as RichTextLabel).show()
 	else:
-		%Title.hide()
+		(%Title as RichTextLabel).hide()
 	
 	await type_text(text)
 	is_typing = false
@@ -86,19 +86,19 @@ func show_scene():
 	await get_tree().create_timer(image_wait_time).timeout
 	next_scene()
 
-func show_options(options):
+func show_options(options: Array[String]) -> void:
 	options_container.show()
 	for child in options_container.get_children():
 		child.queue_free()
 
 	for option_text in options:
-		var button = Button.new()
+		var button := Button.new()
 		button.flat = true
 		button.text = option_text
 		button.pressed.connect(next_scene)  # No actual effect, just proceeds
 		options_container.add_child(button)
 
-func type_text(text: String):
+func type_text(text: String) -> void:
 	content.text = ""
 	is_typing = true
 	skip_typing = false  # Reset skip flag
@@ -107,14 +107,19 @@ func type_text(text: String):
 		if skip_typing:  # Instantly display full text if skipped
 			content.text = text
 			return
-		content.text += text[i]
+		var char := text[i]
+		content.text += char
+		# wait for typing
+		if (char == "," or char == "." or char == "?" or char == "!"):
+			await get_tree().create_timer(0.2).timeout
+		
 		await get_tree().create_timer(typing_speed).timeout
 
-func next_scene():
+func next_scene() -> void:
 	current_index += 1
 	show_scene()
 
-func end_cutscene():
+func end_cutscene() -> void:
 	on_end.emit()
 	DataManager.in_cutscene = false
 

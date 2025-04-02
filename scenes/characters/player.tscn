@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://1pmipojgsf0m"]
+[gd_scene load_steps=36 format=3 uid="uid://1pmipojgsf0m"]
 
 [ext_resource type="Script" uid="uid://bkuo1n4sw04ss" path="res://scripts/player.gd" id="1_35hdh"]
 [ext_resource type="Texture2D" uid="uid://bvce0wb0wf4e3" path="res://art/characters/player/idle.png" id="5_hcw5o"]
@@ -248,6 +248,11 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dyp2m"]
+closed = false
+cull_mode = 2
+polygon = PackedVector2Array(-3, 13, 5, 13, 5, -10, -3, -10)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
@@ -261,8 +266,12 @@ shape = SubResource("CapsuleShape2D_bbaxg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tfd2b")
-animation = &"v2_walk_right"
+animation = &"v2_walk_left"
 
 [node name="Footsteps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_jia57")
 volume_db = -6.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_dyp2m")
+occluder_light_mask = 3

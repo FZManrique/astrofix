@@ -4,7 +4,7 @@ func _ready() -> void:
 	OxygenManager.start_timer()
 	OxygenManager.connect("oxygen_status_changed", _on_oxygen_status_changed)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var oxygen := OxygenManager.get_oxygen_level()
 	self.value = oxygen
 
