@@ -1,11 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5pwi7txcmxvl"]
+[gd_scene load_steps=10 format=3 uid="uid://b5pwi7txcmxvl"]
 
 [ext_resource type="StyleBox" uid="uid://bwu6otk0ix2e8" path="res://scenes/themes/blue_background_round.tres" id="1_fsbb7"]
 [ext_resource type="StyleBox" uid="uid://dm5tkwatc52vk" path="res://scenes/themes/progress_bar/progress_green.tres" id="2_c0n8v"]
+[ext_resource type="Script" uid="uid://bvml8urk63pm7" path="res://scenes/levels/level_5_minigames/minigame_2/spinner.gd" id="3_5ed3y"]
 [ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="3_fsbb7"]
 [ext_resource type="Texture2D" uid="uid://tfkio21vddur" path="res://art/level_5/minigame_2/clock_base.png" id="4_v3fqq"]
 [ext_resource type="Texture2D" uid="uid://cmcfdcflk6dr4" path="res://art/level_5/minigame_2/clock_green.png" id="5_5ed3y"]
 [ext_resource type="Texture2D" uid="uid://8spxs0k6yxk7" path="res://art/level_5/minigame_2/clock_hand.png" id="6_w2rtp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ed3y"]
+radius = 24.1868
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c0n8v"]
 size = Vector2(200, 200)
@@ -86,6 +90,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_5ed3y")
 
 [node name="ColorRect" type="ColorRect" parent="UI/Control"]
 layout_mode = 1
@@ -125,7 +130,7 @@ horizontal_alignment = 1
 [node name="Objectives" type="Label" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Something instruction here"
+text = "Click when arrow is in green"
 horizontal_alignment = 1
 
 [node name="Minigame" type="CenterContainer" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer"]
@@ -145,6 +150,7 @@ texture = ExtResource("4_v3fqq")
 stretch_mode = 5
 
 [node name="Green" type="TextureRect" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(98, 130)
 layout_mode = 0
 offset_left = 274.0
@@ -156,15 +162,31 @@ texture = ExtResource("5_5ed3y")
 stretch_mode = 5
 flip_v = true
 
+[node name="GreenArea" type="Area2D" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Green"]
+position = Vector2(274, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Green/GreenArea"]
+position = Vector2(-225, 105)
+shape = SubResource("CircleShape2D_5ed3y")
+
 [node name="Hand" type="TextureRect" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control"]
-custom_minimum_size = Vector2(140, 20)
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 20)
 layout_mode = 0
-offset_left = 315.0
-offset_top = 148.5
-offset_right = 455.0
-offset_bottom = 171.5
+offset_left = 173.0
+offset_top = 153.5
+offset_right = 493.0
+offset_bottom = 173.5
+pivot_offset = Vector2(152, 11)
 texture = ExtResource("6_w2rtp")
 stretch_mode = 4
+
+[node name="HandArea" type="Area2D" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Hand"]
+position = Vector2(274, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Hand/HandArea"]
+position = Vector2(-10, 11)
+shape = SubResource("CircleShape2D_5ed3y")
 
 [node name="Sprites" type="Node2D" parent="."]
 

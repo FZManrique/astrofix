@@ -74,6 +74,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [gui]
 
+common/snap_controls_to_pixels=false
 theme/custom="res://scenes/themes/dark_theme.tres"
 
 [input]

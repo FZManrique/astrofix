@@ -76,7 +76,10 @@ func _on_fuel_tank_fuel_collected() -> void:
 	InventoryManager.remove_item_from_inventory("key", 1)
 	InventoryManager.add_item_to_inventory("fuel", 1)
 
+var done = false
 func _on_oxygen_depleted() -> void:
+	if (done): return
+	done == true
 	SceneManager.fail_game(
 		func() -> void:
 			InventoryManager._clear_inventory()
