@@ -50,6 +50,7 @@ Player: I finally have a fuel tank! Now, I just need to refuel the ship.
 
 ~ end_level
 Level complete. Press Enter to exit the game.
+do SceneManager.quit_game()
 => END
 
 ~ hit_spikes

@@ -1,20 +1,493 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5pwi7txcmxvl"]
+[gd_scene load_steps=26 format=3 uid="uid://b5pwi7txcmxvl"]
 
+[ext_resource type="Script" uid="uid://dk4axiy1uo3qj" path="res://scenes/levels/level_5_minigames/minigame_2/minigame_2.gd" id="1_5c4hy"]
 [ext_resource type="StyleBox" uid="uid://bwu6otk0ix2e8" path="res://scenes/themes/blue_background_round.tres" id="1_fsbb7"]
 [ext_resource type="StyleBox" uid="uid://dm5tkwatc52vk" path="res://scenes/themes/progress_bar/progress_green.tres" id="2_c0n8v"]
 [ext_resource type="Script" uid="uid://bvml8urk63pm7" path="res://scenes/levels/level_5_minigames/minigame_2/spinner.gd" id="3_5ed3y"]
+[ext_resource type="Texture2D" uid="uid://b7yojo7kw7r7s" path="res://art/level_5/minigame_2/fireball.png" id="3_8qra7"]
 [ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="3_fsbb7"]
 [ext_resource type="Texture2D" uid="uid://tfkio21vddur" path="res://art/level_5/minigame_2/clock_base.png" id="4_v3fqq"]
 [ext_resource type="Texture2D" uid="uid://cmcfdcflk6dr4" path="res://art/level_5/minigame_2/clock_green.png" id="5_5ed3y"]
 [ext_resource type="Texture2D" uid="uid://8spxs0k6yxk7" path="res://art/level_5/minigame_2/clock_hand.png" id="6_w2rtp"]
+[ext_resource type="Texture2D" uid="uid://b6i4ase0dfag4" path="res://art/logos/background_art.jpg" id="8_w0uu3"]
+[ext_resource type="Texture2D" uid="uid://bbrvbloxlp8j0" path="res://art/level_5/minigame_2/backgrounds/floor.png" id="8_w2rtp"]
+[ext_resource type="PackedScene" uid="uid://qy24io0fo1jn" path="res://scenes/screens/pause_menu.tscn" id="9_2nndw"]
+[ext_resource type="Script" uid="uid://b4373uiamyc6k" path="res://scenes/levels/level_5_minigames/minigame_2/space_spam.gd" id="9_4ty0l"]
+[ext_resource type="Texture2D" uid="uid://ddwedw7prajsy" path="res://art/level_5/minigame_2/characters/dan/attack.png" id="9_ldit6"]
+[ext_resource type="Texture2D" uid="uid://cbsdibxaqjhsl" path="res://art/level_5/minigame_2/characters/mc/idle.png" id="10_w0uu3"]
+[ext_resource type="Texture2D" uid="uid://c7kff4ltd2fre" path="res://art/level_5/minigame_2/characters/dan/idle.png" id="11_8qra7"]
+[ext_resource type="Texture2D" uid="uid://ces4n8vyg5yk0" path="res://art/level_5/minigame_2/characters/mc/attack.png" id="14_vxoub"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ed3y"]
-radius = 24.1868
+radius = 8.06226
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c0n8v"]
-size = Vector2(200, 200)
+[sub_resource type="SystemFont" id="SystemFont_2nndw"]
+
+[sub_resource type="Animation" id="Animation_04w4v"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Art:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dan:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_8qra7")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_w0uu3")]
+}
+
+[sub_resource type="Animation" id="Animation_vxoub"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Art:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dan:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_8qra7")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_w0uu3")]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Art:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(171.177, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dan:modulate:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Dan:modulate:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dan:modulate:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Dan:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Art:modulate:r")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Art:modulate:g")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Art:modulate:b")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Art:modulate:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Player:modulate:r")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Player:modulate:g")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Player:modulate:b")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Player:modulate:a")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_2nndw"]
+resource_name = "dan_attack_start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dan:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("9_ldit6"), ExtResource("11_8qra7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Art:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 4.14106),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Art:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(171.177, -0.25, 0, 0.25, 0, 119.177, 0, 0, 100, 0),
+"times": PackedFloat32Array(0.5, 1.1)
+}
+
+[sub_resource type="Animation" id="Animation_4ty0l"]
+resource_name = "player_attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_w0uu3"), ExtResource("14_vxoub"), ExtResource("10_w0uu3")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dan:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.125, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dan:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.56087, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.125, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dan:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.56087, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.125, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dan:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.125, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Art:modulate:r")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.05)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Art:modulate:g")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.05)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Art:modulate:b")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.05)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Art:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.05)
+}
+
+[sub_resource type="Animation" id="Animation_kbq4h"]
+resource_name = "player_damage"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.125, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.560784, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.125, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.560784, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.125, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.125, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Art:modulate:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Art:modulate:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Art:modulate:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Art:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ty0l"]
+_data = {
+&"RESET": SubResource("Animation_vxoub"),
+&"dan_attack_start": SubResource("Animation_2nndw"),
+&"idle": SubResource("Animation_04w4v"),
+&"player_attack": SubResource("Animation_4ty0l"),
+&"player_damage": SubResource("Animation_kbq4h")
+}
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_5c4hy")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -30,8 +503,10 @@ grow_vertical = 2
 [node name="HealthBar" type="HBoxContainer" parent="UI/Health"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.3
-anchor_right = 0.7
+anchor_left = 0.204688
+anchor_top = 0.00972222
+anchor_right = 0.814062
+anchor_bottom = 0.0569444
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.6
@@ -47,10 +522,10 @@ tooltip_text = "Oxygen level - when it becomes zero, you lose."
 [node name="Label" type="Label" parent="UI/Health/HealthBar/Player"]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 8
 text = "Player"
 
-[node name="ProgressBar" type="ProgressBar" parent="UI/Health/HealthBar/Player"]
+[node name="PlayerHealth" type="ProgressBar" parent="UI/Health/HealthBar/Player"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -69,10 +544,10 @@ tooltip_text = "Oxygen level - when it becomes zero, you lose."
 [node name="Label" type="Label" parent="UI/Health/HealthBar/Dan"]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 8
 text = "Dan"
 
-[node name="ProgressBar" type="ProgressBar" parent="UI/Health/HealthBar/Dan"]
+[node name="DanHealth" type="ProgressBar" parent="UI/Health/HealthBar/Dan"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -82,7 +557,9 @@ step = 1.0
 value = 100.0
 show_percentage = false
 
-[node name="Control" type="Control" parent="UI"]
+[node name="TimerAccuracy" type="Control" parent="UI"]
+unique_name_in_owner = true
+visible = false
 texture_filter = 2
 layout_mode = 3
 anchors_preset = 15
@@ -92,7 +569,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_5ed3y")
 
-[node name="ColorRect" type="ColorRect" parent="UI/Control"]
+[node name="Timer" type="Timer" parent="UI/TimerAccuracy"]
+wait_time = 4.0
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="UI/TimerAccuracy"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,7 +582,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0695652, 0.0181475, 0, 0.588235)
 
-[node name="VBoxContainer" type="PanelContainer" parent="UI/Control/ColorRect"]
+[node name="VBoxContainer" type="PanelContainer" parent="UI/TimerAccuracy/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -116,10 +597,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("3_fsbb7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/ColorRect/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/TimerAccuracy/ColorRect/VBoxContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
@@ -127,21 +608,21 @@ theme_override_font_sizes/font_size = 24
 text = "Timer game"
 horizontal_alignment = 1
 
-[node name="Objectives" type="Label" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer"]
+[node name="Objectives" type="Label" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Click when arrow is in green"
 horizontal_alignment = 1
 
-[node name="Minigame" type="CenterContainer" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer"]
+[node name="Minigame" type="CenterContainer" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 
-[node name="Control" type="Control" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame"]
+[node name="Control" type="Control" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame"]
 custom_minimum_size = Vector2(640, 320)
 layout_mode = 2
 
-[node name="Base" type="TextureRect" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control"]
+[node name="Base" type="TextureRect" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control"]
 custom_minimum_size = Vector2(640, 320)
 layout_mode = 0
 offset_right = 640.0
@@ -149,7 +630,7 @@ offset_bottom = 320.0
 texture = ExtResource("4_v3fqq")
 stretch_mode = 5
 
-[node name="Green" type="TextureRect" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control"]
+[node name="Green" type="TextureRect" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(98, 130)
 layout_mode = 0
@@ -162,14 +643,13 @@ texture = ExtResource("5_5ed3y")
 stretch_mode = 5
 flip_v = true
 
-[node name="GreenArea" type="Area2D" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Green"]
+[node name="GreenArea" type="Area2D" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Green"]
 position = Vector2(274, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Green/GreenArea"]
-position = Vector2(-225, 105)
-shape = SubResource("CircleShape2D_5ed3y")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Green/GreenArea"]
+polygon = PackedVector2Array(-263, 124, -244, 128, -208, 128, -186, 124, -199, 79, -253, 79)
 
-[node name="Hand" type="TextureRect" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control"]
+[node name="Hand" type="TextureRect" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 20)
 layout_mode = 0
@@ -181,21 +661,111 @@ pivot_offset = Vector2(152, 11)
 texture = ExtResource("6_w2rtp")
 stretch_mode = 4
 
-[node name="HandArea" type="Area2D" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Hand"]
+[node name="HandArea" type="Area2D" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Hand"]
 position = Vector2(274, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Control/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Hand/HandArea"]
-position = Vector2(-10, 11)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Hand/HandArea"]
+position = Vector2(-14, 10)
 shape = SubResource("CircleShape2D_5ed3y")
 
-[node name="Sprites" type="Node2D" parent="."]
+[node name="SpaceSpam" type="Control" parent="UI"]
+process_mode = 4
+visible = false
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_4ty0l")
 
-[node name="Player" type="Sprite2D" parent="Sprites"]
-position = Vector2(209, 525)
-texture = SubResource("PlaceholderTexture2D_c0n8v")
+[node name="Timer" type="Timer" parent="UI/SpaceSpam"]
+wait_time = 5.0
 
-[node name="Enemy" type="Sprite2D" parent="Sprites"]
-position = Vector2(1029, 521)
-texture = SubResource("PlaceholderTexture2D_c0n8v")
+[node name="ColorRect" type="ColorRect" parent="UI/SpaceSpam"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0695652, 0.0181475, 0, 0.588235)
 
-[node name="Decorations" type="Node2D" parent="."]
+[node name="VBoxContainer" type="PanelContainer" parent="UI/SpaceSpam/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -90.0
+offset_right = 280.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_fsbb7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SpaceSpam/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="UI/SpaceSpam/ColorRect/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "SPAM SPACE TO FILL PROGRESS"
+horizontal_alignment = 1
+
+[node name="Timer" type="Label" parent="UI/SpaceSpam/ColorRect/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Less than 5 seconds!"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/SpaceSpam/ColorRect/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_2nndw")
+step = 1.0
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("9_2nndw")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(4, 4)
+
+[node name="Nodes" type="Node2D" parent="."]
+
+[node name="Backgrounds" type="Node2D" parent="Nodes"]
+
+[node name="BackgroundArt" type="Sprite2D" parent="Nodes/Backgrounds"]
+position = Vector2(160, 90)
+texture = ExtResource("8_w0uu3")
+
+[node name="Floor" type="Sprite2D" parent="Nodes/Backgrounds"]
+position = Vector2(160, 90)
+texture = ExtResource("8_w2rtp")
+
+[node name="Decorations" type="Node2D" parent="Nodes"]
+
+[node name="Sprites" type="Node2D" parent="Nodes"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Nodes/Sprites"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_4ty0l")
+}
+
+[node name="Dan" type="Sprite2D" parent="Nodes/Sprites"]
+position = Vector2(160, 90)
+texture = ExtResource("11_8qra7")
+
+[node name="Player" type="Sprite2D" parent="Nodes/Sprites"]
+position = Vector2(160, 90)
+texture = ExtResource("10_w0uu3")
+
+[node name="Art" type="Sprite2D" parent="Nodes/Sprites"]
+position = Vector2(171.177, 109)
+texture = ExtResource("3_8qra7")
+
+[connection signal="timeout" from="UI/SpaceSpam/Timer" to="UI/SpaceSpam" method="_on_timer_timeout"]
