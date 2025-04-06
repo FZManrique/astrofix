@@ -1,7 +1,6 @@
 extends Control
 class_name CutsceneManager
 
-@export var image_wait_time: float = 2.0
 @export var typing_speed: float = 0.02
 
 @onready var background: TextureRect = $Background
@@ -13,6 +12,7 @@ class_name CutsceneManager
 @onready var skip_button: Button = $Panel/Dialogue/SkipButton
 
 var current_index := 0
+var image_wait_time := 2.0
 var mutation_script: CutsceneMutations = null
 
 var skip_typing := false
@@ -37,6 +37,7 @@ func _ready() -> void:
 	
 	if cutscene.mutation_script:
 		mutation_script = cutscene.mutation_script.new()
+		mutation_script.cutscene_player = self
 		on_start.connect(mutation_script._on_start)
 		on_step.connect(mutation_script._on_step)
 		on_end.connect(mutation_script._on_end)
@@ -81,17 +82,27 @@ func show_scene() -> void:
 	
 	if cutscene.options.has(current_index):
 		show_options(cutscene.options[current_index])
-		return
-	
-	await get_tree().create_timer(image_wait_time).timeout
-	next_scene()
+	else:
+		var options_nodes := options_container.get_children()
+		if not options_nodes.is_empty():
+			for option in options_container.get_children():
+				option.queue_free()
+		
+		var wait_time = \
+			cutscene.time_modifiers[current_index] if cutscene.time_modifiers.has(current_index) else image_wait_time
+		print(wait_time)
+		
+		await get_tree().create_timer(wait_time).timeout
+		next_scene()
 
-func show_options(options: Array[String]) -> void:
+func show_options(options: Array[Variant]) -> void:
+	if options.is_empty(): next_scene()
+	
 	options_container.show()
 	for child in options_container.get_children():
 		child.queue_free()
 
-	for option_text in options:
+	for option_text in (options as Array[String]):
 		var button := Button.new()
 		button.flat = true
 		button.text = option_text

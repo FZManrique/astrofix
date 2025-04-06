@@ -41,6 +41,13 @@ func _ready() -> void:
 				_show_dialoague_box("intro")
 	)
 	
+	for spike in ($Tilemap/Decorations/Medium.get_children() as Array[Spike]) + ($Tilemap/Decorations/Large.get_children() as Array[Spike]):
+		spike.player_hit.connect(
+			func() -> void:
+				print("yes")
+				($CanvasLayer/Screen as GUI).take_damage()
+		)
+	
 	%Shards.visible = false
 	
 	DataManager.show_instruction_box = true

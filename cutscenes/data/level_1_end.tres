@@ -1,18 +1,20 @@
-[gd_resource type="Resource" script_class="CutsceneResource" load_steps=6 format=3 uid="uid://b3wk73terujrh"]
+[gd_resource type="Resource" script_class="CutsceneResource" load_steps=8 format=3 uid="uid://b3wk73terujrh"]
 
 [ext_resource type="Texture2D" uid="uid://criwy2buvg8h5" path="res://cutscenes/images/level_1_end/01.png" id="1_ll7gu"]
 [ext_resource type="Script" uid="uid://c4675jfitoxq3" path="res://cutscenes/CutsceneResource.gd" id="1_xbypo"]
 [ext_resource type="Texture2D" uid="uid://doegixxeb41w2" path="res://cutscenes/images/level_1_end/02.png" id="2_d6r80"]
 [ext_resource type="AudioStream" uid="uid://jn2rlj0qainc" path="res://cutscenes/music/cutscene_1_end.mp3" id="3_6vo51"]
 [ext_resource type="Script" uid="uid://d04u6d5u037mx" path="res://cutscenes/data/level_1_end_mutations.gd" id="4_6vo51"]
+[ext_resource type="AudioStream" uid="uid://c7nvmqa4xir8u" path="res://cutscenes/sfx/common/spaceship_ambience.mp3" id="6_55llx"]
+[ext_resource type="AudioStream" uid="uid://ceygvrhijhmn4" path="res://cutscenes/sfx/common/spaceship_takeoff.mp3" id="7_i1qjr"]
 
 [resource]
 script = ExtResource("1_xbypo")
 images = Array[Texture2D]([ExtResource("1_ll7gu"), ExtResource("2_d6r80")])
-dialogue = Array[String](["I wonder what's happening on Earth… I… I need to get back", ""])
+dialogue = Array[String](["I wonder what's happening on Earth… I… I need to get back", "I... I need to get back..."])
 options = Dictionary[int, Array]({})
 music = ExtResource("3_6vo51")
-sfx = Array[AudioStream]([])
+sfx = Array[AudioStream]([ExtResource("6_55llx"), ExtResource("7_i1qjr")])
 mutation_script = ExtResource("4_6vo51")
 time_modifiers = Dictionary[int, float]({})
 metadata/_custom_type_script = "uid://c4675jfitoxq3"

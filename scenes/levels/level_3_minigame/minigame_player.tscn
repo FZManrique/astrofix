@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c37s33pc6i7dm"]
+[gd_scene load_steps=25 format=3 uid="uid://c37s33pc6i7dm"]
 
 [ext_resource type="Script" uid="uid://cf3ty0co2xve0" path="res://scenes/levels/level_3_minigame/minigame_player.gd" id="1_isvks"]
 [ext_resource type="Texture2D" uid="uid://yn1u061y8kdj" path="res://art/characters/player/jump/jump_left.png" id="2_haplj"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://cl280wyp5icqy" path="res://art/characters/player/moving.png" id="5_com5k"]
 [ext_resource type="AudioStream" uid="uid://ct208ajtntpa0" path="res://audio/sfx/jump.mp3" id="6_akxtt"]
 [ext_resource type="AudioStream" uid="uid://dvas7nht4qshu" path="res://audio/sfx/footsteps.mp3" id="7_3sn58"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_akxtt"]
+cull_mode = 1
+polygon = PackedVector2Array(5, -12, -3, -12, -3, 12, 5, 12)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p6htd"]
 radius = 4.0
@@ -151,6 +155,9 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_isvks")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_akxtt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 3)

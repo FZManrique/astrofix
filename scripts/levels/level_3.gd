@@ -5,10 +5,13 @@ var Level3Data := DataManager.Level3
 var is_transitioning := false
 
 func _ready() -> void:
-	Music.change_db(-16)
-	Music.play_music("res://audio/music/level_3.wav")
+	if (not Level3Data.audio_playing):
+		Level3Data.audio_playing = true
+		Music.change_db(-16)
+		Music.play_music("res://audio/music/level_3.wav")
 	DataManager.intro_done = false
 	GoalManager.go_to_next_goal(7)
+	($Characters/Chloe/AudioStreamPlayer2D as AudioStreamPlayer2D).play(Level3Data.song_time)
 	
 	OxygenManager.oxygen_depleted.connect(
 		func() -> void:
@@ -45,6 +48,10 @@ func _show_dialoague_box(key: String) -> void:
 	DialogueManager.show_dialogue_balloon(load("res://dialogue/level_3.dialogue"), key)
 
 func _on_transition_to_minigame_body_entered(_body: Node2D) -> void:
+	print(Level3Data.song_time)
+	var song_time = ($Characters/Chloe/AudioStreamPlayer2D as AudioStreamPlayer2D).get_playback_position()
+	Level3Data.song_time = song_time
+	print(song_time, Level3Data.song_time)
 	SceneManager.goto_scene("res://scenes/levels/level_3_minigame/minigame.tscn")
 
 static func on_restart(collected_cover: bool = false, finished_intro: bool = false) -> void:
@@ -54,6 +61,7 @@ static func on_restart(collected_cover: bool = false, finished_intro: bool = fal
 		talked_once_to_chloe = false,
 		asked_for_help = false,
 		in_asteroid_area = false,
+		song_time = 0.0,
 	}
 	DataManager.Level3.finished_intro = finished_intro
 	DataManager.Level3.collected_cover = collected_cover

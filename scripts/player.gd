@@ -4,13 +4,11 @@ extends CharacterBody2D
 @onready var audio_stream_player: AudioStreamPlayer = $Footsteps
 
 const SPRINT_MULTIPLIER := 1.5
-const ACCELERATION_SPEED := 8
-const DECELERATION_SPEED := 6
 
 @export var default_speed: float = 120
 @export var sprint_speed: float = default_speed * SPRINT_MULTIPLIER
-@export var speed: float = default_speed
 
+var target_speed: float = 0.0
 var isMoving := false
 
 var new_direction := Vector2(0, 1)
@@ -28,7 +26,6 @@ func _physics_process(delta: float):
 	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 
-	var target_speed: float = 0.0
 	if direction != Vector2.ZERO:
 		if Input.is_action_pressed("ui_sprint"):
 			target_speed = sprint_speed
@@ -39,15 +36,10 @@ func _physics_process(delta: float):
 
 	if abs(direction.x) == 1 and abs(direction.y) == 1:
 		direction = direction.normalized()
-	
-	if direction != Vector2.ZERO:
-		speed = lerp(speed, target_speed, ACCELERATION_SPEED * delta)
-	else:
-		speed = lerp(speed, target_speed, DECELERATION_SPEED * delta)
 
 	var direction_resistance := get_wind_direction_resistance()
 
-	var movement := (speed * direction * delta) as Vector2
+	var movement := (target_speed * direction * delta) as Vector2
 	movement -= direction_resistance * delta
 
 	if (not SceneManager.is_dialogue_shown):
@@ -59,7 +51,7 @@ func _physics_process(delta: float):
 	else:
 		isMoving = false
 		
-	player_animations(direction)
+	player_animations(direction.normalized())
 
 func get_wind_direction_resistance() -> Vector2:
 	var wind_direction = DataManager.WIND_DIRECTION
@@ -87,14 +79,12 @@ func player_animations(direction: Vector2) -> void:
 	animation_sprite.play(animation)
 
 func returned_direction(direction: Vector2, hasStopped: bool = false) -> StringName:
-	var normalized_direction  = direction.normalized()
-
-	if normalized_direction.y > 0: return "down"
-	elif normalized_direction.y < 0: return "up"
-	elif normalized_direction.x > 0:
+	if direction.y > 0: return "down"
+	elif direction.y < 0: return "up"
+	elif direction.x > 0:
 		if (hasStopped): return "left"
 		return "right"
-	elif normalized_direction.x < 0:
+	elif direction.x < 0:
 		if (hasStopped): return "right"
 		return "left"
 

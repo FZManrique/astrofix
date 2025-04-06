@@ -13,16 +13,18 @@ func _ready() -> void:
 	
 	%Instructions.show()
 	get_tree().paused = true
-
+	$AudioStreamPlayer2D.play(DataManager.Level3.song_time)
 
 
 func _on_to_planet_body_entered(body: Node2D) -> void:
 	DataManager.Level3.in_asteroid_area = false
 	SceneManager.goto_scene("res://scenes/levels/level_3.tscn")
+	DataManager.Level3.song_time = $AudioStreamPlayer2D.get_playback_position()
 
 func _on_to_asteroid_body_entered(body: Node2D) -> void:
 	DataManager.Level3.in_asteroid_area = true
 	SceneManager.goto_scene("res://scenes/levels/level_3.tscn")
+	DataManager.Level3.song_time = $AudioStreamPlayer2D.get_playback_position()
 
 func _on_killzone_body_entered(body: Node2D) -> void:
 	SceneManager.fail_game(

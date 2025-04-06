@@ -16,6 +16,7 @@ func _ready() -> void:
 		piece.on_correct_piece_dropped.connect(
 			func():
 				current_pieces += 1
+				InventoryManager.remove_item_from_inventory("crystal", 1)
 				
 				if (current_pieces == 5):
 					%GameComplete.play()

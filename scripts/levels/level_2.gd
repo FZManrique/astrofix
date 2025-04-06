@@ -8,7 +8,9 @@ var has_entered = false
 
 func _ready() -> void:
 	%WindAnim.play("fade_out")
-	Music.play_music("res://audio/music/level_2.mp3", 100.0)
+	if (not Level2Data.audio_playing):
+		Level2Data.audio_playing = true
+		Music.play_music("res://audio/music/level_2.mp3", 100.0)
 	DataManager.intro_done = false
 	GoalManager.go_to_next_goal(4)
 	

@@ -17,8 +17,9 @@
 script = ExtResource("1_rr5og")
 images = Array[Texture2D]([ExtResource("1_66h3b"), ExtResource("2_o5nu0"), ExtResource("3_k71mj"), ExtResource("4_0o671"), ExtResource("5_1ldab")])
 dialogue = Array[String](["I just opened my eyes, and everything looks so familiar...", "It's like I've been here before...", "Like I was chosen...", "M-mom?! D-dad? I-I...", "A lamp? It looks a bit strange..."])
-sfx = Array[AudioStream]([ExtResource("9_gfnj3"), ExtResource("10_h3id7"), ExtResource("11_1p5dq"), ExtResource("12_vkgvv")])
-music = ExtResource("6_k71mj")
 options = Dictionary[int, Array]({})
+music = ExtResource("6_k71mj")
+sfx = Array[AudioStream]([ExtResource("9_gfnj3"), ExtResource("10_h3id7"), ExtResource("11_1p5dq"), ExtResource("12_vkgvv")])
 next_scene = ExtResource("7_0o671")
+time_modifiers = Dictionary[int, float]({})
 metadata/_custom_type_script = "uid://c4675jfitoxq3"

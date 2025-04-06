@@ -7,7 +7,10 @@ AI: Warning: Oxygen supply low.
 set DataManager.Level4.talked_to_conny = true
 Sailor Con: Greetings, human. That crystal tower? It's broken. Its shards are scattered around the moon, but I’m sure you’ll manage to find them.
 Sailor Con: By the way, I’m Sailor Conn, protector of Jupiter. It’s rare to see visitors here.
-Sailor Con: Also, press M to open the map. It could be useful.
+Sailor Con: Here's a map by the way. You can press "M" to open it. It could be useful.
+- Got it.
+do InventoryManager.add_item_to_inventory("map", 1)
+SSailor Con: I think that's basically it. Just find the shards, and you're done.
 - Thanks, I'll find them quickly.
 	Sailor Con: If you say so.
 - Can you help me?
@@ -60,6 +63,7 @@ Sailor Con: As Jupiter's guardian, I hold deep resentment for Saturn. They say J
 Sailor Con: It held Jupiter back, stopping it from reaching its full potential. Some of us still believe Jupiter deserved better.
 Sailor Con: [#emotion=angry] And you, human… you’re friends with Chloe LouiSZA, aren't you? She's from Saturn. I couldn’t just let you win so easily.
 Sailor Con: [#emotion=sad] I let my anger cloud my duty. I shouldn't have done that. Here... take the shard. Fix the tower and refill your oxygen.
+do InventoryManager.add_item_to_inventory("crystal", 1)
 do GoalManager.go_to_next_goal(11)
 do DataManager.Level4_has_done_confrontation.emit()
 => END!
@@ -68,4 +72,5 @@ do DataManager.Level4_has_done_confrontation.emit()
 Sailor Con: [#emotion=sad] I'm sorry for everything. As Jupiter’s protector, I shouldn't have done that. I wish you the best on your journey.
 - Thank you, Sailor Conn. Take care.
 - I don’t blame you. Goodbye.
+do InventoryManager.remove_item_from_inventory("map", 1)
 => END!

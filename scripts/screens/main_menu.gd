@@ -7,6 +7,7 @@ extends Control
 @export var settings_scene: PackedScene
 
 func _ready() -> void:
+	$AnimationPlayer.play("vignette")
 	Music.play_music("res://audio/music/main_menu.wav")
 
 func _on_start_pressed() -> void:

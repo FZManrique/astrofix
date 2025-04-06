@@ -25,6 +25,7 @@ var Level1 := {
 }
 
 var Level2 := {
+	audio_playing = false,
 	in_starting_area = false,
 	has_fixed_spacesuit = false,
 	is_minigame = false,
@@ -36,11 +37,13 @@ var Level2 := {
 }
 
 var Level3 := {
+	audio_playing = false,
 	talked_once_to_chloe = false,
 	asked_for_help = false,
 	finished_intro = false,
 	collected_cover = false,
 	in_asteroid_area = false,
+	song_time = 0.0,
 }
 
 var Level4 := {

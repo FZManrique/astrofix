@@ -2,7 +2,18 @@
 
 [ext_resource type="Script" uid="uid://ciee0by7utf3w" path="res://scripts/screens/fail_box.gd" id="1_68dnm"]
 [ext_resource type="AudioStream" uid="uid://42ycc35noq4r" path="res://audio/sfx/fail.mp3" id="3_qit8x"]
-[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="3_sl1dh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68dnm"]
+bg_color = Color(0.073913, 0, 0, 0.670588)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 16.0
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1tln"]
 content_margin_left = 4.0
@@ -70,7 +81,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0565217, 0, 0, 0.788235)
+color = Color(0.06, 0, 0, 0.666667)
 
 [node name="VBoxContainer" type="PanelContainer" parent="FailBox/ColorRect"]
 layout_mode = 1
@@ -85,7 +96,7 @@ offset_right = 85.0
 offset_bottom = 42.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("3_sl1dh")
+theme_override_styles/panel = SubResource("StyleBoxFlat_68dnm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="FailBox/ColorRect/VBoxContainer"]
 layout_mode = 2
@@ -94,7 +105,7 @@ size_flags_vertical = 4
 [node name="Title" type="Label" parent="FailBox/ColorRect/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_colors/font_color = Color(1, 0.439216, 0.439216, 1)
 theme_override_font_sizes/font_size = 24
 text = "You died!"
 horizontal_alignment = 1
@@ -115,7 +126,7 @@ text = "Restart"
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"FlatButton"
-text = "Exit"
+text = "Exit game"
 
 [node name="FailSFX" type="AudioStreamPlayer" parent="FailBox"]
 unique_name_in_owner = true

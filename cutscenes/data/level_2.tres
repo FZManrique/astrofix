@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CutsceneResource" load_steps=10 format=3 uid="uid://daav46im8apvh"]
+[gd_resource type="Resource" script_class="CutsceneResource" load_steps=15 format=3 uid="uid://daav46im8apvh"]
 
 [ext_resource type="Texture2D" uid="uid://bb87mjkde60w0" path="res://cutscenes/images/level_2/01.png" id="1_c6v7u"]
 [ext_resource type="Texture2D" uid="uid://3hohf852n2pk" path="res://cutscenes/images/level_2/02.png" id="2_o5g3x"]
@@ -9,15 +9,26 @@
 [ext_resource type="AudioStream" uid="uid://cajevieodi5k3" path="res://cutscenes/music/cutscene_2.mp3" id="7_45bl2"]
 [ext_resource type="PackedScene" uid="uid://585vjm100d7c" path="res://scenes/levels/level_2.tscn" id="7_o5g3x"]
 [ext_resource type="Script" uid="uid://c4675jfitoxq3" path="res://cutscenes/CutsceneResource.gd" id="7_wmn6e"]
+[ext_resource type="Script" uid="uid://c4us5beb16nqq" path="res://cutscenes/data/level_2_mutations.gd" id="8_5cfpn"]
+[ext_resource type="AudioStream" uid="uid://c4g13td4j5lp5" path="res://cutscenes/sfx/common/ears_ringing.mp3" id="11_ilqk7"]
+[ext_resource type="AudioStream" uid="uid://dqdonfsooltey" path="res://cutscenes/sfx/common/heavy_breathing.mp3" id="12_wmn6e"]
+[ext_resource type="AudioStream" uid="uid://b2ityfsi7iaua" path="res://cutscenes/sfx/level_2/punch.mp3" id="12_y8pvr"]
+[ext_resource type="AudioStream" uid="uid://die70pc3fv3g6" path="res://cutscenes/sfx/common/spaceship_landing.mp3" id="14_a476m"]
 
 [resource]
 script = ExtResource("7_wmn6e")
 images = Array[Texture2D]([ExtResource("1_c6v7u"), ExtResource("2_o5g3x"), ExtResource("3_45bl2"), ExtResource("4_5cfpn"), ExtResource("5_ilqk7"), ExtResource("6_y8pvr")])
-dialogue = Array[String](["I hope my parents are fine…", "H... huh?", "", "", "", ""])
-options = Dictionary[int, Array]({})
+dialogue = Array[String](["I hope my parents are fine…", "H... huh?", "...", "Ouch...", "W-what is going...", "on?"])
+options = Dictionary[int, Array]({
+2: ["Hit yourself"]
+})
 music = ExtResource("7_45bl2")
-sfx = Array[AudioStream]([])
+sfx = Array[AudioStream]([null, ExtResource("11_ilqk7"), ExtResource("12_wmn6e"), ExtResource("12_y8pvr"), null, ExtResource("14_a476m")])
 next_scene = ExtResource("7_o5g3x")
-mutation_script = ""
-time_modifiers = Dictionary[int, float]({})
+mutation_script = ExtResource("8_5cfpn")
+time_modifiers = Dictionary[int, float]({
+1: 4.0,
+3: 1.0,
+5: 5.0
+})
 metadata/_custom_type_script = "uid://c4675jfitoxq3"

@@ -33,7 +33,7 @@ text = "Cutscene debug"
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "res://cutscenes/data/level_1.tres"
+text = "res://cutscenes/data/level_2.tres"
 placeholder_text = "Cutscene resource"
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer"]

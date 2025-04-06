@@ -28,6 +28,7 @@ func _physics_process(delta: float) -> void:
 		footsteps.stop()
 		jump.play()
 
+
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -37,15 +38,11 @@ func _physics_process(delta: float) -> void:
 		velocity_change_speed = ground_accel_speed if direction != 0 else ground_decel_speed
 	else:
 		velocity_change_speed = air_accel_speed if direction != 0 else air_decel_speed
-	 
-	if is_on_floor() && velocity.x:
-		footsteps.play()
-	else:
-		footsteps.stop()
 	
 	if direction:
 		velocity.x = direction * SPEED
 	else:
+		footsteps.play()
 		velocity.x = move_toward(velocity.x, direction * SPEED, velocity_change_speed)
 
 	move_and_slide()

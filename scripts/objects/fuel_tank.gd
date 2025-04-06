@@ -2,7 +2,7 @@ extends Area2D
 
 signal fuel_collected
 signal no_key
-
+	
 func force_pickup() -> void:
 	$AnimationPlayer.play("pickup")
 

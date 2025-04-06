@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2apjmjr0nv5c"
-path="res://.godot/imported/AlbumArt_{B5020207-474E-4720-90FF-853DD199EA00}_Small.jpg-a886958ce24100e4654fbe812f49b228.ctex"
+uid="uid://bmj7elsg8vb55"
+path="res://.godot/imported/04.png-265b326a2b0d21f79b89cf350cda0576.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cutscenes/sfx/level_1_end/AlbumArt_{B5020207-474E-4720-90FF-853DD199EA00}_Small.jpg"
-dest_files=["res://.godot/imported/AlbumArt_{B5020207-474E-4720-90FF-853DD199EA00}_Small.jpg-a886958ce24100e4654fbe812f49b228.ctex"]
+source_file="res://cutscenes/images/level_5/04.png"
+dest_files=["res://.godot/imported/04.png-265b326a2b0d21f79b89cf350cda0576.ctex"]
 
 [params]
 
