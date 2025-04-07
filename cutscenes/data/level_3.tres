@@ -13,7 +13,9 @@
 [resource]
 script = ExtResource("1_5j6r3")
 images = Array[Texture2D]([ExtResource("1_2dflu"), ExtResource("2_0rod2"), ExtResource("3_2860d"), ExtResource("4_1rn2h")])
-dialogue = Array[String](["Ugh, my head still hurts...", "Huh? I-is that an astero-", "N-no! The ship!", " FUEL LEVELS CRITICAL, MUST REFILL. [\\n] I guess I have to land on Saturn..."])
+dialogue = Array[String](["Ugh, my head still hurts...", "Huh? I-is that an astero-", "N-no! The ship!", "@aiFUEL LEVELS CRITICAL, MUST REFILL.
+
+Player: I guess I have to land on Saturn..."])
 options = Dictionary[int, Array]({})
 music = ExtResource("5_eykus")
 sfx = Array[AudioStream]([null, null, ExtResource("8_1rn2h"), ExtResource("9_eykus")])

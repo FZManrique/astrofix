@@ -60,7 +60,6 @@ runtime/balloon_path="res://dialogue/default_dialogue/balloon.tscn"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
 
 [editor]

@@ -119,7 +119,7 @@ func apply_dialogue_line() -> void:
 	var texture := load("res://art/characters/%s/full_scale_%s.png" % [character, emotion]) as Texture2D
 	dialogue_art.texture = texture
 	
-	if character == "franzen albert ii":
+	if character == "franzen albert ii" or character == "daniella mondragon":
 		dialogue_art.position = Vector2(-200, 120)
 	else:
 		dialogue_art.position = Vector2(-150.0, 120)

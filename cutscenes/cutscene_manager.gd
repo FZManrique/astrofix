@@ -77,6 +77,12 @@ func show_scene() -> void:
 	else:
 		(%Title as RichTextLabel).hide()
 	
+	if ("@ai" in text):
+		(%Title as RichTextLabel).text = "AI"
+		text = text.replace("@ai", "")
+	else:
+		(%Title as RichTextLabel).text = "Player"
+	
 	await type_text(text)
 	is_typing = false
 	

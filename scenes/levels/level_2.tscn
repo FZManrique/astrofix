@@ -1048,7 +1048,7 @@ energy = 0.4
 [node name="Node2D2" type="Node2D" parent="Lighting"]
 
 [node name="PointLight2D" type="PointLight2D" parent="Lighting/Node2D2"]
-position = Vector2(1461, 642)
+position = Vector2(1461, 638)
 scale = Vector2(6.9375, 6.60938)
 energy = 0.3
 range_item_cull_mask = 3
@@ -1093,7 +1093,7 @@ shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_wikm6")
 
 [node name="Node2D5" type="Node2D" parent="Lighting"]
-position = Vector2(-687, -242)
+position = Vector2(-673, -346)
 
 [node name="PointLight2D" type="PointLight2D" parent="Lighting/Node2D5"]
 position = Vector2(1461, 642)
@@ -1117,7 +1117,7 @@ shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_wikm6")
 
 [node name="Node2D3" type="Node2D" parent="Lighting"]
-position = Vector2(-1211, -403)
+position = Vector2(-1259, -452)
 
 [node name="PointLight2D" type="PointLight2D" parent="Lighting/Node2D3"]
 position = Vector2(1461, 642)

@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("5_r52y5")
 images = Array[Texture2D]([ExtResource("1_18q52"), ExtResource("2_ew3lt")])
-dialogue = Array[String](["", "I guess I'll continue my journey..."])
+dialogue = Array[String](["Looks like that cover fixed this.", "I guess I'll continue my journey..."])
 options = Dictionary[int, Array]({})
 music = ExtResource("3_ctyyj")
 sfx = Array[AudioStream]([])

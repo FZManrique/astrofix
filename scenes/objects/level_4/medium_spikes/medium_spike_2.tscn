@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cay6840obi02e"]
+
+[ext_resource type="Texture2D" uid="uid://c0wtpnkpr3sle" path="res://art/level_4/decorations/spike_medium_2.png" id="1_0xcd0"]
+[ext_resource type="Script" uid="uid://b0llay6cmxdt7" path="res://scenes/objects/level_4/spike.gd" id="2_jybyk"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0xcd0"]
+polygon = PackedVector2Array(-14, -30, -14, -25, -15, -25, -15, -18, -16, -18, -16, -13, -17, -13, -17, -4, -18, -4, -18, 5, -19, 5, -19, 12, -20, 12, -20, 17, -22, 17, -22, 18, -24, 18, -24, 19, -25, 19, -25, 20, -26, 20, -26, 21, -27, 21, -27, 24, -26, 24, -26, 25, -25, 25, -25, 28, -24, 28, -24, 29, -23, 29, -23, 30, -22, 30, -22, 31, -21, 31, -21, 32, 15, 32, 15, 31, 17, 31, 17, 30, 19, 30, 19, 29, 22, 29, 22, 28, 24, 28, 24, 27, 25, 27, 25, 26, 26, 26, 26, 24, 27, 24, 27, 17, 26, 17, 26, 16, 25, 16, 25, 15, 20, 15, 20, 16, 19, 16, 19, 15, 18, 15, 18, 12, 17, 12, 17, 9, 16, 9, 16, 6, 15, 6, 15, 3, 14, 3, 14, 0, 13, 0, 13, -3, 12, -3, 12, -6, 11, -6, 11, -9, 10, -9, 10, -14, 9, -14, 9, -20, 8, -20, 8, -16, 7, -16, 7, -4, 6, -4, 6, 0, 5, 0, 5, 4, 4, 4, 4, 10, 3, 10, 3, 16, 2, 16, 2, 21, 1, 21, 1, 20, 0, 20, 0, 18, -1, 18, -1, 15, -2, 15, -2, 13, -3, 13, -3, 9, -4, 9, -4, 6, -5, 6, -5, 2, -6, 2, -6, -1, -7, -1, -7, -5, -8, -5, -8, -8, -9, -8, -9, -11, -10, -11, -10, -14, -11, -14, -11, -18, -12, -18, -12, -24, -13, -24, -13, -30)
+
+[node name="MediumSpike2" type="Sprite2D"]
+texture = ExtResource("1_0xcd0")
+script = ExtResource("2_jybyk")
+metadata/_custom_type_script = "uid://b0llay6cmxdt7"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_0xcd0")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-20, 17, -20, 12, -14, -30, -13, -30, -1, 15, 2, 16, 8, -20, 9, -20, 19, 16, 7, 26)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-27, 21, -22, 17, -19, 17, -14, -25, -13, -29, -3, 15, 1, 23, 3, 22, 8, -16, 9, -20, 9, -14, 19, 15, 20, 15, 25, 15, 27, 17, 27, 27, 15, 32, -21, 32, -27, 24)

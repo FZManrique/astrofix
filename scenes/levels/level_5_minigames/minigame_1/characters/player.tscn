@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dvas7nht4qshu" path="res://audio/sfx/footsteps.mp3" id="3_x18ui"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e28oo"]
-radius = 14.0357
+radius = 14.1421
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2

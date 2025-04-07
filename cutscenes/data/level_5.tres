@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CutsceneResource" load_steps=8 format=3 uid="uid://dqsxfti5y274d"]
+[gd_resource type="Resource" script_class="CutsceneResource" load_steps=9 format=3 uid="uid://dqsxfti5y274d"]
 
 [ext_resource type="Texture2D" uid="uid://5fgur5whrjwp" path="res://cutscenes/images/level_5/01.png" id="1_4k58y"]
 [ext_resource type="Script" uid="uid://c4675jfitoxq3" path="res://cutscenes/CutsceneResource.gd" id="1_mx5f6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dhed4l63mnw8q" path="res://cutscenes/images/level_5/03.png" id="3_213qd"]
 [ext_resource type="Texture2D" uid="uid://bmj7elsg8vb55" path="res://cutscenes/images/level_5/04.png" id="4_wuqbu"]
 [ext_resource type="PackedScene" uid="uid://b05dhri5j7o3g" path="res://scenes/levels/level_5.tscn" id="5_2uexk"]
+[ext_resource type="AudioStream" uid="uid://dft2r5ken6p4j" path="res://cutscenes/music/cutscene_5.mp3" id="5_ulgy1"]
 [ext_resource type="AudioStream" uid="uid://3wl7qgcbaae5" path="res://cutscenes/sfx/common/oxygen_alarm.mp3" id="7_cs74i"]
 
 [resource]
@@ -13,6 +14,7 @@ script = ExtResource("1_mx5f6")
 images = Array[Texture2D]([ExtResource("1_4k58y"), ExtResource("2_ulgy1"), ExtResource("3_213qd"), ExtResource("4_wuqbu")])
 dialogue = Array[String](["I can finally get back...", "Mom, Dad, I'm coming...", "Augh...", "Warning. Fuel reserves critically low. Current capacity allows travel to Mars only. Return trip to Earth is not possible."])
 options = Dictionary[int, Array]({})
+music = ExtResource("5_ulgy1")
 sfx = Array[AudioStream]([null, null, null, ExtResource("7_cs74i")])
 next_scene = ExtResource("5_2uexk")
 time_modifiers = Dictionary[int, float]({})

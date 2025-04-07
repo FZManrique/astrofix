@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if (
-		navigation_agent.is_navigation_finished() and target_to_chase.global_position == navigation_agent.target_position
+		navigation_agent.is_navigation_finished() and target_to_chase.global_position.distance_to(navigation_agent.target_position) <= 25
 	):
 		if (!has_hit_player):
 			has_hit_player = true

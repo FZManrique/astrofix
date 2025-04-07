@@ -3,12 +3,11 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dkpuhtuu4qm7"
-path="res://.godot/imported/door_open.mp3-7bda197566d871823637a643dd5e0567.mp3str"
+valid=false
 
 [deps]
 
 source_file="res://cutscenes/sfx/level_1/door_open.mp3"
-dest_files=["res://.godot/imported/door_open.mp3-7bda197566d871823637a643dd5e0567.mp3str"]
 
 [params]
 

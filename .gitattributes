@@ -12,6 +12,6 @@
 # Denote all files that are truly binary and should not be modified.
 *.png binary
 *.jpg binary
-*.wav filter=lfs diff=lfs merge=lfs -text
-*.mp3 filter=lfs diff=lfs merge=lfs -text
 .exe filter=lfs diff=lfs merge=lfs -text
+.pck filter=lfs diff=lfs merge=lfs -text
+.mp3 filter=lfs diff=lfs merge=lfs -text

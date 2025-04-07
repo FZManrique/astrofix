@@ -3,6 +3,7 @@
 extends Node
 
 # TODO Remove
+signal show_dan
 signal Level4_has_done_confrontation
 
 enum WIND_DIRECTION {TO_TOP, TO_LEFT, TO_BOTTOM, TO_RIGHT}

@@ -12,6 +12,7 @@ const TIMER_INCREASE := 10
 var time_limit := 180
 
 func _ready() -> void:
+	Music.play_music("uid://bbv74260pto35")
 	start_timer()
 	
 	for fake_exit in fake_exits.get_children() as Array[Area2D]:
@@ -38,6 +39,13 @@ func _ready() -> void:
 				time_limit += TIMER_INCREASE
 		)
 	
+	%PlayGame.pressed.connect(
+		func() -> void:
+			get_tree().paused = false
+			%Instructions.queue_free()
+	)
+	
+	get_tree().paused = true
 	
 func start_timer() -> void:
 	var timer := Timer.new()

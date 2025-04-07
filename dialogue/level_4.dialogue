@@ -10,7 +10,7 @@ Sailor Con: By the way, I’m Sailor Conn, protector of Jupiter. It’s rare to 
 Sailor Con: Here's a map by the way. You can press "M" to open it. It could be useful.
 - Got it.
 do InventoryManager.add_item_to_inventory("map", 1)
-SSailor Con: I think that's basically it. Just find the shards, and you're done.
+Sailor Con: I think that's basically it. Just find the shards, and you're done.
 - Thanks, I'll find them quickly.
 	Sailor Con: If you say so.
 - Can you help me?

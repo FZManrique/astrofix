@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b5pwi7txcmxvl"]
+[gd_scene load_steps=42 format=3 uid="uid://b5pwi7txcmxvl"]
 
 [ext_resource type="Script" uid="uid://dk4axiy1uo3qj" path="res://scenes/levels/level_5_minigames/minigame_2/minigame_2.gd" id="1_5c4hy"]
 [ext_resource type="StyleBox" uid="uid://bwu6otk0ix2e8" path="res://scenes/themes/blue_background_round.tres" id="1_fsbb7"]
@@ -13,10 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://bbrvbloxlp8j0" path="res://art/level_5/minigame_2/backgrounds/floor.png" id="8_w2rtp"]
 [ext_resource type="PackedScene" uid="uid://qy24io0fo1jn" path="res://scenes/screens/pause_menu.tscn" id="9_2nndw"]
 [ext_resource type="Script" uid="uid://b4373uiamyc6k" path="res://scenes/levels/level_5_minigames/minigame_2/space_spam.gd" id="9_4ty0l"]
-[ext_resource type="Texture2D" uid="uid://ddwedw7prajsy" path="res://art/level_5/minigame_2/characters/dan/attack.png" id="9_ldit6"]
 [ext_resource type="Texture2D" uid="uid://cbsdibxaqjhsl" path="res://art/level_5/minigame_2/characters/mc/idle.png" id="10_w0uu3"]
-[ext_resource type="Texture2D" uid="uid://c7kff4ltd2fre" path="res://art/level_5/minigame_2/characters/dan/idle.png" id="11_8qra7"]
-[ext_resource type="Texture2D" uid="uid://ces4n8vyg5yk0" path="res://art/level_5/minigame_2/characters/mc/attack.png" id="14_vxoub"]
+[ext_resource type="Texture2D" uid="uid://c0hop3wulp0rm" path="res://art/level_5/minigame_2/characters/mc/atk_mc_3fps.png" id="16_4ty0l"]
+[ext_resource type="AudioStream" uid="uid://dc64jo7wxfbi" path="res://audio/sfx/level_5/whoosh.mp3" id="18_kbq4h"]
+[ext_resource type="Texture2D" uid="uid://c48gnuuy4jx7b" path="res://art/level_5/minigame_2/characters/dan/dan_attack_new.png" id="18_n4kpm"]
+[ext_resource type="Texture2D" uid="uid://dso0h806d1gre" path="res://art/level_5/minigame_2/characters/dan/dan_idle_new.png" id="19_475c5"]
+[ext_resource type="AudioStream" uid="uid://du8myrxoogjoy" path="res://audio/sfx/level_5/player_dash.mp3" id="19_lepg2"]
+[ext_resource type="AudioStream" uid="uid://bu22e38sid53y" path="res://audio/sfx/level_5/player_attack.mp3" id="20_m8d7w"]
+[ext_resource type="AudioStream" uid="uid://bh264xswwkug7" path="res://audio/sfx/level_5/dan_laugh.mp3" id="21_lepg2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ed3y"]
 radius = 8.06226
@@ -28,7 +32,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Art:modulate")
+tracks/0/path = NodePath("Fireball:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -37,45 +41,43 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
-tracks/1/type = "value"
+tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Dan:texture")
+tracks/1/path = NodePath("Fireball:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("11_8qra7")]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(171.177, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
-tracks/2/type = "value"
+tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Player:texture")
+tracks/2/path = NodePath("Fireball:modulate:r")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("10_w0uu3")]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Art:position:x")
+tracks/3/path = NodePath("Fireball:modulate:g")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(171.177, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Dan:modulate:r")
+tracks/4/path = NodePath("Fireball:modulate:b")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -86,7 +88,7 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Dan:modulate:g")
+tracks/5/path = NodePath("Fireball:modulate:a")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -94,115 +96,137 @@ tracks/5/keys = {
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/6/type = "bezier"
+tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Dan:modulate:b")
+tracks/6/path = NodePath("DanAnimated:animation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
 }
-tracks/7/type = "bezier"
+tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Dan:modulate:a")
+tracks/7/path = NodePath("DanAnimated:frame")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
-tracks/8/type = "bezier"
+tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Art:modulate:r")
+tracks/8/path = NodePath("Whoosh:playing")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
-tracks/9/type = "bezier"
+tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Art:modulate:g")
+tracks/9/path = NodePath("PlayerAnimated:animation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
 }
-tracks/10/type = "bezier"
+tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Art:modulate:b")
+tracks/10/path = NodePath("PlayerAnimated:frame")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
-tracks/11/type = "bezier"
+tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Art:modulate:a")
+tracks/11/path = NodePath("Dash:playing")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
-tracks/12/type = "bezier"
+tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Player:modulate:r")
+tracks/12/path = NodePath("PlayerAnimated:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(75, 105)]
 }
-tracks/13/type = "bezier"
+tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Player:modulate:g")
+tracks/13/path = NodePath("DanAnimated:modulate")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
-tracks/14/type = "bezier"
+tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Player:modulate:b")
+tracks/14/path = NodePath("PlayerAnimated:modulate")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
-tracks/15/type = "bezier"
+tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Player:modulate:a")
+tracks/15/path = NodePath("Attack:playing")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("DanLaugh:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_2nndw"]
@@ -211,37 +235,61 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Dan:texture")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Fireball:modulate")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("9_ldit6"), ExtResource("11_8qra7")]
+"times": PackedFloat32Array(0.366667, 0.966667, 2),
+"transitions": PackedFloat32Array(1, 4.14106, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/1/type = "value"
+tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Art:modulate")
-tracks/1/interp = 2
+tracks/1/path = NodePath("Fireball:position:x")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 4.14106),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(171.177, -0.25, 0, 0.25, 0, 80, 0, 0, 100, 0),
+"times": PackedFloat32Array(0.6, 2)
 }
-tracks/2/type = "bezier"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Art:position:x")
+tracks/2/path = NodePath("DanAnimated:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(171.177, -0.25, 0, 0.25, 0, 119.177, 0, 0, 100, 0),
-"times": PackedFloat32Array(0.5, 1.1)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DanAnimated:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0666667, 0.366667, 0.733333, 1.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Whoosh:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_04w4v"]
@@ -249,7 +297,7 @@ resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Art:modulate")
+tracks/0/path = NodePath("Fireball:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -258,223 +306,197 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Dan:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("11_8qra7")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Player:texture")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("10_w0uu3")]
-}
 
 [sub_resource type="Animation" id="Animation_4ty0l"]
 resource_name = "player_attack"
-tracks/0/type = "value"
+length = 2.0
+tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Player:texture")
+tracks/0/path = NodePath("Fireball:modulate:r")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("10_w0uu3"), ExtResource("14_vxoub"), ExtResource("10_w0uu3")]
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.05)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Dan:modulate:r")
+tracks/1/path = NodePath("Fireball:modulate:g")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.125, 1)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.05)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Dan:modulate:g")
+tracks/2/path = NodePath("Fireball:modulate:b")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.56087, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.125, 1)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.05)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Dan:modulate:b")
+tracks/3/path = NodePath("Fireball:modulate:a")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.56087, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.125, 1)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Dan:modulate:a")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.125, 1)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Art:modulate:r")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.05)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Art:modulate:g")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.05)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Art:modulate:b")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.05)
-}
-tracks/8/type = "bezier"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Art:modulate:a")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.05)
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerAnimated:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"idle", &"attack", &"idle"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayerAnimated:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0333333, 0.333333, 0.666667, 1, 1.33333, 1.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dash:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.366667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PlayerAnimated:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.05, 0.566667, 0.966667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(75, 105), Vector2(200, 105), Vector2(200, 105), Vector2(75, 105)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("DanAnimated:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.833333, 1.03333, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.813043, 0.279263, 0.279263, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_kbq4h"]
 resource_name = "player_damage"
+length = 2.0
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Player:modulate:r")
+tracks/0/path = NodePath("Fireball:modulate:r")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.125, 1)
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Player:modulate:g")
+tracks/1/path = NodePath("Fireball:modulate:g")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.560784, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.125, 1)
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Player:modulate:b")
+tracks/2/path = NodePath("Fireball:modulate:b")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.560784, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.125, 1)
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Player:modulate:a")
+tracks/3/path = NodePath("Fireball:modulate:a")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.125, 1)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Art:modulate:r")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Art:modulate:g")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Art:modulate:b")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Art:modulate:a")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerAnimated:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.133333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.811765, 0.278431, 0.278431, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Attack:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DanLaugh:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ty0l"]
@@ -485,6 +507,108 @@ _data = {
 &"player_attack": SubResource("Animation_4ty0l"),
 &"player_damage": SubResource("Animation_kbq4h")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lepg2"]
+atlas = ExtResource("18_n4kpm")
+region = Rect2(0, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8d7w"]
+atlas = ExtResource("18_n4kpm")
+region = Rect2(152, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g1mr"]
+atlas = ExtResource("18_n4kpm")
+region = Rect2(304, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xmrn"]
+atlas = ExtResource("18_n4kpm")
+region = Rect2(456, 0, 152, 152)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2h6py"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lepg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8d7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g1mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xmrn")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_475c5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbq4h"]
+atlas = ExtResource("16_4ty0l")
+region = Rect2(0, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4kpm"]
+atlas = ExtResource("16_4ty0l")
+region = Rect2(152, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_475c5"]
+atlas = ExtResource("16_4ty0l")
+region = Rect2(304, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h6py"]
+atlas = ExtResource("16_4ty0l")
+region = Rect2(456, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5oop"]
+atlas = ExtResource("16_4ty0l")
+region = Rect2(608, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrxs5"]
+atlas = ExtResource("16_4ty0l")
+region = Rect2(760, 0, 152, 152)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_evi0r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbq4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4kpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_475c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h6py")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5oop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrxs5")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_w0uu3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Level2Minigame" type="Node2D"]
 script = ExtResource("1_5c4hy")
@@ -582,7 +706,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0695652, 0.0181475, 0, 0.588235)
 
-[node name="VBoxContainer" type="PanelContainer" parent="UI/TimerAccuracy/ColorRect"]
+[node name="Panel" type="PanelContainer" parent="UI/TimerAccuracy/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -597,32 +721,38 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("3_fsbb7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/TimerAccuracy/ColorRect/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/TimerAccuracy/ColorRect/Panel"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
 theme_override_font_sizes/font_size = 24
-text = "Timer game"
+text = "PRESS THE ENTER KEY!"
 horizontal_alignment = 1
 
-[node name="Objectives" type="Label" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer"]
+[node name="Instructions" type="Label" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Click when arrow is in green"
+text = "Press when the arrow lands on the green section of the timer!"
 horizontal_alignment = 1
 
-[node name="Minigame" type="CenterContainer" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer"]
+[node name="TimeLeft" type="Label" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Time left: Unknown"
+horizontal_alignment = 1
+
+[node name="Minigame" type="CenterContainer" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 
-[node name="Control" type="Control" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame"]
+[node name="Control" type="Control" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame"]
 custom_minimum_size = Vector2(640, 320)
 layout_mode = 2
 
-[node name="Base" type="TextureRect" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control"]
+[node name="Base" type="TextureRect" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame/Control"]
 custom_minimum_size = Vector2(640, 320)
 layout_mode = 0
 offset_right = 640.0
@@ -630,7 +760,7 @@ offset_bottom = 320.0
 texture = ExtResource("4_v3fqq")
 stretch_mode = 5
 
-[node name="Green" type="TextureRect" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control"]
+[node name="Green" type="TextureRect" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame/Control"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(98, 130)
 layout_mode = 0
@@ -643,13 +773,13 @@ texture = ExtResource("5_5ed3y")
 stretch_mode = 5
 flip_v = true
 
-[node name="GreenArea" type="Area2D" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Green"]
+[node name="GreenArea" type="Area2D" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame/Control/Green"]
 position = Vector2(274, 0)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Green/GreenArea"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame/Control/Green/GreenArea"]
 polygon = PackedVector2Array(-263, 124, -244, 128, -208, 128, -186, 124, -199, 79, -253, 79)
 
-[node name="Hand" type="TextureRect" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control"]
+[node name="Hand" type="TextureRect" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame/Control"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 20)
 layout_mode = 0
@@ -661,10 +791,10 @@ pivot_offset = Vector2(152, 11)
 texture = ExtResource("6_w2rtp")
 stretch_mode = 4
 
-[node name="HandArea" type="Area2D" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Hand"]
+[node name="HandArea" type="Area2D" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame/Control/Hand"]
 position = Vector2(274, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/TimerAccuracy/ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Hand/HandArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame/Control/Hand/HandArea"]
 position = Vector2(-14, 10)
 shape = SubResource("CircleShape2D_5ed3y")
 
@@ -692,7 +822,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0695652, 0.0181475, 0, 0.588235)
 
-[node name="VBoxContainer" type="PanelContainer" parent="UI/SpaceSpam/ColorRect"]
+[node name="Panel" type="PanelContainer" parent="UI/SpaceSpam/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -707,22 +837,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("3_fsbb7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/SpaceSpam/ColorRect/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SpaceSpam/ColorRect/Panel"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="UI/SpaceSpam/ColorRect/VBoxContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="UI/SpaceSpam/ColorRect/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
 theme_override_font_sizes/font_size = 24
-text = "SPAM SPACE TO FILL PROGRESS"
+text = "CLICK THE SPACE BAR!"
 horizontal_alignment = 1
 
-[node name="Timer" type="Label" parent="UI/SpaceSpam/ColorRect/VBoxContainer/VBoxContainer"]
+[node name="Timer" type="Label" parent="UI/SpaceSpam/ColorRect/Panel/VBoxContainer"]
 layout_mode = 2
-text = "Less than 5 seconds!"
+text = "Spam the key as fast as you can to fill the bar in 5 seconds! Time is running out!"
 horizontal_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="UI/SpaceSpam/ColorRect/VBoxContainer/VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="UI/SpaceSpam/ColorRect/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_2nndw")
 step = 1.0
@@ -756,16 +886,34 @@ libraries = {
 &"": SubResource("AnimationLibrary_4ty0l")
 }
 
-[node name="Dan" type="Sprite2D" parent="Nodes/Sprites"]
-position = Vector2(160, 90)
-texture = ExtResource("11_8qra7")
-
-[node name="Player" type="Sprite2D" parent="Nodes/Sprites"]
-position = Vector2(160, 90)
-texture = ExtResource("10_w0uu3")
-
-[node name="Art" type="Sprite2D" parent="Nodes/Sprites"]
+[node name="Fireball" type="Sprite2D" parent="Nodes/Sprites"]
 position = Vector2(171.177, 109)
 texture = ExtResource("3_8qra7")
+
+[node name="DanAnimated" type="AnimatedSprite2D" parent="Nodes/Sprites"]
+position = Vector2(250, 106)
+sprite_frames = SubResource("SpriteFrames_2h6py")
+animation = &"idle"
+
+[node name="PlayerAnimated" type="AnimatedSprite2D" parent="Nodes/Sprites"]
+position = Vector2(75, 105)
+sprite_frames = SubResource("SpriteFrames_evi0r")
+animation = &"idle"
+
+[node name="Whoosh" type="AudioStreamPlayer" parent="Nodes/Sprites"]
+stream = ExtResource("18_kbq4h")
+bus = &"SFX"
+
+[node name="Dash" type="AudioStreamPlayer" parent="Nodes/Sprites"]
+stream = ExtResource("19_lepg2")
+bus = &"SFX"
+
+[node name="Attack" type="AudioStreamPlayer" parent="Nodes/Sprites"]
+stream = ExtResource("20_m8d7w")
+bus = &"SFX"
+
+[node name="DanLaugh" type="AudioStreamPlayer" parent="Nodes/Sprites"]
+stream = ExtResource("21_lepg2")
+bus = &"SFX"
 
 [connection signal="timeout" from="UI/SpaceSpam/Timer" to="UI/SpaceSpam" method="_on_timer_timeout"]

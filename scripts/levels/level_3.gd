@@ -82,6 +82,7 @@ func _on_spaceship_body_entered(_body: Node2D) -> void:
 			func(_ignore) -> void:
 				if (!is_transitioning):
 					is_transitioning = true
+					InventoryManager.remove_item_from_inventory("cover", 1)
 					DataManager.current_cutscene = load("res://cutscenes/data/level_3_end.tres")
 					SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")
 		)

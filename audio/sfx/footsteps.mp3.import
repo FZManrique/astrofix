@@ -3,12 +3,11 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dvas7nht4qshu"
-path="res://.godot/imported/footsteps.mp3-e7dcd54df73a1741e0a761559e410db5.mp3str"
+valid=false
 
 [deps]
 
 source_file="res://audio/sfx/footsteps.mp3"
-dest_files=["res://.godot/imported/footsteps.mp3-e7dcd54df73a1741e0a761559e410db5.mp3str"]
 
 [params]
 

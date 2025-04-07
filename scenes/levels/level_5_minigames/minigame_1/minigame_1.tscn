@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c016vtt25g3k6"]
+[gd_scene load_steps=27 format=4 uid="uid://c016vtt25g3k6"]
 
 [ext_resource type="Script" uid="uid://cin2dpm0tt7vf" path="res://scripts/screens/gui/goal_label.gd" id="1_71xpg"]
 [ext_resource type="StyleBox" uid="uid://dowdbn12jbayv" path="res://scenes/themes/blue_background.tres" id="1_80fd0"]
@@ -9,8 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://da0u3yj7kxcnp" path="res://scenes/levels/level_5_minigames/minigame_1/characters/player.tscn" id="3_3ikiw"]
 [ext_resource type="PackedScene" uid="uid://xrpuycrdt8sk" path="res://scenes/levels/level_5_minigames/minigame_1/characters/enemy.tscn" id="3_re0sv"]
 [ext_resource type="Texture2D" uid="uid://wwkixm2gkmut" path="res://art/tilesets/level5/minigame_1/ground_v2.png" id="4_3rhde"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="5_1yk3t"]
+[ext_resource type="Texture2D" uid="uid://6grf7dg04ty7" path="res://art/keyboard_keys/keyboard_w.png" id="6_ner0i"]
 [ext_resource type="PackedScene" uid="uid://csumtavrq4idh" path="res://scenes/levels/level_5_minigames/minigame_1/objects/bomb.tscn" id="6_xmj10"]
 [ext_resource type="PackedScene" uid="uid://c1lij5hirv332" path="res://scenes/levels/level_5_minigames/minigame_1/objects/timer_powerup.tscn" id="7_71xpg"]
+[ext_resource type="Texture2D" uid="uid://drb7m0s3fqeh0" path="res://art/keyboard_keys/keyboard_a.png" id="7_84815"]
+[ext_resource type="Texture2D" uid="uid://caoktr5tfbleg" path="res://art/keyboard_keys/keyboard_s.png" id="8_bdrsh"]
+[ext_resource type="Texture2D" uid="uid://cdna42g4wfui8" path="res://art/keyboard_keys/keyboard_d.png" id="9_4pr5w"]
+[ext_resource type="Texture2D" uid="uid://dpnqo687atcf1" path="res://art/keyboard_keys/keyboard_shift.png" id="10_28qqj"]
+[ext_resource type="Texture2D" uid="uid://l7d2hx31fnn2" path="res://art/level_5/minigame_1/clock_mini.png" id="11_nsbr4"]
+[ext_resource type="Texture2D" uid="uid://7f46y4q5gbhn" path="res://art/level_5/minigame_1/bomb.png" id="12_r8kcf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tch3h"]
 shadow_color = Color(0.027451, 0.137255, 0.258824, 0.745098)
@@ -101,6 +109,157 @@ script = ExtResource("1_71xpg")
 visible = false
 metadata/_edit_lock_ = true
 
+[node name="Instructions" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+process_mode = 3
+texture_filter = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.788235)
+
+[node name="VBoxContainer" type="PanelContainer" parent="CanvasLayer/Instructions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -90.0
+offset_right = 280.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_1yk3t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Instructions/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "How to Play"
+horizontal_alignment = 1
+
+[node name="Objectives" type="Label" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Content in here"
+horizontal_alignment = 1
+
+[node name="Controls" type="Label" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="Keybinds" type="GridContainer" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 4
+
+[node name="WASD" type="VBoxContainer" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/WASD"]
+layout_mode = 2
+columns = 3
+
+[node name="Empty" type="AspectRatioContainer" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/WASD/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/WASD/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("6_ner0i")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Empty2" type="AspectRatioContainer" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/WASD/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/WASD/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("7_84815")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/WASD/GridContainer"]
+layout_mode = 2
+texture = ExtResource("8_bdrsh")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/WASD/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("9_4pr5w")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/WASD"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "to move"
+horizontal_alignment = 1
+
+[node name="Sprint" type="VBoxContainer" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/Sprint"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("10_28qqj")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/Sprint"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "hold to sprint"
+horizontal_alignment = 1
+
+[node name="ClockPower" type="VBoxContainer" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/ClockPower"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("11_nsbr4")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/ClockPower"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "collect to increase time"
+horizontal_alignment = 1
+
+[node name="Bombs" type="VBoxContainer" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/Bombs"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("12_r8kcf")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer/Keybinds/Bombs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "avoid bombs"
+horizontal_alignment = 1
+
+[node name="PlayGame" type="Button" parent="CanvasLayer/Instructions/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue"
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_p37q4")
 
@@ -142,20 +301,25 @@ player_body = NodePath("../../Player")
 
 [node name="Timers" type="Node2D" parent="NavigationRegion2D"]
 
-[node name="Timer" parent="NavigationRegion2D/Timers" instance=ExtResource("7_71xpg")]
+[node name="Timer" parent="NavigationRegion2D/Timers" node_paths=PackedStringArray("player_body") instance=ExtResource("7_71xpg")]
 position = Vector2(479, 121)
+player_body = NodePath("../../Player")
 
-[node name="Timer2" parent="NavigationRegion2D/Timers" instance=ExtResource("7_71xpg")]
+[node name="Timer2" parent="NavigationRegion2D/Timers" node_paths=PackedStringArray("player_body") instance=ExtResource("7_71xpg")]
 position = Vector2(938, 285)
+player_body = NodePath("../../Player")
 
-[node name="Timer3" parent="NavigationRegion2D/Timers" instance=ExtResource("7_71xpg")]
+[node name="Timer3" parent="NavigationRegion2D/Timers" node_paths=PackedStringArray("player_body") instance=ExtResource("7_71xpg")]
 position = Vector2(1199, 45)
+player_body = NodePath("../../Player")
 
-[node name="Timer4" parent="NavigationRegion2D/Timers" instance=ExtResource("7_71xpg")]
+[node name="Timer4" parent="NavigationRegion2D/Timers" node_paths=PackedStringArray("player_body") instance=ExtResource("7_71xpg")]
 position = Vector2(290, 430)
+player_body = NodePath("../../Player")
 
-[node name="Timer5" parent="NavigationRegion2D/Timers" instance=ExtResource("7_71xpg")]
+[node name="Timer5" parent="NavigationRegion2D/Timers" node_paths=PackedStringArray("player_body") instance=ExtResource("7_71xpg")]
 position = Vector2(943, 505)
+player_body = NodePath("../../Player")
 
 [node name="Enemy" parent="NavigationRegion2D" node_paths=PackedStringArray("target_to_chase") instance=ExtResource("3_re0sv")]
 unique_name_in_owner = true

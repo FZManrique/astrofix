@@ -30,27 +30,28 @@ var player_health: int:
 			no_player_health.emit()
 
 func _ready() -> void:
+	if not Music.playing:
+		Music.play_music("uid://bbv74260pto35")
+	
 	animation_player.play("idle")
+	
+	
 	timer_accuracy.correct.connect(
 		func() -> void:
 			animation_player.stop()
-			await animation_player.animation_finished
 			animation_player.play("player_attack")
-			await animation_player.animation_finished
 			dan_health -= 10
 	)
 	timer_accuracy.wrong.connect(
 		func() -> void:
 			animation_player.stop()
-			await animation_player.animation_finished
 			animation_player.play("player_damage")
-			await animation_player.animation_finished
 			player_health -= 10
 	)
 	timer_accuracy.game_done.connect(
 		func() -> void:
 			timer_accuracy.hide()
-			animation_player.play("idle")
+			await animation_player.animation_finished
 			if (dan_health != 20):
 				run_game()
 	)

@@ -90,5 +90,6 @@ func _show_dialoague_box(key: String) -> void:
 	DialogueManager.show_dialogue_balloon(dialogue, key)
 
 func _go_to_level_2(_pass) -> void:
+	InventoryManager.remove_item_from_inventory("fuel", 1)
 	DataManager.current_cutscene = load("res://cutscenes/data/level_1_end.tres")
 	SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")

@@ -5,7 +5,7 @@ class_name CutsceneResource
 ## Ordered list of cutscene images
 @export var images: Array[Texture2D]
 ## Ordered list of text for each image
-@export var dialogue: Array[String]
+@export_multiline var dialogue: Array[String]
 ## Choices (if any) - key: dialogue index, value: array of options (strings)
 @export var options: Dictionary[int, Array]
 ## Background music for the whole cutscene

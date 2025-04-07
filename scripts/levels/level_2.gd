@@ -11,8 +11,12 @@ func _ready() -> void:
 	if (not Level2Data.audio_playing):
 		Level2Data.audio_playing = true
 		Music.play_music("res://audio/music/level_2.mp3", 100.0)
-	DataManager.intro_done = false
-	GoalManager.go_to_next_goal(4)
+	
+	if (!Level2Data.has_fixed_spacesuit):
+		GoalManager.go_to_next_goal(4)
+		DataManager.intro_done = true
+	else:
+		DataManager.intro_done = false
 	
 	OxygenManager.oxygen_depleted.connect(
 		func() -> void:
@@ -70,6 +74,8 @@ func _on_area_2d_body_entered_in_franz(body: Node2D) -> void:
 
 func _on_many_fuel_body_entered(body: Node2D) -> void:
 	if (!Level2Data.fuel_collected):
+		InventoryManager.add_item_to_inventory("fuel", 10)
+		$Characters/ManyFuel.hide()
 		_show_dialoague_box("many_collected")
 
 func _on_fuel_tank_fuel_collected(body: Node2D) -> void:

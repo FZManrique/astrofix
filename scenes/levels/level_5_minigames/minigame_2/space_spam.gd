@@ -1,7 +1,7 @@
 class_name SpaceSpam
 extends Control
 
-@onready var progress_bar: ProgressBar = $ColorRect/VBoxContainer/VBoxContainer/ProgressBar
+@onready var progress_bar: ProgressBar = $ColorRect/Panel/VBoxContainer/ProgressBar
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("ui_accept")):

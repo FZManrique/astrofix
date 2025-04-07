@@ -15,7 +15,7 @@
 [resource]
 script = ExtResource("1_u8b8b")
 images = Array[Texture2D]([ExtResource("1_8cvqi"), ExtResource("2_dcwwq"), ExtResource("2_dcwwq"), ExtResource("3_w7srf"), ExtResource("4_u2h0s"), ExtResource("2_dcwwq"), ExtResource("5_vyss6"), ExtResource("6_lvud2")])
-dialogue = Array[String](["Finally...", "H... huh? I'm back?", "Mom! Dad! Are you here..?", "MOM! DAD!", "N-no….", "Ughh...", "W-what?!", "Oxygen levels critical. Current reserves will last until Mars. Consider stopping at Jupiter for a refill."])
+dialogue = Array[String](["Finally...", "H... huh? I'm back?", "Mom! Dad! Are you here..?", "MOM! DAD!", "N-no….", "Ughh...", "W-what?!", "@aiOxygen levels critical. Current reserves will last until Mars. Consider stopping at Jupiter for a refill."])
 options = Dictionary[int, Array]({})
 music = ExtResource("7_vyss6")
 sfx = Array[AudioStream]([null, null, null, null, null, null, ExtResource("10_7v6ff"), ExtResource("11_fbrf7")])

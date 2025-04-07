@@ -4,8 +4,8 @@ extends Control
 @onready var timer: Timer = $Timer
 @onready var green: TextureRect = %Green
 @onready var hand: TextureRect = %Hand
-@onready var green_area: Area2D = $ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Green/GreenArea
-@onready var hand_area: Area2D = $ColorRect/VBoxContainer/VBoxContainer/Minigame/Control/Hand/HandArea
+@onready var green_area: Area2D = $ColorRect/Panel/VBoxContainer/Minigame/Control/Green/GreenArea
+@onready var hand_area: Area2D = $ColorRect/Panel/VBoxContainer/Minigame/Control/Hand/HandArea
 
 signal correct
 signal wrong
@@ -62,13 +62,12 @@ func _input(event: InputEvent) -> void:
 		check()
 
 func _process(delta: float) -> void:
-	(%Objectives as Label).text = "Time left: " + str(roundf(timer.time_left)) + "s"
+	if should_run:
+		(%TimeLeft as Label).text = "Time left: %ds" % int(timer.time_left)
 
 func _physics_process(_delta: float) -> void:
 	if (should_run):
-		hand_rotation += 5
-		if hand_rotation > 360:
-			hand_rotation = 0
+		hand_rotation = (hand_rotation + 5) % 360
 		
 	%Hand.rotation_degrees = hand_rotation
 

@@ -44,7 +44,11 @@ func _ready() -> void:
 				_show_dialoague_box("intro")
 	)
 	
-	for spike in ($Tilemap/Decorations/Medium.get_children() as Array[Spike]) + ($Tilemap/Decorations/Large.get_children() as Array[Spike]):
+	for spike in \
+		($Tilemap/Decorations/Medium/Type1.get_children() as Array[Spike]) + \
+		($Tilemap/Decorations/Medium/Type2.get_children() as Array[Spike]) + \
+		($Tilemap/Decorations/Large/Type1.get_children() as Array[Spike]) + \
+		($Tilemap/Decorations/Large/Type2.get_children() as Array[Spike]):
 		spike.player_hit.connect(
 			func() -> void:
 				print("yes")

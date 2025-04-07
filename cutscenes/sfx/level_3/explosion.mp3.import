@@ -3,12 +3,11 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://b2xmovb5tenel"
-path="res://.godot/imported/explosion.mp3-f041331585943c1b3a872106d9a57005.mp3str"
+valid=false
 
 [deps]
 
 source_file="res://cutscenes/sfx/level_3/explosion.mp3"
-dest_files=["res://.godot/imported/explosion.mp3-f041331585943c1b3a872106d9a57005.mp3str"]
 
 [params]
 
