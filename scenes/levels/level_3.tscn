@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://d22pvjq2mopa8"]
+[gd_scene load_steps=38 format=4 uid="uid://d22pvjq2mopa8"]
 
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="1_0ljxa"]
 [ext_resource type="Script" uid="uid://kir7hbl2qhq6" path="res://scripts/levels/level_3.gd" id="1_ugcn1"]
@@ -10,12 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://baf2kpvdjx1m" path="res://art/level_3/decorations/pile_sand.png" id="5_n6eey"]
 [ext_resource type="Texture2D" uid="uid://dfsd7dem8foo8" path="res://art/level_3/particles/particle_medium.png" id="6_lgrx1"]
 [ext_resource type="Texture2D" uid="uid://dsqlucfte8erw" path="res://art/level_3/decorations/small_rock.png" id="6_qi5uv"]
-[ext_resource type="Texture2D" uid="uid://bbxoim1xr5c88" path="res://art/characters/chloe louisza/idle.png" id="6_ugcn1"]
 [ext_resource type="Texture2D" uid="uid://c2igtrbe04jcj" path="res://art/level_3/decorations/medium_rock_2.png" id="7_f6egh"]
 [ext_resource type="Texture2D" uid="uid://cluh5j50om676" path="res://art/level_3/particles/particle_small.png" id="7_fhpes"]
 [ext_resource type="Texture2D" uid="uid://bundghtnjyxpe" path="res://art/objects/spaceship_broken.png" id="8_ugcn1"]
 [ext_resource type="AudioStream" uid="uid://bq8ugcfjblotn" path="res://audio/music/singing_chloe_hahahaha.mp3" id="11_apo5x"]
 [ext_resource type="Texture2D" uid="uid://ceib4prh1n738" path="res://art/level_3/gas_cover.png" id="12_qi5uv"]
+[ext_resource type="Texture2D" uid="uid://dbr6faxswmp06" path="res://art/characters/chloe louisza/idle_animation.png" id="14_fhpes"]
 [ext_resource type="PackedScene" uid="uid://bpko47puym4mc" path="res://scenes/objects/oxygen_tank.tscn" id="14_t4txi"]
 
 [sub_resource type="Gradient" id="Gradient_ugcn1"]
@@ -431,6 +431,42 @@ sources/1 = SubResource("TileSetAtlasSource_ugcn1")
 [sub_resource type="CircleShape2D" id="CircleShape2D_t4txi"]
 radius = 24.59
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmg1d"]
+atlas = ExtResource("14_fhpes")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nwmf"]
+atlas = ExtResource("14_fhpes")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f5xw"]
+atlas = ExtResource("14_fhpes")
+region = Rect2(68, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3ttr"]
+atlas = ExtResource("14_fhpes")
+region = Rect2(102, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kdsi4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmg1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nwmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f5xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3ttr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_apo5x"]
 radius = 53.2353
 
@@ -612,13 +648,15 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Chloe"]
 shape = SubResource("CircleShape2D_t4txi")
 
-[node name="Art" type="Sprite2D" parent="Characters/Chloe"]
-texture = ExtResource("6_ugcn1")
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Characters/Chloe"]
 stream = ExtResource("11_apo5x")
 max_distance = 400.0
 bus = &"Music"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Characters/Chloe"]
+sprite_frames = SubResource("SpriteFrames_kdsi4")
+autoplay = "default"
+frame_progress = 0.843413
 
 [node name="Player" parent="Characters" instance=ExtResource("5_fkk1g")]
 unique_name_in_owner = true

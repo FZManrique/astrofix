@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://m5xs273wksx8"]
+[gd_scene load_steps=78 format=4 uid="uid://m5xs273wksx8"]
 
 [ext_resource type="Script" uid="uid://bycggkorp5an3" path="res://scripts/levels/level_4.gd" id="1_um320"]
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="1_w6h2s"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://c2jlrq4bkh5ji" path="res://scenes/objects/level_4/large_spike.tscn" id="12_lc5pf"]
 [ext_resource type="Texture2D" uid="uid://c0wtpnkpr3sle" path="res://art/level_4/decorations/spike_medium_2.png" id="13_suy3i"]
 [ext_resource type="Texture2D" uid="uid://cr7dft7o6om62" path="res://art/level_4/tower.png" id="15_ov8fk"]
+[ext_resource type="Texture2D" uid="uid://c3miqrd4edhfc" path="res://art/characters/sailor con/idle_animation.png" id="23_lc5pf"]
 
 [sub_resource type="Gradient" id="Gradient_8hw10"]
 offsets = PackedFloat32Array(0.39011, 0.598901)
@@ -469,6 +470,42 @@ polygon = PackedVector2Array(-3, 13, 5, 13, 5, -10, -3, -10)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r3huh"]
 radius = 14.0
 height = 36.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n65g"]
+atlas = ExtResource("23_lc5pf")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyomx"]
+atlas = ExtResource("23_lc5pf")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_io455"]
+atlas = ExtResource("23_lc5pf")
+region = Rect2(68, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suy3i"]
+atlas = ExtResource("23_lc5pf")
+region = Rect2(102, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8hw10"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n65g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyomx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_io455")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suy3i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_um320")
@@ -1017,7 +1054,7 @@ limit_smoothed = true
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Characters/Area2D"]
-position = Vector2(1011, 611)
+position = Vector2(955, 652)
 polygon = PackedVector2Array(-22, 25, 25, 75, 117, 91, 180, 86, 207, 70, 204, -19, 189, -103, 162, -154, 65, -171, 10, -160, -30, -138, -47, -70, -53, -24)
 
 [node name="Conny" type="StaticBody2D" parent="Characters"]
@@ -1033,6 +1070,11 @@ texture = ExtResource("8_glw47")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Conny"]
 shape = SubResource("CapsuleShape2D_r3huh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Characters/Conny"]
+sprite_frames = SubResource("SpriteFrames_8hw10")
+autoplay = "default"
+frame_progress = 0.699062
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Characters"]
 position = Vector2(1101, 573)

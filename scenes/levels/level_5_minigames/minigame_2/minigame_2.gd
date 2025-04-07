@@ -34,6 +34,7 @@ func _ready() -> void:
 	timer_accuracy.correct.connect(
 		func() -> void:
 			animation_player.stop()
+			await animation_player.animation_finished
 			animation_player.play("player_attack")
 			await animation_player.animation_finished
 			dan_health -= 10
@@ -41,6 +42,7 @@ func _ready() -> void:
 	timer_accuracy.wrong.connect(
 		func() -> void:
 			animation_player.stop()
+			await animation_player.animation_finished
 			animation_player.play("player_damage")
 			await animation_player.animation_finished
 			player_health -= 10

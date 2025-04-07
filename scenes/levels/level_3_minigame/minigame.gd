@@ -14,6 +14,12 @@ func _ready() -> void:
 	%Instructions.show()
 	get_tree().paused = true
 	$AudioStreamPlayer2D.play(DataManager.Level3.song_time)
+	SceneManager.on_game_paused.connect(
+		func() -> void:
+			if (DataManager.show_instruction_box):
+				%Instructions.show()
+	)
+	
 
 
 func _on_to_planet_body_entered(body: Node2D) -> void:
@@ -33,5 +39,6 @@ func _on_killzone_body_entered(body: Node2D) -> void:
 	)
 
 func _on_play_game_pressed() -> void:
-	%Instructions.queue_free()
+	%Instructions.hide()
+	DataManager.show_instruction_box = false
 	get_tree().paused = false

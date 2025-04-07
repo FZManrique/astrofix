@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://ce3mc8m20upok"]
 
-[ext_resource type="Texture2D" uid="uid://67esfb3c6g66" path="res://art/tilesets/level5/minigame_1/level5_background.png" id="1_earmx"]
-[ext_resource type="Texture2D" uid="uid://cv62gqnd75xgy" path="res://art/tilesets/level5/minigame_1/level5_ground.png" id="2_hvdr6"]
+[ext_resource type="Texture2D" uid="uid://3cqmfmc8ut6l" path="res://art/tilesets/level5/minigame_1/level5_maze.png" id="1_earmx"]
+[ext_resource type="Texture2D" uid="uid://qghsua2m8coi" path="res://art/tilesets/level5/minigame_1/level5_ground.png" id="2_hvdr6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_80fd0"]
 texture = ExtResource("1_earmx")

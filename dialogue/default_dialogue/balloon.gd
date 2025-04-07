@@ -111,7 +111,7 @@ func apply_dialogue_line() -> void:
 	if (emotion.is_empty()):
 		emotion = "normal"
 	
-	var dialogue_art := $Balloon/Art as Sprite2D
+	var dialogue_art := $Balloon/Art as TextureRect
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
 	
@@ -120,9 +120,9 @@ func apply_dialogue_line() -> void:
 	dialogue_art.texture = texture
 	
 	if character == "franzen albert ii":
-		dialogue_art.position = Vector2(106.0, 420)
+		dialogue_art.position = Vector2(-200, 120)
 	else:
-		dialogue_art.position = Vector2(164.0, 420)
+		dialogue_art.position = Vector2(-150.0, 120)
 	
 	#
 	# New changes end

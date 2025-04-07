@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="2_t3c2s"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
-[ext_resource type="Texture2D" uid="uid://dgmyjowdi2r7x" path="res://art/characters/franzen albert ii/full_scale_normal.png" id="5_t3c2s"]
+[ext_resource type="Texture2D" uid="uid://gq5cno4ra4bi" path="res://art/characters/franzen albert ii/full_scale_angry.png" id="5_l3x31"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ev38r"]
 
@@ -109,11 +109,15 @@ theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
 theme_override_font_sizes/font_size = 10
 text = "Enter to accept, Space to skip typing"
 
-[node name="Art" type="Sprite2D" parent="Balloon"]
+[node name="Art" type="TextureRect" parent="Balloon"]
 texture_filter = 1
-position = Vector2(106, 431)
+layout_mode = 0
+offset_left = -198.0
+offset_top = 120.0
+offset_right = 2.0
+offset_bottom = 320.0
 scale = Vector2(3, 3)
-texture = ExtResource("5_t3c2s")
+texture = ExtResource("5_l3x31")
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/Panel/Dialogue/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

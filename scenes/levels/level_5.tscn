@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b05dhri5j7o3g"]
+[gd_scene load_steps=17 format=4 uid="uid://b05dhri5j7o3g"]
 
 [ext_resource type="Script" uid="uid://dgrqvoupn5u7g" path="res://scripts/levels/level_5.gd" id="1_fsnos"]
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="1_r1vs7"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dxhb8eooelkyv" path="res://scenes/objects/spaceship.tscn" id="3_laj7o"]
 [ext_resource type="PackedScene" uid="uid://bpko47puym4mc" path="res://scenes/objects/oxygen_tank.tscn" id="5_fi56y"]
 [ext_resource type="Texture2D" uid="uid://dlgb4yn7bhnxb" path="res://art/characters/daniella mondragon/idle.png" id="5_hldbq"]
+[ext_resource type="Texture2D" uid="uid://bv17twy8v4yx7" path="res://art/characters/daniella mondragon/idle_animation.png" id="7_mxx4w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fi56y"]
 texture = ExtResource("2_laj7o")
@@ -29,6 +30,35 @@ sources/0 = SubResource("TileSetAtlasSource_fi56y")
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fsnos"]
 radius = 14.0
 height = 36.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvoq0"]
+atlas = ExtResource("7_mxx4w")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqnj0"]
+atlas = ExtResource("7_mxx4w")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwyms"]
+atlas = ExtResource("7_mxx4w")
+region = Rect2(68, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6xwso"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvoq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqnj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwyms")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fsnos"]
 radius = 100.0
@@ -73,11 +103,16 @@ texture = ExtResource("5_hldbq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Dan"]
 shape = SubResource("CapsuleShape2D_fsnos")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Characters/Dan"]
+sprite_frames = SubResource("SpriteFrames_6xwso")
+autoplay = "default"
+frame_progress = 0.928558
+
 [node name="DanArea" type="Area2D" parent="Characters"]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/DanArea"]
-position = Vector2(1161, 592)
+position = Vector2(1155, 646)
 shape = SubResource("CircleShape2D_fsnos")
 
 [node name="Oxygen" type="Node2D" parent="."]

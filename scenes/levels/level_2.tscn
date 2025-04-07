@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://585vjm100d7c"]
+[gd_scene load_steps=76 format=4 uid="uid://585vjm100d7c"]
 
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="1_6jisw"]
 [ext_resource type="Script" uid="uid://oyhe6k7grer" path="res://scripts/levels/level_2.gd" id="1_imbuc"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://c5gb3khtj6pye" path="res://art/tilesets/level2_tileset.png" id="6_3p04p"]
 [ext_resource type="PackedScene" uid="uid://b20xsf28pfx5q" path="res://scenes/objects/wind_area.tscn" id="6_we8yt"]
 [ext_resource type="PackedScene" uid="uid://b5wbfi2vpsebq" path="res://scenes/objects/fuel_tank.tscn" id="7_brxtv"]
-[ext_resource type="Texture2D" uid="uid://bl5dh36kl8i0w" path="res://art/characters/franzen albert ii/idle.png" id="9_nt80m"]
 [ext_resource type="PackedScene" uid="uid://bpko47puym4mc" path="res://scenes/objects/oxygen_tank.tscn" id="10_qsp8v"]
 [ext_resource type="Texture2D" uid="uid://bal0c5gqsmylg" path="res://art/level_2/decorations/medium_rock_1.png" id="10_sibr7"]
 [ext_resource type="Texture2D" uid="uid://dr8e05dhgxsf7" path="res://art/level_2/decorations/small_rock.png" id="11_lkn2k"]
@@ -22,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bfb8ba1feie3o" path="res://art/level_2/decorations/small_snow.png" id="13_wikm6"]
 [ext_resource type="Texture2D" uid="uid://cf5o55kwio0wb" path="res://art/level_2/decorations/big_pond_1.png" id="14_wikm6"]
 [ext_resource type="Texture2D" uid="uid://0yjmwhl1oktj" path="res://art/level_2/many_fuel.png" id="15_sbygb"]
+[ext_resource type="Texture2D" uid="uid://djgvc0yt4qeaa" path="res://art/characters/franzen albert ii/idle_animated.png" id="17_5niy6"]
 
 [sub_resource type="Animation" id="Animation_ndlae"]
 length = 0.001
@@ -716,6 +716,42 @@ radius = 20.025
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tv7cl"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wikm6"]
+atlas = ExtResource("17_5niy6")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c1qw"]
+atlas = ExtResource("17_5niy6")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a10c"]
+atlas = ExtResource("17_5niy6")
+region = Rect2(68, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx6s3"]
+atlas = ExtResource("17_5niy6")
+region = Rect2(102, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7d3nu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wikm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c1qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a10c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx6s3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
 [sub_resource type="Gradient" id="Gradient_sbygb"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
@@ -1163,8 +1199,10 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Franzen/StaticBody2D"]
 shape = SubResource("CapsuleShape2D_tv7cl")
 
-[node name="Sprite2D" type="Sprite2D" parent="Characters/Franzen"]
-texture = ExtResource("9_nt80m")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Characters/Franzen"]
+sprite_frames = SubResource("SpriteFrames_7d3nu")
+autoplay = "default"
+frame_progress = 0.992317
 
 [node name="Player" parent="Characters" instance=ExtResource("2_6gnbp")]
 position = Vector2(1698, 1094)

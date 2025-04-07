@@ -1,6 +1,7 @@
 extends Node2D
 
 var Level4Data := DataManager.Level4
+var died := false
 
 func _ready() -> void:
 	Music.change_db(0)
@@ -10,12 +11,14 @@ func _ready() -> void:
 	
 	OxygenManager.oxygen_depleted.connect(
 		func():
-			SceneManager.fail_game(
-				func() -> void:
-					InventoryManager._clear_inventory()
-					OxygenManager.reset_timer()
-					SceneManager.goto_scene("res://scenes/levels/level_4.tscn")
-			)
+			if (not died):
+				died = true
+				SceneManager.fail_game(
+					func() -> void:
+						InventoryManager._clear_inventory()
+						OxygenManager.reset_timer()
+						SceneManager.goto_scene("res://scenes/levels/level_4.tscn")
+				)
 	)
 	
 	DataManager.Level4_has_done_confrontation.connect(

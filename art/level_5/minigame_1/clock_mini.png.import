@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qghsua2m8coi"
-path="res://.godot/imported/level5_ground.png-99d488ddf5c750c69c1b25d745c32500.ctex"
+uid="uid://l7d2hx31fnn2"
+path="res://.godot/imported/clock_mini.png-d2f509d3dfafb2740617ec58234d9794.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tilesets/level5/minigame_1/level5_ground.png"
-dest_files=["res://.godot/imported/level5_ground.png-99d488ddf5c750c69c1b25d745c32500.ctex"]
+source_file="res://art/level_5/minigame_1/clock_mini.png"
+dest_files=["res://.godot/imported/clock_mini.png-d2f509d3dfafb2740617ec58234d9794.ctex"]
 
 [params]
 

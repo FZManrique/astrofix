@@ -62,6 +62,7 @@ static func on_restart(collected_cover: bool = false, finished_intro: bool = fal
 		asked_for_help = false,
 		in_asteroid_area = false,
 		song_time = 0.0,
+		audio_playing = false,
 	}
 	DataManager.Level3.finished_intro = finished_intro
 	DataManager.Level3.collected_cover = collected_cover
