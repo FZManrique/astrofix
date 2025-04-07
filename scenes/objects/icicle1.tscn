@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca7fbchtht5cu"]
+
+[ext_resource type="Texture2D" uid="uid://o7nm21x76xv" path="res://art/level_1/decorations/icicle_1.png" id="1_8hxdr"]
+[ext_resource type="Script" uid="uid://dtkssllef567s" path="res://scripts/objects/icicle.gd" id="1_ve5ma"]
+
+[node name="Icicle1" type="StaticBody2D"]
+script = ExtResource("1_ve5ma")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(16, 7, 16, 16, -17, 16, -17, 6, -8, -16, -1, -16, 6, -11)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(15, 8, 13, 15, -13, 14, -13, 9, -10, 0, -3, -13, 3, 7, 6, -10)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8hxdr")

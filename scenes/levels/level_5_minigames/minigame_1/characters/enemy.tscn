@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://xrpuycrdt8sk"]
+
+[ext_resource type="Texture2D" uid="uid://6gfjokh8flrx" path="res://art/level_5/minigame_1/dan_face.png" id="1_8eu22"]
+[ext_resource type="Script" uid="uid://b07sne7kgjg1r" path="res://scenes/levels/level_5_minigames/minigame_1/characters/enemy.gd" id="1_xtlsv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xtlsv"]
+radius = 12.0416
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_xtlsv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8eu22")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xtlsv")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 20.0
+path_postprocessing = 1
+avoidance_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0, 0, 1)

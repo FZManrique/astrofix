@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://da0u3yj7kxcnp"]
+
+[ext_resource type="Script" uid="uid://cpcdg6wd40brx" path="res://scenes/levels/level_5_minigames/minigame_1/characters/player.gd" id="1_e28oo"]
+[ext_resource type="Texture2D" uid="uid://crbifsfmjd0jb" path="res://art/level_5/minigame_1/mc_face.png" id="1_m1wua"]
+[ext_resource type="AudioStream" uid="uid://dvas7nht4qshu" path="res://audio/sfx/footsteps.mp3" id="3_x18ui"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e28oo"]
+radius = 14.1421
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_e28oo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m1wua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e28oo")
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_x18ui")
+volume_db = -6.0

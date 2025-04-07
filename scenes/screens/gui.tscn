@@ -1,0 +1,394 @@
+[gd_scene load_steps=34 format=3 uid="uid://weu6sfdmw8bi"]
+
+[ext_resource type="Texture2D" uid="uid://c2846miokddta" path="res://art/minimap_frame_background.png" id="1_3c3hu"]
+[ext_resource type="Script" uid="uid://b0l5ye8xr6rai" path="res://scripts/screens/gui/gui.gd" id="1_r8hx2"]
+[ext_resource type="Script" uid="uid://cin2dpm0tt7vf" path="res://scripts/screens/gui/goal_label.gd" id="2_nb78m"]
+[ext_resource type="Texture2D" uid="uid://bax0plxf3berh" path="res://art/objects/oxygen_tank.png" id="3_35gt1"]
+[ext_resource type="StyleBox" uid="uid://bwu6otk0ix2e8" path="res://scenes/themes/blue_background_round.tres" id="4_3c3hu"]
+[ext_resource type="Script" uid="uid://bkbidfr0e1yik" path="res://scripts/screens/gui/oxygen_label.gd" id="4_v7qov"]
+[ext_resource type="StyleBox" uid="uid://bwihykju6d303" path="res://scenes/themes/progress_bar/progress_blue.tres" id="5_3c3hu"]
+[ext_resource type="PackedScene" uid="uid://qy24io0fo1jn" path="res://scenes/screens/pause_menu.tscn" id="5_ou7me"]
+[ext_resource type="Script" uid="uid://dfpavdprge8rb" path="res://scripts/screens/backpack.gd" id="8_3c3hu"]
+[ext_resource type="Script" uid="uid://b2yh42wdqbmcu" path="res://scripts/screens/debug_menu.gd" id="10_r8hx2"]
+
+[sub_resource type="Animation" id="Animation_gmpev"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Damage:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vignette:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v6ha0"]
+resource_name = "damage"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Damage:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vignette:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mkypq"]
+_data = {
+&"RESET": SubResource("Animation_gmpev"),
+&"damage": SubResource("Animation_v6ha0")
+}
+
+[sub_resource type="Gradient" id="Gradient_gmpev"]
+colors = PackedColorArray(1, 1, 1, 0.0588235, 0.33913, 0.0516068, 0.0516068, 0.509804)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r8hx2"]
+gradient = SubResource("Gradient_gmpev")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.50237, 0.508057)
+fill_to = Vector2(1, 0.901422)
+
+[sub_resource type="Gradient" id="Gradient_r8hx2"]
+offsets = PackedFloat32Array(0, 0.861446, 1)
+colors = PackedColorArray(1, 1, 1, 0.0588235, 0.00500002, 0, 0.1, 0.419608, 0, 0, 0, 0.509804)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x7e8x"]
+gradient = SubResource("Gradient_r8hx2")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.50237, 0.508057)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbcxk"]
+texture = ExtResource("1_3c3hu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3c3hu"]
+shadow_color = Color(0.027451, 0.137255, 0.258824, 0.745098)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3c3hu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8hx2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kbcxk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nmqvt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nxit6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7bmq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x2hjc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w27a7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxr3u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ucdh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2yb1h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r8hx2"]
+bg_color = Color(0.00784314, 0.0588235, 0.129412, 0.392157)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.384314, 0.635294, 0.92549, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 12
+anti_aliasing_size = 0.01
+
+[sub_resource type="LabelSettings" id="LabelSettings_kbcxk"]
+outline_size = 5
+outline_color = Color(0.157694, 0.215095, 0.421739, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmqvt"]
+bg_color = Color(0.00784314, 0.0588235, 0.129412, 0.392157)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.384314, 0.635294, 0.92549, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 12
+anti_aliasing_size = 0.01
+
+[node name="Control" type="Control" node_paths=PackedStringArray("camera_node")]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r8hx2")
+camera_node = NodePath("MapAndGoals/MapContainer/SubViewportContainer/SubViewport/CanvasLayer/Camera2D")
+metadata/_edit_lock_ = true
+metadata/_edit_horizontal_guides_ = [8.0]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mkypq")
+}
+
+[node name="Damage" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_r8hx2")
+
+[node name="Vignette" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_x7e8x")
+
+[node name="MapAndGoals" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 156.0
+offset_bottom = 192.0
+
+[node name="MapContainer" type="PanelContainer" parent="MapAndGoals"]
+clip_children = 1
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_kbcxk")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MapAndGoals/MapContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="MapAndGoals/MapContainer/SubViewportContainer"]
+unique_name_in_owner = true
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(140, 140)
+render_target_update_mode = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MapAndGoals/MapContainer/SubViewportContainer/SubViewport"]
+layer = 2
+
+[node name="Camera2D" type="Camera2D" parent="MapAndGoals/MapContainer/SubViewportContainer/SubViewport/CanvasLayer"]
+zoom = Vector2(0.5, 0.5)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="MapAndGoals/MapContainer/SubViewportContainer/SubViewport/CanvasLayer"]
+color = Color(1, 1, 1, 0)
+
+[node name="GoalContainer" type="BoxContainer" parent="MapAndGoals"]
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "The current objective you need to complete. Complete all goals to proceed to the next level..."
+
+[node name="Goal" type="Label" parent="MapAndGoals/GoalContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "No goals"
+label_settings = SubResource("LabelSettings_3c3hu")
+horizontal_alignment = 1
+script = ExtResource("2_nb78m")
+
+[node name="Statistics" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -456.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 76.0
+grow_horizontal = 0
+
+[node name="OxygenContainer" type="HBoxContainer" parent="Statistics"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+
+[node name="AspectRatioContainer" type="BoxContainer" parent="Statistics/OxygenContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "Oxygen level - when it becomes zero, you lose."
+
+[node name="Label" type="Label" parent="Statistics/OxygenContainer/AspectRatioContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 8
+text = "              "
+
+[node name="ProgressBar" type="ProgressBar" parent="Statistics/OxygenContainer/AspectRatioContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = ExtResource("4_3c3hu")
+theme_override_styles/fill = ExtResource("5_3c3hu")
+max_value = 60.0
+step = 1.0
+value = 60.0
+show_percentage = false
+script = ExtResource("4_v7qov")
+
+[node name="Sprite2D" type="Sprite2D" parent="Statistics/OxygenContainer"]
+texture_filter = 1
+position = Vector2(33, 31)
+scale = Vector2(1.5375, 1.5375)
+texture = ExtResource("3_35gt1")
+
+[node name="HelpContainer" type="AspectRatioContainer" parent="Statistics"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="HelpLabel" type="PanelContainer" parent="Statistics/HelpContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_3c3hu")
+
+[node name="Label" type="Label" parent="Statistics/HelpContainer/HelpLabel"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 19
+text = "?"
+horizontal_alignment = 1
+
+[node name="HelpButton" type="Button" parent="Statistics/HelpContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3c3hu")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_r8hx2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kbcxk")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nmqvt")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nxit6")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w7bmq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x2hjc")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_w27a7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uxr3u")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_0ucdh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2yb1h")
+
+[node name="Inventory" type="HBoxContainer" parent="Statistics"]
+layout_mode = 2
+script = ExtResource("8_3c3hu")
+
+[node name="Slot1" type="PanelContainer" parent="Statistics/Inventory"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_r8hx2")
+
+[node name="TextureRect" type="TextureRect" parent="Statistics/Inventory/Slot1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Statistics/Inventory/Slot1"]
+layout_mode = 2
+size_flags_vertical = 8
+label_settings = SubResource("LabelSettings_kbcxk")
+horizontal_alignment = 2
+
+[node name="Slot2" type="PanelContainer" parent="Statistics/Inventory"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_nmqvt")
+
+[node name="TextureRect" type="TextureRect" parent="Statistics/Inventory/Slot2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Statistics/Inventory/Slot2"]
+layout_mode = 2
+size_flags_vertical = 8
+label_settings = SubResource("LabelSettings_kbcxk")
+horizontal_alignment = 2
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_ou7me")]
+visible = false
+layout_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Screen" type="CanvasLayer" parent="."]
+
+[node name="Debug" type="HBoxContainer" parent="."]
+process_mode = 3
+visible = false
+z_index = 999
+z_as_relative = false
+y_sort_enabled = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("10_r8hx2")
+
+[node name="Label" type="Label" parent="Debug"]
+layout_mode = 2
+text = "Dev Menu"
+
+[node name="TextEdit" type="TextEdit" parent="Debug"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "res://scenes/levels/level_1.tscn"
+placeholder_text = "Scene path"
+
+[node name="Navigate" type="Button" parent="Debug"]
+layout_mode = 2
+text = "Navigate to scene"
+
+[node name="Quit" type="Button" parent="Debug"]
+layout_mode = 2
+text = "Quit game"
+
+[node name="Cancel" type="Button" parent="Debug"]
+layout_mode = 2
+text = "Cancel"

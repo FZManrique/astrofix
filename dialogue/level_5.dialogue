@@ -1,0 +1,25 @@
+~ intro
+Player: Ughhh! Looks like I'll have to find more fuel this time. Hopefully I won't encounter any hurdles...
+=> END!
+
+~ empty_canisters
+Player: Strange... why are these fuel canisters destroyed? This is... interesting...
+=> END!
+
+~ talk_to_dan
+Player: Finally! Fuel tanks! And there's a lot of them!
+do DataManager.show_dan.emit()
+Daniella Mondragon: Looking for something? Maybe we can make a deal.
+Player: I need those fuel tanks! I won’t survive without them!
+Daniella Mondragon: Sorry, that was the last stash on Mars. If you want it, you’ll have to earn it.
+=> END!
+
+~ fake_exit
+Player: What? This leads to nowhere!!
+Daniella Mondragon: Looks like I got you cornered!
+=> END!
+
+~ true_exit
+Player: Looks like I'm safe.
+Daniella Mondragon: You think that this would be easy? Think again!
+=> END!

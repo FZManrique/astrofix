@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk1duboua3ltx"]
+
+[ext_resource type="Texture2D" uid="uid://b11kp02328g1k" path="res://art/objects/key.png" id="1_ionk2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62gy0"]
+size = Vector2(23, 25)
+
+[node name="Key" type="Area2D"]
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ionk2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -2.5)
+shape = SubResource("RectangleShape2D_62gy0")

@@ -1,0 +1,347 @@
+[gd_scene load_steps=24 format=3 uid="uid://1ahf77fre3j7"]
+
+[ext_resource type="Script" uid="uid://e06ifgxshblv" path="res://scenes/levels/level_2_minigame/minigame.gd" id="1_u285d"]
+[ext_resource type="Texture2D" uid="uid://dw1d700iqq0c3" path="res://art/level_2/minigame/blue.png" id="1_xwllt"]
+[ext_resource type="Texture2D" uid="uid://dxcg01gg4b3h2" path="res://art/level_2/minigame/green.png" id="2_u285d"]
+[ext_resource type="Texture2D" uid="uid://fedl2ysypn7l" path="res://art/level_2/minigame/red.png" id="3_u486v"]
+[ext_resource type="Texture2D" uid="uid://tpat4n67kgig" path="res://art/level_2/minigame/yellow.png" id="4_6dctl"]
+[ext_resource type="StyleBox" uid="uid://cn61wh5mpes78" path="res://scenes/levels/level_2_minigame/buttons/disabled.tres" id="6_46s77"]
+[ext_resource type="StyleBox" uid="uid://drh7xyyp1tcq" path="res://scenes/levels/level_2_minigame/buttons/green.tres" id="6_shmxa"]
+[ext_resource type="StyleBox" uid="uid://burhpnebckpw5" path="res://scenes/levels/level_2_minigame/buttons/yellow.tres" id="7_46s77"]
+[ext_resource type="StyleBox" uid="uid://bygeik4t68iu1" path="res://scenes/levels/level_2_minigame/buttons/blue.tres" id="8_yt3hm"]
+[ext_resource type="StyleBox" uid="uid://bofq4txc6amco" path="res://scenes/levels/level_2_minigame/buttons/red.tres" id="9_0qisv"]
+[ext_resource type="AudioStream" uid="uid://cdubad720l48x" path="res://audio/sfx/level_3/minigame/correct.mp3" id="11_yt3hm"]
+[ext_resource type="AudioStream" uid="uid://blptc3owaa1u8" path="res://audio/sfx/level_3/minigame/fail.mp3" id="12_0qisv"]
+[ext_resource type="AudioStream" uid="uid://dowf55cjnwcla" path="res://audio/sfx/level_3/minigame/click_sound.ogg" id="13_hr7qw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shmxa"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0.0191304, 0.1, 0.670588)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46s77"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.121569, 0.141176, 0.164706, 0.490196)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.1908, 0.349093, 0.53, 0)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yt3hm"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0315, 0.105875, 0.21, 0.490196)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.384314, 0.635294, 0.92549, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qisv"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0324197, 0.10768, 0.213043, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.384314, 0.635294, 0.92549, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_suh6n"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0257089, 0.0874606, 0.173913, 0.490196)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.384314, 0.635294, 0.92549, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hr7qw"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.0422684, 0.373913, 0.0624555, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0whuh"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.378261, 0.366362, 0.0361815, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btcpq"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.0510019, 0.167524, 0.308696, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu3gv"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.408696, 0.0693006, 0.0693006, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ratd"]
+bg_color = Color(0, 0, 0, 0.882353)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 16.0
+anti_aliasing = false
+
+[node name="Control" type="Control"]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u285d")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0634027, 0.0741941, 0.113043, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -57.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Fix the spacesuit"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_shmxa")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Progress" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Repair precentage: X of 4."
+
+[node name="Continue" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/disabled = SubResource("StyleBoxFlat_46s77")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yt3hm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0qisv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_suh6n")
+text = "Complete repair"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="1" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_xwllt")
+
+[node name="2" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_u285d")
+
+[node name="3" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_u486v")
+
+[node name="4" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_6dctl")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/CenterContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Green" type="Button" parent="VBoxContainer/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/disabled = ExtResource("6_46s77")
+theme_override_styles/hover = ExtResource("6_shmxa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hr7qw")
+theme_override_styles/normal = ExtResource("6_shmxa")
+text = "                                                       "
+
+[node name="Yellow" type="Button" parent="VBoxContainer/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/disabled = ExtResource("6_46s77")
+theme_override_styles/hover = ExtResource("7_46s77")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0whuh")
+theme_override_styles/normal = ExtResource("7_46s77")
+text = "                                                       "
+
+[node name="Blue" type="Button" parent="VBoxContainer/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/disabled = ExtResource("6_46s77")
+theme_override_styles/hover = ExtResource("8_yt3hm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btcpq")
+theme_override_styles/normal = ExtResource("8_yt3hm")
+text = "                                                       "
+
+[node name="Red" type="Button" parent="VBoxContainer/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/disabled = ExtResource("6_46s77")
+theme_override_styles/hover = ExtResource("9_0qisv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tu3gv")
+theme_override_styles/normal = ExtResource("9_0qisv")
+text = "                                                       "
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.788235)
+
+[node name="VBoxContainer" type="PanelContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -60.5
+offset_right = 100.0
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ratd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Instructions"
+horizontal_alignment = 1
+
+[node name="Objectives" type="Label" parent="ColorRect/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Memorize the color sequence of the buttons
+and click the corresponding colors"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue"
+
+[node name="Correct" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_yt3hm")
+bus = &"SFX"
+
+[node name="Fail" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_0qisv")
+bus = &"SFX"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_hr7qw")
+
+[connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/Button" to="." method="_on_start_game"]

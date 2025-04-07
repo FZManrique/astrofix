@@ -1,0 +1,65 @@
+~ intro
+Player: Wh... what? Where am I? What happened?
+Player: I should explore the area and see what I can do.
+=> END!
+
+~ intro_part2
+Franzen Albert II: Your suit’s damaged—specifically the part that shields you from these winds.
+- Huh.
+- Skip dialogue => END!
+Player: Who are you? Why should I trust you?
+Franzen Albert II: Name’s Franzen, but back on Earth, they called me Albert II.
+	Humans said I died, but they abandoned me when my suit failed—just like yours is now. I survived by adapting. I wouldn’t leave someone to suffer the way I did.
+AI: Warning: Suit broken. Please repair the spacesuit.
+- Start repair
+=> END!
+
+~ intro_part3
+AI: Successfully repaired suit.
+- Nice!
+- Skip dialogue => END!
+Franzen Albert II: Looks like you've fixed your spacesuit. However, you do need to refuel your ship, right?
+Player: Yeah, that's right.
+Franzen Albert II: I'll note that this place has a lot of winds. If you are struggling to move, hold SHIFT to try to break free from the winds.
+- Got it.
+Franzen Albert II: There is fuel near the upper right corner of the map. But, there is another area. More difficult to go to, but it has a lot of fuel.
+- Where is it?
+	Franzen Albert II: If you want more fuel, visit the left area of the map. There should be a pile of fuel in there.
+- Nah, I won't need it.
+	Franzen Albert II: Good luck then.
+=> END!
+
+~ dialogue
+Franzen Albert II: [[What's up?|Hello again.|Need anything?]]
+- Tips for resisting the wind.
+	Franzen Albert II: Just hold SHIFT to try to break free from the winds.
+- Where do I find fuel again?
+	Franzen Albert II: The upper right area has some fuel, while the left part has more fuel but is surrounded by winds.
+- Actually, nothing.
+=> END!
+
+~ many_collected
+Player: There's so much fuel here! I guess I can collect some, but this is enough to visit several planets!
+Player: I should return back to the ship to refuel it.
+set DataManager.Level2.fuel_collected = true
+set DataManager.Level2.many_fuel_collected = true
+=> END!
+
+~ collected
+set DataManager.Level2.fuel_collected = true
+Player: This much fuel seems to be good enough, I guess.
+=> END!
+
+~ no_enter
+Player: I can't leave this planet without fuel!
+=> END!
+
+~ on_enter
+if DataManager.Level2.many_fuel_collected
+	Player: Thanks, Franzen. Or should I call you Albert?
+	Franzen Albert II: Just Franzen is fine. Safe travels, my friend.
+	do InventoryManager.remove_item_from_inventory("fuel", 10)
+else:
+	Player: I will get going now, friend.
+	Franzen Albert II: [#emotion=angry] I think next time, it would be nice if you would learn how to trust whom you call "friends"...
+	do InventoryManager.remove_item_from_inventory("fuel", 1)

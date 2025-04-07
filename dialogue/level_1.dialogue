@@ -1,0 +1,57 @@
+~ intro
+Player: Where am I?
+  - I dont know... 
+  - Skip dialogue => END
+AI: You are on the moon Naiad, the closest moon to Neptune.
+	Your ship crashed here after colliding with an asteroid. 
+AI: Remember, the moon Naiad is tiny and covered with ice and rock.
+	This is due to its tight orbit around the planet and Neptune's great distance from the Sun. 
+Player: I can get back...
+	[color=#aaaaaa](Press Enter to dismiss the dialogue box)[/color]
+=> END
+
+~ enter_ship_no_fuel
+% Player: I can't enter the ship just yet! I still need to find more fuel.
+% Player: Why should I enter the ship? I can't really use it without fuel...
+=> END
+
+~ enter_ship_with_fuel
+Player: Wait, how are you here now? If you won't leave me alone, would you at least care to help me?
+William: Well, you need something to fill the ship up, right?
+	I can't help you with that, but please have this.
+  - Accept funnel
+	Player: Thank you so much! This is perfect for refueling the ship.
+  - Reject funnel
+	Player: I appreciate the offer, but I don't accept things from strangers.
+=> END
+
+~ fuel_tank_locked
+Player: This fuel tank seems to be locked. Looks like I'll need a key.
+	The opening on the left might be a good place to start looking for one...
+=> END
+
+~ collect_key
+Player: Finally! A key!
+  - Collect
+	do InventoryManager.add_item_to_inventory("key", 1)
+William: Hello, human. I have something that you might need later on...
+do DataManager.Level1.should_move_william_to_ship = true
+Player: What? Wait, where did you go?
+=> END
+
+~ fuel_collected
+Player: I finally have a fuel tank! Now, I just need to refuel the ship.
+=> END
+
+~ end_level
+Level complete. Press Enter to exit the game.
+do SceneManager.quit_game()
+=> END
+
+~ hit_spikes
+Player: Ouch! That hurt. Looks like that caused some of my oxygen to leak out. I should be more careful...
+=> END!
+
+~ failed
+Game: You ran out of oxygen! Press "ENTER" to restart the level.
+=> END

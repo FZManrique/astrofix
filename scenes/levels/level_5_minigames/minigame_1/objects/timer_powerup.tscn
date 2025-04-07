@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1lij5hirv332"]
+
+[ext_resource type="Script" uid="uid://c5h2kysclk3ns" path="res://scenes/levels/level_5_minigames/minigame_1/objects/timer_powerup.gd" id="1_lk1hu"]
+[ext_resource type="Texture2D" uid="uid://l7d2hx31fnn2" path="res://art/level_5/minigame_1/clock_mini.png" id="2_siwtp"]
+[ext_resource type="AudioStream" uid="uid://cepig17m027t7" path="res://audio/sfx/level_4/minigame/game_complete.mp3" id="3_76eqj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e8e77"]
+radius = 16.0
+
+[node name="Area2D" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_lk1hu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e8e77")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_siwtp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_76eqj")
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

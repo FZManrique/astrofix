@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnn165pksm6yu"]
+
+[ext_resource type="PackedScene" uid="uid://dcnaextl0r0j3" path="res://scenes/screens/main_menu.tscn" id="2_ommwf"]
+
+[node name="Main" type="Node"]
+
+[node name="MainMenu" parent="." instance=ExtResource("2_ommwf")]
+texture_filter = 1
+metadata/_edit_lock_ = true

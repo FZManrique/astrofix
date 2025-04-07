@@ -1,0 +1,238 @@
+[gd_scene load_steps=15 format=3 uid="uid://bm2x680ay81pv"]
+
+[ext_resource type="StyleBox" uid="uid://dowdbn12jbayv" path="res://scenes/themes/blue_background.tres" id="1_i24gd"]
+[ext_resource type="Script" uid="uid://hl0yv3yo4oxq" path="res://scenes/levels/level_4_minigame/minigame.gd" id="1_j5og6"]
+[ext_resource type="Script" uid="uid://dkmxx4n7eik2h" path="res://scenes/levels/level_4_minigame/sprite.gd" id="1_tuvjx"]
+[ext_resource type="Texture2D" uid="uid://rf7y0bxaoaky" path="res://art/level_4/crystal_large/transparent_full.png" id="2_1rf8l"]
+[ext_resource type="Texture2D" uid="uid://cq38cxfe483ni" path="res://art/level_4/crystal_large/1.png" id="3_nin43"]
+[ext_resource type="Texture2D" uid="uid://tromd3s7r320" path="res://art/level_4/crystal_large/2.png" id="4_nin43"]
+[ext_resource type="Texture2D" uid="uid://bae57k7u6j4jm" path="res://art/level_4/crystal_large/3.png" id="5_tuvjx"]
+[ext_resource type="Texture2D" uid="uid://cbhab5y8lvtaq" path="res://art/level_4/crystal_large/4.png" id="6_j5og6"]
+[ext_resource type="Texture2D" uid="uid://dlur0tcarfuys" path="res://art/level_4/crystal_large/5.png" id="7_kqmk5"]
+[ext_resource type="AudioStream" uid="uid://ckjysmmwfcfg1" path="res://audio/sfx/level_4/minigame/drop_success.ogg" id="10_fuw0p"]
+[ext_resource type="AudioStream" uid="uid://bgj5xpnwijerc" path="res://audio/sfx/level_4/minigame/drop_failed.ogg" id="11_fuw0p"]
+[ext_resource type="AudioStream" uid="uid://b3mlm7do61cqh" path="res://audio/sfx/level_4/minigame/drag_start.ogg" id="12_fuw0p"]
+[ext_resource type="AudioStream" uid="uid://cepig17m027t7" path="res://audio/sfx/level_4/minigame/game_complete.mp3" id="13_xyage"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuvjx"]
+content_margin_bottom = 8.0
+bg_color = Color(0.00784314, 0.0588235, 0.129412, 0.392157)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.384314, 0.635294, 0.92549, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_j5og6")
+
+[node name="Control" type="Control" parent="."]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.0133333, 0.08, 0.627451)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Control/ColorRect/CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tuvjx")
+
+[node name="Main" type="VBoxContainer" parent="Control/ColorRect/CenterContainer/Panel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect/CenterContainer/Panel/Main"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Control/ColorRect/CenterContainer/Panel/Main/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Fix the crystal tower"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="Control/ColorRect/CenterContainer/Panel/Main/VBoxContainer"]
+layout_mode = 2
+text = "    Drag and drop to fix the crystal tower.	    "
+horizontal_alignment = 1
+
+[node name="BoxContainer" type="AspectRatioContainer" parent="Control/ColorRect/CenterContainer/Panel/Main"]
+layout_mode = 2
+
+[node name="Sprite2D" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_1rf8l")
+stretch_mode = 3
+
+[node name="Pieces" type="Control" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="A" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer/Pieces"]
+layout_mode = 0
+offset_left = 367.5
+offset_top = 98.0
+offset_right = 467.5
+offset_bottom = 143.0
+rotation = 1.5708
+texture = ExtResource("3_nin43")
+script = ExtResource("1_tuvjx")
+
+[node name="B" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer/Pieces"]
+layout_mode = 0
+offset_left = 25.5
+offset_top = 34.0
+offset_right = 97.5
+offset_bottom = 80.0
+rotation = 1.5708
+texture = ExtResource("4_nin43")
+stretch_mode = 3
+script = ExtResource("1_tuvjx")
+index = 2
+
+[node name="C" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer/Pieces"]
+layout_mode = 0
+offset_left = 367.5
+offset_top = 256.0
+offset_right = 416.5
+offset_bottom = 302.0
+rotation = 1.5708
+texture = ExtResource("5_tuvjx")
+stretch_mode = 3
+script = ExtResource("1_tuvjx")
+index = 3
+
+[node name="D" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer/Pieces"]
+layout_mode = 0
+offset_left = 300.5
+offset_top = 5.99998
+offset_right = 356.5
+offset_bottom = 52.0
+rotation = 1.5708
+texture = ExtResource("6_j5og6")
+stretch_mode = 3
+script = ExtResource("1_tuvjx")
+index = 4
+
+[node name="E" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer/Pieces"]
+layout_mode = 0
+offset_left = 24.5
+offset_top = 202.0
+offset_right = 124.5
+offset_bottom = 248.0
+rotation = 1.5708
+texture = ExtResource("7_kqmk5")
+stretch_mode = 3
+script = ExtResource("1_tuvjx")
+index = 5
+
+[node name="1" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer/Pieces"]
+layout_mode = 0
+offset_left = 183.5
+offset_top = 4.0
+offset_right = 283.5
+offset_bottom = 49.0
+rotation = 1.5708
+script = ExtResource("1_tuvjx")
+is_final_location = true
+
+[node name="2" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer/Pieces"]
+layout_mode = 0
+offset_left = 185.5
+offset_top = 74.0
+offset_right = 257.5
+offset_bottom = 120.0
+rotation = 1.5708
+stretch_mode = 3
+script = ExtResource("1_tuvjx")
+index = 2
+is_final_location = true
+
+[node name="3" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer/Pieces"]
+layout_mode = 0
+offset_left = 185.5
+offset_top = 142.0
+offset_right = 234.5
+offset_bottom = 188.0
+rotation = 1.5708
+stretch_mode = 3
+script = ExtResource("1_tuvjx")
+index = 3
+is_final_location = true
+
+[node name="4" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer/Pieces"]
+layout_mode = 0
+offset_left = 185.5
+offset_top = 175.0
+offset_right = 241.5
+offset_bottom = 221.0
+rotation = 1.5708
+stretch_mode = 3
+script = ExtResource("1_tuvjx")
+index = 4
+is_final_location = true
+
+[node name="5" type="TextureRect" parent="Control/ColorRect/CenterContainer/Panel/Main/BoxContainer/Pieces"]
+layout_mode = 0
+offset_left = 185.5
+offset_top = 220.0
+offset_right = 285.5
+offset_bottom = 266.0
+rotation = 1.5708
+stretch_mode = 3
+script = ExtResource("1_tuvjx")
+index = 5
+is_final_location = true
+
+[node name="Exit" type="Button" parent="Control/ColorRect/CenterContainer/Panel/Main"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = ExtResource("1_i24gd")
+text = "Finish game"
+
+[node name="DropSuccess" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_fuw0p")
+bus = &"SFX"
+
+[node name="DropFailed" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_fuw0p")
+bus = &"SFX"
+
+[node name="DragStart" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_fuw0p")
+bus = &"SFX"
+
+[node name="GameComplete" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_xyage")
+bus = &"SFX"
+
+[connection signal="pressed" from="Control/ColorRect/CenterContainer/Panel/Main/Exit" to="." method="_on_button_pressed"]

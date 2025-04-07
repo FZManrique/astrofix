@@ -1,0 +1,919 @@
+[gd_scene load_steps=42 format=3 uid="uid://b5pwi7txcmxvl"]
+
+[ext_resource type="Script" uid="uid://dk4axiy1uo3qj" path="res://scenes/levels/level_5_minigames/minigame_2/minigame_2.gd" id="1_5c4hy"]
+[ext_resource type="StyleBox" uid="uid://bwu6otk0ix2e8" path="res://scenes/themes/blue_background_round.tres" id="1_fsbb7"]
+[ext_resource type="StyleBox" uid="uid://dm5tkwatc52vk" path="res://scenes/themes/progress_bar/progress_green.tres" id="2_c0n8v"]
+[ext_resource type="Script" uid="uid://bvml8urk63pm7" path="res://scenes/levels/level_5_minigames/minigame_2/spinner.gd" id="3_5ed3y"]
+[ext_resource type="Texture2D" uid="uid://b7yojo7kw7r7s" path="res://art/level_5/minigame_2/fireball.png" id="3_8qra7"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="3_fsbb7"]
+[ext_resource type="Texture2D" uid="uid://tfkio21vddur" path="res://art/level_5/minigame_2/clock_base.png" id="4_v3fqq"]
+[ext_resource type="Texture2D" uid="uid://cmcfdcflk6dr4" path="res://art/level_5/minigame_2/clock_green.png" id="5_5ed3y"]
+[ext_resource type="Texture2D" uid="uid://8spxs0k6yxk7" path="res://art/level_5/minigame_2/clock_hand.png" id="6_w2rtp"]
+[ext_resource type="Texture2D" uid="uid://b6i4ase0dfag4" path="res://art/logos/background_art.jpg" id="8_w0uu3"]
+[ext_resource type="Texture2D" uid="uid://bbrvbloxlp8j0" path="res://art/level_5/minigame_2/backgrounds/floor.png" id="8_w2rtp"]
+[ext_resource type="PackedScene" uid="uid://qy24io0fo1jn" path="res://scenes/screens/pause_menu.tscn" id="9_2nndw"]
+[ext_resource type="Script" uid="uid://b4373uiamyc6k" path="res://scenes/levels/level_5_minigames/minigame_2/space_spam.gd" id="9_4ty0l"]
+[ext_resource type="Texture2D" uid="uid://cbsdibxaqjhsl" path="res://art/level_5/minigame_2/characters/mc/idle.png" id="10_w0uu3"]
+[ext_resource type="Texture2D" uid="uid://c0hop3wulp0rm" path="res://art/level_5/minigame_2/characters/mc/atk_mc_3fps.png" id="16_4ty0l"]
+[ext_resource type="AudioStream" uid="uid://dc64jo7wxfbi" path="res://audio/sfx/level_5/whoosh.mp3" id="18_kbq4h"]
+[ext_resource type="Texture2D" uid="uid://c48gnuuy4jx7b" path="res://art/level_5/minigame_2/characters/dan/dan_attack_new.png" id="18_n4kpm"]
+[ext_resource type="Texture2D" uid="uid://dso0h806d1gre" path="res://art/level_5/minigame_2/characters/dan/dan_idle_new.png" id="19_475c5"]
+[ext_resource type="AudioStream" uid="uid://du8myrxoogjoy" path="res://audio/sfx/level_5/player_dash.mp3" id="19_lepg2"]
+[ext_resource type="AudioStream" uid="uid://bu22e38sid53y" path="res://audio/sfx/level_5/player_attack.mp3" id="20_m8d7w"]
+[ext_resource type="AudioStream" uid="uid://bh264xswwkug7" path="res://audio/sfx/level_5/dan_laugh.mp3" id="21_lepg2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ed3y"]
+radius = 8.06226
+
+[sub_resource type="SystemFont" id="SystemFont_2nndw"]
+
+[sub_resource type="Animation" id="Animation_vxoub"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fireball:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fireball:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(171.177, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fireball:modulate:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fireball:modulate:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fireball:modulate:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Fireball:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DanAnimated:animation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DanAnimated:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Whoosh:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PlayerAnimated:animation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PlayerAnimated:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Dash:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("PlayerAnimated:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(75, 105)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("DanAnimated:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("PlayerAnimated:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Attack:playing")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("DanLaugh:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2nndw"]
+resource_name = "dan_attack_start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fireball:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.366667, 0.966667, 2),
+"transitions": PackedFloat32Array(1, 4.14106, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fireball:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(171.177, -0.25, 0, 0.25, 0, 80, 0, 0, 100, 0),
+"times": PackedFloat32Array(0.6, 2)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DanAnimated:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DanAnimated:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0666667, 0.366667, 0.733333, 1.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Whoosh:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_04w4v"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fireball:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4ty0l"]
+resource_name = "player_attack"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fireball:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.05)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fireball:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.05)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fireball:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.05)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fireball:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.05)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerAnimated:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"idle", &"attack", &"idle"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayerAnimated:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0333333, 0.333333, 0.666667, 1, 1.33333, 1.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dash:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.366667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PlayerAnimated:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.05, 0.566667, 0.966667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(75, 105), Vector2(200, 105), Vector2(200, 105), Vector2(75, 105)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("DanAnimated:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.833333, 1.03333, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.813043, 0.279263, 0.279263, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kbq4h"]
+resource_name = "player_damage"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fireball:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fireball:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fireball:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fireball:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerAnimated:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.133333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.811765, 0.278431, 0.278431, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Attack:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DanLaugh:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ty0l"]
+_data = {
+&"RESET": SubResource("Animation_vxoub"),
+&"dan_attack_start": SubResource("Animation_2nndw"),
+&"idle": SubResource("Animation_04w4v"),
+&"player_attack": SubResource("Animation_4ty0l"),
+&"player_damage": SubResource("Animation_kbq4h")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lepg2"]
+atlas = ExtResource("18_n4kpm")
+region = Rect2(0, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8d7w"]
+atlas = ExtResource("18_n4kpm")
+region = Rect2(152, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g1mr"]
+atlas = ExtResource("18_n4kpm")
+region = Rect2(304, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xmrn"]
+atlas = ExtResource("18_n4kpm")
+region = Rect2(456, 0, 152, 152)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2h6py"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lepg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8d7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g1mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xmrn")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_475c5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbq4h"]
+atlas = ExtResource("16_4ty0l")
+region = Rect2(0, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4kpm"]
+atlas = ExtResource("16_4ty0l")
+region = Rect2(152, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_475c5"]
+atlas = ExtResource("16_4ty0l")
+region = Rect2(304, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h6py"]
+atlas = ExtResource("16_4ty0l")
+region = Rect2(456, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5oop"]
+atlas = ExtResource("16_4ty0l")
+region = Rect2(608, 0, 152, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrxs5"]
+atlas = ExtResource("16_4ty0l")
+region = Rect2(760, 0, 152, 152)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_evi0r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbq4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4kpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_475c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h6py")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5oop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrxs5")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_w0uu3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Level2Minigame" type="Node2D"]
+script = ExtResource("1_5c4hy")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Health" type="Control" parent="UI"]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="HBoxContainer" parent="UI/Health"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.204688
+anchor_top = 0.00972222
+anchor_right = 0.814062
+anchor_bottom = 0.0569444
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" type="BoxContainer" parent="UI/Health/HealthBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "Oxygen level - when it becomes zero, you lose."
+
+[node name="Label" type="Label" parent="UI/Health/HealthBar/Player"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Player"
+
+[node name="PlayerHealth" type="ProgressBar" parent="UI/Health/HealthBar/Player"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = ExtResource("1_fsbb7")
+theme_override_styles/fill = ExtResource("2_c0n8v")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="Dan" type="BoxContainer" parent="UI/Health/HealthBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "Oxygen level - when it becomes zero, you lose."
+
+[node name="Label" type="Label" parent="UI/Health/HealthBar/Dan"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Dan"
+
+[node name="DanHealth" type="ProgressBar" parent="UI/Health/HealthBar/Dan"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = ExtResource("1_fsbb7")
+theme_override_styles/fill = ExtResource("2_c0n8v")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="TimerAccuracy" type="Control" parent="UI"]
+unique_name_in_owner = true
+visible = false
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_5ed3y")
+
+[node name="Timer" type="Timer" parent="UI/TimerAccuracy"]
+wait_time = 4.0
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="UI/TimerAccuracy"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0695652, 0.0181475, 0, 0.588235)
+
+[node name="Panel" type="PanelContainer" parent="UI/TimerAccuracy/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -90.0
+offset_right = 280.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_fsbb7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/TimerAccuracy/ColorRect/Panel"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "PRESS THE ENTER KEY!"
+horizontal_alignment = 1
+
+[node name="Instructions" type="Label" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Press when the arrow lands on the green section of the timer!"
+horizontal_alignment = 1
+
+[node name="TimeLeft" type="Label" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Time left: Unknown"
+horizontal_alignment = 1
+
+[node name="Minigame" type="CenterContainer" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame"]
+custom_minimum_size = Vector2(640, 320)
+layout_mode = 2
+
+[node name="Base" type="TextureRect" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame/Control"]
+custom_minimum_size = Vector2(640, 320)
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 320.0
+texture = ExtResource("4_v3fqq")
+stretch_mode = 5
+
+[node name="Green" type="TextureRect" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(98, 130)
+layout_mode = 0
+offset_left = 274.0
+offset_top = 160.5
+offset_right = 372.0
+offset_bottom = 290.5
+pivot_offset = Vector2(48, 0)
+texture = ExtResource("5_5ed3y")
+stretch_mode = 5
+flip_v = true
+
+[node name="GreenArea" type="Area2D" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame/Control/Green"]
+position = Vector2(274, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame/Control/Green/GreenArea"]
+polygon = PackedVector2Array(-263, 124, -244, 128, -208, 128, -186, 124, -199, 79, -253, 79)
+
+[node name="Hand" type="TextureRect" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 20)
+layout_mode = 0
+offset_left = 173.0
+offset_top = 153.5
+offset_right = 493.0
+offset_bottom = 173.5
+pivot_offset = Vector2(152, 11)
+texture = ExtResource("6_w2rtp")
+stretch_mode = 4
+
+[node name="HandArea" type="Area2D" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame/Control/Hand"]
+position = Vector2(274, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame/Control/Hand/HandArea"]
+position = Vector2(-14, 10)
+shape = SubResource("CircleShape2D_5ed3y")
+
+[node name="SpaceSpam" type="Control" parent="UI"]
+process_mode = 4
+visible = false
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_4ty0l")
+
+[node name="Timer" type="Timer" parent="UI/SpaceSpam"]
+wait_time = 5.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/SpaceSpam"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0695652, 0.0181475, 0, 0.588235)
+
+[node name="Panel" type="PanelContainer" parent="UI/SpaceSpam/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -90.0
+offset_right = 280.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_fsbb7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SpaceSpam/ColorRect/Panel"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="UI/SpaceSpam/ColorRect/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "CLICK THE SPACE BAR!"
+horizontal_alignment = 1
+
+[node name="Timer" type="Label" parent="UI/SpaceSpam/ColorRect/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Spam the key as fast as you can to fill the bar in 5 seconds! Time is running out!"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/SpaceSpam/ColorRect/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_2nndw")
+step = 1.0
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("9_2nndw")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(4, 4)
+
+[node name="Nodes" type="Node2D" parent="."]
+
+[node name="Backgrounds" type="Node2D" parent="Nodes"]
+
+[node name="BackgroundArt" type="Sprite2D" parent="Nodes/Backgrounds"]
+position = Vector2(160, 90)
+texture = ExtResource("8_w0uu3")
+
+[node name="Floor" type="Sprite2D" parent="Nodes/Backgrounds"]
+position = Vector2(160, 90)
+texture = ExtResource("8_w2rtp")
+
+[node name="Decorations" type="Node2D" parent="Nodes"]
+
+[node name="Sprites" type="Node2D" parent="Nodes"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Nodes/Sprites"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_4ty0l")
+}
+
+[node name="Fireball" type="Sprite2D" parent="Nodes/Sprites"]
+position = Vector2(171.177, 109)
+texture = ExtResource("3_8qra7")
+
+[node name="DanAnimated" type="AnimatedSprite2D" parent="Nodes/Sprites"]
+position = Vector2(250, 106)
+sprite_frames = SubResource("SpriteFrames_2h6py")
+animation = &"idle"
+
+[node name="PlayerAnimated" type="AnimatedSprite2D" parent="Nodes/Sprites"]
+position = Vector2(75, 105)
+sprite_frames = SubResource("SpriteFrames_evi0r")
+animation = &"idle"
+
+[node name="Whoosh" type="AudioStreamPlayer" parent="Nodes/Sprites"]
+stream = ExtResource("18_kbq4h")
+bus = &"SFX"
+
+[node name="Dash" type="AudioStreamPlayer" parent="Nodes/Sprites"]
+stream = ExtResource("19_lepg2")
+bus = &"SFX"
+
+[node name="Attack" type="AudioStreamPlayer" parent="Nodes/Sprites"]
+stream = ExtResource("20_m8d7w")
+bus = &"SFX"
+
+[node name="DanLaugh" type="AudioStreamPlayer" parent="Nodes/Sprites"]
+stream = ExtResource("21_lepg2")
+bus = &"SFX"
+
+[connection signal="timeout" from="UI/SpaceSpam/Timer" to="UI/SpaceSpam" method="_on_timer_timeout"]

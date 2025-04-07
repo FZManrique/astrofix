@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CutsceneResource" load_steps=12 format=3 uid="uid://8sjht43au7xa"]
+
+[ext_resource type="Texture2D" uid="uid://cdgkufuvm565q" path="res://cutscenes/images/level_4/1.png" id="1_8cvqi"]
+[ext_resource type="Script" uid="uid://c4675jfitoxq3" path="res://cutscenes/CutsceneResource.gd" id="1_u8b8b"]
+[ext_resource type="Texture2D" uid="uid://cab20ig4gkqob" path="res://cutscenes/images/level_4/2.png" id="2_dcwwq"]
+[ext_resource type="Texture2D" uid="uid://c5esub4008nit" path="res://cutscenes/images/level_4/3.png" id="3_w7srf"]
+[ext_resource type="Texture2D" uid="uid://bsnksk2yap7hk" path="res://cutscenes/images/level_4/4.png" id="4_u2h0s"]
+[ext_resource type="Texture2D" uid="uid://bdxm0nct4xusg" path="res://cutscenes/images/level_4/5.png" id="5_vyss6"]
+[ext_resource type="Texture2D" uid="uid://cpg5b8h4idv1l" path="res://cutscenes/images/level_4/6.png" id="6_lvud2"]
+[ext_resource type="AudioStream" uid="uid://omqehpcoeeve" path="res://cutscenes/music/cutscene_4.mp3" id="7_vyss6"]
+[ext_resource type="PackedScene" uid="uid://m5xs273wksx8" path="res://scenes/levels/level_4.tscn" id="8_lvud2"]
+[ext_resource type="AudioStream" uid="uid://dqdonfsooltey" path="res://cutscenes/sfx/common/heavy_breathing.mp3" id="10_7v6ff"]
+[ext_resource type="AudioStream" uid="uid://3wl7qgcbaae5" path="res://cutscenes/sfx/common/oxygen_alarm.mp3" id="11_fbrf7"]
+
+[resource]
+script = ExtResource("1_u8b8b")
+images = Array[Texture2D]([ExtResource("1_8cvqi"), ExtResource("2_dcwwq"), ExtResource("2_dcwwq"), ExtResource("3_w7srf"), ExtResource("4_u2h0s"), ExtResource("2_dcwwq"), ExtResource("5_vyss6"), ExtResource("6_lvud2")])
+dialogue = Array[String](["Finally...", "H... huh? I'm back?", "Mom! Dad! Are you here..?", "MOM! DAD!", "N-no….", "Ughh...", "W-what?!", "@aiOxygen levels critical. Current reserves will last until Mars. Consider stopping at Jupiter for a refill."])
+options = Dictionary[int, Array]({})
+music = ExtResource("7_vyss6")
+sfx = Array[AudioStream]([null, null, null, null, null, null, ExtResource("10_7v6ff"), ExtResource("11_fbrf7")])
+next_scene = ExtResource("8_lvud2")
+time_modifiers = Dictionary[int, float]({})
+metadata/_custom_type_script = "uid://c4675jfitoxq3"

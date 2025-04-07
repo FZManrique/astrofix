@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://ce7ghkyivj42q"]
+
+[ext_resource type="Texture2D" uid="uid://cpdrp00lvpkdk" path="res://art/characters/william/idle_animated.png" id="1_l2ldi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xax7a"]
+radius = 9.0
+height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x2td"]
+atlas = ExtResource("1_l2ldi")
+region = Rect2(102, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjrlr"]
+atlas = ExtResource("1_l2ldi")
+region = Rect2(68, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5017y"]
+atlas = ExtResource("1_l2ldi")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3h3e"]
+atlas = ExtResource("1_l2ldi")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6aeq2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1x2td")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjrlr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5017y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3h3e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="William" type="StaticBody2D"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xax7a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6aeq2")
+autoplay = "default"
+frame_progress = 0.0186523

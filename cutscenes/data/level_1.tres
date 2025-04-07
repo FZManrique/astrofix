@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CutsceneResource" load_steps=13 format=3 uid="uid://bliv06d1sgwgh"]
+
+[ext_resource type="Texture2D" uid="uid://dwnxkvorckw6n" path="res://cutscenes/images/level_1/01.png" id="1_66h3b"]
+[ext_resource type="Script" uid="uid://c4675jfitoxq3" path="res://cutscenes/CutsceneResource.gd" id="1_rr5og"]
+[ext_resource type="Texture2D" uid="uid://dity4825sm3qn" path="res://cutscenes/images/level_1/02.png" id="2_o5nu0"]
+[ext_resource type="Texture2D" uid="uid://cbudr7ofd4os5" path="res://cutscenes/images/level_1/03.png" id="3_k71mj"]
+[ext_resource type="Texture2D" uid="uid://bitfbep7grifg" path="res://cutscenes/images/level_1/04.png" id="4_0o671"]
+[ext_resource type="Texture2D" uid="uid://bd18mg8lwdq65" path="res://cutscenes/images/level_1/05.png" id="5_1ldab"]
+[ext_resource type="AudioStream" uid="uid://cy5vur25cqukx" path="res://cutscenes/music/cutscene_1.mp3" id="6_k71mj"]
+[ext_resource type="PackedScene" uid="uid://c5wuq0sv37ns0" path="res://scenes/levels/level_1.tscn" id="7_0o671"]
+[ext_resource type="AudioStream" uid="uid://b752i2nf20yj5" path="res://cutscenes/sfx/level_1/ceiling_fan.mp3" id="9_gfnj3"]
+[ext_resource type="AudioStream" uid="uid://bd81sb5hxtnef" path="res://cutscenes/sfx/level_1/footsteps.mp3" id="10_h3id7"]
+[ext_resource type="AudioStream" uid="uid://dkpuhtuu4qm7" path="res://cutscenes/sfx/level_1/door_open.mp3" id="11_1p5dq"]
+[ext_resource type="AudioStream" uid="uid://dd8adq7vqbkdg" path="res://cutscenes/sfx/level_1/flickering_lights.mp3" id="12_vkgvv"]
+
+[resource]
+script = ExtResource("1_rr5og")
+images = Array[Texture2D]([ExtResource("1_66h3b"), ExtResource("2_o5nu0"), ExtResource("3_k71mj"), ExtResource("4_0o671"), ExtResource("5_1ldab")])
+dialogue = Array[String](["I just opened my eyes, and everything looks so familiar...", "It's like I've been here before...", "Like I was chosen...", "M-mom?! D-dad? I-I...", "A lamp? It looks a bit strange..."])
+options = Dictionary[int, Array]({})
+music = ExtResource("6_k71mj")
+sfx = Array[AudioStream]([ExtResource("9_gfnj3"), ExtResource("10_h3id7"), ExtResource("11_1p5dq"), ExtResource("12_vkgvv")])
+next_scene = ExtResource("7_0o671")
+time_modifiers = Dictionary[int, float]({})
+metadata/_custom_type_script = "uid://c4675jfitoxq3"
