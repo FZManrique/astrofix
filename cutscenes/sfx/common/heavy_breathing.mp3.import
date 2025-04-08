@@ -3,11 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dqdonfsooltey"
-valid=false
+path="res://.godot/imported/heavy_breathing.mp3-8d3bbb925f4a1f821cad76b7c5c71c87.mp3str"
 
 [deps]
 
 source_file="res://cutscenes/sfx/common/heavy_breathing.mp3"
+dest_files=["res://.godot/imported/heavy_breathing.mp3-8d3bbb925f4a1f821cad76b7c5c71c87.mp3str"]
 
 [params]
 

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CutsceneResource" load_steps=7 format=3 uid="uid://cwbxo6qxq78k"]
+
+[ext_resource type="Texture2D" uid="uid://bheedoirmvyuy" path="res://cutscenes/images/level_5_end/1.png" id="1_t21bk"]
+[ext_resource type="Script" uid="uid://c4675jfitoxq3" path="res://cutscenes/CutsceneResource.gd" id="1_xau8l"]
+[ext_resource type="Texture2D" uid="uid://c48n3auo2ula1" path="res://cutscenes/images/level_5_end/2.png" id="2_61rfn"]
+[ext_resource type="Texture2D" uid="uid://d3dmwnsg72wvj" path="res://cutscenes/images/level_5_end/3.png" id="3_fu7om"]
+[ext_resource type="AudioStream" uid="uid://dft2r5ken6p4j" path="res://cutscenes/music/cutscene_5.mp3" id="4_fu7om"]
+[ext_resource type="Script" uid="uid://bsfguxwkyvhwv" path="res://cutscenes/data/level_5_end_mutations.gd" id="5_wno1n"]
+
+[resource]
+script = ExtResource("1_xau8l")
+images = Array[Texture2D]([ExtResource("1_t21bk"), ExtResource("2_61rfn"), ExtResource("3_fu7om")])
+dialogue = Array[String](["Earth is just around the corner...", "@aiDestination: Earth", "I'm home..."])
+options = Dictionary[int, Array]({})
+music = ExtResource("4_fu7om")
+sfx = Array[AudioStream]([])
+mutation_script = ExtResource("5_wno1n")
+time_modifiers = Dictionary[int, float]({})
+metadata/_custom_type_script = "uid://c4675jfitoxq3"

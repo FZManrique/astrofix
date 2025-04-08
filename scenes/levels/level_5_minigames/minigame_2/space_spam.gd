@@ -11,7 +11,8 @@ var test := 0
 func _process(delta: float) -> void:
 	if (progress_bar.value == 100):
 		queue_free()
-		DialogueManager.show_dialogue_balloon(load("res://dialogue/level_1.dialogue"), "end_level")
+		DataManager.current_cutscene = load("res://cutscenes/data/level_5_end.tres")
+		SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")
 		return
 	
 	test += 1

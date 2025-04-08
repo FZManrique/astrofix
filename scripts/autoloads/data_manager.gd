@@ -56,5 +56,6 @@ var Level4 := {
 }
 
 var Level5: Dictionary[String, Variant] = {
+	in_minigame = false,
 	minigame_1_complete = false
 }

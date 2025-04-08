@@ -14,9 +14,8 @@ func _ready() -> void:
 	
 	if (!Level2Data.has_fixed_spacesuit):
 		GoalManager.go_to_next_goal(4)
-		DataManager.intro_done = true
-	else:
-		DataManager.intro_done = false
+	
+	DataManager.intro_done = false
 	
 	OxygenManager.oxygen_depleted.connect(
 		func() -> void:

@@ -23,7 +23,7 @@ func _ready() -> void:
 				func() -> void:
 					InventoryManager._clear_inventory()
 					OxygenManager.reset_timer()
-					SceneManager.goto_scene("res://scenes/levels/level_4.tscn")
+					SceneManager.goto_scene("res://scenes/levels/level_5.tscn")
 			)
 	)
 	

@@ -12,6 +12,7 @@ const TIMER_INCREASE := 10
 var time_limit := 180
 
 func _ready() -> void:
+	DataManager.Level5.in_minigame = true
 	Music.play_music("uid://bbv74260pto35")
 	start_timer()
 	

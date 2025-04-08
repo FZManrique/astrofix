@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dp80kkdl4tjim" path="res://art/level_4/crystal_small/3.png" id="10_vq5n0"]
 [ext_resource type="PackedScene" uid="uid://cay6840obi02e" path="res://scenes/objects/level_4/medium_spikes/medium_spike_2.tscn" id="11_0n65g"]
 [ext_resource type="Texture2D" uid="uid://6pfr5s74uodt" path="res://art/level_4/crystal_small/4.png" id="11_xt2o7"]
-[ext_resource type="PackedScene" uid="uid://c2jlrq4bkh5ji" path="res://scenes/objects/level_4/large_spikes/large_spike_1.tscn" id="12_lc5pf"]
+[ext_resource type="PackedScene" uid="uid://c2jlrq4bkh5ji" path="res://scenes/objects/level_4/large_spike.tscn" id="12_lc5pf"]
 [ext_resource type="PackedScene" uid="uid://c36od6vdmok4q" path="res://scenes/objects/level_4/large_spikes/large_spike_2.tscn" id="13_lc5pf"]
 [ext_resource type="Texture2D" uid="uid://cr7dft7o6om62" path="res://art/level_4/tower.png" id="15_ov8fk"]
 [ext_resource type="Texture2D" uid="uid://bundghtnjyxpe" path="res://art/objects/spaceship_broken.png" id="21_0n65g"]

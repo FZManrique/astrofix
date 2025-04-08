@@ -3,11 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://3wl7qgcbaae5"
-valid=false
+path="res://.godot/imported/oxygen_alarm.mp3-e0978f9772887ba953eb42b1cbdd8086.mp3str"
 
 [deps]
 
 source_file="res://cutscenes/sfx/common/oxygen_alarm.mp3"
+dest_files=["res://.godot/imported/oxygen_alarm.mp3-e0978f9772887ba953eb42b1cbdd8086.mp3str"]
 
 [params]
 

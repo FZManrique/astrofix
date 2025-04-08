@@ -3,11 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cpnr4i6sirjib"
-valid=false
+path="res://.godot/imported/cutscene_3.mp3-c59e4fc2a4c3da2a0d28d630f6ec720c.mp3str"
 
 [deps]
 
 source_file="res://cutscenes/music/cutscene_3.mp3"
+dest_files=["res://.godot/imported/cutscene_3.mp3-c59e4fc2a4c3da2a0d28d630f6ec720c.mp3str"]
 
 [params]
 
