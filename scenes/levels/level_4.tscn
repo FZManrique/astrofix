@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dxhb8eooelkyv" path="res://scenes/objects/spaceship.tscn" id="6_5vn0v"]
 [ext_resource type="PackedScene" uid="uid://bpko47puym4mc" path="res://scenes/objects/oxygen_tank.tscn" id="6_glw47"]
 [ext_resource type="PackedScene" uid="uid://c2kr6ysqg56hk" path="res://scenes/objects/crystal.tscn" id="7_ov8fk"]
-[ext_resource type="Texture2D" uid="uid://dysrgk1ss3tit" path="res://art/characters/sailor con/idle.png" id="8_glw47"]
+[ext_resource type="Texture2D" uid="uid://dysrgk1ss3tit" path="res://art/characters/sailor conn/idle.png" id="8_glw47"]
 [ext_resource type="Texture2D" uid="uid://cr2ac05mky456" path="res://art/level_4/crystal_small/1.png" id="8_pmra4"]
 [ext_resource type="Texture2D" uid="uid://xvrvgrms0lfc" path="res://art/level_4/crystal_small/2.png" id="9_1bx01"]
 [ext_resource type="Texture2D" uid="uid://bja32dyxmawsb" path="res://art/level_4/decorations/sand_particle.png" id="9_lc5pf"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://c36od6vdmok4q" path="res://scenes/objects/level_4/large_spikes/large_spike_2.tscn" id="13_lc5pf"]
 [ext_resource type="Texture2D" uid="uid://cr7dft7o6om62" path="res://art/level_4/tower.png" id="15_ov8fk"]
 [ext_resource type="Texture2D" uid="uid://bundghtnjyxpe" path="res://art/objects/spaceship_broken.png" id="21_0n65g"]
-[ext_resource type="Texture2D" uid="uid://c3miqrd4edhfc" path="res://art/characters/sailor con/idle_animation.png" id="23_lc5pf"]
+[ext_resource type="Texture2D" uid="uid://c3miqrd4edhfc" path="res://art/characters/sailor conn/idle_animation.png" id="23_lc5pf"]
 
 [sub_resource type="Gradient" id="Gradient_8hw10"]
 offsets = PackedFloat32Array(0.39011, 0.598901)

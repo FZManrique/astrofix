@@ -13,10 +13,10 @@ var is_game_active := false
 var is_validating := false
 
 var colors: Dictionary[String, Texture2D] = {
-	"red": load("res://art/level_2/minigame/red.png"),
-	"blue": load("res://art/level_2/minigame/blue.png"),
-	"green": load("res://art/level_2/minigame/green.png"), 
-	"yellow": load("res://art/level_2/minigame/yellow.png")
+	"red": preload("res://art/level_2/minigame/red.png"),
+	"blue": preload("res://art/level_2/minigame/blue.png"),
+	"green": preload("res://art/level_2/minigame/green.png"), 
+	"yellow": preload("res://art/level_2/minigame/yellow.png")
 }
 
 @onready var screen: Dictionary[int, TextureRect] = {

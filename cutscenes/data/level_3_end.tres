@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dbttinojgjg8y" path="res://cutscenes/images/level_3_end/02.png" id="2_ew3lt"]
 [ext_resource type="AudioStream" uid="uid://cpo6tqiyqh5s6" path="res://cutscenes/music/cutscene_2_end.mp3" id="3_ctyyj"]
 [ext_resource type="Script" uid="uid://bdlhlg5cqfdra" path="res://cutscenes/data/level_3_end_mutations.gd" id="4_crbhr"]
-[ext_resource type="Script" uid="uid://c4675jfitoxq3" path="res://cutscenes/CutsceneResource.gd" id="5_r52y5"]
+[ext_resource type="Script" uid="uid://c4675jfitoxq3" path="res://cutscenes/scripts/cutscene_resource.gd" id="5_r52y5"]
 
 [resource]
 script = ExtResource("5_r52y5")

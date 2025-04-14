@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://dtx5x03jkc7rh"]
+
+[ext_resource type="Texture2D" uid="uid://b0e5jnv2rj7qi" path="res://art/planets/neptune.PNG" id="1_p86ys"]
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="2_jmbeh"]
+
+[resource]
+script = ExtResource("2_jmbeh")
+unlocked = false
+category = 1
+image = ExtResource("1_p86ys")
+name = &"Neptune"
+description = "A distant icy world with slippery terrain, Neptune is defined by its deep blue atmosphere and hidden frozen oceans. Explorers must navigate treacherous icy conditions while facing unpredictable environmental hazards."
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

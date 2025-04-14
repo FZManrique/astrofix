@@ -14,14 +14,14 @@ var isMoving := false
 var new_direction := Vector2(0, 1)
 var animation: StringName
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (isMoving):
 		if (not audio_stream_player.playing):
 			audio_stream_player.play()
 	else:
 		audio_stream_player.stop()
 
-func _physics_process(delta: float):
+func _physics_process(delta: float) -> void:
 	var direction: Vector2
 	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")

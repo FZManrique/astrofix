@@ -7,12 +7,17 @@ var master_index := AudioServer.get_bus_index("Master")
 var music_index := AudioServer.get_bus_index("Music")
 var sfx_index := AudioServer.get_bus_index("SFX")
 
+@onready var check_button: CheckButton = $Panel/SettingsList/CheckButton
+@onready var master_slider: HSlider = $Panel/SettingsList/Sliders/MasterSlider
+@onready var music_slider: HSlider = $Panel/SettingsList/Sliders/MusicSlider
+@onready var sfx_slider: HSlider = $Panel/SettingsList/Sliders/SfxSlider
+
 func _ready() -> void:
 	var displaymode := DisplayServer.window_get_mode()
-	$Panel/SettingsList/CheckButton.set_pressed_no_signal(displaymode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-	$Panel/SettingsList/Sliders/MasterSlider.value = db_to_linear(AudioServer.get_bus_volume_db(master_index)) * 100
-	$Panel/SettingsList/Sliders/MusicSlider.value = db_to_linear(AudioServer.get_bus_volume_db(music_index)) * 100
-	$Panel/SettingsList/Sliders/SfxSlider.value = db_to_linear(AudioServer.get_bus_volume_db(sfx_index)) * 100
+	check_button.set_pressed_no_signal(displaymode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	master_slider.value = db_to_linear(AudioServer.get_bus_volume_db(master_index)) * 100
+	music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(music_index)) * 100
+	sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(sfx_index)) * 100
 
 	on_settings_show.emit()
 

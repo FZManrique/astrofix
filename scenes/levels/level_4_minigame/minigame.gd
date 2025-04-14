@@ -1,4 +1,3 @@
-class_name Minigame
 extends CanvasLayer
 
 signal on_dismiss

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://y7dsqkdpw036"]
+
+[ext_resource type="Texture2D" uid="uid://imupmtbi3g5d" path="res://database/images/objects/gas_cover.png" id="1_4vnje"]
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="2_6vl7r"]
+
+[resource]
+script = ExtResource("2_6vl7r")
+unlocked = false
+category = 2
+image = ExtResource("1_4vnje")
+name = &"Gas Cover"
+description = "Used to patch up a gas leak caused by a space crash."
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

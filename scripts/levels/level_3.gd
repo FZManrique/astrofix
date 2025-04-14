@@ -45,7 +45,7 @@ func _ready() -> void:
 		DataManager.show_instruction_box = true
 
 func _show_dialoague_box(key: String) -> void:
-	DialogueManager.show_dialogue_balloon(load("res://dialogue/level_3.dialogue"), key)
+	DialogueManager.show_dialogue_balloon(preload("res://dialogue/level_3.dialogue"), key)
 
 func _on_transition_to_minigame_body_entered(_body: Node2D) -> void:
 	print(Level3Data.song_time)
@@ -83,7 +83,7 @@ func _on_spaceship_body_entered(_body: Node2D) -> void:
 				if (!is_transitioning):
 					is_transitioning = true
 					InventoryManager.remove_item_from_inventory("cover", 1)
-					DataManager.current_cutscene = load("res://cutscenes/data/level_3_end.tres")
+					DataManager.current_cutscene = preload("res://cutscenes/data/level_3_end.tres")
 					SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")
 		)
 	else:

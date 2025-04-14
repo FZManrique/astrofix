@@ -49,4 +49,4 @@ func _on_encounter_many_tanks_body_entered(body: Node2D) -> void:
 	$Characters/EncounterManyTanks.queue_free()
 
 func _show_dialoague_box(key: StringName) -> void:
-	DialogueManager.show_dialogue_balloon(load("res://dialogue/level_5.dialogue"), key)
+	DialogueManager.show_dialogue_balloon(preload("res://dialogue/level_5.dialogue"), key)

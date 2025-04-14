@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://d11s3jr103wka"]
+
+[ext_resource type="Texture2D" uid="uid://dbydwc8tw01uj" path="res://art/characters/william/full_scale_normal.png" id="1_1ly8h"]
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="1_vpa2x"]
+
+[resource]
+script = ExtResource("1_vpa2x")
+unlocked = false
+category = 0
+order = 0
+image = ExtResource("1_1ly8h")
+name = &"William Shakesphere"
+description = "A humanoid fish styled after Liam, featuring his iconic glasses, hairstyle, and paint-splattered outfit. Complete with his signature white sling bag, this character fuses aquatic charm with artistic flair."
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

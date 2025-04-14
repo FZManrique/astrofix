@@ -23,7 +23,7 @@ func _ready() -> void:
 	
 	DataManager.Level4_has_done_confrontation.connect(
 		func() -> void:
-			var minigame = load("res://scenes/levels/level_4_minigame/minigame.tscn") as PackedScene
+			var minigame = preload("res://scenes/levels/level_4_minigame/minigame.tscn") as PackedScene
 			var minigame_node = minigame.instantiate()
 			
 			add_child(minigame_node)
@@ -31,7 +31,7 @@ func _ready() -> void:
 				func():
 					_show_dialoague_box("ending")
 					await DialogueManager.dialogue_ended
-					DataManager.current_cutscene = load("res://cutscenes/data/level_4_end.tres")
+					DataManager.current_cutscene = preload("res://cutscenes/data/level_4_end.tres")
 					SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")
 			)
 	)
@@ -76,4 +76,4 @@ func _on_conny_body_entered(body: Node2D) -> void:
 
 
 func _show_dialoague_box(key: String) -> void:
-	DialogueManager.show_dialogue_balloon(load("res://dialogue/level_4.dialogue"), key)
+	DialogueManager.show_dialogue_balloon(preload("res://dialogue/level_4.dialogue"), key)

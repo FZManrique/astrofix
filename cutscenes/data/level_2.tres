@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b4lqmer2vqa83" path="res://cutscenes/images/level_2/06.png" id="6_y8pvr"]
 [ext_resource type="AudioStream" uid="uid://cajevieodi5k3" path="res://cutscenes/music/cutscene_2.mp3" id="7_45bl2"]
 [ext_resource type="PackedScene" uid="uid://585vjm100d7c" path="res://scenes/levels/level_2.tscn" id="7_o5g3x"]
-[ext_resource type="Script" uid="uid://c4675jfitoxq3" path="res://cutscenes/CutsceneResource.gd" id="7_wmn6e"]
+[ext_resource type="Script" uid="uid://c4675jfitoxq3" path="res://cutscenes/scripts/cutscene_resource.gd" id="7_wmn6e"]
 [ext_resource type="Script" uid="uid://c4us5beb16nqq" path="res://cutscenes/data/level_2_mutations.gd" id="8_5cfpn"]
 [ext_resource type="AudioStream" uid="uid://c4g13td4j5lp5" path="res://cutscenes/sfx/common/ears_ringing.mp3" id="11_ilqk7"]
 [ext_resource type="AudioStream" uid="uid://dqdonfsooltey" path="res://cutscenes/sfx/common/heavy_breathing.mp3" id="12_wmn6e"]

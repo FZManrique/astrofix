@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://dvxovt8y2tal1"]
+
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="1_03ep4"]
+[ext_resource type="Texture2D" uid="uid://jkpt5qwwvr8j" path="res://database/images/objects/fuel.png" id="1_ldtkq"]
+
+[resource]
+script = ExtResource("1_03ep4")
+unlocked = false
+category = 2
+image = ExtResource("1_ldtkq")
+name = &"Fuel"
+description = "Refills the ship’s fuel so you can launch to the next planet."
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

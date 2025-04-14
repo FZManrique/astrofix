@@ -21,7 +21,7 @@ func _ready() -> void:
 			func(body: Node2D) -> void:
 				if (body == player):
 					DialogueManager.show_dialogue_balloon(
-						load("res://dialogue/level_5.dialogue"),
+						preload("res://dialogue/level_5.dialogue"),
 						"fake_exit"
 					)
 					await DialogueManager.dialogue_ended
@@ -72,7 +72,7 @@ func _on_hit_player() -> void:
 
 func _on_enter_true_exit(body: Node2D) -> void:
 	DialogueManager.show_dialogue_balloon(
-		load("res://dialogue/level_5.dialogue"),
+		preload("res://dialogue/level_5.dialogue"),
 		"true_exit"
 	)
 	await DialogueManager.dialogue_ended

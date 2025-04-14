@@ -2,8 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://dcnaextl0r0j3" path="res://scenes/screens/main_menu.tscn" id="2_ommwf"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MainMenu" parent="." instance=ExtResource("2_ommwf")]
 texture_filter = 1
+layout_mode = 1
 metadata/_edit_lock_ = true

@@ -5,20 +5,20 @@ AI: Warning: Oxygen supply low.
 
 ~ initial_talk
 set DataManager.Level4.talked_to_conny = true
-Sailor Con: Greetings, human. That crystal tower? It's broken. Its shards are scattered around the moon, but I’m sure you’ll manage to find them.
-Sailor Con: By the way, I’m Sailor Conn, protector of Jupiter. It’s rare to see visitors here.
-Sailor Con: Here's a map by the way. You can press "M" to open it. It could be useful.
+Sailor Conn: Greetings, human. That crystal tower? It's broken. Its shards are scattered around the moon, but I’m sure you’ll manage to find them.
+Sailor Conn: By the way, I’m Sailor Conn, protector of Jupiter. It’s rare to see visitors here.
+Sailor Conn: Here's a map by the way. You can press "M" to open it. It could be useful.
 - Got it.
 do InventoryManager.add_item_to_inventory("map", 1)
-Sailor Con: I think that's basically it. Just find the shards, and you're done.
+Sailor Conn: I think that's basically it. Just find the shards, and you're done.
 - Thanks, I'll find them quickly.
-	Sailor Con: If you say so.
+	Sailor Conn: If you say so.
 - Can you help me?
-	Sailor Con: Sure thing! I can help you find them, when you start looking for them. Good luck!
+	Sailor Conn: Sure thing! I can help you find them, when you start looking for them. Good luck!
 => END!
 
 ~ already_talked
-Sailor Con: Do you need anything? Go find the shards.
+Sailor Conn: Do you need anything? Go find the shards.
 => END!
 
 ~ motivation
@@ -37,19 +37,19 @@ Player: I guess that's all the shards. Better go back.
 set DataManager.Level4.talked_after_most_crystals = true
 Player: Strange... why hasn’t she left? Is she waiting for me?
 AI: Error: Shard pieces are incomplete.
-Sailor Con: [#emotion=confused] Is something wrong?
+Sailor Conn: [#emotion=confused] Is something wrong?
 Player: It says I'm missing a piece... but I know I have them all.
 do GoalManager.go_to_next_goal(12)
-Sailor Con: [#emotion=happy] You should double-check. You can never be too sure, right?
+Sailor Conn: [#emotion=happy] You should double-check. You can never be too sure, right?
 - Double-check
 	Player: I guess so. I'll re-check the area to see if I missed any.
-	Sailor Con: Sure thing.
+	Sailor Conn: Sure thing.
 - Doubt => argument
 => END!
 
 ~ uncertain
 Player: Are you sure that the last shard is here?
-Sailor Con: Of course! Why would you doubt me?
+Sailor Conn: Of course! Why would you doubt me?
 - Continue searching
 	Player: I guess I should keep looking.
 - Doubt => argument
@@ -58,18 +58,18 @@ Sailor Con: Of course! Why would you doubt me?
 ~ argument
 set DataManager.Level4.done_confrontation = true
 Player: Are you hiding something from me, Con?
-Sailor Con: [#emotion=angry] Fine... I do have the last shard.
-Sailor Con: As Jupiter's guardian, I hold deep resentment for Saturn. They say Jupiter was meant to be a star... a second sun. But Saturn’s pull?
-Sailor Con: It held Jupiter back, stopping it from reaching its full potential. Some of us still believe Jupiter deserved better.
-Sailor Con: [#emotion=angry] And you, human… you’re friends with Chloe LouiSZA, aren't you? She's from Saturn. I couldn’t just let you win so easily.
-Sailor Con: [#emotion=sad] I let my anger cloud my duty. I shouldn't have done that. Here... take the shard. Fix the tower and refill your oxygen.
+Sailor Conn: [#emotion=angry] Fine... I do have the last shard.
+Sailor Conn: As Jupiter's guardian, I hold deep resentment for Saturn. They say Jupiter was meant to be a star... a second sun. But Saturn’s pull?
+Sailor Conn: It held Jupiter back, stopping it from reaching its full potential. Some of us still believe Jupiter deserved better.
+Sailor Conn: [#emotion=angry] And you, human… you’re friends with Chloe LouiSZA, aren't you? She's from Saturn. I couldn’t just let you win so easily.
+Sailor Conn: [#emotion=sad] I let my anger cloud my duty. I shouldn't have done that. Here... take the shard. Fix the tower and refill your oxygen.
 do InventoryManager.add_item_to_inventory("crystal", 1)
 do GoalManager.go_to_next_goal(11)
 do DataManager.Level4_has_done_confrontation.emit()
 => END!
 
 ~ ending
-Sailor Con: [#emotion=sad] I'm sorry for everything. As Jupiter’s protector, I shouldn't have done that. I wish you the best on your journey.
+Sailor Conn: [#emotion=sad] I'm sorry for everything. As Jupiter’s protector, I shouldn't have done that. I wish you the best on your journey.
 - Thank you, Sailor Conn. Take care.
 - I don’t blame you. Goodbye.
 do InventoryManager.remove_item_from_inventory("map", 1)

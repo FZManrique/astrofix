@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CutsceneResource" load_steps=6 format=3 uid="uid://bgpuemyds07ut"]
 
 [ext_resource type="Texture2D" uid="uid://bqxixft5bc8w5" path="res://cutscenes/images/level_2_end/01.png" id="1_bsu1j"]
-[ext_resource type="Script" uid="uid://c4675jfitoxq3" path="res://cutscenes/CutsceneResource.gd" id="1_vixh6"]
+[ext_resource type="Script" uid="uid://c4675jfitoxq3" path="res://cutscenes/scripts/cutscene_resource.gd" id="1_vixh6"]
 [ext_resource type="Texture2D" uid="uid://bbtxyf17naqfk" path="res://cutscenes/images/level_2_end/02.png" id="2_qsc7w"]
 [ext_resource type="AudioStream" uid="uid://cpo6tqiyqh5s6" path="res://cutscenes/music/cutscene_2_end.mp3" id="3_5ydgq"]
 [ext_resource type="Script" uid="uid://crwphuh2ojsmd" path="res://cutscenes/data/level_2_end_mutations.gd" id="3_qsc7w"]

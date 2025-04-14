@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://uucbdjg4rkqj"]
+
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="1_dniyf"]
+[ext_resource type="Texture2D" uid="uid://7sogoxqemygy" path="res://art/characters/chloe louisza/full_scale_normal.png" id="1_svy11"]
+
+[resource]
+script = ExtResource("1_dniyf")
+unlocked = false
+category = 0
+order = 2
+image = ExtResource("1_svy11")
+name = &"Chloe LouiSZA"
+description = "A dino-headed pop star with a human body, rocking Chloe’s signature blue-and-white striped top. Accessorized like a K-pop idol, she merges prehistoric power with modern performance flair."
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

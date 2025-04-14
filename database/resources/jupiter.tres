@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://bydka22k6d3pj"]
+
+[ext_resource type="Texture2D" uid="uid://dv2j01qbiifko" path="res://art/planets/jupiter.PNG" id="1_qa78h"]
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="1_rnlav"]
+
+[resource]
+script = ExtResource("1_rnlav")
+unlocked = false
+category = 1
+order = 3
+image = ExtResource("1_qa78h")
+name = &"Jupiter"
+description = "As the largest planet in the solar system, Jupiter features an expansive and turbulent terrain. A vast map full of storms and gas giants, Jupiter’s landscapes present continuous obstacles for travelers seeking to explore."
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

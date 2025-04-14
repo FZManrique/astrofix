@@ -1,10 +1,9 @@
 extends Node2D
 
-var dialogue: Resource = load("res://dialogue/level_1.dialogue")
+var dialogue: Resource = preload("res://dialogue/level_1.dialogue")
 var Level1Data := DataManager.Level1
 
 @onready var player: CharacterBody2D = $Characters/Player
-@onready var maze_start: Area2D = $"Characters/Maze Start"
 
 func _ready() -> void:
 	Music.play_music("res://audio/music/level_1.wav")
@@ -47,7 +46,10 @@ func _on_spaceship_body_entered(body: Node2D) -> void:
 		else:
 			_show_dialoague_box("enter_ship_with_fuel")
 			DialogueManager.dialogue_ended.connect(
-				_go_to_level_2
+				func(_resource: DialogueResource) -> void:
+					InventoryManager.remove_item_from_inventory("fuel", 1)
+					DataManager.current_cutscene = preload("res://cutscenes/data/level_1_end.tres")
+					SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")
 			)
 
 func _on_fuel_tank_no_key() -> void:
@@ -66,10 +68,10 @@ func _on_fuel_tank_fuel_collected() -> void:
 	InventoryManager.remove_item_from_inventory("key", 1)
 	InventoryManager.add_item_to_inventory("fuel", 1)
 
-var done = false
+var done := false
 func _on_oxygen_depleted() -> void:
 	if (done): return
-	done == true
+	done = true
 	SceneManager.fail_game(
 		func() -> void:
 			InventoryManager._clear_inventory()
@@ -88,8 +90,3 @@ func _on_oxygen_depleted() -> void:
 	
 func _show_dialoague_box(key: String) -> void:
 	DialogueManager.show_dialogue_balloon(dialogue, key)
-
-func _go_to_level_2(_pass) -> void:
-	InventoryManager.remove_item_from_inventory("fuel", 1)
-	DataManager.current_cutscene = load("res://cutscenes/data/level_1_end.tres")
-	SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")

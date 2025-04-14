@@ -1,4 +1,3 @@
-class_name FailBox
 extends CanvasLayer
 
 signal on_game_restart

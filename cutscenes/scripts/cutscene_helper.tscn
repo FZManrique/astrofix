@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://payf4gnoa83w"]
+
+[ext_resource type="Script" uid="uid://bsyjayidetbiw" path="res://cutscenes/scripts/cutscene_helper.gd" id="1_ch75f"]
+
+[node name="CutsceneHelper" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ch75f")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Cutscene debug"
+
+[node name="TextEdit" type="TextEdit" parent="CenterContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "res://cutscenes/data/level_2.tres"
+placeholder_text = "Cutscene resource"
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Go to scene"

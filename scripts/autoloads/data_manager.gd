@@ -15,7 +15,7 @@ var show_instruction_box := false
 var intro_done := false
 
 var current_cutscene: CutsceneResource = null
-var in_cutscene = false
+var in_cutscene := false
 
 var Level1 := {
 	has_hit_spikes = false,

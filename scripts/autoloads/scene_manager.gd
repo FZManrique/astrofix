@@ -15,11 +15,11 @@ func _ready() -> void:
 	current_scene = root.get_child(-1)
 	
 	DialogueManager.passed_title.connect(
-		func(_ignore) -> void:
+		func(_title: String) -> void:
 			is_dialogue_shown = true
 	)
 	DialogueManager.dialogue_ended.connect(
-		func(_ignore) -> void:
+		func(_resource: DialogueResource) -> void:
 			is_dialogue_shown = false
 	)
 
@@ -39,8 +39,9 @@ func _process(_delta: float) -> void:
 	else:	
 		_toggle_oxygen_timer(!SceneManager.is_dialogue_shown) 
 
+const FailBox := preload("res://scripts/screens/fail_box.gd") 
 func fail_game(on_restart: Callable) -> void:
-	var fail_scene := preload("res://scenes/screens/fail_scene.tscn") as PackedScene
+	var fail_scene := preload("res://scenes/screens/fail_scene.tscn")
 	var fail_node: FailBox = fail_scene.instantiate()
 	add_child(fail_node)
 	fail_node.on_game_restart.connect(on_restart)
@@ -93,7 +94,7 @@ func goto_packed_scene(scene: PackedScene) -> void:
 	await TransitionManager.on_transition_finished
 	_determine_can_pause()
 	
-	var run = func() -> void:
+	var run := func() -> void:
 		current_scene.free()
 		current_scene = scene.instantiate()
 		get_tree().root.add_child(current_scene)

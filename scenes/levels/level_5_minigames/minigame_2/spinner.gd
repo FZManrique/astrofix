@@ -1,4 +1,3 @@
-class_name TimerAccuracy
 extends Control
 
 @onready var timer: Timer = $Timer

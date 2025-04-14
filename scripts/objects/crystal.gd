@@ -12,7 +12,7 @@ func _ready() -> void:
 	$Sprite2D.texture = image
 
 func _on_body_entered(body: Node2D) -> void:
-	var resource = load("res://dialogue/level_4.dialogue")
+	var resource = preload("res://dialogue/level_4.dialogue")
 	crystal_count += 1
 	InventoryManager.add_item_to_inventory("crystal", 1)
 	print(DataManager.Level4.crystal_count)

@@ -9,14 +9,14 @@ func _process(_delta: float) -> void:
 	self.value = oxygen
 
 func _on_oxygen_status_changed(status: OxygenManager.OXYGEN_STATUS) -> void:
-	var stylebox := load("res://scenes/themes/progress_bar/progress_blue.tres") as StyleBoxFlat
+	var stylebox := preload("res://scenes/themes/progress_bar/progress_blue.tres") as StyleBoxFlat
 	
 	match status:
 		OxygenManager.OXYGEN_STATUS.LOW:
-			stylebox = load("res://scenes/themes/progress_bar/progress_red.tres") as StyleBoxFlat
+			stylebox = preload("res://scenes/themes/progress_bar/progress_red.tres") as StyleBoxFlat
 		OxygenManager.OXYGEN_STATUS.WARN:
-			stylebox = load("res://scenes/themes/progress_bar/progress_yellow.tres") as StyleBoxFlat
+			stylebox = preload("res://scenes/themes/progress_bar/progress_yellow.tres") as StyleBoxFlat
 		_:
-			stylebox = load("res://scenes/themes/progress_bar/progress_blue.tres") as StyleBoxFlat
+			stylebox = preload("res://scenes/themes/progress_bar/progress_blue.tres") as StyleBoxFlat
 	
 	self.add_theme_stylebox_override("fill", stylebox)

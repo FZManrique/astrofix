@@ -7,19 +7,14 @@ signal on_player_hit
 
 # add icicle oxygen decrease
 func _ready() -> void:
-	$Area2D.body_entered.connect(
-		func(body: Node2D) -> void:
+	($Area2D as Area2D).body_entered.connect(
+		func(_body: Node2D) -> void:
 			on_player_hit.emit()
 			if (!DataManager.Level1.has_hit_spikes):
 				DialogueManager.show_dialogue_balloon(
-					load("res://dialogue/level_1.dialogue"),
+					preload("res://dialogue/level_1.dialogue") as DialogueResource,
 					"hit_spikes"
 				)
 				DataManager.Level1.has_hit_spikes = true
 			OxygenManager.remove_oxygen(5)
 	)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

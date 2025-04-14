@@ -16,12 +16,12 @@ func play_ongoing_sfx(sound: AudioStream, auto_restart: bool = true) -> AudioStr
 	return sound_node
 
 func _on_start() -> void:
-	play_ongoing_sfx(load("res://cutscenes/sfx/common/spaceship_ambience.mp3"))
+	play_ongoing_sfx(preload("res://cutscenes/sfx/common/spaceship_ambience.mp3"))
 
 func _on_step(index: int) -> void:
 	match index:
 		1:
-			head_throbbing_sound = play_ongoing_sfx(load("res://cutscenes/sfx/level_2/head_throbbing.mp3"))
+			head_throbbing_sound = play_ongoing_sfx(preload("res://cutscenes/sfx/level_2/head_throbbing.mp3"))
 		5:
 			var tween := cutscene_player.get_tree().create_tween()
 			var cutscene_sfx := cutscene_player.sfx

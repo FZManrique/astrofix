@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://dfkqp83qnl1oh"]
+
+[ext_resource type="Texture2D" uid="uid://pa0h2tcprv8j" path="res://art/planets/saturn.PNG" id="1_0cr40"]
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="1_criai"]
+
+[resource]
+script = ExtResource("1_criai")
+unlocked = false
+category = 1
+order = 2
+image = ExtResource("1_0cr40")
+name = &"Saturn"
+description = "Saturn is distinguished by its large, intricate rings composed of rocks and ice. The planet’s immense size and complex ring system create both beauty and significant navigational challenges for explorers."
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

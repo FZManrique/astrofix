@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://cp4gar3te47p5"]
+
+[ext_resource type="Texture2D" uid="uid://b6rw70dd0xs78" path="res://database/images/objects/map.png" id="1_gg7nr"]
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="2_fcynj"]
+
+[resource]
+script = ExtResource("2_fcynj")
+unlocked = false
+category = 2
+image = ExtResource("1_gg7nr")
+name = &"Map"
+description = "Helps you find all the shards to repair the crystal tower."
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

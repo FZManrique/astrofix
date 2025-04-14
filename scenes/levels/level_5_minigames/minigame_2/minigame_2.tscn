@@ -23,7 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://bh264xswwkug7" path="res://audio/sfx/level_5/dan_laugh.mp3" id="21_lepg2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ed3y"]
-radius = 8.06226
+radius = 2.5
 
 [sub_resource type="SystemFont" id="SystemFont_2nndw"]
 
@@ -771,7 +771,7 @@ stretch_mode = 4
 position = Vector2(274, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UI/TimerAccuracy/ColorRect/Panel/VBoxContainer/Minigame/Control/Hand/HandArea"]
-position = Vector2(-14, 10)
+position = Vector2(-7.5, 10)
 shape = SubResource("CircleShape2D_5ed3y")
 
 [node name="SpaceSpam" type="Control" parent="UI"]

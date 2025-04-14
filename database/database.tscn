@@ -1,0 +1,186 @@
+[gd_scene load_steps=11 format=3 uid="uid://b0l5psbussjwh"]
+
+[ext_resource type="Script" uid="uid://yd1tr2p0gd68" path="res://database/database.gd" id="1_20me0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjvpd"]
+content_margin_left = 32.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.00784314, 0.0588235, 0.129412, 0.392157)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.384314, 0.635294, 0.92549, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_kjvpd"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20me0"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0.0257089, 0.073913, 0.670588)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_20me0"]
+font_color = Color(0.384314, 0.635294, 0.92549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8x7pb"]
+font_color = Color(0.384314, 0.635294, 0.92549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kp86k"]
+bg_color = Color(0.00784314, 0.0588235, 0.129412, 0.392157)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.384314, 0.635294, 0.92549, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="Gradient" id="Gradient_kjvpd"]
+offsets = PackedFloat32Array(0, 0.734463)
+colors = PackedColorArray(0.6, 0.74, 1, 0.392157, 0, 0, 0, 0.0431373)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_20me0"]
+gradient = SubResource("Gradient_kjvpd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eg6c8"]
+
+[node name="Database" type="Control"]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_20me0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.0313726, 0.705882)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kjvpd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.384314, 0.635294, 0.92549, 1)
+text = "Database"
+label_settings = SubResource("LabelSettings_kjvpd")
+horizontal_alignment = 1
+
+[node name="MainArea" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/MainArea"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_20me0")
+
+[node name="List" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="CharactersLabel" type="Label" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+layout_mode = 2
+text = "Characters"
+label_settings = SubResource("LabelSettings_20me0")
+
+[node name="CharactersList" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PlanetsLabel" type="Label" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+layout_mode = 2
+text = "Planets"
+label_settings = SubResource("LabelSettings_8x7pb")
+
+[node name="PlanetsList" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ObjectsLabel" type="Label" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+layout_mode = 2
+text = "Objects"
+label_settings = SubResource("LabelSettings_8x7pb")
+
+[node name="ObjectsList" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DebugUnlock" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+visible = false
+layout_mode = 2
+
+[node name="Details" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MainArea"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 4.0
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/MainArea/Details"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kp86k")
+
+[node name="Glow" type="TextureRect" parent="PanelContainer/VBoxContainer/MainArea/Details/PanelContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_20me0")
+
+[node name="Image" type="TextureRect" parent="PanelContainer/VBoxContainer/MainArea/Details/PanelContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MainArea/Details"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.384314, 0.635294, 0.92549, 1)
+text = "Select an item to show info"
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="PanelContainer/VBoxContainer/MainArea/Details"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_eg6c8")
+autowrap_mode = 2

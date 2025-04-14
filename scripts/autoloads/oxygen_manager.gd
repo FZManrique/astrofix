@@ -48,7 +48,6 @@ func reset_timer() -> void:
 	_current_level = DEFAULT_LEVEL
 
 func remove_oxygen(count: int) -> void:
-	print("removed oxy")
 	_current_level = _current_level - count
 	_update_oxygen_status(_current_level)
 

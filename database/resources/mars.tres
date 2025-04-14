@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://bseu2kiyj6kd0"]
+
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="1_cmgcy"]
+[ext_resource type="Texture2D" uid="uid://b4kfebxi2kbyr" path="res://art/planets/mars.PNG" id="1_sfpin"]
+
+[resource]
+script = ExtResource("1_cmgcy")
+unlocked = false
+category = 1
+order = 4
+image = ExtResource("1_sfpin")
+name = &"Mars"
+description = "A harsh, desert-like planet, Mars is known for its extreme heat and maze-like terrain. Explorers must carefully maneuver through a treacherous environment filled with obstacles that demand quick thinking and strategic planning."
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

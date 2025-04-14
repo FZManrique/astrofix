@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://c18w1erydnhjq"]
+
+[ext_resource type="Texture2D" uid="uid://dgmyjowdi2r7x" path="res://art/characters/franzen albert ii/full_scale_normal.png" id="1_n00m2"]
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="1_ok2m2"]
+
+[resource]
+script = ExtResource("1_ok2m2")
+unlocked = false
+category = 0
+order = 1
+image = ExtResource("1_n00m2")
+name = &"Franzen Albert II"
+description = "A space-exploring hybrid of Franzen and Albert II, the first monkey in space. Dressed like a zoologist, this curious and adventurous character blends scientific savvy with pioneering spirit."
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

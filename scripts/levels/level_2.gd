@@ -1,6 +1,6 @@
 extends Node2D
 
-var dialog = load("res://dialogue/level_2.dialogue")
+var dialog = preload("res://dialogue/level_2.dialogue")
 var Level2Data := DataManager.Level2
 var WIND_DIRECTION := DataManager.WIND_DIRECTION
 
@@ -101,7 +101,7 @@ func _on_spaceship_body_entered(body: Node2D) -> void:
 				if (!has_entered):
 					has_entered = true
 					print("Transitioning to level 3")
-					DataManager.current_cutscene = load("res://cutscenes/data/level_2_end.tres")
+					DataManager.current_cutscene = preload("res://cutscenes/data/level_2_end.tres")
 					SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")
 		)
 	else:

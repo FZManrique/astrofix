@@ -1,4 +1,3 @@
-class_name SpaceSpam
 extends Control
 
 @onready var progress_bar: ProgressBar = $ColorRect/Panel/VBoxContainer/ProgressBar
@@ -11,7 +10,7 @@ var test := 0
 func _process(delta: float) -> void:
 	if (progress_bar.value == 100):
 		queue_free()
-		DataManager.current_cutscene = load("res://cutscenes/data/level_5_end.tres")
+		DataManager.current_cutscene = preload("res://cutscenes/data/level_5_end.tres")
 		SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")
 		return
 	

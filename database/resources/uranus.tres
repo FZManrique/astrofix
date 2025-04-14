@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://dl5yt3m4uvpkt"]
+
+[ext_resource type="Texture2D" uid="uid://lcnt6tvq2ejk" path="res://art/planets/uranus.PNG" id="1_a7i2n"]
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="2_mr2rr"]
+
+[resource]
+script = ExtResource("2_mr2rr")
+unlocked = true
+category = 1
+order = 1
+image = ExtResource("1_a7i2n")
+name = &"Uranus"
+description = "A planet plagued by intense, shifting winds, Uranus’ sideways rotation results in chaotic storms. The atmosphere is constantly in flux, making travel and survival a difficult task."
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

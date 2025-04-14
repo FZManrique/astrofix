@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://b5nyfr26fhidd"]
+
+[ext_resource type="Texture2D" uid="uid://y1fl8k07j63t" path="res://database/images/objects/sword.png" id="1_cuqnu"]
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="2_0ws7v"]
+
+[resource]
+script = ExtResource("2_0ws7v")
+unlocked = false
+category = 2
+image = ExtResource("1_cuqnu")
+name = &"Sword"
+description = "Helps defeat space dragon Daniella Mondragon."
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://dx1f3kfrvhgvm"]
+
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="1_6c2q0"]
+[ext_resource type="Texture2D" uid="uid://cumjr35fxsg6p" path="res://art/characters/sailor conn/full_scale_normal.png" id="1_66h3j"]
+
+[resource]
+script = ExtResource("1_6c2q0")
+unlocked = false
+category = 0
+order = 3
+image = ExtResource("1_66h3j")
+name = &"Sailor Conn"
+description = "A Jupiter guardian blending Sailor Jupiter’s iconic look with Conny’s features. Radiating warmth and kindness, she hides a sharp mind beneath her gentle exterior—always thinking steps ahead."
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

@@ -1,8 +1,11 @@
 extends Node2D
 
+const TimerAccuracy = preload("res://scenes/levels/level_5_minigames/minigame_2/spinner.gd")
+
 @onready var player_health_bar: ProgressBar = %PlayerHealth
 @onready var dan_health_bar: ProgressBar = %DanHealth
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
+
 @onready var timer_accuracy: TimerAccuracy = %TimerAccuracy
 
 signal low_dan_health
