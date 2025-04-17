@@ -6,6 +6,9 @@ extends Area2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 func _ready() -> void:
+	if (DatabaseManager.is_unlocked(database_item.name)):
+		queue_free()
+	
 	sprite_2d.texture = image
 	
 	body_entered.connect(

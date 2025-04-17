@@ -152,7 +152,7 @@ func reset_selected_level() -> void:
 	SaveManager.clear_level(id)
 	
 	# Reload default resource from GameStateManager
-	var default: LevelResource = GameStateManager.levels.get(id)
+	var default = GameStateManager.levels.get(id)
 	if default == null: return
 
 	level_data[id] = {

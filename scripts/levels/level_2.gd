@@ -15,9 +15,7 @@ func _ready() -> void:
 	wind_anim.play("fade_out")
 	GameStateManager.start_level(level_resource.level_id, level_resource)
 	
-	if (not GameStateManager.current_level.flag_bool[&"audio_playing"]):
-		GameStateManager.current_level.flag_bool[&"audio_playing"] = true
-		Music.play_music("res://audio/music/level_2.mp3", 100.0)
+	Music.play_music("res://audio/music/level_2.mp3", 100.0)
 	
 	if (not GameStateManager.current_level.flag_bool[&"has_fixed_spacesuit"]):
 		GoalManager.go_to_next_goal(4)
@@ -97,11 +95,10 @@ func _on_player_entered_to_starting_area(body: Node2D) -> void:
 		GameStateManager.current_level.flag_bool[&"in_starting_area"] = true
 		GoalManager.go_to_next_goal(5)
 		_show_dialoague_box("intro_part2")
-		DialogueManager.dialogue_ended.connect(
-			func(_noop):
-				if (not GameStateManager.current_level.flag_bool[&"has_fixed_spacesuit"]):
-					SceneManager.goto_scene("res://scenes/levels/level_2_minigame/minigame.tscn")
-		)
+		await DialogueManager.dialogue_ended
+		if (not GameStateManager.current_level.flag_bool[&"has_fixed_spacesuit"]):
+			SceneManager.goto_scene("res://scenes/levels/level_2_minigame/minigame.tscn")
+	
 
 func _on_spaceship_body_entered(body: Node2D) -> void:
 	if (GameStateManager.current_level.flag_bool[&"fuel_collected"]):

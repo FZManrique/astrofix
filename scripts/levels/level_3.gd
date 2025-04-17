@@ -10,11 +10,9 @@ const InstructionBox := preload("res://scripts/screens/instruction_box.gd")
 
 func _ready() -> void:
 	GameStateManager.start_level(level_resource.level_id, level_resource)
-	
-	if (not current_level_data.flag_bool[&"audio_playing"]):
-		current_level_data.flag_bool[&"audio_playing"] = true
-		Music.change_db(-16)
-		Music.play_music("res://audio/music/level_3.wav")
+
+	Music.change_db(-16)
+	Music.play_music("res://audio/music/level_3.wav")
 	
 	DataManager.intro_done = false
 	GoalManager.go_to_next_goal(7)
