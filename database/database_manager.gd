@@ -1,12 +1,35 @@
 extends Node
 
+const DATABASE_ITEMS: Array[DatabaseItem] = [
+	preload("res://database/resources/chloe.tres"),
+	preload("res://database/resources/conny.tres"),
+	preload("res://database/resources/dan.tres"),
+	preload("res://database/resources/dragon_egg.tres"),
+	preload("res://database/resources/franzen.tres"),
+	preload("res://database/resources/fuel.tres"),
+	preload("res://database/resources/gas_cover.tres"),
+	preload("res://database/resources/jupiter.tres"),
+	preload("res://database/resources/map.tres"),
+	preload("res://database/resources/mars.tres"),
+	preload("res://database/resources/nepturne.tres"),
+	preload("res://database/resources/oxygen.tres"),
+	preload("res://database/resources/painting.tres"),
+	preload("res://database/resources/pen_wand.tres"),
+	preload("res://database/resources/pop_album.tres"),
+	preload("res://database/resources/saturn.tres"),
+	preload("res://database/resources/scroll_and_quill.tres"),
+	preload("res://database/resources/sword.tres"),
+	preload("res://database/resources/uranus.tres"),
+	preload("res://database/resources/william.tres"),
+]
+
+
 var items: Array[DatabaseItem] = []
 var unlocked_items: Dictionary[String, bool] = {}
 
 const SAVE_PATH := "user://database_unlocks.cfg"
 
 signal item_unlocked(item_name: String)
-
 
 #region Persisting
 func save_unlocks():
@@ -27,14 +50,14 @@ func load_unlocks():
 
 func delete_all_data():
 	DirAccess.remove_absolute(SAVE_PATH)
-	load_database_items("res://database/resources")
+	load_database_items()
 	load_unlocks()
 #endregion
 
 
 #region Database initialization
 func _ready():
-	load_database_items("res://database/resources")
+	load_database_items()
 	load_unlocks()
 	item_unlocked.connect(
 		func(item: String) -> void:
@@ -50,21 +73,10 @@ func navigate_to_entry(name: String) -> bool:
 			return true
 	return false
 
-func load_database_items(path: String) -> void:
-	var dir := DirAccess.open(path)
-	if !dir:
-		return
-	dir.list_dir_begin()
-	var file = dir.get_next()
-	while file != "":
-		if file.ends_with(".tres"):
-			var res_path = path + "/" + file
-			var item: DatabaseItem = load(res_path)
-			if item:
-				items.append(item)
-				unlocked_items[res_path] = item.unlocked
-		file = dir.get_next()
-	dir.list_dir_end()
+func load_database_items() -> void:
+	for item in DATABASE_ITEMS:
+		items.append(item)
+		unlocked_items[item.resource_path] = item.unlocked
 #endregion
 
 
