@@ -10,7 +10,12 @@ var test := 0
 func _process(delta: float) -> void:
 	if (progress_bar.value == 100):
 		queue_free()
-		DataManager.current_cutscene = preload("res://cutscenes/data/level_5_end.tres")
+		if (GameStateManager.current_level.finished_level):
+			return
+			
+		GameStateManager.complete_level()
+		
+		GameStateManager.current_cutscene = preload("res://cutscenes/data/level_5_end.tres")
 		SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")
 		return
 	
@@ -20,7 +25,7 @@ func _process(delta: float) -> void:
 		test = 0
 
 func _on_timer_timeout() -> void:
-	SceneManager.fail_game(
+	GameStateManager.fail_game(
 		func() -> void:
 			SceneManager.goto_scene("res://scenes/levels/level_5_minigames/minigame_2/minigame_2.tscn")
 	)

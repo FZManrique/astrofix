@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://qy24io0fo1jn"]
+[gd_scene load_steps=5 format=3 uid="uid://qy24io0fo1jn"]
 
 [ext_resource type="Script" uid="uid://bwg0gtret80ii" path="res://scripts/screens/pause_menu.gd" id="2_n7xwq"]
 [ext_resource type="PackedScene" uid="uid://blw2il8y53057" path="res://scenes/screens/settings.tscn" id="3_sqmrj"]
 [ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="3_str4n"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_5dx7k"]
+font_color = Color(0.734783, 0.734783, 0.734783, 1)
+
 [node name="PauseMenu" type="Control"]
-process_mode = 2
+process_mode = 3
 texture_filter = 2
 layout_mode = 3
 anchors_preset = 15
@@ -16,8 +19,6 @@ grow_vertical = 2
 script = ExtResource("2_n7xwq")
 settings_scene = ExtResource("3_sqmrj")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -27,60 +28,63 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.00150001, 0, 0.03, 0.705882)
 
-[node name="VBoxContainer" type="Panel" parent="ColorRect"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.95
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -77.5
-offset_top = -60.0
-offset_right = 77.5
-offset_bottom = 120.0
+anchor_bottom = 0.95
+offset_left = -279.5
+offset_top = -32.0
+offset_right = 279.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Exiting current level will result in losing all progress,
+except for Database unlocks."
+label_settings = SubResource("LabelSettings_5dx7k")
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_styles/panel = ExtResource("3_str4n")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -74.0
-offset_top = -45.0
-offset_right = 74.0
-offset_bottom = 45.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
 
-[node name="Resume" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
 z_index = 4096
 layout_mode = 2
 theme_type_variation = &"FlatButton"
 text = "Continue"
 
-[node name="Settings" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
 z_index = 4096
 layout_mode = 2
 theme_type_variation = &"FlatButton"
 text = "Settings"
 
-[node name="MainMenu" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
+[node name="MainMenu" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
 z_index = 4096
 layout_mode = 2
 theme_type_variation = &"FlatButton"
 text = "Main Menu"
 
-[node name="Quit" type="Button" parent="ColorRect/VBoxContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"FlatButton"
 text = "Exit"
 
-[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

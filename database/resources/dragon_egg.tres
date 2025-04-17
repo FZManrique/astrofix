@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://cfrswy1dhuf8"]
+
+[ext_resource type="Texture2D" uid="uid://5bxrr1bp4ab3" path="res://art/souvenirs/dan.png" id="1_3cvqc"]
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="2_ebovw"]
+
+[resource]
+script = ExtResource("2_ebovw")
+unlocked = false
+category = 3
+order = 4
+image = ExtResource("1_3cvqc")
+name = &"Glowing Dragon Egg"
+description = "Stolen from Daniella Mondragon herself. Warm, weirdly heavy, and possibly about to hatch..."
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

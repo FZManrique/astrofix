@@ -6,7 +6,10 @@ signal on_dismiss
 var current_pieces = 0
 
 func _ready() -> void:
-	get_tree().paused = true
+	GameStateManager.add_pause_reason(GameStateManager.PauseType.SYSTEM, "level_4_minigame")
+	PauseManager.add_whitelist(self)
+	GameStateManager.in_minigame = true
+	
 	%Exit.hide()
 	
 	pieces.modulate.a = 0.9
@@ -25,6 +28,8 @@ func _ready() -> void:
 		)
 
 func _on_button_pressed() -> void:
-	get_tree().paused = false
+	GameStateManager.remove_pause_reason(GameStateManager.PauseType.SYSTEM, "level_4_minigame")
+	PauseManager.remove_whitelist(self)
+	GameStateManager.in_minigame = false
 	on_dismiss.emit()
 	queue_free()

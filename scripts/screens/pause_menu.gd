@@ -1,40 +1,37 @@
 extends Control
 
-@export var settings_scene: PackedScene
+const SettingsScene := preload("res://scripts/screens/settings_menu.gd")
+const Database := preload("res://database/database.gd")
 
-var allow_unpause: bool = false
+@export var settings_scene: PackedScene
+@onready var root_panel: ColorRect = $ColorRect
+
+# Pause menu showing is now handled by `pause_manager.gd`
 
 func _ready() -> void:
-	SceneManager.on_game_paused.connect(
-		_on_game_paused
-	)
-
-func _process(_delta: float) -> void:
-	if (Input.is_action_just_pressed("ui_pause") && allow_unpause):
-		allow_unpause = false
-		hide()
-		get_tree().paused = false
+	hide()
+	PauseManager.pause_toggled.connect(_on_pause_changed)
 
 func _on_resume_pressed() -> void:
+	GameStateManager.remove_pause_reason(GameStateManager.PauseType.PLAYER, "pause_menu")
 	hide()
-	get_tree().paused = false
 
 func _on_settings_pressed() -> void:
-	var instance := settings_scene.instantiate()
-	instance.connect("on_settings_show", func() -> void: $ColorRect.hide())
-	instance.connect("on_settings_hide", func() -> void: $ColorRect.show())
+	var instance: SettingsScene = settings_scene.instantiate()
+	instance.on_settings_show.connect(func() -> void: root_panel.hide())
+	instance.on_settings_hide.connect(func() -> void: root_panel.show())
 	add_child(instance)
 
 func _on_main_menu_pressed() -> void:
-	get_tree().paused = false
+	GameStateManager.remove_pause_reason(GameStateManager.PauseType.PLAYER, "pause_menu")
 	SceneManager.goto_scene("res://scenes/main.tscn")
 
 func _on_quit_pressed() -> void:
-	SceneManager.quit_game()
+	GameStateManager.remove_pause_reason(GameStateManager.PauseType.PLAYER, "pause_menu")
+	GameStateManager.quit_game()
 
-func _on_game_paused() -> void:
-	if (!DataManager.show_instruction_box):
+func _on_pause_changed(paused: bool) -> void:
+	if paused and GameStateManager.player_reasons.has("pause_menu"):
 		show()
-
-func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	allow_unpause = true
+	else:
+		hide()

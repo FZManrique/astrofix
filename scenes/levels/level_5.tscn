@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=4 uid="uid://b05dhri5j7o3g"]
+[gd_scene load_steps=39 format=4 uid="uid://b05dhri5j7o3g"]
 
 [ext_resource type="Script" uid="uid://dgrqvoupn5u7g" path="res://scripts/levels/level_5.gd" id="1_fsnos"]
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="1_r1vs7"]
+[ext_resource type="Resource" uid="uid://gpjoscgikx6h" path="res://level_data/level_5.tres" id="2_0y7y4"]
 [ext_resource type="PackedScene" uid="uid://1pmipojgsf0m" path="res://scenes/characters/player.tscn" id="2_dswqx"]
 [ext_resource type="Texture2D" uid="uid://bmvmcjwkxddc6" path="res://art/tilesets/dev_tileset_1.png" id="2_laj7o"]
 [ext_resource type="PackedScene" uid="uid://bap63ec07gtue" path="res://scenes/screens/instruction_box.tscn" id="3_6xwso"]
@@ -14,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://djvilc8xogsng" path="res://art/level_5/broken_fuel.png" id="7_j14br"]
 [ext_resource type="Texture2D" uid="uid://bv17twy8v4yx7" path="res://art/characters/daniella mondragon/idle_animation.png" id="7_mxx4w"]
 [ext_resource type="Texture2D" uid="uid://0yjmwhl1oktj" path="res://art/level_2/many_fuel.png" id="12_5ke18"]
+[ext_resource type="PackedScene" uid="uid://dsykptwbsbrbh" path="res://scenes/objects/souvenir.tscn" id="15_l8eod"]
+[ext_resource type="Texture2D" uid="uid://cxdgj227uc5c" path="res://art/souvenirs/small/dan.png" id="16_sfnul"]
+[ext_resource type="Resource" uid="uid://cfrswy1dhuf8" path="res://database/resources/dragon_egg.tres" id="17_fea5r"]
 
 [sub_resource type="Gradient" id="Gradient_r8hx2"]
 offsets = PackedFloat32Array(0, 0.861446, 1)
@@ -386,6 +390,7 @@ radius = 61.0328
 
 [node name="Level5" type="Node2D"]
 script = ExtResource("1_fsnos")
+level_resource = ExtResource("2_0y7y4")
 metadata/_edit_vertical_guides_ = [8.0, 1272.0]
 metadata/_edit_horizontal_guides_ = [31.0, 721.0]
 
@@ -401,7 +406,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_j14br")
 
-[node name="Control" parent="CanvasLayer" node_paths=PackedStringArray("player_node") instance=ExtResource("1_r1vs7")]
+[node name="Control" parent="CanvasLayer" node_paths=PackedStringArray("instruction_box_node", "player_node") instance=ExtResource("1_r1vs7")]
+instruction_box_node = NodePath("../InstructionBox")
 player_node = NodePath("../../Characters/Player")
 
 [node name="InstructionBox" parent="CanvasLayer" instance=ExtResource("3_6xwso")]
@@ -637,6 +643,11 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/EncounterManyTanks"]
 shape = SubResource("CircleShape2D_j14br")
+
+[node name="Souvenir" parent="Characters" instance=ExtResource("15_l8eod")]
+position = Vector2(898, 78)
+image = ExtResource("16_sfnul")
+database_item = ExtResource("17_fea5r")
 
 [node name="Oxygen" type="Node2D" parent="."]
 

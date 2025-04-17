@@ -34,7 +34,8 @@ var colors: Dictionary[String, Texture2D] = {
 }
 
 func _ready() -> void:
-	DataManager.Level2.is_minigame = true
+	GameStateManager.add_pause_reason(GameStateManager.PauseType.SYSTEM, "level_2_minigame")
+	PauseManager.add_whitelist(self)
 	%Continue.disabled = true
 	
 	for color in BUTTON_COLORS:
@@ -112,7 +113,7 @@ func validate_sequence() -> void:
 			%Progress.text = "Repair complete."
 			%Continue.disabled = false
 			var hide := [$VBoxContainer/HBoxContainer, $VBoxContainer/CenterContainer]
-			DataManager.Level2.has_fixed_spacesuit = true
+			GameStateManager.current_level.flag_bool[&"has_fixed_spacesuit"] = true
 			for i in hide:
 				i.hide()
 			return
@@ -130,7 +131,10 @@ func validate_sequence() -> void:
 	is_validating = false
 
 func _on_continue_pressed() -> void:
-	DataManager.Level2.is_minigame = false
+	GameStateManager.remove_pause_reason(GameStateManager.PauseType.SYSTEM, "level_2_minigame")
+	PauseManager.remove_whitelist(self)
+	GameStateManager.in_minigame = false
+	
 	SceneManager.goto_scene("res://scenes/levels/level_2.tscn")
 
 func _on_start_game() -> void:

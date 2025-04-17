@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c4675jfitoxq3" path="res://cutscenes/scripts/cutscene_resource.gd" id="1_xbypo"]
 [ext_resource type="Texture2D" uid="uid://doegixxeb41w2" path="res://cutscenes/images/level_1_end/02.png" id="2_d6r80"]
 [ext_resource type="AudioStream" uid="uid://jn2rlj0qainc" path="res://cutscenes/music/cutscene_1_end.mp3" id="3_6vo51"]
-[ext_resource type="Script" uid="uid://d04u6d5u037mx" path="res://cutscenes/data/level_1_end_mutations.gd" id="4_6vo51"]
+[ext_resource type="PackedScene" uid="uid://pl00ylhepvep" path="res://scenes/screens/level_select/level_select_screen.tscn" id="4_55llx"]
 [ext_resource type="AudioStream" uid="uid://c7nvmqa4xir8u" path="res://cutscenes/sfx/common/spaceship_ambience.mp3" id="6_55llx"]
 [ext_resource type="AudioStream" uid="uid://ceygvrhijhmn4" path="res://cutscenes/sfx/common/spaceship_takeoff.mp3" id="7_i1qjr"]
 
@@ -15,6 +15,6 @@ dialogue = Array[String](["I wonder what's happening on Earth… I… I need to 
 options = Dictionary[int, Array]({})
 music = ExtResource("3_6vo51")
 sfx = Array[AudioStream]([ExtResource("6_55llx"), ExtResource("7_i1qjr")])
-mutation_script = ExtResource("4_6vo51")
+next_scene = ExtResource("4_55llx")
 time_modifiers = Dictionary[int, float]({})
 metadata/_custom_type_script = "uid://c4675jfitoxq3"

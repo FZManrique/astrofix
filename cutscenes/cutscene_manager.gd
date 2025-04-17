@@ -1,5 +1,4 @@
 extends Control
-class_name CutsceneManager
 
 @export var typing_speed: float = 0.02
 
@@ -19,7 +18,7 @@ var mutation_script: CutsceneMutations = null
 var skip_typing := false
 var is_typing := false
 
-var cutscene: CutsceneResource = DataManager.current_cutscene
+var cutscene: CutsceneResource = GameStateManager.current_cutscene
 
 signal on_start
 signal on_step(index: int)
@@ -45,7 +44,7 @@ func _ready() -> void:
 		on_step.connect(mutation_script._on_step)
 		on_end.connect(mutation_script._on_end)
 
-	DataManager.in_cutscene = true
+	GameStateManager.in_cutscene = true
 
 	skip_button.hide()
 	await get_tree().create_timer(3.0).timeout  # Delay before showing
@@ -101,7 +100,6 @@ func show_scene() -> void:
 				option.queue_free()
 
 		var wait_time: float = cutscene.time_modifiers[current_index] if cutscene.time_modifiers.has(current_index) else image_wait_time
-		print(wait_time)
 
 		await get_tree().create_timer(wait_time).timeout
 		next_scene()
@@ -137,7 +135,7 @@ func type_text(text: String) -> void:
 		# wait for typing
 		if character == "," or character == "." or character == "?" or character == "!":
 			await get_tree().create_timer(0.2).timeout
-
+		
 		await get_tree().create_timer(typing_speed).timeout
 
 
@@ -148,7 +146,7 @@ func next_scene() -> void:
 
 func end_cutscene() -> void:
 	on_end.emit()
-	DataManager.in_cutscene = false
+	GameStateManager.in_cutscene = false
 
 	if cutscene.next_scene:
 		SceneManager.goto_packed_scene(cutscene.next_scene)

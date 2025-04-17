@@ -1,14 +1,30 @@
 extends AudioStreamPlayer
 
-func change_db(db: float) -> void:
-	self.volume_db = db
+var current_path: String = ""
+var loop: bool = true
 
-func play_music(path: String, from_position: float = 0.0) -> void:
-	self.stream = ResourceLoader.load(path) as AudioStream
-	self.play(from_position)
+func change_db(db: float) -> void:
+	volume_db = db
+
+func play_music(path: String, from_position: float = 0.0, loop_music: bool = true) -> void:
+	if current_path == path and playing:
+		return  # Prevent restart if same music already playing
 	
+	var stream := ResourceLoader.load(path)
+	if not stream or not stream is AudioStream:
+		push_error("Invalid music stream: %s" % path)
+		return
+
+	self.stream = stream
+	self.play(from_position)
+	current_path = path
+	loop = loop_music
+
 func stop_music() -> void:
-	self.stop()
+	stop()
+	current_path = ""
+	loop = false
 
 func _on_finished() -> void:
-	self.play()
+	if loop:
+		play()

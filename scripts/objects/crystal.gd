@@ -4,9 +4,9 @@ extends Area2D
 
 var crystal_count: int:
 	get:
-		return DataManager.Level4.crystal_count
+		return GameStateManager.current_level.flag_int[&"crystal_count"]
 	set(value):
-		DataManager.Level4.crystal_count = value
+		GameStateManager.current_level.flag_int[&"crystal_count"] = value
 
 func _ready() -> void:
 	$Sprite2D.texture = image
@@ -15,7 +15,6 @@ func _on_body_entered(body: Node2D) -> void:
 	var resource = preload("res://dialogue/level_4.dialogue")
 	crystal_count += 1
 	InventoryManager.add_item_to_inventory("crystal", 1)
-	print(DataManager.Level4.crystal_count)
 	
 	if (crystal_count == 4):
 		GoalManager.go_to_next_goal(11)

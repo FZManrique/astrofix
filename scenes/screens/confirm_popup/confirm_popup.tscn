@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://1qglfbkw7ruo"]
+
+[ext_resource type="Script" uid="uid://l335u7t6ijy8" path="res://scenes/screens/confirm_popup/confirm_popup.gd" id="1_glk7v"]
+[ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="1_lu3e1"]
+[ext_resource type="StyleBox" uid="uid://bmr55w3iso0py" path="res://scenes/themes/primary_button/disabled.tres" id="2_glk7v"]
+[ext_resource type="StyleBox" uid="uid://6c83sd67pdmm" path="res://scenes/themes/primary_button/hover.tres" id="3_6u4e6"]
+[ext_resource type="StyleBox" uid="uid://b14u2slr52yhy" path="res://scenes/themes/primary_button/pressed.tres" id="4_lo6f8"]
+[ext_resource type="StyleBox" uid="uid://bbhebmlcvy20" path="res://scenes/themes/primary_button/normal.tres" id="5_3x3m7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rp0d7"]
+font_size = 24
+font_color = Color(0.384314, 0.635294, 0.92549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bbtu6"]
+
+[node name="Control" type="Control"]
+z_index = 4096
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_glk7v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00150001, 0, 0.03, 0.705882)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_lu3e1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Confirm action?"
+label_settings = SubResource("LabelSettings_rp0d7")
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "This action cannot be undone."
+label_settings = SubResource("LabelSettings_bbtu6")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Accept" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/disabled = ExtResource("2_glk7v")
+theme_override_styles/hover = ExtResource("3_6u4e6")
+theme_override_styles/pressed = ExtResource("4_lo6f8")
+theme_override_styles/normal = ExtResource("5_3x3m7")
+text = "Accept"
+
+[node name="Cancel" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Cancel"
+flat = true
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Accept" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

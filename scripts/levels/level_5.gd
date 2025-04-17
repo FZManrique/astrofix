@@ -1,25 +1,34 @@
 extends Node2D
 
-var Data := DataManager.Level5
+const InstructionBox := preload("res://scripts/screens/instruction_box.gd")
+@onready var instruction_box: InstructionBox = $CanvasLayer/InstructionBox
+
+@export var level_resource: LevelResource = GameStateManager.levels.get("Mars")
+@onready var current_level_data: LevelResource = GameStateManager.current_level
+
+@onready var dan: StaticBody2D = %Dan
 
 signal show_dan
 
 func _ready() -> void:
+	GameStateManager.start_level(level_resource.level_id, level_resource)
+	
 	Music.play_music("res://audio/music/level_5.mp3")
 	GoalManager.go_to_next_goal(13)
 	DataManager.intro_done = false
 	
-	$CanvasLayer/InstructionBox.connect(
-		"instruction_box_dismissed",
+	instruction_box.instruction_box_dismissed.connect(
 		func() -> void:
 			if (!DataManager.intro_done):
 				DataManager.intro_done = true
 				_show_dialoague_box("intro")
+				await DialogueManager.dialogue_ended
+				DatabaseManager.unlock_item_by_name("Mars")
 	)
 	
 	OxygenManager.oxygen_depleted.connect(
 		func():
-			SceneManager.fail_game(
+			GameStateManager.fail_game(
 				func() -> void:
 					InventoryManager._clear_inventory()
 					OxygenManager.reset_timer()
@@ -29,13 +38,14 @@ func _ready() -> void:
 	
 	DataManager.show_dan.connect(
 		func() -> void:
-			(%Dan as Node2D).process_mode = Node.PROCESS_MODE_INHERIT
-			(%Dan as Node2D).show()
+			dan.process_mode = Node.PROCESS_MODE_INHERIT
+			dan.show()
 	)
 	
-	(%Dan as Node2D).process_mode = Node.PROCESS_MODE_DISABLED
-	(%Dan as Node2D).hide()
-	DataManager.show_instruction_box = true
+	dan.process_mode = Node.PROCESS_MODE_DISABLED
+	dan.hide()
+	
+	instruction_box.show_instruction_box()
 
 func _on_dan_area_body_entered(body: Node2D) -> void:
 	_show_dialoague_box("talk_to_dan")

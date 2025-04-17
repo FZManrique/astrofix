@@ -14,7 +14,7 @@ func _ready() -> void:
 	$Quit.pressed.connect(
 		func() -> void:
 			get_tree().paused = false
-			SceneManager.quit_game()
+			GameStateManager.quit_game()
 	)
 	$Cancel.pressed.connect(
 		func() -> void:

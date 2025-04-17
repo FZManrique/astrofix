@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://c1a5x48ccfm7b"]
+
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="1_63kpj"]
+[ext_resource type="Texture2D" uid="uid://bcjvo7myc5nat" path="res://art/souvenirs/liam.png" id="1_dsie1"]
+
+[resource]
+script = ExtResource("1_63kpj")
+unlocked = false
+category = 3
+order = 0
+image = ExtResource("1_dsie1")
+name = &"Scroll & Quill"
+description = "Shakespeare’s actual writing tools, now frozen in Neptune. Somehow still writes better poetry than you."
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

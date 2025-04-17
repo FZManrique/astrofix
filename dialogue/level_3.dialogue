@@ -9,31 +9,31 @@ Player: I still need to find something to fix the gas leak...
 
 ~ cover_collected
 Player: Finally! A cover! This is perfect for fixing the leak.
-set DataManager.Level3.collected_cover = true
+set GameStateManager.current_level.flag_bool[&"collected_cover"] = true
 => END!
 
 ~ dialogue_initial
 Chloe Louisza: What are you doing here, human? Do you need my help?
 - Yes
-	set DataManager.Level3.asked_for_help = true
+	set GameStateManager.current_level.flag_bool[&"asked_for_help"] = true
 	Player: I guess so. I'm looking for a cover to fix the fuel leak on my ship.
 	Chloe Louisza: Sure thing! If I remember correctly, there should be a cover somewhere in the rings of Saturn.
 	Chloe Louisza: Be careful though! You will need careful gymnastics to get that. Good luck!
 - No
-	set DataManager.Level3.asked_for_help = false
+	set GameStateManager.current_level.flag_bool[&"asked_for_help"] = false
 	Player: No thanks, I don't need help.
 	Chloe Louisza: [#emotion=angry] Suit yourself.
 => END!
 
 ~ general
-if DataManager.Level3.asked_for_help
+if GameStateManager.current_level.flag_bool[&"asked_for_help"]
 	Chloe Louisza: Go get that cover! You can do it!
 else
 	Chloe Louisza: [#emotion=angry] What else do you want? I have nothing to say...
 => END!
 
 ~ end_scene
-if DataManager.Level3.asked_for_help
+if GameStateManager.current_level.flag_bool[&"asked_for_help"]
 	Chloe Louisza: Life’s better on Saturn, you know. Maybe you should stay a little longer.
 	Player: Thanks, but I have a journey to complete.
 else

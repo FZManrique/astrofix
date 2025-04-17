@@ -5,6 +5,6 @@ func _ready() -> void:
 		func() -> void:
 			var text = $CenterContainer/PanelContainer/HBoxContainer/TextEdit.text
 	
-			DataManager.current_cutscene = load(text)
+			GameStateManager.current_cutscene = load(text)
 			SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")
 	)

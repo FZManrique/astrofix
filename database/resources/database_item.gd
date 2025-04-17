@@ -4,7 +4,8 @@ extends Resource
 enum CATEGORIES {
 	CHARACTERS,
 	PLANETS,
-	OBJECTS
+	OBJECTS,
+	SOUVENIRS
 }
 
 @export var unlocked: bool = false

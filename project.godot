@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Astrofix"
-config/version="v0.1.0-beta"
+config/version="0.1.0"
 config/tags=PackedStringArray("2d")
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
@@ -28,6 +28,7 @@ buses/default_bus_layout="res://audio/default_bus_layout.tres"
 [autoload]
 
 SceneManager="*res://scripts/autoloads/scene_manager.gd"
+GameStateManager="*res://scripts/autoloads/game_state_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 DataManager="*res://scripts/autoloads/data_manager.gd"
 GoalManager="*res://scripts/autoloads/goal_manager.gd"
@@ -36,6 +37,8 @@ OxygenManager="*res://scripts/autoloads/oxygen_manager.gd"
 Settings="*res://scripts/autoloads/settings.gd"
 TransitionManager="*res://scripts/autoloads/transition/transition_manager.tscn"
 DatabaseManager="*res://database/database_manager.gd"
+PauseManager="*res://scripts/autoloads/pause_manager/pause_manager.tscn"
+SaveManager="*res://level_data/save_manager.gd"
 Music="*res://scenes/music.tscn"
 
 [debug]

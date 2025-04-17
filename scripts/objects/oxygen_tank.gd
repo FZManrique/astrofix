@@ -7,6 +7,7 @@ signal oxygen_tank_collected(amount: int)
 func _ready() -> void:
 	oxygen_tank_collected.connect(
 		func(amount: int) -> void:
+			DatabaseManager.unlock_item_by_name("Oxygen Tank")
 			OxygenManager.add_oxygen(amount)
 	)
 

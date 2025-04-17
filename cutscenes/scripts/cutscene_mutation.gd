@@ -1,6 +1,7 @@
 extends Object
 class_name CutsceneMutations
 
+const CutsceneManager := preload("res://cutscenes/cutscene_manager.gd")
 var cutscene_player: CutsceneManager = null
 
 ## Code to run when cutscene initially enters

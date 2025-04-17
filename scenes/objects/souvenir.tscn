@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsykptwbsbrbh"]
+
+[ext_resource type="Script" uid="uid://bvlthw5vsnxql" path="res://scripts/objects/souvenir.gd" id="1_dsedw"]
+[ext_resource type="Texture2D" uid="uid://8xmraqulgtb4" path="res://art/souvenirs/small/chloe.png" id="1_xs4ox"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dsedw"]
+radius = 16.0312
+
+[node name="Souvenir" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_dsedw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dsedw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xs4ox")

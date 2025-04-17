@@ -1,0 +1,221 @@
+[gd_scene load_steps=20 format=3 uid="uid://cwimttwdds31r"]
+
+[ext_resource type="Script" uid="uid://78k375s3k5w3" path="res://scripts/screens/level_select/level_select_content.gd" id="1_wrwel"]
+[ext_resource type="Script" uid="uid://dvyopf8bdl4k5" path="res://level_data/level_resource.gd" id="2_4oqtd"]
+[ext_resource type="Texture2D" uid="uid://b0e5jnv2rj7qi" path="res://art/planets/neptune.PNG" id="2_ywmq5"]
+[ext_resource type="Resource" uid="uid://dss7a5avm4q0m" path="res://level_data/level_1.tres" id="3_ctusc"]
+[ext_resource type="Texture2D" uid="uid://pa0h2tcprv8j" path="res://art/planets/saturn.PNG" id="3_u0j6c"]
+[ext_resource type="Resource" uid="uid://dn8gna5mefyq4" path="res://level_data/level_2.tres" id="4_ul0gu"]
+[ext_resource type="Texture2D" uid="uid://b4kfebxi2kbyr" path="res://art/planets/mars.PNG" id="4_wjhta"]
+[ext_resource type="Resource" uid="uid://0djlq272gskc" path="res://level_data/level_3.tres" id="5_7dkgg"]
+[ext_resource type="Texture2D" uid="uid://lcnt6tvq2ejk" path="res://art/planets/uranus.PNG" id="5_svfoh"]
+[ext_resource type="Resource" uid="uid://2byx825ikkp2" path="res://level_data/level_4.tres" id="6_e0t10"]
+[ext_resource type="Texture2D" uid="uid://dv2j01qbiifko" path="res://art/planets/jupiter.PNG" id="6_h03vd"]
+[ext_resource type="StyleBox" uid="uid://bbhebmlcvy20" path="res://scenes/themes/primary_button/normal.tres" id="7_4oqtd"]
+[ext_resource type="Resource" uid="uid://gpjoscgikx6h" path="res://level_data/level_5.tres" id="7_jlvgc"]
+[ext_resource type="StyleBox" uid="uid://bmr55w3iso0py" path="res://scenes/themes/primary_button/disabled.tres" id="8_ctusc"]
+[ext_resource type="StyleBox" uid="uid://6c83sd67pdmm" path="res://scenes/themes/primary_button/hover.tres" id="9_ul0gu"]
+[ext_resource type="StyleBox" uid="uid://b14u2slr52yhy" path="res://scenes/themes/primary_button/pressed.tres" id="10_7dkgg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5vt7q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7khc8"]
+font_size = 18
+font_color = Color(0.384314, 0.635294, 0.92549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n2m0v"]
+font_size = 14
+
+[node name="LevelSelect" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wrwel")
+all_levels = Array[ExtResource("2_4oqtd")]([ExtResource("3_ctusc"), ExtResource("4_ul0gu"), ExtResource("5_7dkgg"), ExtResource("6_e0t10"), ExtResource("7_jlvgc")])
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Planets" type="GridContainer" parent="CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="Neptune" type="AspectRatioContainer" parent="CenterContainer/Planets"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/Planets/Neptune"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_ywmq5")
+
+[node name="Button" type="Button" parent="CenterContainer/Planets/Neptune"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5vt7q")
+flat = true
+
+[node name="EmptyContainer" type="AspectRatioContainer" parent="CenterContainer/Planets"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Saturn" type="AspectRatioContainer" parent="CenterContainer/Planets"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/Planets/Saturn"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_u0j6c")
+
+[node name="Button" type="Button" parent="CenterContainer/Planets/Saturn"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5vt7q")
+flat = true
+
+[node name="EmptyContainer2" type="AspectRatioContainer" parent="CenterContainer/Planets"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Mars" type="AspectRatioContainer" parent="CenterContainer/Planets"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/Planets/Mars"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_wjhta")
+
+[node name="Button" type="Button" parent="CenterContainer/Planets/Mars"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5vt7q")
+flat = true
+
+[node name="EmptyContainer3" type="AspectRatioContainer" parent="CenterContainer/Planets"]
+layout_mode = 2
+
+[node name="Uranus" type="AspectRatioContainer" parent="CenterContainer/Planets"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/Planets/Uranus"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("5_svfoh")
+
+[node name="Button" type="Button" parent="CenterContainer/Planets/Uranus"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5vt7q")
+flat = true
+
+[node name="EmptyContainer4" type="AspectRatioContainer" parent="CenterContainer/Planets"]
+layout_mode = 2
+
+[node name="Jupiter" type="AspectRatioContainer" parent="CenterContainer/Planets"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/Planets/Jupiter"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("6_h03vd")
+
+[node name="Button" type="Button" parent="CenterContainer/Planets/Jupiter"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5vt7q")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5vt7q")
+flat = true
+
+[node name="EmptyContainer5" type="AspectRatioContainer" parent="CenterContainer/Planets"]
+layout_mode = 2
+
+[node name="BottomNavigation" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomNavigation"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomNavigation/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LevelName" type="Label" parent="BottomNavigation/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Jupiter"
+label_settings = SubResource("LabelSettings_7khc8")
+
+[node name="Description" type="Label" parent="BottomNavigation/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "A frozen world with icy, slippery terrain and a mysterious deep blue atmosphere."
+label_settings = SubResource("LabelSettings_n2m0v")
+
+[node name="ViewInDatabase" type="Button" parent="BottomNavigation/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/normal = ExtResource("7_4oqtd")
+text = "View in Database"
+flat = true
+
+[node name="PlayLevel" type="Button" parent="BottomNavigation/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/disabled = ExtResource("8_ctusc")
+theme_override_styles/hover = ExtResource("9_ul0gu")
+theme_override_styles/pressed = ExtResource("10_7dkgg")
+theme_override_styles/normal = ExtResource("7_4oqtd")
+text = "Play level"

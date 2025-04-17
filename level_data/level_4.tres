@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="LevelResource" load_steps=2 format=3 uid="uid://2byx825ikkp2"]
+
+[ext_resource type="Script" uid="uid://dvyopf8bdl4k5" path="res://level_data/level_resource.gd" id="1_u3hbs"]
+
+[resource]
+script = ExtResource("1_u3hbs")
+level_id = "Jupiter"
+description = "The largest planet with a vast, stormy terrain."
+finished_level = false
+flag_bool = Dictionary[StringName, bool]({
+&"done_confrontation": false,
+&"talked_after_most_crystals": false,
+&"talked_to_conny": false
+})
+flag_int = Dictionary[StringName, int]({
+&"crystal_count": 0
+})
+flag_float = Dictionary[StringName, float]({})
+metadata/_custom_type_script = "uid://dvyopf8bdl4k5"

@@ -1,19 +1,28 @@
 extends Node2D
 
-var Level4Data := DataManager.Level4
 var died := false
 
+const Screen := preload("res://scripts/screens/gui/gui.gd")
+const InstructionBox := preload("res://scripts/screens/instruction_box.gd")
+
+@export var level_resource: LevelResource = GameStateManager.levels.get("Jupiter")
+
+@onready var instruction_box: InstructionBox = $CanvasLayer/InstructionBox
+@onready var current_level_data: LevelResource = GameStateManager.current_level
+
 func _ready() -> void:
+	GameStateManager.start_level(level_resource.level_id, level_resource)
+	
 	Music.change_db(0)
 	Music.play_music("res://audio/music/level_4.mp3")
 	DataManager.intro_done = false
 	GoalManager.go_to_next_goal(9)
 	
 	OxygenManager.oxygen_depleted.connect(
-		func():
+		func() -> void:
 			if (not died):
 				died = true
-				SceneManager.fail_game(
+				GameStateManager.fail_game(
 					func() -> void:
 						InventoryManager._clear_inventory()
 						OxygenManager.reset_timer()
@@ -23,25 +32,30 @@ func _ready() -> void:
 	
 	DataManager.Level4_has_done_confrontation.connect(
 		func() -> void:
-			var minigame = preload("res://scenes/levels/level_4_minigame/minigame.tscn") as PackedScene
-			var minigame_node = minigame.instantiate()
+			const Level4Minigame := preload("res://scenes/levels/level_4_minigame/minigame.gd")
+			var minigame := preload("res://scenes/levels/level_4_minigame/minigame.tscn") as PackedScene
+			var minigame_node: Level4Minigame = minigame.instantiate()
 			
 			add_child(minigame_node)
 			minigame_node.on_dismiss.connect(
 				func():
 					_show_dialoague_box("ending")
 					await DialogueManager.dialogue_ended
-					DataManager.current_cutscene = preload("res://cutscenes/data/level_4_end.tres")
+					if (current_level_data.finished_level):
+						return
+					GameStateManager.complete_level()
+					GameStateManager.current_cutscene = preload("res://cutscenes/data/level_4_end.tres")
 					SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")
 			)
 	)
 	
-	$CanvasLayer/InstructionBox.connect(
-		"instruction_box_dismissed",
+	instruction_box.instruction_box_dismissed.connect(
 		func() -> void:
 			if (!DataManager.intro_done):
 				DataManager.intro_done = true
 				_show_dialoague_box("intro")
+				await DialogueManager.dialogue_ended
+				DatabaseManager.unlock_item_by_name("Jupiter")
 	)
 	
 	for spike in \
@@ -51,18 +65,18 @@ func _ready() -> void:
 		($Tilemap/Decorations/Large/Type2.get_children() as Array[Spike]):
 		spike.player_hit.connect(
 			func() -> void:
-				print("yes")
-				($CanvasLayer/Screen as GUI).take_damage()
+				($CanvasLayer/Screen as Screen).take_damage()
 		)
 	
-	%Shards.visible = false
+	%Shards.process_mode = Node.PROCESS_MODE_DISABLED
+	%Shards.hide()
 	
-	DataManager.show_instruction_box = true
+	instruction_box.show_instruction_box()
 
 func _on_conny_body_entered(body: Node2D) -> void:
-	if (Level4Data.talked_to_conny):
-		if (Level4Data.crystal_count == 4):
-			if (Level4Data.talked_after_most_crystals):
+	if (current_level_data.flag_bool[&"talked_to_conny"]):
+		if (current_level_data.flag_int[&"crystal_count"] == 4):
+			if (current_level_data.flag_bool[&"talked_after_most_crystals"]):
 				_show_dialoague_box("uncertain")
 			else:
 				_show_dialoague_box("discussion")
@@ -71,7 +85,9 @@ func _on_conny_body_entered(body: Node2D) -> void:
 	else:
 		_show_dialoague_box("initial_talk")
 		await DialogueManager.dialogue_ended
-		%Shards.visible = true
+		%Shards.process_mode = Node.PROCESS_MODE_INHERIT
+		%Shards.show()
+		DatabaseManager.unlock_item_by_name("Sailor Conn")
 		GoalManager.go_to_next_goal(10)
 
 

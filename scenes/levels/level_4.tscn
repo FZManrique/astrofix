@@ -1,9 +1,10 @@
-[gd_scene load_steps=79 format=4 uid="uid://m5xs273wksx8"]
+[gd_scene load_steps=83 format=4 uid="uid://m5xs273wksx8"]
 
 [ext_resource type="Script" uid="uid://bycggkorp5an3" path="res://scripts/levels/level_4.gd" id="1_um320"]
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="1_w6h2s"]
 [ext_resource type="PackedScene" uid="uid://bap63ec07gtue" path="res://scenes/screens/instruction_box.tscn" id="2_ogj6a"]
 [ext_resource type="Texture2D" uid="uid://ceno8j51cpa02" path="res://art/level_4/decorations/small_sand_particle.png" id="2_r3huh"]
+[ext_resource type="Resource" uid="uid://2byx825ikkp2" path="res://level_data/level_4.tres" id="2_uyomx"]
 [ext_resource type="Texture2D" uid="uid://c1kgcf4jvy0t6" path="res://art/tilesets/level4_mountains.png" id="3_anwe6"]
 [ext_resource type="Script" uid="uid://eqwbkfk2doox" path="res://scenes/levels/level_4_minigame/map.gd" id="4_1bx01"]
 [ext_resource type="PackedScene" uid="uid://1pmipojgsf0m" path="res://scenes/characters/player.tscn" id="4_ogj6a"]
@@ -25,6 +26,9 @@
 [ext_resource type="Texture2D" uid="uid://cr7dft7o6om62" path="res://art/level_4/tower.png" id="15_ov8fk"]
 [ext_resource type="Texture2D" uid="uid://bundghtnjyxpe" path="res://art/objects/spaceship_broken.png" id="21_0n65g"]
 [ext_resource type="Texture2D" uid="uid://c3miqrd4edhfc" path="res://art/characters/sailor conn/idle_animation.png" id="23_lc5pf"]
+[ext_resource type="PackedScene" uid="uid://dsykptwbsbrbh" path="res://scenes/objects/souvenir.tscn" id="27_8hw10"]
+[ext_resource type="Texture2D" uid="uid://co6rdpvuqk7mv" path="res://art/souvenirs/small/concon.png" id="28_1s8bw"]
+[ext_resource type="Resource" uid="uid://bptmql1tfakjd" path="res://database/resources/pop_album.tres" id="29_seltb"]
 
 [sub_resource type="Gradient" id="Gradient_8hw10"]
 offsets = PackedFloat32Array(0.39011, 0.598901)
@@ -510,6 +514,7 @@ animations = [{
 
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_um320")
+level_resource = ExtResource("2_uyomx")
 metadata/_edit_vertical_guides_ = [2231.0, 127.0]
 metadata/_edit_horizontal_guides_ = [64.0, 1760.0]
 
@@ -531,7 +536,8 @@ lifetime = 10.0
 preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_1s8bw")
 
-[node name="Screen" parent="CanvasLayer" node_paths=PackedStringArray("player_node") instance=ExtResource("1_w6h2s")]
+[node name="Screen" parent="CanvasLayer" node_paths=PackedStringArray("instruction_box_node", "player_node") instance=ExtResource("1_w6h2s")]
+instruction_box_node = NodePath("../InstructionBox")
 player_node = NodePath("../../Characters/Player")
 
 [node name="InstructionBox" parent="CanvasLayer" instance=ExtResource("2_ogj6a")]
@@ -540,7 +546,6 @@ title = "Level 4 Objectives"
 objectives = "Complete all the shards"
 
 [node name="ImTheMap" type="CanvasLayer" parent="."]
-process_mode = 3
 visible = false
 script = ExtResource("4_1bx01")
 
@@ -1089,6 +1094,11 @@ texture = ExtResource("15_ov8fk")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Characters/StaticBody2D"]
 position = Vector2(-1101, -573)
 polygon = PackedVector2Array(1106, 669, 1145, 671, 1158, 668, 1155, 644, 1147, 627, 1137, 613, 1130, 594, 1131, 568, 1129, 544, 1137, 526, 1142, 511, 1145, 493, 1146, 481, 1129, 479, 1109, 473, 1079, 473, 1068, 476, 1059, 477, 1049, 480, 1051, 494, 1052, 504, 1058, 511, 1061, 525, 1065, 541, 1068, 552, 1073, 566, 1075, 582, 1075, 602, 1070, 613, 1055, 620, 1051, 631, 1047, 640, 1047, 647, 1046, 660, 1063, 668, 1081, 670)
+
+[node name="Souvenir" parent="Characters" instance=ExtResource("27_8hw10")]
+position = Vector2(2052, 133)
+image = ExtResource("28_1s8bw")
+database_item = ExtResource("29_seltb")
 
 [node name="LargeSpike2" parent="." instance=ExtResource("13_lc5pf")]
 position = Vector2(944, 655)

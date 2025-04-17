@@ -5,7 +5,7 @@ var unlocked_items: Dictionary[String, bool] = {}
 
 const SAVE_PATH := "user://database_unlocks.cfg"
 
-signal item_unlocked(item_name)
+signal item_unlocked(item_name: String)
 
 
 #region Persisting
@@ -24,6 +24,11 @@ func load_unlocks():
 
 	for path in unlocked_items.keys():
 		unlocked_items[path] = cfg.get_value("unlocks", path, false)
+
+func delete_all_data():
+	DirAccess.remove_absolute(SAVE_PATH)
+	load_database_items("res://database/resources")
+	load_unlocks()
 #endregion
 
 
@@ -36,6 +41,14 @@ func _ready():
 			print(item)
 	)
 
+signal navigate_to(item: DatabaseItem)
+
+func navigate_to_entry(name: String) -> bool:
+	for item in items:
+		if item.name == name:
+			navigate_to.emit(item)
+			return true
+	return false
 
 func load_database_items(path: String) -> void:
 	var dir := DirAccess.open(path)
@@ -65,13 +78,14 @@ func set_unlocked(path: String, state: bool) -> void:
 func unlock_item_by_name(item_name: String):
 	for item in items:
 		if item.name == item_name:
+			if (unlocked_items[item.resource_path]): return
 			unlocked_items[item.resource_path] = true
 			save_unlocks()
 			item_unlocked.emit(item_name)
 
-
 func unlock_item_by_path(path: String):
 	if unlocked_items.has(path):
+		if (unlocked_items[path]): return
 		unlocked_items[path] = true
 		save_unlocks()
 		item_unlocked.emit((load(path) as DatabaseItem).name)

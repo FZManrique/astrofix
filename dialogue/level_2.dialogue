@@ -41,12 +41,12 @@ Franzen Albert II: [[What's up?|Hello again.|Need anything?]]
 ~ many_collected
 Player: There's so much fuel here! I guess I can collect some, but this is enough to visit several planets!
 Player: I should return back to the ship to refuel it.
-set DataManager.Level2.fuel_collected = true
-set DataManager.Level2.many_fuel_collected = true
+set GameStateManager.current_level.flag_bool[&"fuel_collected"] = true
+set GameStateManager.current_level.flag_bool[&"many_fuel_collected"] = true
 => END!
 
 ~ collected
-set DataManager.Level2.fuel_collected = true
+set GameStateManager.current_level.flag_bool[&"fuel_collected"] = true
 Player: This much fuel seems to be good enough, I guess.
 => END!
 
@@ -55,7 +55,7 @@ Player: I can't leave this planet without fuel!
 => END!
 
 ~ on_enter
-if DataManager.Level2.many_fuel_collected
+if GameStateManager.current_level.flag_bool[&"many_fuel_collected"]
 	Player: Thanks, Franzen. Or should I call you Albert?
 	Franzen Albert II: Just Franzen is fine. Safe travels, my friend.
 	do InventoryManager.remove_item_from_inventory("fuel", 10)

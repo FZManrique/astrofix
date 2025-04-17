@@ -12,6 +12,10 @@ const TIMER_INCREASE := 10
 var time_limit := 180
 
 func _ready() -> void:
+	GameStateManager.pause_oxygen = true
+	GameStateManager.in_minigame = true
+	DatabaseManager.unlock_item_by_name("Daniella Mondragon")
+	
 	DataManager.Level5.in_minigame = true
 	Music.play_music("uid://bbv74260pto35")
 	start_timer()
@@ -42,11 +46,13 @@ func _ready() -> void:
 	
 	%PlayGame.pressed.connect(
 		func() -> void:
-			get_tree().paused = false
+			GameStateManager.remove_pause_reason(GameStateManager.PauseType.SYSTEM, "level_5_minigame_1")
+			PauseManager.remove_whitelist(%Instructions)
 			%Instructions.queue_free()
 	)
 	
-	get_tree().paused = true
+	GameStateManager.add_pause_reason(GameStateManager.PauseType.SYSTEM, "level_5_minigame_1")
+	PauseManager.add_whitelist(%Instructions)
 	
 func start_timer() -> void:
 	var timer := Timer.new()
@@ -62,7 +68,7 @@ func start_timer() -> void:
 	timer.start()
 
 func game_over() -> void:
-	SceneManager.fail_game(
+	GameStateManager.fail_game(
 		func() -> void:
 			SceneManager.goto_scene("res://scenes/levels/level_5_minigames/minigame_1/minigame_1.tscn")
 	)

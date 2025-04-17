@@ -43,8 +43,8 @@ func _physics_process(delta: float):
 		speed = lerp(speed, target_speed, DECELERATION_SPEED * delta)
 
 	var movement := (speed * direction * delta) as Vector2
-
-	if (not SceneManager.is_dialogue_shown):
+	
+	if not (GameStateManager.in_dialogue or GameStateManager.in_cutscene):
 		if (direction != Vector2.ZERO):
 			isMoving = true
 			move_and_collide(movement)
@@ -52,4 +52,3 @@ func _physics_process(delta: float):
 			isMoving = false
 	else:
 		isMoving = false
-		

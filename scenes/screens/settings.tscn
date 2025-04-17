@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://blw2il8y53057"]
+[gd_scene load_steps=4 format=3 uid="uid://blw2il8y53057"]
 
 [ext_resource type="Script" uid="uid://dk0kpdskrbiqc" path="res://scripts/screens/settings_menu.gd" id="2_rjp4b"]
 [ext_resource type="StyleBox" uid="uid://bgem320qp5isa" path="res://scenes/themes/generic_background.tres" id="3_biyh6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jljg7"]
+font_color = Color(0.384314, 0.635294, 0.92549, 1)
 
 [node name="Settings" type="Control"]
 process_mode = 3
@@ -44,6 +47,11 @@ theme_override_styles/panel = ExtResource("3_biyh6")
 layout_mode = 2
 size_flags_vertical = 4
 
+[node name="Label" type="Label" parent="Panel/SettingsList"]
+layout_mode = 2
+text = "Sounds"
+label_settings = SubResource("LabelSettings_jljg7")
+
 [node name="Sliders" type="GridContainer" parent="Panel/SettingsList"]
 layout_mode = 2
 columns = 2
@@ -82,9 +90,42 @@ size_flags_vertical = 1
 step = 10.0
 value = 100.0
 
+[node name="Separator2" type="BoxContainer" parent="Panel/SettingsList"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/SettingsList/Separator2"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+color = Color(0.426087, 0.426087, 0.426087, 1)
+
+[node name="Label2" type="Label" parent="Panel/SettingsList"]
+layout_mode = 2
+text = "Display"
+label_settings = SubResource("LabelSettings_jljg7")
+
 [node name="CheckButton" type="CheckButton" parent="Panel/SettingsList"]
 layout_mode = 2
 text = "Full screen"
+
+[node name="Separator" type="BoxContainer" parent="Panel/SettingsList"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/SettingsList/Separator"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+color = Color(0.426087, 0.426087, 0.426087, 1)
+
+[node name="ResetAllData" type="Button" parent="Panel/SettingsList"]
+layout_mode = 2
+text = "Reset all data"
+flat = true
+alignment = 0
 
 [node name="Back" type="Button" parent="Panel/SettingsList"]
 layout_mode = 2
@@ -97,4 +138,5 @@ text = "Back
 [connection signal="value_changed" from="Panel/SettingsList/Sliders/MusicSlider" to="." method="_on_music_slider_changed"]
 [connection signal="value_changed" from="Panel/SettingsList/Sliders/SfxSlider" to="." method="_on_sfx_slider_changed"]
 [connection signal="toggled" from="Panel/SettingsList/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="Panel/SettingsList/ResetAllData" to="." method="_on_reset_all_data_pressed"]
 [connection signal="pressed" from="Panel/SettingsList/Back" to="." method="_on_back_pressed"]

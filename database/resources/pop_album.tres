@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DatabaseItem" load_steps=3 format=3 uid="uid://bptmql1tfakjd"]
+
+[ext_resource type="Texture2D" uid="uid://dn2xb4ibw4tp3" path="res://art/souvenirs/chloe.png" id="1_v67mc"]
+[ext_resource type="Script" uid="uid://ehnjo4neb22t" path="res://database/resources/database_item.gd" id="2_5goqw"]
+
+[resource]
+script = ExtResource("2_5goqw")
+unlocked = false
+category = 3
+order = 2
+image = ExtResource("1_v67mc")
+name = &"Limited Pop Album"
+description = "A rare album from Saturn’s #1 pop diva. Play it loud enough and aliens might show up to dance.
+"
+metadata/_custom_type_script = "uid://ehnjo4neb22t"

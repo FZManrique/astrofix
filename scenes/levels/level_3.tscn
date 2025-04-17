@@ -1,8 +1,9 @@
-[gd_scene load_steps=39 format=4 uid="uid://d22pvjq2mopa8"]
+[gd_scene load_steps=40 format=4 uid="uid://d22pvjq2mopa8"]
 
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="1_0ljxa"]
 [ext_resource type="Script" uid="uid://kir7hbl2qhq6" path="res://scripts/levels/level_3.gd" id="1_ugcn1"]
 [ext_resource type="Texture2D" uid="uid://cmpus6i72b6lr" path="res://art/tilesets/level3/mountain.png" id="2_0qepi"]
+[ext_resource type="Resource" uid="uid://0djlq272gskc" path="res://level_data/level_3.tres" id="2_vmg1d"]
 [ext_resource type="PackedScene" uid="uid://bap63ec07gtue" path="res://scenes/screens/instruction_box.tscn" id="3_f6egh"]
 [ext_resource type="Texture2D" uid="uid://d0s1onlsli42" path="res://art/tilesets/level3/ground.png" id="3_fmg3e"]
 [ext_resource type="Texture2D" uid="uid://ditvo0nhlkjpf" path="res://art/tilesets/level3/asteroid.png" id="4_fkk1g"]
@@ -479,6 +480,7 @@ radius = 8.2
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_ugcn1")
+level_resource = ExtResource("2_vmg1d")
 metadata/_edit_vertical_guides_ = [416.0, 930.0]
 metadata/_edit_horizontal_guides_ = [184.0, 480.0]
 

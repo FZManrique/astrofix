@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_mr2rr")
-unlocked = true
+unlocked = false
 category = 1
 order = 1
 image = ExtResource("1_a7i2n")

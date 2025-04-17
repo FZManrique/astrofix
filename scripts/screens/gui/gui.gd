@@ -1,10 +1,12 @@
-class_name GUI
 extends Control
+
+const InstructionBox := preload("res://scripts/screens/instruction_box.gd")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var help_button: Button = $Statistics/HelpContainer/HelpButton
 @onready var sub_viewport: SubViewport = %SubViewport
 
+@export var instruction_box_node: InstructionBox
 @export var camera_node: Node2D
 @export var player_node: Node2D
 
@@ -17,7 +19,7 @@ func _ready() -> void:
 	sub_viewport.world_2d = get_tree().root.world_2d
 	help_button.pressed.connect(
 		func() -> void:
-			DataManager.show_instruction_box = true
+			instruction_box_node.show_instruction_box()
 	)
 
 func _process(_delta: float) -> void:

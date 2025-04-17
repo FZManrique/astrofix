@@ -60,7 +60,7 @@ func _ready() -> void:
 	)
 	no_player_health.connect(
 		func() -> void:
-			SceneManager.fail_game(
+			GameStateManager.fail_game(
 				func() -> void:
 					SceneManager.goto_scene("res://scenes/levels/level_5_minigames/minigame_2/minigame_2.tscn")
 			)

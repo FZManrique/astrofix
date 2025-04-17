@@ -1,12 +1,16 @@
 extends Control
 
+signal database_shown
+signal database_hidden
+
 @onready var characters_list: VBoxContainer = %CharactersList
 @onready var planets_list: VBoxContainer = %PlanetsList
 @onready var objects_list: VBoxContainer = %ObjectsList
+@onready var souvenirs_list: VBoxContainer = %SouvenirsList
 @onready var image: TextureRect = %Image
 @onready var label: Label = %Label
 @onready var description: Label = %Description
-@onready var debug_unlock_panel: VBoxContainer = $PanelContainer/VBoxContainer/MainArea/ScrollContainer/List/DebugUnlock
+@onready var debug_unlock_panel: VBoxContainer = %DebugUnlock
 
 var manager := DatabaseManager
 var selected_item: DatabaseItem
@@ -18,8 +22,16 @@ func _input(event):
 
 func _ready() -> void:
 	await get_tree().process_frame
+	database_shown.emit()
+
 	_generate_ui()
 	_clear_display()
+	
+	DatabaseManager.navigate_to.connect(
+		func(item: DatabaseItem) -> void:
+			var is_unlocked = manager.unlocked_items.get(item.resource_path, false)
+			_show_item(item, is_unlocked)
+	)
 #endregion
 
 func _generate_ui() -> void:
@@ -51,6 +63,8 @@ func _generate_ui() -> void:
 				planets_list.add_child(button)
 			DatabaseItem.CATEGORIES.OBJECTS:
 				objects_list.add_child(button)
+			DatabaseItem.CATEGORIES.SOUVENIRS:
+				souvenirs_list.add_child(button)
 		
 		var toggle := CheckBox.new()
 		toggle.text = item.name
@@ -62,7 +76,7 @@ func _generate_ui() -> void:
 		debug_unlock_panel.add_child(toggle)
 
 func _reload_ui() -> void:
-	var lists = [characters_list, planets_list, objects_list, debug_unlock_panel]
+	var lists = [characters_list, planets_list, objects_list, souvenirs_list, debug_unlock_panel]
 	for item in lists:
 		delete_all_children(item)
 
@@ -97,6 +111,8 @@ func _apply_image_style(category: DatabaseItem.CATEGORIES):
 		DatabaseItem.CATEGORIES.PLANETS:
 			pass
 		DatabaseItem.CATEGORIES.CHARACTERS:
+			pass
+		_:
 			pass
 
 

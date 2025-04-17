@@ -4,7 +4,7 @@ AI: Warning: Oxygen supply low.
 => END!
 
 ~ initial_talk
-set DataManager.Level4.talked_to_conny = true
+set GameStateManager.current_level.flag_bool[&"talked_to_conny"] = true
 Sailor Conn: Greetings, human. That crystal tower? It's broken. Its shards are scattered around the moon, but I’m sure you’ll manage to find them.
 Sailor Conn: By the way, I’m Sailor Conn, protector of Jupiter. It’s rare to see visitors here.
 Sailor Conn: Here's a map by the way. You can press "M" to open it. It could be useful.
@@ -34,7 +34,7 @@ Player: I guess that's all the shards. Better go back.
 => END!
 
 ~ discussion
-set DataManager.Level4.talked_after_most_crystals = true
+set GameStateManager.current_level.flag_bool[&"talked_after_most_crystals"] = true
 Player: Strange... why hasn’t she left? Is she waiting for me?
 AI: Error: Shard pieces are incomplete.
 Sailor Conn: [#emotion=confused] Is something wrong?
@@ -56,7 +56,8 @@ Sailor Conn: Of course! Why would you doubt me?
 => END!
 
 ~ argument
-set DataManager.Level4.done_confrontation = true
+
+set GameStateManager.current_level.flag_bool[&"done_confrontation"] = true
 Player: Are you hiding something from me, Con?
 Sailor Conn: [#emotion=angry] Fine... I do have the last shard.
 Sailor Conn: As Jupiter's guardian, I hold deep resentment for Saturn. They say Jupiter was meant to be a star... a second sun. But Saturn’s pull?

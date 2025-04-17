@@ -8,13 +8,14 @@ extends Control
 
 
 func _ready() -> void:
+	GameStateManager.is_main_menu = true
 	$AnimationPlayer.play("vignette")
 	Music.play_music("res://audio/music/main_menu.wav")
 
 
 func _on_start_pressed() -> void:
-	DataManager.current_cutscene = preload("res://cutscenes/data/level_1.tres")
-	SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")
+	GameStateManager.is_main_menu = false
+	SceneManager.goto_scene("res://scenes/screens/level_select/level_select_screen.tscn")
 
 
 func _on_settings_pressed() -> void:
@@ -34,4 +35,4 @@ func _on_back_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
-	SceneManager.quit_game()
+	GameStateManager.quit_game()

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Level2Resource" load_steps=2 format=3 uid="uid://dn8gna5mefyq4"]
+
+[ext_resource type="Script" uid="uid://cgnym7ixhhhps" path="res://level_data/level_2_resource.gd" id="1_byrs4"]
+
+[resource]
+script = ExtResource("1_byrs4")
+wind_push = false
+wind_speed = 100
+wind_direction = 0
+level_id = "Uranus"
+description = "Known for intense winds and chaotic storms due to its sideways rotation."
+finished_level = false
+flag_bool = Dictionary[StringName, bool]({
+&"audio_playing": false,
+&"fuel_collected": false,
+&"has_fixed_spacesuit": false,
+&"in_starting_area": false,
+&"many_fuel_collected": false
+})
+flag_int = Dictionary[StringName, int]({})
+flag_float = Dictionary[StringName, float]({})
+metadata/_custom_type_script = "uid://dvyopf8bdl4k5"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="LevelResource" load_steps=2 format=3 uid="uid://gpjoscgikx6h"]
+
+[ext_resource type="Script" uid="uid://dvyopf8bdl4k5" path="res://level_data/level_resource.gd" id="1_be6ws"]
+
+[resource]
+script = ExtResource("1_be6ws")
+level_id = "Mars"
+description = "A hot, desert-like planet with maze-like landscapes."
+finished_level = false
+flag_bool = Dictionary[StringName, bool]({
+&"minigame_1_complete": false,
+&"minigame_2_complete": false
+})
+flag_int = Dictionary[StringName, int]({})
+flag_float = Dictionary[StringName, float]({})
+metadata/_custom_type_script = "uid://dvyopf8bdl4k5"

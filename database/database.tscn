@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0l5psbussjwh"]
+[gd_scene load_steps=10 format=3 uid="uid://b0l5psbussjwh"]
 
 [ext_resource type="Script" uid="uid://yd1tr2p0gd68" path="res://database/database.gd" id="1_20me0"]
 
@@ -18,9 +18,6 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
-
-[sub_resource type="LabelSettings" id="LabelSettings_kjvpd"]
-font_size = 24
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20me0"]
 content_margin_left = 8.0
@@ -74,103 +71,102 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_20me0")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0.0313726, 0.705882)
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.05
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kjvpd")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.384314, 0.635294, 0.92549, 1)
-text = "Database"
-label_settings = SubResource("LabelSettings_kjvpd")
-horizontal_alignment = 1
-
-[node name="MainArea" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="MainArea" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/MainArea"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_20me0")
 
-[node name="List" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer"]
+[node name="List" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="CharactersLabel" type="Label" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+[node name="CharactersLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
 layout_mode = 2
 text = "Characters"
 label_settings = SubResource("LabelSettings_20me0")
 
-[node name="CharactersList" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+[node name="CharactersList" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PlanetsLabel" type="Label" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+[node name="PlanetsLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
 layout_mode = 2
 text = "Planets"
 label_settings = SubResource("LabelSettings_8x7pb")
 
-[node name="PlanetsList" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+[node name="PlanetsList" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ObjectsLabel" type="Label" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+[node name="ObjectsLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
 layout_mode = 2
 text = "Objects"
 label_settings = SubResource("LabelSettings_8x7pb")
 
-[node name="ObjectsList" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+[node name="ObjectsList" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="DebugUnlock" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+[node name="SouvenirsLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+layout_mode = 2
+text = "Souvenirs"
+label_settings = SubResource("LabelSettings_8x7pb")
+
+[node name="SouvenirsList" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DebugUnlock" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea/ScrollContainer/List"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Details" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MainArea"]
+[node name="Details" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_stretch_ratio = 4.0
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/MainArea/Details"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea/Details"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kp86k")
 
-[node name="Glow" type="TextureRect" parent="PanelContainer/VBoxContainer/MainArea/Details/PanelContainer"]
+[node name="Glow" type="TextureRect" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea/Details/PanelContainer"]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_20me0")
 
-[node name="Image" type="TextureRect" parent="PanelContainer/VBoxContainer/MainArea/Details/PanelContainer"]
+[node name="Image" type="TextureRect" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea/Details/PanelContainer"]
 unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(640, 360)
 layout_mode = 2
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MainArea/Details"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea/Details"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(640, 0)
 layout_mode = 2
@@ -178,7 +174,7 @@ theme_override_colors/font_color = Color(0.384314, 0.635294, 0.92549, 1)
 text = "Select an item to show info"
 autowrap_mode = 2
 
-[node name="Description" type="Label" parent="PanelContainer/VBoxContainer/MainArea/Details"]
+[node name="Description" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MainArea/Details"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(640, 0)
 layout_mode = 2

@@ -1,0 +1,136 @@
+[gd_scene load_steps=16 format=3 uid="uid://pl00ylhepvep"]
+
+[ext_resource type="Script" uid="uid://dfughumw5blnb" path="res://scripts/screens/level_select/level_select_screen.gd" id="1_81rh8"]
+[ext_resource type="Texture2D" uid="uid://b6i4ase0dfag4" path="res://art/logos/background_art.jpg" id="1_yidcl"]
+[ext_resource type="StyleBox" uid="uid://bmr55w3iso0py" path="res://scenes/themes/primary_button/disabled.tres" id="2_81rh8"]
+[ext_resource type="Script" uid="uid://dvyopf8bdl4k5" path="res://level_data/level_resource.gd" id="2_85dlb"]
+[ext_resource type="StyleBox" uid="uid://6c83sd67pdmm" path="res://scenes/themes/primary_button/hover.tres" id="3_6dkoi"]
+[ext_resource type="Resource" uid="uid://dss7a5avm4q0m" path="res://level_data/level_1.tres" id="3_h2e58"]
+[ext_resource type="StyleBox" uid="uid://b14u2slr52yhy" path="res://scenes/themes/primary_button/pressed.tres" id="4_1jg7y"]
+[ext_resource type="Resource" uid="uid://dn8gna5mefyq4" path="res://level_data/level_2.tres" id="4_un10s"]
+[ext_resource type="StyleBox" uid="uid://bbhebmlcvy20" path="res://scenes/themes/primary_button/normal.tres" id="5_1wfft"]
+[ext_resource type="Resource" uid="uid://0djlq272gskc" path="res://level_data/level_3.tres" id="5_tys3r"]
+[ext_resource type="Resource" uid="uid://2byx825ikkp2" path="res://level_data/level_4.tres" id="6_mt053"]
+[ext_resource type="Texture2D" uid="uid://opgv0v2w0d80" path="res://art/database_icon.png" id="7_6dkoi"]
+[ext_resource type="Resource" uid="uid://gpjoscgikx6h" path="res://level_data/level_5.tres" id="7_mvqlt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7khc8"]
+font_size = 18
+font_color = Color(0.384314, 0.635294, 0.92549, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_a376o"]
+size = Vector2(24, 24)
+
+[node name="Control" type="Control"]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_81rh8")
+all_levels = Array[ExtResource("2_85dlb")]([ExtResource("3_h2e58"), ExtResource("4_un10s"), ExtResource("5_tys3r"), ExtResource("6_mt053"), ExtResource("7_mvqlt")])
+metadata/_edit_horizontal_guides_ = [-93.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yidcl")
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.00695652, 0.02, 0.737255)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopNavigation" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TopNavigationContent" type="HBoxContainer" parent="VBoxContainer/TopNavigation"]
+layout_mode = 2
+
+[node name="MainMenu" type="Button" parent="VBoxContainer/TopNavigation/TopNavigationContent"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/disabled = ExtResource("2_81rh8")
+theme_override_styles/hover = ExtResource("3_6dkoi")
+theme_override_styles/pressed = ExtResource("4_1jg7y")
+theme_override_styles/normal = ExtResource("5_1wfft")
+toggle_mode = true
+text = "Main Menu"
+
+[node name="SelectLevel" type="Button" parent="VBoxContainer/TopNavigation/TopNavigationContent"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/disabled = ExtResource("2_81rh8")
+theme_override_styles/hover = ExtResource("3_6dkoi")
+theme_override_styles/pressed = ExtResource("4_1jg7y")
+theme_override_styles/normal = ExtResource("5_1wfft")
+toggle_mode = true
+text = "Level Select"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TopNavigation/TopNavigationContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="VBoxContainer/TopNavigation/TopNavigationContent/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Choose a level"
+label_settings = SubResource("LabelSettings_7khc8")
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="VBoxContainer/TopNavigation/TopNavigationContent/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1 of 5 levels complete"
+horizontal_alignment = 1
+
+[node name="Collectibles" type="Button" parent="VBoxContainer/TopNavigation/TopNavigationContent"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/disabled = ExtResource("2_81rh8")
+theme_override_styles/hover = ExtResource("3_6dkoi")
+theme_override_styles/pressed = ExtResource("4_1jg7y")
+theme_override_styles/normal = ExtResource("5_1wfft")
+toggle_mode = true
+text = "Collectibles"
+icon = SubResource("PlaceholderTexture2D_a376o")
+
+[node name="Database" type="Button" parent="VBoxContainer/TopNavigation/TopNavigationContent"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/disabled = ExtResource("2_81rh8")
+theme_override_styles/hover = ExtResource("3_6dkoi")
+theme_override_styles/pressed = ExtResource("4_1jg7y")
+theme_override_styles/normal = ExtResource("5_1wfft")
+toggle_mode = true
+text = "Database"
+icon = ExtResource("7_6dkoi")
+
+[node name="DetailContent" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3

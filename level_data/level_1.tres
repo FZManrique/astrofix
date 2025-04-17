@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="LevelResource" load_steps=2 format=3 uid="uid://dss7a5avm4q0m"]
+
+[ext_resource type="Script" uid="uid://dvyopf8bdl4k5" path="res://level_data/level_resource.gd" id="1_ks3tb"]
+
+[resource]
+script = ExtResource("1_ks3tb")
+level_id = "Neptune"
+description = "A frozen world with icy, slippery terrain and a mysterious deep blue atmosphere."
+finished_level = false
+flag_bool = Dictionary[StringName, bool]({
+&"has_fuel": false,
+&"has_hit_spikes": false,
+&"has_key": false,
+&"should_move_william_to_ship": false,
+&"william_moved_to_ship": false
+})
+flag_int = Dictionary[StringName, int]({})
+flag_float = Dictionary[StringName, float]({})
+metadata/_custom_type_script = "uid://dvyopf8bdl4k5"

@@ -17,7 +17,7 @@ func wait_for_physics() -> void:
 	set_physics_process(true)
 
 func _physics_process(delta: float) -> void:
-	if (SceneManager.is_dialogue_shown):
+	if (GameStateManager.in_dialogue):
 		return
 	
 	if (

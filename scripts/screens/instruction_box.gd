@@ -2,33 +2,44 @@ extends Control
 
 signal instruction_box_dismissed
 
-var allow_unpause: bool = false
 @export var title: String = "Level Objectives"
 @export var objectives: String = "Content in here"
 
+@onready var title_label := %Title
+@onready var objectives_label := %Objectives
+@onready var anim := %AnimationPlayer
+@onready var notifier := $VisibleOnScreenNotifier2D
+
+var allow_dismiss := false
+
+func show_instruction_box() -> void:
+	if not get_tree().paused:
+		allow_dismiss = false
+		GameStateManager.add_pause_reason(GameStateManager.PauseType.SYSTEM, "instruction_box")
+		PauseManager.add_whitelist(self)
+
+		show()
+		await notifier.screen_entered
+		allow_dismiss = true
+		anim.play("fade_in")
+		title_label.text = title
+		objectives_label.text = objectives
+
 func _ready() -> void:
-	SceneManager.on_game_paused.connect(
-		func() -> void:
-			if (DataManager.show_instruction_box):
-				show()
-	)
-	%Title.text = title
-	%Objectives.text = objectives
+	title_label.text = title
+	objectives_label.text = objectives
+
+	hide()
 
 func _on_button_pressed() -> void:
-	%AnimationPlayer.play("fade_out")
-
-#func _process(_delta: float) -> void:
-	#if (Input.is_action_just_pressed("ui_accept") && allow_unpause):
-		#allow_unpause = false
-		#%AnimationPlayer.play("fade_out")
+	if allow_dismiss:
+		anim.play("fade_out")
+		await get_tree().create_timer(0.3).timeout
+		_unpause_game()
 
 func _unpause_game() -> void:
-	get_tree().paused = false
+	GameStateManager.remove_pause_reason(GameStateManager.PauseType.SYSTEM, "instruction_box")
+	PauseManager.remove_whitelist(self)
 	instruction_box_dismissed.emit()
-	DataManager.show_instruction_box = false
 	hide()
-	%AnimationPlayer.play("RESET")
-
-func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	allow_unpause = true
+	anim.play("RESET")

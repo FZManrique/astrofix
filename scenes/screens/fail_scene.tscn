@@ -15,7 +15,7 @@ expand_margin_right = 16.0
 expand_margin_bottom = 16.0
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1tln"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qit8x"]
 content_margin_left = 4.0
 content_margin_right = 4.0
 bg_color = Color(0.0078, 0.0587167, 0.13, 0.654902)
@@ -30,7 +30,7 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0dds"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8j1gj"]
 content_margin_left = 4.0
 content_margin_right = 4.0
 bg_color = Color(0.0132, 0.0993667, 0.22, 0.776471)
@@ -45,7 +45,7 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sprl7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtgrx"]
 content_margin_left = 4.0
 content_margin_right = 4.0
 bg_color = Color(0.00784314, 0.0588235, 0.129412, 0.392157)
@@ -83,7 +83,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.06, 0, 0, 0.666667)
 
-[node name="VBoxContainer" type="PanelContainer" parent="FailBox/ColorRect"]
+[node name="PanelContainer" type="PanelContainer" parent="FailBox/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -98,11 +98,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_68dnm")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="FailBox/ColorRect/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="FailBox/ColorRect/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Title" type="Label" parent="FailBox/ColorRect/VBoxContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="FailBox/ColorRect/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.439216, 0.439216, 1)
@@ -110,19 +110,19 @@ theme_override_font_sizes/font_size = 24
 text = "You died!"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="FailBox/ColorRect/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="FailBox/ColorRect/PanelContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Restart" type="Button" parent="FailBox/ColorRect/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Restart" type="Button" parent="FailBox/ColorRect/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/hover = SubResource("StyleBoxFlat_i1tln")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_v0dds")
-theme_override_styles/normal = SubResource("StyleBoxFlat_sprl7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qit8x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8j1gj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wtgrx")
 text = "Restart"
 
-[node name="Exit" type="Button" parent="FailBox/ColorRect/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Exit" type="Button" parent="FailBox/ColorRect/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"FlatButton"
@@ -134,5 +134,5 @@ stream = ExtResource("3_qit8x")
 volume_db = -16.0
 bus = &"SFX"
 
-[connection signal="pressed" from="FailBox/ColorRect/VBoxContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="FailBox/ColorRect/VBoxContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="FailBox/ColorRect/PanelContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="FailBox/ColorRect/PanelContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]

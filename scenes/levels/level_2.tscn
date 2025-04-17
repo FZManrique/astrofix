@@ -1,8 +1,9 @@
-[gd_scene load_steps=76 format=4 uid="uid://585vjm100d7c"]
+[gd_scene load_steps=80 format=4 uid="uid://585vjm100d7c"]
 
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="1_6jisw"]
 [ext_resource type="Script" uid="uid://oyhe6k7grer" path="res://scripts/levels/level_2.gd" id="1_imbuc"]
 [ext_resource type="Texture2D" uid="uid://c35tg5egy433i" path="res://art/level_1/decorations/particles/Snowflake (Small).png" id="2_1yj8c"]
+[ext_resource type="Resource" uid="uid://dn8gna5mefyq4" path="res://level_data/level_2.tres" id="2_5niy6"]
 [ext_resource type="PackedScene" uid="uid://1pmipojgsf0m" path="res://scenes/characters/player.tscn" id="2_6gnbp"]
 [ext_resource type="PackedScene" uid="uid://bap63ec07gtue" path="res://scenes/screens/instruction_box.tscn" id="3_8qukl"]
 [ext_resource type="PackedScene" uid="uid://dxhb8eooelkyv" path="res://scenes/objects/spaceship.tscn" id="3_66j2d"]
@@ -22,6 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://cf5o55kwio0wb" path="res://art/level_2/decorations/big_pond_1.png" id="14_wikm6"]
 [ext_resource type="Texture2D" uid="uid://0yjmwhl1oktj" path="res://art/level_2/many_fuel.png" id="15_sbygb"]
 [ext_resource type="Texture2D" uid="uid://djgvc0yt4qeaa" path="res://art/characters/franzen albert ii/idle_animated.png" id="17_5niy6"]
+[ext_resource type="PackedScene" uid="uid://dsykptwbsbrbh" path="res://scenes/objects/souvenir.tscn" id="19_1a10c"]
+[ext_resource type="Texture2D" uid="uid://cte5hy5eulkho" path="res://art/souvenirs/small/franz.png" id="20_mx6s3"]
+[ext_resource type="Resource" uid="uid://hr3fpvdhsw21" path="res://database/resources/painting.tres" id="21_7d3nu"]
 
 [sub_resource type="Animation" id="Animation_ndlae"]
 length = 0.001
@@ -769,6 +773,7 @@ height = 96.0
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_imbuc")
+level_resource = ExtResource("2_5niy6")
 metadata/_edit_horizontal_guides_ = [1256.0]
 metadata/_edit_vertical_guides_ = [2256.0]
 
@@ -831,7 +836,8 @@ lifetime = 10.0
 preprocess = 30.0
 process_material = SubResource("ParticleProcessMaterial_5niy6")
 
-[node name="Screen" parent="CanvasLayer" node_paths=PackedStringArray("player_node") instance=ExtResource("1_6jisw")]
+[node name="Screen" parent="CanvasLayer" node_paths=PackedStringArray("instruction_box_node", "player_node") instance=ExtResource("1_6jisw")]
+instruction_box_node = NodePath("../InstructionBox")
 player_node = NodePath("../../Characters/Player")
 
 [node name="InstructionBox" parent="CanvasLayer" instance=ExtResource("3_8qukl")]
@@ -1219,6 +1225,11 @@ limit_smoothed = true
 visible = false
 energy = 0.6
 texture = SubResource("GradientTexture2D_5niy6")
+
+[node name="Souvenir" parent="Characters" instance=ExtResource("19_1a10c")]
+position = Vector2(2138, 353)
+image = ExtResource("20_mx6s3")
+database_item = ExtResource("21_7d3nu")
 
 [node name="Rocks" type="Node2D" parent="Characters"]
 

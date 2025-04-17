@@ -4,13 +4,15 @@ signal on_game_restart
 
 func _ready() -> void:
 	%FailSFX.play()
-	get_tree().paused = true
 	Music.stop_music()
+	GameStateManager.add_pause_reason(GameStateManager.PauseType.SYSTEM, "fail_box")
+	PauseManager.add_whitelist(self)
 
 func _on_restart_pressed() -> void:
 	on_game_restart.emit()
-	get_tree().paused = false
+	GameStateManager.remove_pause_reason(GameStateManager.PauseType.SYSTEM, "fail_box")
+	PauseManager.remove_whitelist(self)
 	queue_free()
 
 func _on_exit_pressed() -> void:
-	SceneManager.quit_game()
+	GameStateManager.quit_game()

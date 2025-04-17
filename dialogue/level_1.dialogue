@@ -35,17 +35,12 @@ Player: Finally! A key!
   - Collect
 	do InventoryManager.add_item_to_inventory("key", 1)
 William: Hello, human. I have something that you might need later on...
-do DataManager.Level1.should_move_william_to_ship = true
+do GameStateManager.current_level.flag_bool[&"should_move_william_to_ship"] = true
 Player: What? Wait, where did you go?
 => END
 
 ~ fuel_collected
 Player: I finally have a fuel tank! Now, I just need to refuel the ship.
-=> END
-
-~ end_level
-Level complete. Press Enter to exit the game.
-do SceneManager.quit_game()
 => END
 
 ~ hit_spikes

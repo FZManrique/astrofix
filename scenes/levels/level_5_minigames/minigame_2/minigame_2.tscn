@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b5pwi7txcmxvl"]
+[gd_scene load_steps=41 format=3 uid="uid://b5pwi7txcmxvl"]
 
 [ext_resource type="Script" uid="uid://dk4axiy1uo3qj" path="res://scenes/levels/level_5_minigames/minigame_2/minigame_2.gd" id="1_5c4hy"]
 [ext_resource type="StyleBox" uid="uid://bwu6otk0ix2e8" path="res://scenes/themes/blue_background_round.tres" id="1_fsbb7"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://8spxs0k6yxk7" path="res://art/level_5/minigame_2/clock_hand.png" id="6_w2rtp"]
 [ext_resource type="Texture2D" uid="uid://b6i4ase0dfag4" path="res://art/logos/background_art.jpg" id="8_w0uu3"]
 [ext_resource type="Texture2D" uid="uid://bbrvbloxlp8j0" path="res://art/level_5/minigame_2/backgrounds/floor.png" id="8_w2rtp"]
-[ext_resource type="PackedScene" uid="uid://qy24io0fo1jn" path="res://scenes/screens/pause_menu.tscn" id="9_2nndw"]
 [ext_resource type="Script" uid="uid://b4373uiamyc6k" path="res://scenes/levels/level_5_minigames/minigame_2/space_spam.gd" id="9_4ty0l"]
 [ext_resource type="Texture2D" uid="uid://cbsdibxaqjhsl" path="res://art/level_5/minigame_2/characters/mc/idle.png" id="10_w0uu3"]
 [ext_resource type="Texture2D" uid="uid://c0hop3wulp0rm" path="res://art/level_5/minigame_2/characters/mc/atk_mc_3fps.png" id="16_4ty0l"]
@@ -832,9 +831,6 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_2nndw")
 step = 1.0
-
-[node name="PauseMenu" parent="UI" instance=ExtResource("9_2nndw")]
-visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

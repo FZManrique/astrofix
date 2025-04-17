@@ -8,19 +8,34 @@ var _current_level: int = DEFAULT_LEVEL
 var _timer_running: bool = false
 
 signal oxygen_status_changed(status: OXYGEN_STATUS)
-signal oxygen_depleted()
+signal oxygen_depleted
 
 @onready var timer: Timer = Timer.new()
 
 func _ready() -> void:
 	# Set up the timer
 	timer.wait_time = 1.0  # Decrease every second
-	timer.connect("timeout", _on_timer_timeout)
+	timer.timeout.connect(
+		func() -> void:
+			_current_level -= DECREASE_RATE
+			_update_oxygen_status(_current_level)
+	)
 	add_child(timer)
-
-func _on_timer_timeout() -> void:
-	_current_level -= DECREASE_RATE
-	_update_oxygen_status(_current_level)
+	
+	GameStateManager.game_state_changed.connect(
+		func() -> void:
+			if (GameStateManager.pause_oxygen):
+				pause_timer()
+				return
+		
+			if (GameStateManager.in_level_select or GameStateManager.is_main_menu):
+				OxygenManager.reset_timer()
+			
+			if not (GameStateManager.in_dialogue or GameStateManager.in_cutscene or GameStateManager.is_main_menu or GameStateManager.is_transitioning or GameStateManager.in_level_select):
+				start_timer()
+			else:
+				pause_timer()
+	)
 
 func _update_oxygen_status(current_level: int = _current_level) -> void:
 	if (current_level <= 0):
