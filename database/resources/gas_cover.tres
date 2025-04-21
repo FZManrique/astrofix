@@ -7,6 +7,7 @@
 script = ExtResource("2_6vl7r")
 unlocked = false
 category = 2
+order = 0
 image = ExtResource("1_4vnje")
 name = &"Gas Cover"
 description = "Used to patch up a gas leak caused by a space crash."

@@ -33,15 +33,28 @@ var colors: Dictionary[String, Texture2D] = {
 	"yellow": %Yellow
 }
 
+@onready var instructions_popup: ColorRect = $ColorRect
+
+@onready var correct: AudioStreamPlayer = %Correct
+@onready var fail: AudioStreamPlayer = %Fail
+@onready var click: AudioStreamPlayer = %Click
+
+@onready var lights_container: HBoxContainer = $VBoxContainer/Lights
+@onready var buttons_container: CenterContainer = $VBoxContainer/Buttons
+
+
+@onready var progress: Label = %Progress
+@onready var continue_button: Button = %Continue
+
 func _ready() -> void:
 	GameStateManager.add_pause_reason(GameStateManager.PauseType.SYSTEM, "level_2_minigame")
 	PauseManager.add_whitelist(self)
-	%Continue.disabled = true
+	continue_button.visible = false
 	
 	for color in BUTTON_COLORS:
 		buttons[color].pressed.connect(
 			func() -> void:
-				%Click.play()
+				click.play()
 				if not is_game_active:
 					return
 				
@@ -105,26 +118,27 @@ func validate_sequence() -> void:
 		screen[node].hide()
 	
 	if (is_correct):
-		%Correct.play()
-		%Progress.text = "Correct! Applying fixes..."
+		correct.play()
+		progress.text = "Correct combination; Applying fixes..."
 		score += 1
 		
 		if (score == 4):
-			%Progress.text = "Repair complete."
-			%Continue.disabled = false
-			var hide := [$VBoxContainer/HBoxContainer, $VBoxContainer/CenterContainer]
+			progress.text = "Suit repair complete."
+			continue_button.visible = true
+			continue_button.grab_focus()
+			var hide := [lights_container, buttons_container]
 			GameStateManager.current_level.flag_bool[&"has_fixed_spacesuit"] = true
 			for i in hide:
 				i.hide()
 			return
 	else:
-		%Fail.play()
-		%Progress.text = "Invalid combination. Please try again."
+		fail.play()
+		progress.text = "Invalid combination. Please try again."
 	
 	player_sequence.clear()
 	await get_tree().create_timer(FLASH_DURATION).timeout
 
-	%Progress.text = "Repair percentage: %s of 4" % score
+	progress.text = "%s of 4 systems repaired" % score
 	generate_color_sequence()
 	display_and_hide_color_sequence()
 	
@@ -138,7 +152,7 @@ func _on_continue_pressed() -> void:
 	SceneManager.goto_scene("res://scenes/levels/level_2.tscn")
 
 func _on_start_game() -> void:
-	$ColorRect.queue_free()
+	instructions_popup.queue_free()
 	
 	is_game_active = true
 	generate_color_sequence()

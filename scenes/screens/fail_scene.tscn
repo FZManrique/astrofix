@@ -126,7 +126,7 @@ text = "Restart"
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"FlatButton"
-text = "Exit game"
+text = "Main Menu"
 
 [node name="FailSFX" type="AudioStreamPlayer" parent="FailBox"]
 unique_name_in_owner = true

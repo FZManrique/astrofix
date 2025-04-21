@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dp80kkdl4tjim" path="res://art/level_4/crystal_small/3.png" id="10_vq5n0"]
 [ext_resource type="PackedScene" uid="uid://cay6840obi02e" path="res://scenes/objects/level_4/medium_spikes/medium_spike_2.tscn" id="11_0n65g"]
 [ext_resource type="Texture2D" uid="uid://6pfr5s74uodt" path="res://art/level_4/crystal_small/4.png" id="11_xt2o7"]
-[ext_resource type="PackedScene" uid="uid://c2jlrq4bkh5ji" path="res://scenes/objects/level_4/large_spike.tscn" id="12_lc5pf"]
+[ext_resource type="PackedScene" uid="uid://c2jlrq4bkh5ji" path="res://scenes/objects/level_4/large_spikes/large_spike_1.tscn" id="12_lc5pf"]
 [ext_resource type="PackedScene" uid="uid://c36od6vdmok4q" path="res://scenes/objects/level_4/large_spikes/large_spike_2.tscn" id="13_lc5pf"]
 [ext_resource type="Texture2D" uid="uid://cr7dft7o6om62" path="res://art/level_4/tower.png" id="15_ov8fk"]
 [ext_resource type="Texture2D" uid="uid://bundghtnjyxpe" path="res://art/objects/spaceship_broken.png" id="21_0n65g"]
@@ -929,30 +929,39 @@ position = Vector2(1145, 709)
 
 [node name="LargeSpike" parent="Tilemap/Decorations/Large/Type1" instance=ExtResource("12_lc5pf")]
 position = Vector2(1102, 744)
+script = null
 
 [node name="LargeSpike2" parent="Tilemap/Decorations/Large/Type1" instance=ExtResource("12_lc5pf")]
 position = Vector2(1216, 712)
+script = null
 
 [node name="LargeSpike3" parent="Tilemap/Decorations/Large/Type1" instance=ExtResource("12_lc5pf")]
 position = Vector2(883, 564)
+script = null
 
 [node name="LargeSpike4" parent="Tilemap/Decorations/Large/Type1" instance=ExtResource("12_lc5pf")]
 position = Vector2(1028, 401)
+script = null
 
 [node name="LargeSpike5" parent="Tilemap/Decorations/Large/Type1" instance=ExtResource("12_lc5pf")]
 position = Vector2(1250, 522)
+script = null
 
 [node name="LargeSpike6" parent="Tilemap/Decorations/Large/Type1" instance=ExtResource("12_lc5pf")]
 position = Vector2(1568, 280)
+script = null
 
 [node name="LargeSpike7" parent="Tilemap/Decorations/Large/Type1" instance=ExtResource("12_lc5pf")]
 position = Vector2(1040, 1106)
+script = null
 
 [node name="LargeSpike8" parent="Tilemap/Decorations/Large/Type1" instance=ExtResource("12_lc5pf")]
 position = Vector2(554, 279)
+script = null
 
 [node name="LargeSpike9" parent="Tilemap/Decorations/Large/Type1" instance=ExtResource("12_lc5pf")]
 position = Vector2(1431, 900)
+script = null
 
 [node name="Type2" type="Node2D" parent="Tilemap/Decorations/Large"]
 

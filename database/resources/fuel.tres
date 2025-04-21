@@ -7,6 +7,7 @@
 script = ExtResource("1_03ep4")
 unlocked = false
 category = 2
+order = 0
 image = ExtResource("1_ldtkq")
 name = &"Fuel"
 description = "Refills the ship’s fuel so you can launch to the next planet."

@@ -11,6 +11,15 @@ var dialog = preload("res://dialogue/level_2.dialogue")
 
 var WIND_DIRECTION := Level2Resource.WindDirection
 
+var oxygen_depleted = func() -> void:
+	GameStateManager.fail_game(
+		func() -> void:
+			InventoryManager._clear_inventory()
+			OxygenManager.reset_timer()
+			GameStateManager.current_level.flag_bool[&"has_fixed_spacesuit"] = false
+			SceneManager.goto_scene("res://scenes/levels/level_2.tscn")
+	)
+
 func _ready() -> void:
 	wind_anim.play("fade_out")
 	GameStateManager.start_level(level_resource.level_id, level_resource)
@@ -22,16 +31,7 @@ func _ready() -> void:
 	
 	DataManager.intro_done = false
 	
-	OxygenManager.oxygen_depleted.connect(
-		func() -> void:
-			GameStateManager.fail_game(
-				func() -> void:
-					InventoryManager._clear_inventory()
-					OxygenManager.reset_timer()
-					GameStateManager.current_level.flag_bool[&"has_fixed_spacesuit"] = false
-					SceneManager.goto_scene("res://scenes/levels/level_2.tscn")
-			)
-	)
+	OxygenManager.oxygen_depleted.connect(oxygen_depleted)
 
 	instruction_box.instruction_box_dismissed.connect(
 		func() -> void:
@@ -74,7 +74,7 @@ func _show_dialoague_box(key: String) -> void:
 	DialogueManager.show_dialogue_balloon(dialog, key)
 
 func _on_audio_stream_player_finished() -> void:
-	$CanvasLayer/AudioStreamPlayer.play()
+	$CanvasLayer/AudioStreamPlayer.play("res://audio/music/level_2_ambience.mp3")
 
 func _on_area_2d_body_entered_in_franz(body: Node2D) -> void:
 	_show_dialoague_box("dialogue")
@@ -82,12 +82,17 @@ func _on_area_2d_body_entered_in_franz(body: Node2D) -> void:
 func _on_many_fuel_body_entered(body: Node2D) -> void:
 	if (!GameStateManager.current_level.flag_bool[&"fuel_collected"]):
 		InventoryManager.add_item_to_inventory("fuel", 10)
+		GoalManager.go_to_next_goal(6)
 		$Characters/ManyFuel.hide()
+		if ($"Characters/Fuel Tank/AnimationPlayer".is_inside_tree()):
+			$"Characters/Fuel Tank/AnimationPlayer".queue_free()
 		_show_dialoague_box("many_collected")
 
-func _on_fuel_tank_fuel_collected(body: Node2D) -> void:
+func _on_fuel_tank_fuel_collected(body: Node2D) -> void: 
 	if (!GameStateManager.current_level.flag_bool[&"fuel_collected"]):
-		$"Characters/Fuel Tank".force_pickup()
+		$"Characters/Fuel Tank/AnimationPlayer".play("pickup")
+		$Characters/ManyFuel.hide()
+		GoalManager.go_to_next_goal(6)
 		_show_dialoague_box("collected")
 
 func _on_player_entered_to_starting_area(body: Node2D) -> void:
@@ -109,6 +114,8 @@ func _on_spaceship_body_entered(body: Node2D) -> void:
 			return
 		GameStateManager.complete_level()
 		
+		OxygenManager.oxygen_depleted.disconnect(oxygen_depleted)
+	
 		print("Transitioning to level 3")
 		GameStateManager.current_cutscene = preload("res://cutscenes/data/level_2_end.tres")
 		SceneManager.goto_scene("res://cutscenes/cutscene_manager.tscn")

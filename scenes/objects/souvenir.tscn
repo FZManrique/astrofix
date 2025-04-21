@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://bvlthw5vsnxql" path="res://scripts/objects/souvenir.gd" id="1_dsedw"]
 [ext_resource type="Texture2D" uid="uid://8xmraqulgtb4" path="res://art/souvenirs/small/chloe.png" id="1_xs4ox"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dsedw"]
+radius = 16.0312
+
 [sub_resource type="Gradient" id="Gradient_dsedw"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0, 0.640118)
+colors = PackedColorArray(0.941176, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_appmd"]
 gradient = SubResource("Gradient_dsedw")
@@ -13,18 +17,19 @@ height = 32
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dsedw"]
-radius = 16.0312
-
 [node name="Souvenir" type="Area2D"]
 collision_mask = 3
 script = ExtResource("1_dsedw")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-texture = SubResource("GradientTexture2D_appmd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dsedw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xs4ox")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture_filter = 2
+energy = 0.75
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_appmd")
+texture_scale = 3.18

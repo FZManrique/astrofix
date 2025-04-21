@@ -15,4 +15,10 @@ func _on_restart_pressed() -> void:
 	queue_free()
 
 func _on_exit_pressed() -> void:
-	GameStateManager.quit_game()
+	GameStateManager.remove_pause_reason(GameStateManager.PauseType.SYSTEM, "fail_box")
+	PauseManager.remove_whitelist(self)
+	queue_free()
+	GameStateManager.complete_level()
+	SaveManager.clear_level(GameStateManager.current_level.level_id)
+	SceneManager.goto_scene("res://scenes/main.tscn")
+	

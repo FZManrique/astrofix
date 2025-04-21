@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxhb8eooelkyv"]
 
-[ext_resource type="Texture2D" uid="uid://h7fjkwmtjg6t" path="res://art/objects/spaceship.png" id="1_d4rcf"]
+[ext_resource type="Texture2D" uid="uid://h7fjkwmtjg6t" path="res://art/objects/SPACESHIP.png" id="1_d4rcf"]
 
 [node name="Spaceship" type="Area2D"]
 collision_mask = 2

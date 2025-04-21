@@ -15,12 +15,12 @@
 [ext_resource type="AudioStream" uid="uid://blptc3owaa1u8" path="res://audio/sfx/level_3/minigame/fail.mp3" id="12_0qisv"]
 [ext_resource type="AudioStream" uid="uid://dowf55cjnwcla" path="res://audio/sfx/level_3/minigame/click_sound.ogg" id="13_hr7qw"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shmxa"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s24m2"]
 content_margin_left = 16.0
 content_margin_top = 8.0
 content_margin_right = 16.0
 content_margin_bottom = 8.0
-bg_color = Color(0, 0.0191304, 0.1, 0.670588)
+bg_color = Color(0, 0.121781, 0.219856, 0.670588)
 corner_radius_top_left = 24
 corner_radius_top_right = 24
 corner_radius_bottom_right = 24
@@ -182,14 +182,15 @@ color = Color(0.0616, 0.0720867, 0.11, 0.392157)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = -1
+anchor_top = 0.53
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -57.0
-offset_bottom = 57.0
+anchor_bottom = 0.53
+offset_top = -142.0
+offset_bottom = 142.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -201,7 +202,7 @@ horizontal_alignment = 1
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_shmxa")
+theme_override_styles/panel = SubResource("StyleBoxFlat_s24m2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
@@ -210,7 +211,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "Repair precentage: X of 4."
+text = "X of 4 systems repaired"
 
 [node name="Continue" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -222,42 +223,42 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_0qisv")
 theme_override_styles/normal = SubResource("StyleBoxFlat_suh6n")
 text = "Complete repair"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Lights" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="1" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+[node name="1" type="TextureRect" parent="VBoxContainer/Lights"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("1_xwllt")
 
-[node name="2" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+[node name="2" type="TextureRect" parent="VBoxContainer/Lights"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("2_u285d")
 
-[node name="3" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/Lights"]
+custom_minimum_size = Vector2(-1, 100)
+layout_mode = 2
+
+[node name="3" type="TextureRect" parent="VBoxContainer/Lights"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("3_u486v")
 
-[node name="4" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+[node name="4" type="TextureRect" parent="VBoxContainer/Lights"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("4_6dctl")
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+[node name="Buttons" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/CenterContainer"]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/Buttons"]
 layout_mode = 2
 columns = 2
 
-[node name="Green" type="Button" parent="VBoxContainer/CenterContainer/GridContainer"]
+[node name="Green" type="Button" parent="VBoxContainer/Buttons/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/disabled = ExtResource("6_46s77")
@@ -266,7 +267,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_hr7qw")
 theme_override_styles/normal = ExtResource("6_shmxa")
 text = "                                                       "
 
-[node name="Yellow" type="Button" parent="VBoxContainer/CenterContainer/GridContainer"]
+[node name="Yellow" type="Button" parent="VBoxContainer/Buttons/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/disabled = ExtResource("6_46s77")
@@ -275,7 +276,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_0whuh")
 theme_override_styles/normal = ExtResource("7_46s77")
 text = "                                                       "
 
-[node name="Blue" type="Button" parent="VBoxContainer/CenterContainer/GridContainer"]
+[node name="Blue" type="Button" parent="VBoxContainer/Buttons/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/disabled = ExtResource("6_46s77")
@@ -284,7 +285,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_btcpq")
 theme_override_styles/normal = ExtResource("8_yt3hm")
 text = "                                                       "
 
-[node name="Red" type="Button" parent="VBoxContainer/CenterContainer/GridContainer"]
+[node name="Red" type="Button" parent="VBoxContainer/Buttons/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/disabled = ExtResource("6_46s77")

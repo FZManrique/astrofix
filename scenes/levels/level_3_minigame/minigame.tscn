@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://b4bnlcwutcthk"]
+[gd_scene load_steps=46 format=4 uid="uid://b4bnlcwutcthk"]
 
 [ext_resource type="Texture2D" uid="uid://dd0ls5fq6pld4" path="res://art/level_3/minigame/background.png" id="1_fton5"]
 [ext_resource type="Script" uid="uid://50pcswjqim8d" path="res://scenes/levels/level_3_minigame/minigame.gd" id="1_omryi"]
@@ -44,7 +44,7 @@ scale_max = 2.0
 color_initial_ramp = SubResource("GradientTexture1D_v6ha0")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cru0d"]
-polygon = PackedVector2Array(594, 336, 601, 336, 601, 345, 617, 345, 617, 353, 643, 353, 643, 345, 683, 345, 683, 337, 723, 337, 723, 319, 698, 248, 682, 248, 682, 256, 674, 256, 674, 264, 666, 264, 666, 304, 674, 305, 674, 320, 690, 320, 690, 312, 714, 312, 714, 320, 722, 320, 722, 336, 682, 336, 682, 344, 642, 344, 642, 352, 618, 352, 618, 344, 602, 344, 602, 337, 601, 337, 594, 337)
+polygon = PackedVector2Array(594, 336, 601, 336, 601, 345, 617, 345, 617, 353, 643, 353, 643, 345, 683, 345, 683, 337, 723, 337, 723, 319, 698, 248, 682, 248, 682, 256, 674, 256, 674, 264, 666, 264, 666, 304, 674, 305, 674, 320, 690, 320, 690, 312, 714, 312, 714, 320, 722, 320, 724, 340, 682, 336, 682, 344, 642, 344, 642, 352, 618, 352, 618, 344, 602, 344, 602, 337, 601, 337, 594, 337)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cemp0"]
 polygon = PackedVector2Array(64, 440, 80, 440, 80, 448, 96, 448, 96, 456, 128, 456, 128, 464, 184, 464, 184, 456, 216, 456, 216, 448, 232, 448, 232, 432, 224, 432, 224, 416, 208, 416, 208, 408, 192, 408, 192, 400, 247, 421, 222, 461, 82, 473)
@@ -84,6 +84,9 @@ polygon = PackedVector2Array(1960, 352, 1968, 352, 1968, 360, 1984, 360, 1984, 3
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s08w6"]
 polygon = PackedVector2Array(2120, 312, 2128, 312, 2128, 320, 2136, 320, 2136, 352, 2144, 352, 2144, 360, 2160, 360, 2160, 352, 2168, 352, 2168, 344, 2208, 344, 2208, 336, 2224, 336, 2224, 328, 2248, 328, 2206, 355, 2140, 373)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eg80n"]
+polygon = PackedVector2Array(752, 272, 760, 272, 760, 280, 784, 280, 784, 272, 792, 272, 792, 256, 795, 267, 790, 285, 760, 281, 752, 273)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cx8mk"]
 texture = ExtResource("3_m6vwv")
@@ -687,6 +690,9 @@ occluder = SubResource("OccluderPolygon2D_4byo6")
 
 [node name="LightOccluder2D14" type="LightOccluder2D" parent="Lighting"]
 occluder = SubResource("OccluderPolygon2D_s08w6")
+
+[node name="LightOccluder2D15" type="LightOccluder2D" parent="Lighting"]
+occluder = SubResource("OccluderPolygon2D_eg80n")
 
 [node name="Tilemap" type="Node2D" parent="."]
 light_mask = 2

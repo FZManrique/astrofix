@@ -50,7 +50,6 @@ func load_unlocks():
 
 func delete_all_data():
 	DirAccess.remove_absolute(SAVE_PATH)
-	load_database_items()
 	load_unlocks()
 #endregion
 

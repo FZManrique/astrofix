@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=4 uid="uid://585vjm100d7c"]
+[gd_scene load_steps=86 format=4 uid="uid://585vjm100d7c"]
 
 [ext_resource type="PackedScene" uid="uid://weu6sfdmw8bi" path="res://scenes/screens/gui.tscn" id="1_6jisw"]
 [ext_resource type="Script" uid="uid://oyhe6k7grer" path="res://scripts/levels/level_2.gd" id="1_imbuc"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cn2mbmrupt12d" path="res://art/level_1/decorations/particles/Snowflake (Big).png" id="3_ndlae"]
 [ext_resource type="Texture2D" uid="uid://c5gb3khtj6pye" path="res://art/tilesets/level2_tileset.png" id="6_3p04p"]
 [ext_resource type="PackedScene" uid="uid://b20xsf28pfx5q" path="res://scenes/objects/wind_area.tscn" id="6_we8yt"]
-[ext_resource type="PackedScene" uid="uid://b5wbfi2vpsebq" path="res://scenes/objects/fuel_tank.tscn" id="7_brxtv"]
 [ext_resource type="PackedScene" uid="uid://bpko47puym4mc" path="res://scenes/objects/oxygen_tank.tscn" id="10_qsp8v"]
 [ext_resource type="Texture2D" uid="uid://bal0c5gqsmylg" path="res://art/level_2/decorations/medium_rock_1.png" id="10_sibr7"]
 [ext_resource type="Texture2D" uid="uid://dr8e05dhgxsf7" path="res://art/level_2/decorations/small_rock.png" id="11_lkn2k"]
@@ -21,7 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://cdxik8accectf" path="res://art/level_2/decorations/medium_rock_2.png" id="13_5niy6"]
 [ext_resource type="Texture2D" uid="uid://bfb8ba1feie3o" path="res://art/level_2/decorations/small_snow.png" id="13_wikm6"]
 [ext_resource type="Texture2D" uid="uid://cf5o55kwio0wb" path="res://art/level_2/decorations/big_pond_1.png" id="14_wikm6"]
+[ext_resource type="Texture2D" uid="uid://yg0w2itfyf2e" path="res://art/objects/fuel_tank.png" id="15_mx6s3"]
 [ext_resource type="Texture2D" uid="uid://0yjmwhl1oktj" path="res://art/level_2/many_fuel.png" id="15_sbygb"]
+[ext_resource type="AudioStream" uid="uid://daxr344vn6nas" path="res://audio/sfx/collect_key.mp3" id="16_7d3nu"]
 [ext_resource type="Texture2D" uid="uid://djgvc0yt4qeaa" path="res://art/characters/franzen albert ii/idle_animated.png" id="17_5niy6"]
 [ext_resource type="PackedScene" uid="uid://dsykptwbsbrbh" path="res://scenes/objects/souvenir.tscn" id="19_1a10c"]
 [ext_resource type="Texture2D" uid="uid://cte5hy5eulkho" path="res://art/souvenirs/small/franz.png" id="20_mx6s3"]
@@ -708,6 +709,135 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.919431, 0.209479)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51rhb"]
+size = Vector2(25, 30)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uxy14"]
+radius = 9.0
+height = 24.0
+
+[sub_resource type="Animation" id="Animation_kmp3h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_f3e82"]
+resource_name = "pickup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.06667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bneyv"]
+_data = {
+&"RESET": SubResource("Animation_kmp3h"),
+&"pickup": SubResource("Animation_f3e82")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_tv7cl"]
 radius = 59.8415
 
@@ -1172,65 +1302,6 @@ texture = SubResource("GradientTexture2D_wikm6")
 
 [node name="Characters" type="Node" parent="."]
 
-[node name="Fuel Tank" parent="Characters" instance=ExtResource("7_brxtv")]
-position = Vector2(1482, 177)
-
-[node name="ManyFuel" type="Area2D" parent="Characters"]
-position = Vector2(198, 180)
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/ManyFuel"]
-shape = SubResource("CircleShape2D_tv7cl")
-
-[node name="ManyFuel" type="Sprite2D" parent="Characters/ManyFuel"]
-position = Vector2(3, -1)
-texture = ExtResource("15_sbygb")
-
-[node name="Franzen" type="Node2D" parent="Characters"]
-position = Vector2(1325, 656)
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Characters/Franzen"]
-occluder = SubResource("OccluderPolygon2D_rvwo1")
-occluder_light_mask = 3
-
-[node name="Area2D" type="Area2D" parent="Characters/Franzen"]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Franzen/Area2D"]
-shape = SubResource("CircleShape2D_brxtv")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Characters/Franzen"]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Franzen/StaticBody2D"]
-shape = SubResource("CapsuleShape2D_tv7cl")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Characters/Franzen"]
-sprite_frames = SubResource("SpriteFrames_7d3nu")
-autoplay = "default"
-frame_progress = 0.992317
-
-[node name="Player" parent="Characters" instance=ExtResource("2_6gnbp")]
-position = Vector2(1698, 1094)
-
-[node name="Camera" type="Camera2D" parent="Characters/Player"]
-zoom = Vector2(4, 4)
-limit_left = 0
-limit_top = 0
-limit_right = 2256
-limit_bottom = 1256
-limit_smoothed = true
-
-[node name="PointLight2D" type="PointLight2D" parent="Characters/Player"]
-visible = false
-energy = 0.6
-texture = SubResource("GradientTexture2D_5niy6")
-
-[node name="Souvenir" parent="Characters" instance=ExtResource("19_1a10c")]
-position = Vector2(2138, 353)
-image = ExtResource("20_mx6s3")
-database_item = ExtResource("21_7d3nu")
-
 [node name="Rocks" type="Node2D" parent="Characters"]
 
 [node name="MediumRock3" type="Sprite2D" parent="Characters/Rocks"]
@@ -1481,6 +1552,87 @@ texture = ExtResource("13_5niy6")
 position = Vector2(1464, 132)
 texture = ExtResource("13_5niy6")
 
+[node name="Fuel Tank" type="Area2D" parent="Characters"]
+position = Vector2(1482, 177)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Fuel Tank"]
+position = Vector2(1.5, -1)
+shape = SubResource("RectangleShape2D_51rhb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Characters/Fuel Tank"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Fuel Tank/StaticBody2D"]
+shape = SubResource("CapsuleShape2D_uxy14")
+debug_color = Color(0, 0, 0, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Characters/Fuel Tank"]
+texture = ExtResource("15_mx6s3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Characters/Fuel Tank"]
+stream = ExtResource("16_7d3nu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Characters/Fuel Tank"]
+libraries = {
+&"": SubResource("AnimationLibrary_bneyv")
+}
+
+[node name="ManyFuel" type="Area2D" parent="Characters"]
+position = Vector2(198, 180)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/ManyFuel"]
+shape = SubResource("CircleShape2D_tv7cl")
+
+[node name="ManyFuel" type="Sprite2D" parent="Characters/ManyFuel"]
+position = Vector2(3, -1)
+texture = ExtResource("15_sbygb")
+
+[node name="Franzen" type="Node2D" parent="Characters"]
+position = Vector2(1325, 656)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Characters/Franzen"]
+occluder = SubResource("OccluderPolygon2D_rvwo1")
+occluder_light_mask = 3
+
+[node name="Area2D" type="Area2D" parent="Characters/Franzen"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Franzen/Area2D"]
+shape = SubResource("CircleShape2D_brxtv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Characters/Franzen"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Franzen/StaticBody2D"]
+shape = SubResource("CapsuleShape2D_tv7cl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Characters/Franzen"]
+sprite_frames = SubResource("SpriteFrames_7d3nu")
+autoplay = "default"
+frame_progress = 0.992317
+
+[node name="Player" parent="Characters" instance=ExtResource("2_6gnbp")]
+position = Vector2(1698, 1094)
+
+[node name="Camera" type="Camera2D" parent="Characters/Player"]
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 2256
+limit_bottom = 1256
+limit_smoothed = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Characters/Player"]
+visible = false
+energy = 0.6
+texture = SubResource("GradientTexture2D_5niy6")
+
+[node name="Souvenir" parent="Characters" instance=ExtResource("19_1a10c")]
+position = Vector2(2138, 353)
+image = ExtResource("20_mx6s3")
+database_item = ExtResource("21_7d3nu")
+
 [node name="Spaceship" parent="Characters" instance=ExtResource("3_66j2d")]
 position = Vector2(1418, 595)
 
@@ -1530,6 +1682,7 @@ position = Vector2(152, 375)
 
 [connection signal="finished" from="CanvasLayer/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="body_entered" from="Characters/Fuel Tank" to="." method="_on_fuel_tank_fuel_collected"]
+[connection signal="body_entered" from="Characters/Fuel Tank" to="Characters/Fuel Tank" method="_on_body_entered"]
 [connection signal="body_entered" from="Characters/ManyFuel" to="." method="_on_many_fuel_body_entered"]
 [connection signal="body_entered" from="Characters/Franzen/Area2D" to="." method="_on_area_2d_body_entered_in_franz"]
 [connection signal="body_entered" from="Characters/Spaceship" to="." method="_on_spaceship_body_entered"]

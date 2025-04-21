@@ -20,6 +20,7 @@ func _ready() -> void:
 	$AudioStreamPlayer2D.play(GameStateManager.current_level.flag_float[&"song_time"])
 	
 	instructions.show()
+	$GUI/Instructions/VBoxContainer/VBoxContainer/PlayGame.grab_focus()
 	GameStateManager.add_pause_reason(GameStateManager.PauseType.SYSTEM, "level_3_instructions")
 	PauseManager.add_whitelist(instructions)
 

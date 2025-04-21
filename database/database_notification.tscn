@@ -102,7 +102,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 2, 2.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1300, 84), Vector2(936, 84), Vector2(936, 84), Vector2(1300, 84)]
+"values": [Vector2(1300, 84), Vector2(910, 84), Vector2(910, 84), Vector2(1300, 84)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -123,7 +123,7 @@ tracks/3/path = NodePath("AudioStreamPlayer:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(-0.0999999),
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -137,15 +137,16 @@ _data = {
 
 [node name="DatabaseNotification" type="PanelContainer"]
 visible = false
-offset_left = 1300.0
+offset_left = 936.0
 offset_top = 84.0
-offset_right = 1628.0
+offset_right = 1288.0
 offset_bottom = 162.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nxit6")
 script = ExtResource("1_3sam0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -154,7 +155,6 @@ label_settings = SubResource("LabelSettings_w7bmq")
 
 [node name="Description" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Item"
 label_settings = SubResource("LabelSettings_x2hjc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

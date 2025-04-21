@@ -7,6 +7,7 @@
 script = ExtResource("2_jmbeh")
 unlocked = false
 category = 1
+order = 0
 image = ExtResource("1_p86ys")
 name = &"Neptune"
 description = "A distant icy world with slippery terrain, Neptune is defined by its deep blue atmosphere and hidden frozen oceans. Explorers must navigate treacherous icy conditions while facing unpredictable environmental hazards."

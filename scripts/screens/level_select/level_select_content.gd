@@ -67,10 +67,12 @@ func _get_base_color(unlocked: bool) -> Color:
 	return Color(1, 1, 1, 1) if unlocked else Color(0.8, 0.8, 0.8, 0.3)
 
 func _get_hover_color(unlocked: bool) -> Color:
-	return Color(1.1, 1.1, 1.1, 1) if unlocked else _get_base_color(false)
+	return Color(1.15, 1.15, 1.15, 1) if unlocked else _get_base_color(false)
 
 func _get_selected_color() -> Color:
-	return Color(0.6, 0.8, 1.0, 1)
+	return Color(1.3, 1.3, 1.3, 1)	
+	
+#	return Color(0.6, 0.8, 1.0, 1)
 
 func _update_all_planet_colors() -> void:
 	for i in ordered_levels.size():
